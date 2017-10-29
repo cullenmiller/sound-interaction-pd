@@ -1,0 +1,56 @@
+#N canvas 685 41 491 858 12;
+#X obj 24 19 cnv 15 400 40 empty empty Locality_in_Messages: 20 19
+0 24 -262144 -66577 0;
+#X text 15 70 ============================================================
+;
+#X text 27 248 ============================================================
+;
+#X obj 204 703 f \$0;
+#X obj 204 679 bng 15 250 50 0 empty empty empty 17 7 0 10 -262130
+-1 -1;
+#X obj 67 212 nbx 5 22 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 18
+-4034 -1 -1 25 256;
+#X obj 93 753 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-262130 -1 -1 0 256;
+#X obj 181 502 pack f f;
+#X obj 181 430 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-204786 -1 -1 25 256;
+#X obj 60 310 s \$0-vol1;
+#X obj 60 284 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-204786 -1 -1 0 256;
+#X text 31 803 ============================================================
+;
+#X text 16 584 ============================================================
+;
+#X msg 204 732 \; \$1-1 50 \; \$1-vol1 30;
+#X text 247 177 IMPORTANT!!!;
+#X text 151 116 Click and see error at terminal window.;
+#X text 139 310 We have to do it always inside objects!;
+#X msg 65 109 \; \$0-vol1 50;
+#X obj 67 171 r \$0-vol1;
+#X obj 126 505 nbx 4 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-204800 -1 -1 1004 256;
+#X obj 181 476 f \$0;
+#X text 75 503 init #;
+#X obj 181 450 t b f;
+#X msg 181 529 \; \$1-vol1 \$2;
+#X text 38 356 If you really really wanna do it like above inside a
+message \, you'd need to pass the pathc's initialization number to
+the message with the usual dollarsign syntax:;
+#X text 272 538 There you go;
+#X text 183 211 "\$0" DOESN'T WORK IN MESSAGES!!!;
+#X obj 93 725 r \$0-1;
+#X text 37 618 Anyway \, we use the semicolon in messages when we want
+to send several messages at once. So it's more probable that you wanna
+do something like this. Just click bang instead of the message:;
+#X connect 3 0 13 0;
+#X connect 4 0 3 0;
+#X connect 7 0 23 0;
+#X connect 8 0 22 0;
+#X connect 10 0 9 0;
+#X connect 18 0 5 0;
+#X connect 20 0 19 0;
+#X connect 20 0 7 0;
+#X connect 22 0 20 0;
+#X connect 22 1 7 1;
+#X connect 27 0 6 0;

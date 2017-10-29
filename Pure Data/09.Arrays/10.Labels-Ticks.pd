@@ -1,0 +1,49 @@
+#N canvas 286 26 1264 720 12;
+#X obj 27 -464 cnv 15 400 40 empty empty Labels-Ticks: 20 12 0 24 -262144
+-66577 0;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array array1 100 float 2;
+#X coords 0 1 99 -1 460 180 1;
+#X restore 103 -300 graph;
+#X obj 161 36 send array1;
+#X msg 161 11 xlabel \$1 0 10 20 30 40 50 60 70 80 90 100;
+#X floatatom 161 -41 5 -120 120 0 - - -;
+#X obj 161 -14 / 100;
+#X obj 494 34 send array1;
+#X floatatom 494 -20 5 -120 120 0 - - -;
+#X msg 494 6 ylabel \$1 -1 -0.5 0 0.5 1;
+#X text 443 120 ============================================================
+;
+#X text 443 176 ============================================================
+;
+#X text 168 -399 By sending "xlabel" & "ylabel" commands we can indicate
+the values on display. We just send the list of values or indexes we
+want to depitc \, the first number is the offset of the label.;
+#X text 271 -29 Move the atom boxes;
+#X msg 827 -272 \; array1 yticks 0 0.25 2;
+#X text 451 149 => More commands like "read" & "write" will come up
+next <=;
+#X text 738 -287 Clik them:;
+#X msg 827 -316 \; array1 xticks 0 5 5;
+#X text 673 -406 The "ticks" mark the boundaries of the display graph.
+We define how many indexes (decimal points allowed) until there is
+a tick and then the number of ticks until we have a bigger tick. First
+argument is also an offset.;
+#X text 686 -206 Here we have on the horizontal axis a tick every 5
+indexes \, and at each 5 ticks we have a bigger one. On the vertical
+axis we have ticks for values in intervals of 0.25 \, and a bigger
+tick at every two ticks.;
+#X text 784 -95 IMPORTANT: Both ticks and labels don't get stored when
+the patch is loaded \, so you have to loadbang a message like below
+if you wanna have it at start up time.;
+#X obj 750 -27 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 750 -3 \; array1 xlabel -1.2 0 20 40 60 80 100 \, ylabel -4.5
+-1 -0.75 -0.5 -0.25 0 0.25 0.5 0.75 1 \, xticks 0 10 2 \, yticks 0
+0.1 1;
+#X connect 3 0 2 0;
+#X connect 4 0 5 0;
+#X connect 5 0 3 0;
+#X connect 7 0 8 0;
+#X connect 8 0 6 0;
+#X connect 20 0 21 0;

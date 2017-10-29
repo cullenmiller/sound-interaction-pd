@@ -1,0 +1,62 @@
+#N canvas 810 240 923 755 12;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array \$0-array1 88200 float 2;
+#X coords 0 1 88200 -1 850 140 1;
+#X restore -69 585 graph;
+#X obj 12 394 soundfiler;
+#X floatatom 12 422 8 0 0 0 - - -;
+#X obj 682 84 loadbang;
+#X obj 690 131 send \$0-array1;
+#X msg 682 107 resize 88200;
+#X obj 12 335 symbol \$0-array1;
+#X obj 12 313 bng 15 250 50 0 empty empty empty 17 7 0 10 -4034 -1
+-1;
+#X obj -6 208 soundfiler;
+#X floatatom -6 232 8 0 0 0 - - -;
+#X obj 436 398 soundfiler;
+#X obj 437 341 symbol \$0-array1;
+#X obj 437 319 bng 15 250 50 0 empty empty empty 17 7 0 10 -204786
+-1 -1;
+#X floatatom 436 431 8 0 0 0 - - -;
+#X msg 12 365 read ./media/bag.wav \$1;
+#X msg 436 367 read -resize ./media/bag.wav \$1;
+#X msg -6 180 read ./media/bag.wav array1;
+#X text -72 57 It's common to insert an audio file into;
+#X text -71 78 an Array.;
+#X text -65 510 If the audio file is bigger than the array \, it'll
+be truncated.;
+#X text 503 430 Number of samples.;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array array1 88200 float 2;
+#X coords 0 1 88200 -1 200 140 1;
+#X restore 422 56 graph;
+#X obj 682 154 s array1;
+#X text 462 254 We can automatically resize the array;
+#X text 463 277 to the audio file's length by having;
+#X text 466 298 the "-resize" flag:;
+#X text 367 482 The [soundfiler] object is limited \, by default \,
+to 4 million samples \, which is about 90 seconds with a sample rate
+of 44.1kz. So if you're opening extra large files \, besides "-resize"
+\, use the flag -maxsize followed by a humongous numberlike 1e+27 and
+you should be fine.;
+#X text -79 275 But we have to do it this way When we're using "\$0".
+;
+#X text -76 105 We use the [soundfiler] object for that \, send it
+"read + filename and then the array name". Like:;
+#X text -65 463 The [soundfiler] gives us the number of samples \,
+or points in the array.;
+#X obj -104 18 cnv 15 270 40 empty empty Audio_&_Arrays[soundfiler]:
+20 12 0 24 -262144 -66577 0;
+#X connect 1 0 2 0;
+#X connect 3 0 5 0;
+#X connect 5 0 4 0;
+#X connect 5 0 22 0;
+#X connect 6 0 14 0;
+#X connect 7 0 6 0;
+#X connect 8 0 9 0;
+#X connect 10 0 13 0;
+#X connect 11 0 15 0;
+#X connect 12 0 11 0;
+#X connect 14 0 1 0;
+#X connect 15 0 10 0;
+#X connect 16 0 8 0;

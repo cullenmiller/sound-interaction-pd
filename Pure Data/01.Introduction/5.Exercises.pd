@@ -1,0 +1,27 @@
+#N canvas 342 129 746 559 12;
+#X obj 8 10 cnv 15 640 40 empty empty Exercises: 20 16 0 24 -262144
+-66577 0;
+#X text 287 210 ==================================================
+;
+#X text 299 358 =================================================;
+#X text 285 60 ==================================================;
+#X text 299 368 =================================================;
+#X text 280 85 1a);
+#X text 284 240 1b);
+#X text 290 395 2);
+#X text 319 106 2- Create a [float] object;
+#X text 319 126 3- Create an Atom Number Box;
+#X text 322 260 2- Disconnect and reconnect to the right inlet;
+#X text 323 306 4- Click on the Message;
+#X text 317 396 1- Now create a [metro] object;
+#X text 317 418 2- Connect Bangs (GUIS) to the left inlet and outlet
+;
+#X text 318 463 4- Click Bang then alternate between messages;
+#X text 323 283 3- Connect a bang (GUI) to the left inlet;
+#X text 318 84 1- Create a message box \, give it a value of "5";
+#X text 319 146 4- Connect them in this order (left inlet);
+#X text 319 166 5- Click on the Message;
+#X text 322 239 1- Now \, write "20" in the message box;
+#X text 324 327 5- Click on the Bang;
+#X text 318 440 3- Connect two messages (400 & 800) to the right inlet
+;

@@ -1,0 +1,36 @@
+#N canvas 893 110 600 655 12;
+#X obj 9 17 cnv 15 400 40 empty empty Directories: 20 12 0 24 -262144
+-66577 0;
+#X msg 173 275 open ../files/pd.gif;
+#X obj 173 369 image ../files/pd.gif;
+#X obj 107 241 openpanel;
+#X msg 107 276 open \$1;
+#X obj 107 223 bng 15 250 50 0 empty empty empty 17 7 0 10 -191407
+-1 -1;
+#X obj 299 408 getdir;
+#X obj 329 437 print;
+#X obj 299 388 bng 15 250 50 0 empty empty empty 17 7 0 10 -191407
+-1 -1;
+#X obj 353 409 savepanel;
+#X obj 353 387 bng 15 250 50 0 empty empty empty 17 7 0 10 -191407
+-1 -1;
+#X obj 326 586 ../Readme;
+#X text 15 72 When we need to specify a directory in Pd \, we use the
+syntax of "./" to indicate the same folder as the patch's (this is
+implied anyway). Subfolders are specified by "./subfoder". For parent
+folder we use "../". Subpatches of parent folder can then be also specified.
+You can go even upper with "../../" and so on.;
+#X text 18 182 Now [openpanel] gives us a complete path of a file.
+;
+#X text 173 467 [getdir]: complete path of this directory \; [savepanel]
+directory to save file.;
+#X text 69 535 the directory syntax also work for opening up abstractions:
+;
+#X connect 1 0 2 0;
+#X connect 3 0 4 0;
+#X connect 4 0 2 0;
+#X connect 5 0 3 0;
+#X connect 6 0 7 0;
+#X connect 8 0 6 0;
+#X connect 9 0 7 0;
+#X connect 10 0 9 0;

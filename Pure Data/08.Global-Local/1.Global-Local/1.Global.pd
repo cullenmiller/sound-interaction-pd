@@ -1,0 +1,70 @@
+#N canvas 514 256 512 841 12;
+#X obj 26 5 cnv 15 400 40 empty empty Global: 20 19 0 24 -262144 -66577
+0;
+#X obj 92 450 receive X-A;
+#X obj 236 451 receive X-B;
+#X obj 104 678 value global;
+#X obj 104 651 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 138 647 5 0 0 0 - - -;
+#X obj 113 298 Global;
+#X text 28 58 If an Abstraction is loaded many times \, and each instance
+has some [send]/[receive] objects with the same argument \, the data
+will go from one instance to the other.;
+#X text 28 140 The data is then a global variable \, which can even
+be received by a completely distinct patch.;
+#X text 27 113 This is also true for variables stored on a [value]
+object!;
+#X obj 92 479 nbx 5 20 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 15
+-257985 -1 -1 17 256;
+#X obj 236 479 nbx 5 20 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 15
+-204800 -1 -1 25 256;
+#X obj 113 325 nbx 3 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-257985 -1 -1 17 256;
+#X obj 227 325 nbx 3 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-257985 -1 -1 17 256;
+#X obj 113 276 nbx 3 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-257985 -1 -1 14 256;
+#X obj 227 277 nbx 3 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-257985 -1 -1 17 256;
+#X obj 152 326 nbx 3 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-204800 -1 -1 25 256;
+#X obj 266 326 nbx 3 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-204800 -1 -1 25 256;
+#X obj 152 277 nbx 3 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-204800 -1 -1 -7 256;
+#X obj 266 278 nbx 3 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-204800 -1 -1 25 256;
+#X obj 294 687 Global;
+#X obj 227 298 Global;
+#X obj 104 712 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-204786 -1 -1 0 256;
+#X text 228 652 Open the abstraction to see it;
+#X text 31 532 ============================================================
+;
+#X text 30 348 ============================================================
+;
+#X text 32 746 ============================================================
+;
+#X text 117 776 Later on we'll see how to avoid this.;
+#X text 30 184 We have below the Pd patch file named "Global.pd" loaded
+as an abstraction. Change the values on the upper atom boxes to see
+how the data is running globally. Open the two instances of the abstraction
+to check it:;
+#X text 37 375 So data runs globally from one instance to the other
+\, but also to the parent patch \, as in here below:;
+#X text 31 579 Also try and see how the variable stored here can also
+be recalled inside the [Global] abstraction and vice-versa.;
+#X connect 1 0 10 0;
+#X connect 2 0 11 0;
+#X connect 3 0 22 0;
+#X connect 4 0 3 0;
+#X connect 5 0 3 0;
+#X connect 6 0 12 0;
+#X connect 6 1 16 0;
+#X connect 14 0 6 0;
+#X connect 15 0 21 0;
+#X connect 18 0 6 1;
+#X connect 19 0 21 1;
+#X connect 21 0 13 0;
+#X connect 21 1 17 0;

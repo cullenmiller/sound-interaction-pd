@@ -1,0 +1,17 @@
+#N canvas 693 102 553 408 12;
+#X msg 179 150;
+#X obj 61 150 trigger;
+#X text 54 28 comment;
+#X obj 12 13 cnv 15 400 40 empty empty Help: 10 15 0 24 -262144 -66577
+0;
+#X floatatom 294 150 5 0 0 0 - - -;
+#X symbolatom 403 151 10 0 0 0 - - -;
+#X text 63 186 object;
+#X text 168 184 message;
+#X text 268 184 number atom;
+#X text 391 183 symbol atom;
+#X text 55 75 To ask for help: Right-Click on an element \, then go
+for "Help". Try for the elements below:;
+#X text 105 266 You can get help even for Comments \, try it too.;
+#X text 68 325 Getting "Help" at any empty point on the canvas gives
+you a list of the most important objects in Pd.;

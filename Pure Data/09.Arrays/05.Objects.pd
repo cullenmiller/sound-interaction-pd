@@ -1,0 +1,32 @@
+#N canvas 875 82 657 580 12;
+#X obj 30 -65 cnv 15 400 40 empty empty Objects: 20 12 0 24 -262144
+-66577 0;
+#X obj 58 193 tabread;
+#X obj 126 193 tabread~;
+#X obj 58 219 tabread4;
+#X obj 57 261 tabwrite;
+#X obj 126 260 tabwrite~;
+#X obj 93 309 tabsend~;
+#X obj 83 336 tabreceive~;
+#X obj 95 380 tabplay~;
+#X obj 99 31 table;
+#X obj 126 219 tabread4~;
+#X obj 90 109 arraysize;
+#X obj 98 143 tabdump;
+#X obj 83 69 soundfiler;
+#X obj 94 433 tabosc4~;
+#X text 165 29 Cretes an array.;
+#X text 165 69 Puts an audio file into an array.;
+#X text 167 107 Gives us an array size.;
+#X text 167 142 Dumps the values of an array as a list.;
+#X text 203 199 Array readers. When finished by 4 \, it means the value
+between indexes is given as a 4 point interpolation.;
+#X text 200 260 Wrtites into a table or audio signal when finished
+by "~".;
+#X text 92 -16 Some objects related to Arrays. Check their help files!!!
+;
+#X text 179 317 Send and receive audio signals when they are stored
+as arrays.;
+#X text 169 380 Plays an array as an audio file.;
+#X text 168 424 A wavetable oscilator \, it reads an array with 4 point
+interpolation.;

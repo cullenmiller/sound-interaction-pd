@@ -1,0 +1,83 @@
+#N canvas 266 65 1093 794 12;
+#X obj -358 29 cnv 15 400 40 empty empty Messages: 20 12 0 24 -262144
+-66577 0;
+#X msg 370 344 1 \, 2 \, 3;
+#X msg 215 421 1;
+#X text -296 91 A message can contain one or more elements!;
+#X msg -250 159 one;
+#X msg -106 157 one two three;
+#X obj -250 191 print;
+#X text -274 136 one-element;
+#X obj -106 190 print;
+#X text -112 132 three-elements;
+#X text 155 245 In a Message Box \, we can also have more than one
+message. To separate messages we need to put a comma in between them.
+;
+#X obj 215 456 print;
+#X obj 370 379 print;
+#X text 359 310 three-messages;
+#X msg -141 406 stop;
+#X msg -229 393 1;
+#X msg -201 420 0;
+#X msg -141 435 start;
+#X obj -189 472 print;
+#X obj 213 711 print;
+#X msg 213 574 23562;
+#X msg 213 642 nada;
+#X text 271 631 Another thing is that when a message receives something
+on its inlet \, it is activated and sends out the message it contains.
+;
+#X text 270 573 <- click;
+#X text -147 383 Symbols;
+#X text -234 371 Numbers;
+#X msg -230 524 1 2 3;
+#X msg -203 583 1 2 3 de oliveira 4;
+#X msg -213 552 hi baby;
+#X obj -213 618 print;
+#X text -172 520 All numbers;
+#X text -151 551 All Symbols;
+#X text -55 583 Both;
+#X text -266 331 -------- DATA MESSAGES: --------;
+#X obj 313 169 print;
+#X msg 313 134 bang;
+#X text 162 65 Messages can also be interpreted as specific commands.
+The most important command is the "bang" Message. We'll see that later!
+;
+#X obj 373 460 print;
+#X msg 373 425 1 2 3 \, bye bye \, hawaii;
+#X obj 209 379 print;
+#X msg 209 344 1 2 3;
+#X text 172 519 ============================================================
+;
+#X text 194 754 ============================================================
+;
+#X text -316 756 ============================================================
+;
+#X text 156 203 ============================================================
+;
+#X text -309 668 When we click on a Message Box \, what's in it is
+sent throughout its outlet. Click on these messages and check Pd's
+Terminal window.;
+#X text 155 26 ============================================================
+;
+#X text -334 248 In Pure Data \, all of the Data is received and sent
+in form of Messages. An atom is an element in a message \, and the
+elements can only be NUMBERS or SYMBOLS. Patches are a net of Data
+Flow! Objetcs receive and send messages.;
+#X text 191 310 one-message;
+#X connect 1 0 12 0;
+#X connect 2 0 11 0;
+#X connect 4 0 6 0;
+#X connect 5 0 8 0;
+#X connect 14 0 18 0;
+#X connect 15 0 18 0;
+#X connect 16 0 18 0;
+#X connect 17 0 18 0;
+#X connect 20 0 21 0;
+#X connect 21 0 19 0;
+#X connect 26 0 29 0;
+#X connect 27 0 29 0;
+#X connect 28 0 29 0;
+#X connect 35 0 34 0;
+#X connect 38 0 37 0;
+#X connect 40 0 39 0;

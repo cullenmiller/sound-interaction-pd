@@ -1,0 +1,143 @@
+#N canvas 582 51 1092 951 12;
+#X obj 400 874 outlet;
+#X obj 414 351 receive A-A-1;
+#X obj 514 350 receive A-A-2;
+#X obj 624 350 receive A-A-A-1;
+#X obj 737 349 receive A-A-A-2;
+#X obj 412 429 receive B-A-1;
+#X obj 513 427 receive B-A-2;
+#X obj 627 425 receive A-B-A-1;
+#X obj 740 424 receive A-B-A-2;
+#X obj 414 382 nbx 3 16 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 14
+-245486 -1 -1 20 256;
+#X obj 412 457 nbx 3 16 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 14
+-245486 -1 -1 24 256;
+#X obj 624 378 nbx 3 16 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 14
+-245486 -1 -1 20 256;
+#X obj 627 456 nbx 3 16 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 14
+-245486 -1 -1 24 256;
+#X obj 514 379 nbx 3 16 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 14
+-249200 -1 -1 26 256;
+#X obj 513 458 nbx 3 16 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 14
+-249200 -1 -1 50 256;
+#X obj 740 454 nbx 3 16 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 14
+-249200 -1 -1 50 256;
+#X obj 738 380 nbx 3 16 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 14
+-249200 -1 -1 26 256;
+#X obj 384 568 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-204800 -1 -1 0 256;
+#X obj 385 643 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-204800 -1 -1 0 256;
+#X obj 384 589 s 1-\$0-A;
+#X obj 385 617 r 1-\$0-A;
+#X obj 579 568 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-204800 -1 -1 0 256;
+#X obj 580 643 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-204800 -1 -1 0 256;
+#X obj 579 589 s 1-\$0-B;
+#X obj 580 617 r 1-\$0-B;
+#X obj 480 568 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-158834 -1 -1 0 256;
+#X obj 481 642 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-158834 -1 -1 0 256;
+#X obj 480 589 s 1-\$0-\$1;
+#X obj 481 617 r 1-\$0-\$1;
+#X obj 542 175 cnv 15 125 80 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X obj 397 177 cnv 15 110 80 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X obj 423 123 inlet;
+#X obj 566 122 inlet;
+#X obj 552 871 outlet;
+#X obj 403 184 nbx 3 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-245486 -1 -1 20 256;
+#X obj 405 230 nbx 3 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-245486 -1 -1 20 256;
+#X obj 549 184 nbx 3 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-245486 -1 -1 20 256;
+#X obj 549 234 nbx 3 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-245486 -1 -1 20 256;
+#X obj 463 184 nbx 3 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-249200 -1 -1 26 256;
+#X obj 463 231 nbx 3 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-249200 -1 -1 26 256;
+#X obj 623 186 nbx 3 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-249200 -1 -1 26 256;
+#X obj 623 233 nbx 3 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-249200 -1 -1 26 256;
+#X text 376 41 ====> THIS IS AN ABSTRACTION!!! <====;
+#X obj 386 799 cnv 15 130 40 empty empty empty 20 12 0 14 -204786 -66577
+0;
+#X obj 400 813 receive A-\$1-C;
+#X obj 400 850 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-245486 -1 -1 20 256;
+#X obj 552 848 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-249200 -1 -1 26 256;
+#X obj 249 175 cnv 15 130 40 empty empty empty 20 12 0 14 -204786 -66577
+0;
+#X obj 268 184 send A-\$1-C;
+#X obj 536 800 cnv 15 130 40 empty empty empty 20 12 0 14 -203904 -66577
+0;
+#X obj 700 172 cnv 15 130 40 empty empty empty 20 12 0 14 -203904 -66577
+0;
+#X obj 722 181 send 4-\$1;
+#X obj 552 811 receive 4-\$1;
+#X text 94 495 ============================================================
+;
+#X text 539 494 ============================================================
+;
+#X text 305 770 ============================================================
+;
+#X text 80 88 ============================================================
+;
+#X text 525 87 ============================================================
+;
+#X obj 403 205 ex2 \$1-A;
+#X text 298 532 "\$0" can also be expanded and combined with "\$1"
+\, "\$2" \, etc.;
+#X text 332 277 This abstraction is inherinting an argument and sending
+it further to the abstraction [ex2]. Move the upper atom boxes and
+see where it is going and why. Open [ex2] to check it.;
+#X text 186 350 Matches inherited "A" argument:;
+#X text 183 429 Matches inherited "B" argument:;
+#X obj 549 207 ex2 A-\$1-A;
+#X text 676 809 (From Inlet);
+#X text 291 809 (From Inlet);
+#X text 124 607 THESE ARE RUNNING LOCALLY!!! ==>;
+#X text 311 695 But see that \, depending on the argument \, the upper
+middle number box connected to [s 1-\$0-\$1] will also send to [r 1-\$0-A]
+or [r 1\$0-B].;
+#X text 47 183 (To Outlet and Parnet Patch);
+#X text 836 181 (To Outlet and Parnet Patch);
+#X connect 1 0 9 0;
+#X connect 2 0 13 0;
+#X connect 3 0 11 0;
+#X connect 4 0 16 0;
+#X connect 5 0 10 0;
+#X connect 6 0 14 0;
+#X connect 7 0 12 0;
+#X connect 8 0 15 0;
+#X connect 17 0 19 0;
+#X connect 20 0 18 0;
+#X connect 21 0 23 0;
+#X connect 24 0 22 0;
+#X connect 25 0 27 0;
+#X connect 28 0 26 0;
+#X connect 31 0 34 0;
+#X connect 31 0 36 0;
+#X connect 31 0 48 0;
+#X connect 32 0 38 0;
+#X connect 32 0 40 0;
+#X connect 32 0 51 0;
+#X connect 34 0 58 0;
+#X connect 36 0 63 0;
+#X connect 38 0 58 1;
+#X connect 40 0 63 1;
+#X connect 44 0 45 0;
+#X connect 45 0 0 0;
+#X connect 46 0 33 0;
+#X connect 52 0 46 0;
+#X connect 58 0 35 0;
+#X connect 58 1 39 0;
+#X connect 63 0 37 0;
+#X connect 63 1 41 0;

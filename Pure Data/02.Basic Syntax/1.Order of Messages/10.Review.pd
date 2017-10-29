@@ -1,0 +1,138 @@
+#N canvas 387 52 984 776 12;
+#X obj 20 20 cnv 15 400 40 empty empty Review: 20 12 0 24 -262144 -66577
+0;
+#X obj 529 80 bng 25 250 50 0 empty empty empty 0 -6 0 8 -24198 -1
+-1;
+#X obj 529 189 + 1;
+#X floatatom 529 583 5 0 0 0 - - -;
+#X obj 529 617 v n;
+#X obj 806 374 v n;
+#X obj 529 298 trigger bang float;
+#X obj 529 229 t f f;
+#X obj 529 160 t f f;
+#X obj 806 403 + 1;
+#X obj 806 435 t f f;
+#X obj 806 484 + 1;
+#X obj 806 554 + 1;
+#X obj 806 519 t f f;
+#X obj 806 624 + 1;
+#X obj 806 591 t f f;
+#X obj 806 700 v n;
+#X obj 806 661 t f f;
+#X obj 667 473 + 1;
+#X obj 667 438 t f f;
+#X obj 667 543 + 1;
+#X obj 667 510 t f f;
+#X obj 667 619 v n;
+#X obj 667 580 t f f;
+#X obj 667 376 v n;
+#X obj 667 405 + 1;
+#X obj 529 469 + 1;
+#X obj 529 434 t f f;
+#X obj 529 506 t f f;
+#X obj 529 372 v n;
+#X obj 529 401 + 1;
+#X floatatom 100 437 5 0 0 0 - - -;
+#X msg 100 399 1;
+#X obj 100 469 + 1;
+#X floatatom 100 506 5 0 0 0 - - -;
+#X obj 55 558 print ordem;
+#X floatatom 246 421 5 0 0 0 - - -;
+#X msg 246 394 1;
+#X obj 279 552 print ordem;
+#X obj 246 474 + 1;
+#X floatatom 246 501 5 0 0 0 - - -;
+#X obj 246 446 t f f;
+#X obj 529 339 trigger bang bang bang;
+#X obj 172 710 print mensagens;
+#X text 22 67 When we fire up a process in Pd \, we need to know how
+the data moves on the Data Flow \, and predict the exact order of messages.
+;
+#X text 24 193 Data always flows from outlets to inlets and the spatial
+localization in the patch doesn't matter. But when you connect an outlet
+to many objects \, or when many outlets connect to aninlet \, we need
+to control the order of messages with [trigger]!;
+#X text 24 286 In one of the examples below \, the [print] object can
+give us the wrong impression about the message order. You might expect
+"1" to be printed first \, because it happened fisrt. But you'd actually
+need a [trigger] to make it explicit that it goes there first!;
+#X text 78 536 wrong;
+#X text 300 531 correct;
+#X text 491 15 Now understand the order of the messages below. Click
+bang and see how it was printed on the terminal. Try to predict first.
+;
+#X text 568 83 click;
+#X obj 561 203 print A;
+#X obj 561 266 print B;
+#X obj 838 478 print C;
+#X obj 838 561 print D;
+#X obj 838 632 print E;
+#X obj 838 700 print F;
+#X obj 699 480 print G;
+#X obj 699 550 print H;
+#X obj 699 619 print I;
+#X obj 561 476 print J;
+#X obj 561 547 print K;
+#X msg 172 678 one \, two \, C \, D e F;
+#X text 106 622 For messages separated by commas;
+#X text 92 642 the order is from the left to the right.;
+#X text 174 601 Remember \;;
+#X obj 529 125 value n;
+#X text 21 130 There's the inlet Hot/Cold inlet paradigm \, this implies
+that data must go first to the right inlet and then to the left. The
+[trigger] objects works that way.;
+#X connect 1 0 66 0;
+#X connect 2 0 7 0;
+#X connect 3 0 4 0;
+#X connect 5 0 9 0;
+#X connect 6 0 42 0;
+#X connect 6 1 66 0;
+#X connect 7 0 6 0;
+#X connect 7 1 52 0;
+#X connect 8 0 2 0;
+#X connect 8 1 51 0;
+#X connect 9 0 10 0;
+#X connect 10 0 11 0;
+#X connect 10 1 53 0;
+#X connect 11 0 13 0;
+#X connect 12 0 15 0;
+#X connect 13 0 12 0;
+#X connect 13 1 54 0;
+#X connect 14 0 17 0;
+#X connect 15 0 14 0;
+#X connect 15 1 55 0;
+#X connect 17 0 16 0;
+#X connect 17 1 56 0;
+#X connect 18 0 21 0;
+#X connect 19 0 18 0;
+#X connect 19 1 57 0;
+#X connect 20 0 23 0;
+#X connect 21 0 20 0;
+#X connect 21 1 58 0;
+#X connect 23 0 22 0;
+#X connect 23 1 59 0;
+#X connect 24 0 25 0;
+#X connect 25 0 19 0;
+#X connect 26 0 28 0;
+#X connect 27 0 26 0;
+#X connect 27 1 60 0;
+#X connect 28 0 3 0;
+#X connect 28 1 61 0;
+#X connect 29 0 30 0;
+#X connect 30 0 27 0;
+#X connect 31 0 33 0;
+#X connect 31 0 35 0;
+#X connect 32 0 31 0;
+#X connect 33 0 34 0;
+#X connect 34 0 35 0;
+#X connect 36 0 41 0;
+#X connect 37 0 36 0;
+#X connect 39 0 40 0;
+#X connect 40 0 38 0;
+#X connect 41 0 39 0;
+#X connect 41 1 38 0;
+#X connect 42 0 29 0;
+#X connect 42 1 24 0;
+#X connect 42 2 5 0;
+#X connect 62 0 43 0;
+#X connect 66 0 8 0;

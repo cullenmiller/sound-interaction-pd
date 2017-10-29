@@ -1,0 +1,89 @@
+#N canvas 790 22 634 925 12;
+#X obj -13 4 cnv 15 400 40 empty empty Audio_Math 20 12 0 24 -262144
+-66577 0;
+#X obj 175 123 +~;
+#X obj 206 123 -~;
+#X obj 236 123 *~;
+#X obj 266 123 /~;
+#X msg 371 279 \; pd dsp 1;
+#X obj 371 252 loadbang;
+#X obj 114 298 *~;
+#X obj 199 248 hsl 128 15 0 0.2 0 0 empty empty empty -2 -8 0 10 -204786
+-1 -1 0 1;
+#X obj 114 260 osc~ 1000;
+#X obj 108 331 dac~;
+#X obj 54 489 *~;
+#X obj 6 459 osc~ 400;
+#X floatatom 72 434 5 0 0 0 - - -;
+#X obj 54 517 *~;
+#X obj 142 433 hsl 128 15 0 0.4 0 0 empty empty empty -2 -8 0 10 -203904
+-1 -1 0 1;
+#X obj 45 549 dac~;
+#X obj 72 458 osc~ 50;
+#X floatatom 6 435 5 0 0 0 - - -;
+#X obj 331 484 *~;
+#X obj 318 447 adc~ 1;
+#X obj 369 455 osc~ 50;
+#X obj 331 511 *~;
+#X obj 322 541 dac~;
+#X floatatom 369 429 5 0 0 0 - - -;
+#X obj 196 299 line~;
+#X msg 196 272 \$1 10;
+#X obj 139 487 line~;
+#X msg 139 460 \$1 10;
+#X obj 439 436 hsl 128 15 0 0.4 0 0 empty empty empty -2 -8 0 10 -203904
+-1 -1 0 1;
+#X obj 436 490 line~;
+#X msg 436 463 \$1 10;
+#X text 39 67 There are some math objects dedicated to audio signals
+\, ilike the arithmetic ones:;
+#X text 42 175 As a classic example \, we've seen that multiplying
+and audio signal is like changing its volume.;
+#X text 44 366 Another interessanting one is the Ring Modulation \,
+which consists of multipying two audio signals.;
+#X text 51 594 On the left above we have two oscilators being multiplied
+by each other. On the right above an oscilator multiplies your audio
+input (a Mic or someting). Try both and play with it.;
+#X obj 86 746 cos~;
+#X obj 129 746 atan2~;
+#X obj 241 858 log~ 2;
+#X obj 225 746 sin~;
+#X text 46 785 ============================================================
+;
+#X text 56 707 These are trigonometry objects:;
+#X text 267 736 remember [sin~] is an abstraction \; from do pd-extended
+;
+#X text 321 767 click to open it;
+#X text 53 810 [log~] is a logarithm at any base \, defined by the
+argument or cold inlet. It's different than [log] \, which is only
+for natural logarithm.;
+#X text 52 670 ============================================================
+;
+#X text 38 155 ============================================================
+;
+#X connect 6 0 5 0;
+#X connect 7 0 10 0;
+#X connect 7 0 10 1;
+#X connect 8 0 26 0;
+#X connect 9 0 7 0;
+#X connect 11 0 14 0;
+#X connect 12 0 11 0;
+#X connect 13 0 17 0;
+#X connect 14 0 16 0;
+#X connect 14 0 16 1;
+#X connect 15 0 28 0;
+#X connect 17 0 11 1;
+#X connect 18 0 12 0;
+#X connect 19 0 22 0;
+#X connect 20 0 19 0;
+#X connect 21 0 19 1;
+#X connect 22 0 23 0;
+#X connect 22 0 23 1;
+#X connect 24 0 21 0;
+#X connect 25 0 7 1;
+#X connect 26 0 25 0;
+#X connect 27 0 14 1;
+#X connect 28 0 27 0;
+#X connect 29 0 31 0;
+#X connect 30 0 22 1;
+#X connect 31 0 30 0;

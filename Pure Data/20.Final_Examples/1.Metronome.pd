@@ -1,0 +1,109 @@
+#N canvas 783 118 683 264 12;
+#N canvas 880 554 705 583 (subpatch) 0;
+#X obj 128 224 loadbang;
+#X obj 1 47 cnv 15 210 45 empty empty empty 9 22 0 14 -204786 -46 0
+;
+#X obj 15 58 nbx 5 25 -1e+37 1e+37 0 0 Metro BPM BPM 82 12 0 14 -261682
+-1 -4160 60 256;
+#X obj 309 103 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 1
+1;
+#X floatatom 362 202 0 0 0 0 - - -;
+#X floatatom 384 313 0 0 0 0 - - -;
+#X floatatom 240 356 0 0 0 0 - - -;
+#X obj 300 276 + 1;
+#X obj 384 273 + 1;
+#X obj 371 170 + 1;
+#X text 386 137 Reset;
+#X obj 384 347 sel 1;
+#X obj 384 372 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 416 372 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 341 109 5 0 0 0 - - -;
+#X msg 355 136 0;
+#X obj 416 391 t b b;
+#X msg 448 415 open ../files/drum/DHOLAK01.aif;
+#X msg 369 440 1;
+#X obj 409 500 dac~;
+#X obj 420 470 readsf~;
+#X obj 369 394 t b b;
+#X msg 401 441 open ../files/drum/BAGAL4.aif;
+#X floatatom 416 206 0 0 0 0 - - -;
+#X obj 384 244 mod 4;
+#X obj 300 246 div 4;
+#X obj 309 168 float;
+#X obj 309 135 metro;
+#X obj 341 34 r Metro;
+#X obj 341 81 expr 60000 / $f1;
+#X floatatom 341 58 5 0 0 0 - - -;
+#X obj 1 1 cnv 15 210 45 empty empty empty 9 22 0 14 -175531 -46 0
+;
+#X obj 15 12 nbx 2 25 1 12 0 0 Tempos Tempos-nbx Beats 45 12 0 14 -262130
+-1 -4160 4 256;
+#X obj 121 9 tgl 30 0 empty empty On/Off 35 15 0 14 -260097 -1 -1 1
+1;
+#X obj 1 93 cnv 15 210 45 empty empty Measure: 30 22 0 14 -179756 -46
+0;
+#X obj 1 139 cnv 15 210 45 empty empty Beat: 53 22 0 14 -204786 -46
+0;
+#X obj 108 149 nbx 2 25 -1e+37 1e+37 0 0 niente Beat empty 45 12 0
+14 -261234 -1 -4160 3 256;
+#X msg 128 253 \; pd dsp 1 \; BPM 60 \; Tempos-nbx 4;
+#X obj 417 181 r Tempos;
+#X obj 107 104 nbx 4 25 -1e+37 1e+37 0 0 niente Measure empty 45 12
+0 14 -204800 -1 -4160 62 256;
+#X obj 134 58 bng 25 250 50 0 empty empty Reset 30 12 0 14 -4160 -204786
+-1;
+#X text 383 57 Time in BPM;
+#X text 381 110 in Miliseconds;
+#X text 443 206 Beats per Measure;
+#X text 222 202 Counter of Beats;
+#X text 342 313 Beat:;
+#X text 173 356 Measure:;
+#X obj 240 410 send Measure;
+#X obj 445 353 send Beat;
+#X connect 0 0 37 0;
+#X connect 3 0 27 0;
+#X connect 4 0 25 0;
+#X connect 4 0 24 0;
+#X connect 5 0 11 0;
+#X connect 5 0 48 0;
+#X connect 6 0 47 0;
+#X connect 7 0 6 0;
+#X connect 8 0 5 0;
+#X connect 9 0 26 1;
+#X connect 11 0 12 0;
+#X connect 11 1 13 0;
+#X connect 12 0 21 0;
+#X connect 13 0 16 0;
+#X connect 14 0 27 1;
+#X connect 15 0 26 1;
+#X connect 16 0 18 0;
+#X connect 16 1 17 0;
+#X connect 17 0 20 0;
+#X connect 18 0 20 0;
+#X connect 20 0 19 0;
+#X connect 20 0 19 1;
+#X connect 21 0 18 0;
+#X connect 21 1 22 0;
+#X connect 22 0 20 0;
+#X connect 23 0 24 1;
+#X connect 23 0 25 1;
+#X connect 24 0 8 0;
+#X connect 25 0 7 0;
+#X connect 26 0 9 0;
+#X connect 26 0 4 0;
+#X connect 27 0 26 0;
+#X connect 28 0 30 0;
+#X connect 29 0 14 0;
+#X connect 30 0 29 0;
+#X connect 33 0 3 0;
+#X connect 38 0 23 0;
+#X connect 40 0 15 0;
+#X coords 0 1 100 -1 212 185 1 0 0;
+#X restore -345 -112 graph;
+#X obj -338 -155 cnv 15 200 40 empty empty Metronome: 20 12 0 24 -262144
+-66577 0;
+#X text -101 -52 Open the subpatch and see how this was programmed.
+It's an actual metronome with an entry in BPM (Beats Per Minute). You
+also define number of beats per "measure".;

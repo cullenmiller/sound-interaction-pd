@@ -1,0 +1,39 @@
+#N canvas 416 81 597 638 12;
+#X msg 93 357 10 20 30 40 50 60;
+#X obj 101 424 list split 1;
+#X obj 54 392 lister;
+#X obj 54 290 bng 15 250 50 0 empty empty empty 17 7 0 10 -261234 -1
+-1;
+#X obj -55 21 cnv 15 400 40 empty empty List-Split: 20 12 0 24 -262144
+-66577 0;
+#X obj 93 325 loadbang;
+#X obj 177 392 route bang;
+#X obj 268 474 print Rest-Of-List;
+#X text 160 512 Removed element;
+#X obj 101 515 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-204800 -1 -1 60 256;
+#X msg 281 430 zero elements;
+#X text -38 149 The left outlet will show you the removed element.
+The middle outlet will send the splitted list back into the [lister]
+object. When the list has zero elements \, it will be converted to
+a bang \, conviniently this makes the middle outlet tell you when it
+is done by sending out a bang \, [route] will get that bang and reset
+the list in a looping fashion.;
+#X text 19 550 Basically \, we're reading the list in loop from left
+to right;
+#X text 8 287 click;
+#X text -36 81 Now we will remove the first element of a list by using
+[list split] one by one \, and not in a loop like the last example.
+When we get to the end \, we can start over because there is an automatic
+reset.;
+#X connect 0 0 2 1;
+#X connect 1 0 9 0;
+#X connect 1 1 2 1;
+#X connect 1 1 6 0;
+#X connect 2 0 1 0;
+#X connect 3 0 2 0;
+#X connect 5 0 0 0;
+#X connect 6 0 0 0;
+#X connect 6 0 10 0;
+#X connect 6 1 7 0;
+#X connect 10 0 7 0;

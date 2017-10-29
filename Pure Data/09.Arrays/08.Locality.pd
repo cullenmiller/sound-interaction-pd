@@ -1,0 +1,106 @@
+#N canvas 200 22 1007 843 12;
+#X obj -386 -172 cnv 15 400 40 empty empty Locality: 20 12 0 24 -262144
+-66577 0;
+#X obj -361 99 hsl 128 15 -1 1 0 0 empty empty empty -2 -8 0 10 -191407
+-1 -1 0 1;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array \$0-array1 100 float 3;
+#A 0 0.385827 0.385827 0.385827 0.385827 0.385827 0.385827 0.385827
+0.385827 0.385827 0.385827 0.385827 0.385827 0.385827 0.385827 0.385827
+0.385827 0.385827 0.385827 0.385827 0.385827 0.385827 0.385827 0.385827
+0.385827 0.385827 0.385827 0.385827 0.385827 0.385827 0.385827 0.385827
+0.385827 0.385827 0.385827 0.385827 0.385827 0.385827 0.385827 0.385827
+0.385827 0.385827 0.385827 0.385827 0.385827 0.385827 0.385827 0.385827
+0.385827 0.385827 0.385827 0.385827 0.385827 0.385827 0.385827 0.385827
+0.385827 0.385827 0.385827 0.385827 0.385827 0.385827 0.385827 0.385827
+0.385827 0.385827 0.385827 0.385827 0.385827 0.385827 0.385827 0.385827
+0.385827 0.385827 0.385827 0.385827 0.385827 0.385827 0.385827 0.385827
+0.385827 0.385827 0.385827 0.385827 0.385827 0.385827 0.385827 0.385827
+0.385827 0.385827 0.385827 0.385827 0.385827 0.385827 0.385827 0.385827
+0.385827 0.385827 0.385827 0.385827 0.385827;
+#X coords 0 1 99 -1 200 120 1;
+#X restore -197 78 graph;
+#X msg -364 126 const \$1;
+#X obj -364 156 send \$0-array1;
+#X obj -290 256 table \$0-array2;
+#X obj -89 221 hsl 128 15 -1 1 0 0 empty empty empty -2 -8 0 10 -191407
+-1 -1 0 1;
+#X msg -92 241 const \$1;
+#X obj -92 267 send \$0-array2;
+#X obj 241 -17 hsl 128 15 -1 1 0 0 empty empty empty -2 -8 0 10 -258113
+-1 -1 4300 1;
+#X msg 238 6 \; \$0-array1 const \$1;
+#X obj 262 110 tabread;
+#X msg 262 78 set \$0-array1;
+#X floatatom 216 80 5 0 0 0 - - -;
+#X floatatom 262 136 5 0 0 0 - - -;
+#X msg 326 349 set \$1;
+#X obj 235 309 symbol \$0-array1;
+#X obj 326 381 tabread;
+#X obj 234 289 bng 15 250 50 0 empty empty empty 17 7 0 10 -262130
+-1 -1;
+#X floatatom 269 355 5 0 0 0 - - -;
+#X floatatom 326 409 5 0 0 0 - - -;
+#X obj 374 287 bng 15 250 50 0 empty empty empty 17 7 0 10 -262130
+-1 -1;
+#X obj 374 309 symbol \$0-array2;
+#X text -378 358 ============================================================
+;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array array-0 100 float 3;
+#A 0 0.385827 0.385827 0.385827 0.385827 0.385827 0.385827 0.385827
+0.385827 0.385827 0.385827 0.385827 0.385827 0.385827 0.385827 0.385827
+0.385827 0.385827 0.385827 0.385827 0.385827 0.385827 0.385827 0.385827
+0.385827 0.385827 0.385827 0.385827 0.385827 0.385827 0.385827 0.385827
+0.385827 0.385827 0.385827 0.385827 0.385827 0.385827 0.385827 0.385827
+0.385827 0.385827 0.385827 0.385827 0.385827 0.385827 0.385827 0.385827
+0.385827 0.385827 0.385827 0.385827 0.385827 0.385827 0.385827 0.385827
+0.385827 0.385827 0.385827 0.385827 0.385827 0.385827 0.385827 0.385827
+0.385827 0.385827 0.385827 0.385827 0.385827 0.385827 0.385827 0.385827
+0.385827 0.385827 0.385827 0.385827 0.385827 0.385827 0.385827 0.385827
+0.385827 0.385827 0.385827 0.385827 0.385827 0.385827 0.385827 0.385827
+0.385827 0.385827 0.385827 0.385827 0.385827 0.385827 0.385827 0.385827
+0.385827 0.385827 0.385827 0.385827 0.385827;
+#X coords 0 1 99 -1 200 100 1;
+#X restore -200 398 graph;
+#X obj -97 579 table array-\$0;
+#X text -384 -120 Arrays need to have different names. If different
+patches with arrays that have the same name is also a problem \, this
+means they operate in a Global mode.;
+#X text -382 -57 Imagine now that you have an array inside an abstraction
+that is loaded many times. There will be a conflict because the array
+will have the same name loaded in different instances. So the way to
+deal with that is to use "\$0".;
+#X text -373 220 "\$0" also works in the [table] object;
+#X text -371 305 But see that insdie the [table] object we don't find
+"\$0" \, but the actual patch's initialization number. That's different
+from above \, where we have an array on canvas.;
+#X text -348 431 PROBLEM \; CAREFUL:;
+#X text -372 509 If you Put "\$0" next to the array name \, it won't
+work! It'll be just "zero".;
+#X text -350 578 but that works in the table object:;
+#X text 13 579 <- open;
+#X text 128 -70 Let's remember it's also impossible to deal with "\$0"
+in messages.;
+#X text 377 18 DOESN'T WORK!;
+#X text 250 455 With "\$0" in the [symbol] object;
+#X text 306 482 we're fine!;
+#X text 142 191 Say we wanna set the table name to be read in [tabread]
+like above. Let's use "\$0" in objects then \, because they alwyas
+deal with it.;
+#X text 369 78 DOENS'T EITHER!;
+#X connect 1 0 3 0;
+#X connect 3 0 4 0;
+#X connect 6 0 7 0;
+#X connect 7 0 8 0;
+#X connect 9 0 10 0;
+#X connect 11 0 14 0;
+#X connect 12 0 11 0;
+#X connect 13 0 11 0;
+#X connect 15 0 17 0;
+#X connect 16 0 15 0;
+#X connect 17 0 20 0;
+#X connect 18 0 16 0;
+#X connect 19 0 17 0;
+#X connect 21 0 22 0;
+#X connect 22 0 15 0;

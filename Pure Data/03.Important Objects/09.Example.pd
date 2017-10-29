@@ -1,0 +1,45 @@
+#N canvas 501 587 787 570 12;
+#X obj 20 24 cnv 15 350 40 empty empty Example: 20 18 0 24 -262144
+-66577 0;
+#X obj 43 268 cnv 15 260 175 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X obj 42 83 cnv 15 100 130 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X obj 67 397 *~;
+#X obj 65 94 nbx 5 14 200 2000 0 1 empty empty empty 0 -8 0 10 -262130
+-1 -1 200 256;
+#X obj 59 470 dac~;
+#X msg 76 332 \$1 1000;
+#X obj 76 309 tgl 15 0 empty empty empty 17 7 0 10 -204786 -1 -1 0
+1;
+#X obj 85 368 line~;
+#X obj 65 162 line;
+#X floatatom 65 187 5 200 2000 0 - - -;
+#X msg 65 136 \$1 500;
+#X obj 147 288 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -204786
+-1 -1 0 1;
+#X floatatom 144 308 5 0 0 0 - - -;
+#X msg 144 331 \$1 100;
+#X obj 65 226 osc~;
+#X text 338 153 - First \, turn on the DSP.;
+#X text 339 194 In this example \, we have an oscilator that receives
+frequency values from the [line] object. Note that this will work as
+a glissando effect \, that takes half a second.;
+#X text 340 275 The audio signal is multiplied by the [*~] object.
+When we multiply it by zero \, we kill it \, and by 1 doesn't do anything.
+So if we use this object to multiply from 0 to 1 \, it will change
+the gain. The [line~] object is good to make that change very smooth.
+;
+#X connect 3 0 5 0;
+#X connect 3 0 5 1;
+#X connect 4 0 11 0;
+#X connect 6 0 8 0;
+#X connect 7 0 6 0;
+#X connect 8 0 3 1;
+#X connect 9 0 10 0;
+#X connect 10 0 15 0;
+#X connect 11 0 9 0;
+#X connect 12 0 13 0;
+#X connect 13 0 14 0;
+#X connect 14 0 8 0;
+#X connect 15 0 3 0;

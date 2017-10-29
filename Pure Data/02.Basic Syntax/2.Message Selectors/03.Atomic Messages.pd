@@ -1,0 +1,115 @@
+#N canvas 92 22 1153 1052 12;
+#X msg 172 620 float 1.234;
+#X symbolatom 162 336 10 0 0 0 - - -;
+#X floatatom 199 683 5 0 0 0 - - -;
+#X msg 209 650 362;
+#X obj 162 371 print;
+#X symbolatom 50 276 10 0 0 0 - - -;
+#X obj 50 303 print;
+#X msg 56 240 Symbol Átomo;
+#X msg 41 214 Átomo;
+#X symbolatom 746 177 10 0 0 0 - - -;
+#X msg 737 120 362;
+#X msg 162 300 symbol atom;
+#X obj 746 229 print;
+#X msg 775 121 float 4;
+#X text 45 68 An atomic message can be only a float or a symbol! We've
+just realized we don't need to bother with specifying the float selector.
+But we need that for symbols!;
+#X text 90 213 <-- Check Pd's Terminal Window.;
+#X text 153 235 <-- "Symbol" doesn't work either \, because it is Case
+Sensitive.;
+#X text 255 298 <-- YES! IT WORKS!!!;
+#X text 41 140 ============================================================
+;
+#X obj -43 16 cnv 15 500 40 empty empty Atomic_Messages: 90 12 0 24
+-262144 -66577 0;
+#X text 45 507 ============================================================
+;
+#X text 48 540 We don't have to specify the float selector \, it is
+opitional \, or redundant.;
+#X obj 199 714 print;
+#X text 51 744 Note now that the [print] object DOES NOT print the
+message with the "float" selector. Even when we specify it!!!;
+#X text 71 164 Click on the Messages:;
+#X text 93 583 Click some more:;
+#X text 596 85 A Symbol Atom Box won't quite work with float messages
+;
+#X text 603 262 The symbol box will only say "float" and "symbol float"
+will be printed!;
+#X floatatom 733 500 5 0 0 0 - - -;
+#X msg 733 460 symbol float;
+#X obj 733 540 print;
+#X msg 706 426 symbol atom;
+#X text 579 301 ============================================================
+;
+#X text 576 47 ============================================================
+;
+#X text 590 336 Vice-Versa \; Number atom boxes won't deal with symbol
+messages. It'll all become "0" \, and that's what will be printed!
+;
+#X text 591 563 ============================================================
+;
+#X msg 670 687 float 34 335;
+#X obj 670 717 print;
+#X obj 796 717 print;
+#X msg 796 687 symbol not right;
+#X text 605 597 a float or symbol message will only contain one atom
+(or element). If you have more than one atom on these types of messages
+\, only the first atom will be considered. Click & check the terminal.
+;
+#X text 51 785 ============================================================
+;
+#X text 60 818 Just the float selector with no number folowing it will
+be consider an "empty" float message \, and Pd will automatically convert
+it to "0".;
+#X obj 106 935 print;
+#X msg 106 896 float;
+#X text -8 933 Check Terminal;
+#X symbolatom 453 917 10 0 0 0 - - -;
+#X msg 453 885 symbol;
+#X obj 453 947 print;
+#X text 57 419 If you type in any symbol in a symbol atom box \, it
+will automatically come out with a "symbol" selector. Try it!;
+#X text 53 466 This only means that the symbol atom box hides the "symbol"
+selector from us!!!;
+#X msg 703 888 symbol 3;
+#X msg 838 889 float you;
+#X text 599 765 ============================================================
+;
+#X text 198 906 Just the symbol selector will end \; up in an empty
+symbol message and \; only the selector is printed!;
+#X text 49 896 Click;
+#X obj 778 953 print;
+#X text 682 859 becomes empty:;
+#X text 827 861 Pd complains:;
+#X text 609 794 As a good common sensed person would expect \, things
+won't be quite right if you have a symbol selector wih a float \, or
+a float selector with a symbol.;
+#X text 60 996 ============================================================
+;
+#X text 614 992 ============================================================
+;
+#X text 211 363 Note that the [print] object does print \; the message
+with the "symbol" selector!;
+#X connect 0 0 2 0;
+#X connect 1 0 4 0;
+#X connect 2 0 22 0;
+#X connect 3 0 2 0;
+#X connect 5 0 6 0;
+#X connect 7 0 5 0;
+#X connect 8 0 5 0;
+#X connect 9 0 12 0;
+#X connect 10 0 9 0;
+#X connect 11 0 1 0;
+#X connect 13 0 9 0;
+#X connect 28 0 30 0;
+#X connect 29 0 28 0;
+#X connect 31 0 28 0;
+#X connect 36 0 37 0;
+#X connect 39 0 38 0;
+#X connect 44 0 43 0;
+#X connect 46 0 48 0;
+#X connect 47 0 46 0;
+#X connect 51 0 56 0;
+#X connect 52 0 56 0;

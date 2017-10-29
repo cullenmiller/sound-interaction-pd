@@ -1,0 +1,41 @@
+#N canvas 761 109 492 691 12;
+#X msg 49 209 bang;
+#X obj 33 23 cnv 15 400 40 empty empty Abstractions: 20 12 0 24 -262144
+-66577 0;
+#X msg 252 213 bang;
+#X floatatom 151 265 5 0 0 0 - - -;
+#X symbolatom 49 266 10 0 0 0 - - -;
+#X floatatom 354 269 5 0 0 0 - - -;
+#X symbolatom 252 268 10 0 0 0 - - -;
+#X obj 49 237 ex1 volume 0.85;
+#X obj 252 241 ex1 midinote 61;
+#X text 17 442 ============================================================
+;
+#X text 26 645 ============================================================
+;
+#X text 19 58 ============================================================
+;
+#X text 31 79 The main difference form an abstraction to a subpatch
+is that it is an actual imported Pd file. And the main implication
+is that it can be used just like objects \, by having arguments \,
+which will be sent inside it by the inheritance concept!;
+#X text 30 320 Above we have the same abstraction [ex1] loaded twice.
+;
+#X text 32 366 The inheritance syntax is by the usage of dollarsigns
+inside objects \, as explained in the abstractions \, just click to
+open them.;
+#X text 23 464 IMPORTANT:;
+#X text 26 488 For a Patch to be loaded as an abstraction \, it must
+be in the same folder that the parent patch! We'll see how to load
+elsewise later on.;
+#X text 30 548 To load it \, just put the file's name without the file
+extension ".pd".;
+#X text 40 591 If you change an Abstração and save it \, every other
+abstraction with the same name on the patch will be reloaded and restarted.
+;
+#X connect 0 0 7 0;
+#X connect 2 0 8 0;
+#X connect 7 0 4 0;
+#X connect 7 1 3 0;
+#X connect 8 0 6 0;
+#X connect 8 1 5 0;

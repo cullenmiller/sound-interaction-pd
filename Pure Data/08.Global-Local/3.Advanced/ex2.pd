@@ -1,0 +1,23 @@
+#N canvas 204 672 509 456 12;
+#X obj 141 148 inlet;
+#X obj 282 150 inlet;
+#X floatatom 134 341 5 0 0 0 - - -;
+#X obj 134 367 outlet;
+#X floatatom 278 342 5 0 0 0 - - -;
+#X obj 278 368 outlet;
+#X obj 141 175 send \$1-1;
+#X obj 282 175 send \$1-2;
+#X obj 134 314 receive \$1-1;
+#X obj 278 315 receive \$1-2;
+#X text 110 21 ====> THIS IS AN ABSTRCACTION!!! <====;
+#X text 64 72 And the code is the very same as the first part of "Local1.Pd".
+;
+#X text 51 233 But now the inherited argument was expanded! Look up
+in this patch's window \, inside the parethesis \, to know what the
+inherited argument is now. It's either (A-A) or (B-A).;
+#X connect 0 0 6 0;
+#X connect 1 0 7 0;
+#X connect 2 0 3 0;
+#X connect 4 0 5 0;
+#X connect 8 0 2 0;
+#X connect 9 0 4 0;

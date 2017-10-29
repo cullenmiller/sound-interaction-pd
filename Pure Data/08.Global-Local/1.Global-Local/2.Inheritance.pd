@@ -1,0 +1,72 @@
+#N canvas 1139 183 507 841 12;
+#X obj -46 17 cnv 15 400 40 empty empty Inheritance: 20 19 0 24 -262144
+-66577 0;
+#X obj 85 361 receive A-1;
+#X obj 173 361 receive A-2;
+#X obj 84 417 receive B-1;
+#X obj 171 417 receive B-2;
+#X obj 109 711 value B-local;
+#X obj 109 688 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 109 738 5 0 0 0 - - -;
+#X obj 100 540 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 100 588 5 0 0 0 - - -;
+#X obj 100 563 value A-local;
+#X obj 69 201 Local1 A;
+#X obj 202 232 nbx 4 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-257985 -1 -1 0 256;
+#X obj 202 181 nbx 4 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-257985 -1 -1 0 256;
+#X obj 84 444 nbx 4 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-257985 -1 -1 0 256;
+#X obj 255 232 nbx 4 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-4034 -1 -1 0 256;
+#X obj 255 181 nbx 4 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-4034 -1 -1 0 256;
+#X obj 171 444 nbx 4 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-4034 -1 -1 0 256;
+#X obj 69 232 nbx 4 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-261682 -1 -1 0 256;
+#X obj 69 181 nbx 4 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-261682 -1 -1 0 256;
+#X obj 122 232 nbx 4 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-4032 -1 -1 0 256;
+#X obj 122 181 nbx 4 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-4032 -1 -1 0 256;
+#X obj 85 389 nbx 4 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-261682 -1 -1 0 256;
+#X obj 173 388 nbx 4 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-4032 -1 -1 0 256;
+#X text -25 476 ============================================================
+;
+#X text 6 782 ============================================================
+;
+#X text -30 72 Now these abstractions inherit arguments that are loaded
+inside [send]/[receive] & [value] objects. We'll do it to prevent global
+variables \, and guarantee "local" ones. By changing the upper number
+boxes you can see it's working \, but lets open both instances and
+lets see what's happening:;
+#X text -8 274 With this technique \, we avoid data from going from
+one instance to the other. But data still runs globally \, since we
+have here on the parent patch matching [receive] objects that receive
+the data:;
+#X obj 202 204 Local1 B;
+#X text 51 513 Recall last value from inlets into [Local1 A];
+#X text 51 654 Recall last value from inlets into [Local1 B];
+#X connect 1 0 22 0;
+#X connect 2 0 23 0;
+#X connect 3 0 14 0;
+#X connect 4 0 17 0;
+#X connect 5 0 7 0;
+#X connect 6 0 5 0;
+#X connect 8 0 10 0;
+#X connect 10 0 9 0;
+#X connect 11 0 18 0;
+#X connect 11 1 20 0;
+#X connect 13 0 28 0;
+#X connect 16 0 28 1;
+#X connect 19 0 11 0;
+#X connect 21 0 11 1;
+#X connect 28 0 12 0;
+#X connect 28 1 15 0;

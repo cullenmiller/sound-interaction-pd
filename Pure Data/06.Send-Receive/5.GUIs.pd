@@ -1,0 +1,121 @@
+#N canvas 610 74 1078 1058 12;
+#X obj 414 460 tgl 15 0 nbox bang empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 366 597 hsl 128 15 0 127 0 0 hslider VRadioToSliders empty -2
+-8 0 10 -262144 -1 -1 0 1;
+#X obj 468 456 vsl 15 128 0 127 0 0 vslider VRadioToSliders empty 0
+-9 0 10 -262144 -1 -1 0 1;
+#X obj 365 462 vradio 15 1 0 8 VRadioToSliders HRadioToVRadio empty
+0 -8 0 10 -262144 -1 -1 0;
+#X obj 415 487 bng 15 250 50 0 bang empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 696 652 cnv 5 120 60 empty canvas Wireless 20 12 0 14 -233017
+-66577 0;
+#X obj 256 502 vu 15 120 vu empty -1 -8 0 10 -66577 -1 1 0;
+#X obj 366 428 hradio 15 1 0 8 HRadioToVRadio knob-to-Hradio empty
+0 -8 0 10 -262144 -1 -1 0;
+#X obj 401 565 nbx 5 14 -1e+37 1e+37 0 0 knob nbox empty 0 -8 0 10
+-262144 -1 -1 0 256;
+#X floatatom 248 463 5 0 0 0 - atom -;
+#X symbolatom 596 641 10 0 0 0 - ToSymbol -;
+#X obj 533 475 r vslider;
+#X floatatom 533 500 5 0 0 0 - - -;
+#X floatatom 612 508 5 0 0 0 - - -;
+#X obj 612 475 r hslider;
+#X obj 612 540 s atom;
+#X obj 704 479 receive bang;
+#X obj 704 533 send ToSymbol;
+#X msg 704 507 symbol Wireless;
+#X obj 533 547 s vu;
+#X obj 533 524 / 10;
+#X msg 596 673 label \$1;
+#X obj 596 701 send canvas;
+#X obj 409 516 knob 32 32 0 127 0 0 knob-to-Hradio knob empty 0 -8
+192 8 -262144 -1 -1 0 1;
+#X obj 37 37 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 254 42 hsl 128 15 0 127 0 0 example empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X floatatom 361 138 5 0 0 0 - - -;
+#X obj 144 110 hsl 128 15 0 127 0 0 empty example empty -2 -8 0 10
+-262144 -1 -1 0 1;
+#X floatatom 141 138 5 0 0 0 - - -;
+#X obj 77 -55 cnv 15 400 40 empty empty Wireless_GUIs: 20 19 0 24 -262144
+-66577 0;
+#X floatatom 460 32 5 0 0 0 - - -;
+#X obj 676 207 bng 30 250 50 0 go come empty 17 7 0 10 -220522 -1 -1
+;
+#X obj 676 152 bng 30 250 50 0 empty empty empty 17 7 0 10 -262130
+-1 -1;
+#X obj 676 262 bng 30 250 50 0 empty empty empty 17 7 0 10 -262130
+-1 -1;
+#X floatatom 937 108 5 0 0 0 - atom1 -;
+#X floatatom 883 109 5 0 0 0 - atom atom1;
+#X obj 34 60 send example;
+#X text 174 49 Equal to;
+#X text 391 51 Equal to;
+#X obj 361 108 receive example;
+#X obj 460 59 send example;
+#X text 289 106 Equal to;
+#X text 101 183 Go into the slider's properties (by right clicking
+it) and see how it is done.;
+#X text 14 4 [send]/[receive] are built-in GUI's/Atom Box's properties.
+;
+#X text 98 231 See how inlets and outlets of GUIs and Atom Boxes visually
+disappear when they are specified a "send" or "receive" address.;
+#X text 720 214 bang "without" inlet/outlet;
+#X text 595 45 You can still use the inlets and outlets in GUIS anyway.
+;
+#X text 733 107 Atom Boxes though.;
+#X text 228 639 VU has only a "receive" \,;
+#X text 209 666 as it doesn't have an outlet;
+#X text 699 85 But you can't connect anymore for;
+#X text 54 309 ============================================================
+;
+#X text 586 308 ============================================================
+;
+#X text 573 -8 ============================================================
+;
+#X obj 586 855 hsl 128 15 0 127 0 0 empty y-slider slider -2 -8 0 10
+-262130 -1 -1 0 1;
+#X msg 549 803 label slider;
+#X msg 743 833 label yellow-slider;
+#X obj 743 862 send y-slider;
+#X text 213 375 These are connected via built in [send]/[receives]:
+;
+#X text 215 409 Try them:;
+#X text 552 591 we can even change a GUI's label:;
+#X text 494 639 write a name:;
+#X text 88 751 We'll see later in "Dinamic Patching" more properly
+how to change labels and other GUI's properties. Just know that you
+can either send a meesage by connecting it to a slider \, like it's
+done to the right \, or send it via built-in [send]/[receives] \, like
+the canvas example here \, and also again with the slider to the right.
+;
+#X text 664 798 more two ways to change a label:;
+#X text 542 782 click:;
+#X text 893 831 <- click;
+#X text 92 867 But since canvases have no inlets or outlets \, the
+only way they can receive messages is by their built-in [receive] feature.
+;
+#X text 60 936 ============================================================
+;
+#X text 592 935 ============================================================
+;
+#X connect 10 0 21 0;
+#X connect 11 0 12 0;
+#X connect 12 0 20 0;
+#X connect 13 0 15 0;
+#X connect 14 0 13 0;
+#X connect 16 0 18 0;
+#X connect 18 0 17 0;
+#X connect 20 0 19 0;
+#X connect 21 0 22 0;
+#X connect 24 0 36 0;
+#X connect 27 0 28 0;
+#X connect 30 0 40 0;
+#X connect 31 0 33 0;
+#X connect 32 0 31 0;
+#X connect 39 0 26 0;
+#X connect 55 0 54 0;
+#X connect 56 0 57 0;

@@ -1,0 +1,60 @@
+#N canvas 4 172 1507 870 12;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array sampleL 208152 float 2;
+#X coords 0 1 208152 -1 550 140 1;
+#X restore -140 488 graph;
+#X obj -216 7 cnv 15 400 40 empty empty Stereo_Arrays: 20 12 0 24 -262144
+-66577 0;
+#X obj -47 192 soundfiler;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array sampleR 208152 float 2;
+#X coords 0 1 208152 -1 550 140 1;
+#X restore -140 666 graph;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array \$0-sampleL 208152 float 2;
+#X coords 0 1 208152 -1 550 140 1;
+#X restore 478 483 graph;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array \$0-sampleR 208152 float 2;
+#X coords 0 1 208152 -1 550 140 1;
+#X restore 478 661 graph;
+#X obj 517 380 soundfiler;
+#X obj 517 355 list trim;
+#X obj 517 331 list append \$0-sampleL \$0-sampleR;
+#X msg 517 258 read -resize ./media/Vinheta.wav;
+#X msg 575 301 read -resize ./media/bag.wav;
+#X msg -47 160 read -resize ./media/Vinheta.wav sampleL sampleR;
+#X msg -2 395 read -resize ./media/bag.wav sampleL sampleR;
+#X obj -2 424 soundfiler;
+#X obj -40 300 soundfiler;
+#X msg -40 268 read -resize ./media/Vinheta.wav sampleL;
+#X text -190 60 [soundfiler] also loads stereo or more channel files
+into arrays.;
+#X text -82 105 For example:;
+#X text -51 128 just specify two array names to load stereo samples
+;
+#X text -83 227 if you specify just one array name and a stereo file
+\, it'll load just the left channel into the specified array;
+#X text -68 341 If you specify a mono file and two array names \, just
+the first array name will be loaded with the sample;
+#X text 535 92 [soundfiler] will equally create more than one channel
+files. The number of channels is limited to 64!;
+#X obj 849 382 soundfiler;
+#X obj 848 329 list append \$0-sampleL \$0-sampleR;
+#X msg 848 357 read -resize \$1 \$2 \$3;
+#X obj 848 298 openpanel;
+#X obj 848 269 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 875 263 open a stereo file;
+#X text 556 219 Examples with locally specified arrays;
+#X connect 7 0 6 0;
+#X connect 8 0 7 0;
+#X connect 9 0 8 0;
+#X connect 10 0 8 0;
+#X connect 11 0 2 0;
+#X connect 12 0 13 0;
+#X connect 15 0 14 0;
+#X connect 23 0 24 0;
+#X connect 24 0 22 0;
+#X connect 25 0 23 0;
+#X connect 26 0 25 0;

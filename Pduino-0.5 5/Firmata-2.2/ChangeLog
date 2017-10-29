@@ -1,0 +1,253 @@
+2011-01-03 04:10  eighthave
+
+	* .: tagging Firmata 2.2 for Arduino, Teensy, Wiring, etc.
+
+2010-08-09 16:41  pjs
+
+	* Bump to Firmata version 2.2
+
+2010-08-05 20:06  pjs
+
+	* Avoid calling digitalRead() for pins not in input mode. Fixes
+	  Arduino Mega conflict between PWM and inputs.
+
+2010-08-05 19:45  pjs
+
+	* Add capabilities and state queries (alpha, may change in future)
+	  Fix buffer overflow in reportDigitalCallback
+
+2010-07-20 11:05  pjs
+
+	* Add documentation for hardware abstraction layer, in Boards.h
+
+2010-07-19 22:19  pjs
+
+	* Add extended analog write
+
+2010-07-18 16:56  pjs
+
+	* Merged hardware abstraction branch, r52:57 into trunk
+
+2010-03-20 20:05  eighthave
+
+	* copied StandardFirmata to ShippingFirmata to start working on the
+	  default/test firmware for new Arduino boards
+
+2010-03-20 20:01  eighthave
+
+	* started section for firmwares that are not examples and included
+	  my DmxSimpleFirmata example to start with
+
+2010-01-05 06:35  eighthave
+
+	* cleaned up comments related to subclassing some kind of Serial
+	  base class
+
+2010-01-05 06:32  eighthave
+
+	* cleaned up comments a bit
+
+2010-01-05 06:28  eighthave
+
+	* wrote a more fully featured all-inputs sketch
+
+2010-01-05 05:20  eighthave
+
+	* added explanation text
+
+2010-01-05 05:16  eighthave
+
+	* added an explanation about why this old version is here
+
+2010-01-05 05:10  eighthave
+
+	* renamed StandardFirmata 2.0 to be clearer that its old
+
+2010-01-04 23:04  eighthave
+
+	* created example firmware that acts just like Arduino4Max
+
+2010-01-04 22:54  eighthave
+
+	* removed duplicate line that sends the same message twice
+
+2010-01-02 18:48  eighthave
+
+	* removed duplicate call to send the digital data, pointed out by
+	  Bjoern Hartmann and Paul Stoffregen
+
+2010-01-02 18:31  eighthave
+
+	* cast to a byte for optimization, suggested by Paul Stoffregen:
+	  "The reason is because portData is a signed integer, so the
+	  compiler calls the slow code because it does not know if the
+	  value is positive or negative. If you add a byte typecast, the
+	  compiler uses a single instruction ANDI instruction"
+
+2009-11-14 00:11  eighthave
+
+	* udpated instructions for Arduino.app
+
+2009-10-22 05:26  eighthave
+
+	* added changes from Hernando Barragan for the Wiring board
+
+2009-10-19 04:07  mayfair
+
+	* modified to support servos on the other digital pins in addition
+	  to D9 and D10 (except for D0 and D1)
+
+2009-10-19 00:08  eighthave
+
+	* removed stupid function call causing endless loop...
+
+2009-10-07 20:39  eighthave
+
+	* fixed bug in setting pin to ANALOG mode, fixed by TOF
+
+2009-10-05 21:10  eighthave
+
+	* fixed bug that was setting the analog pins to act like a log pot
+	  because the internal pull-ups were on, basically setup() should
+	  not touch the analog pins and let the arduino code stay in effect
+
+2009-09-13 04:52  eighthave
+
+	* making one begin() call the other, and moved the blinkVersion()
+	  in response to a bug report on the arduino forum:
+	  http://www.arduino.cc/cgi-bin/yabb2/YaBB.pl?num=1252791964/0
+
+2009-09-10 04:42  eighthave
+
+	* forgot to attach() servos before using them, and detach when
+	  switching pinmode
+
+2009-08-11 22:12  eighthave
+
+	* on Zach's suggestion, included an old version of StandardFirmata
+	  set at old 115200 bitrate to ease the transition (back) to 57600
+	  in 2.1
+
+2009-07-30 20:36  eighthave
+
+	* checked in Shigero's fix for my stupid logic
+
+2009-07-24 00:18  soundanalogous
+
+	* Changed baud rate in I2CFirmata to 57600
+
+2009-07-18 22:03  mayfair
+
+	* modified to be compiled for 328P boards (replaced PC* with
+	  PORTC*)
+
+2009-07-16 00:07  eighthave
+
+	* checked in patch from Paul Stoffregen to add support for the
+	  Teensy boards,
+	  the Sanguino, etc. Ideally, these macros and #ifdefs would go
+	  into the code
+	  for each board, but it seems that Arduino is not quite ready for
+	  that, so
+	  we'll keep it here for now.
+
+2009-07-14 15:06  eighthave
+
+	* - added SHIFT_DATA to Firmata.h to claim for future
+	  implementations
+	  - renamed somethings for clarity and consistency (but left old
+	  names in for a bit)
+	  FIRMATA_STRING -> STRING_DATA
+	  SYSEX_I2C_REQUEST -> I2C_REQUEST
+	  SYSEX_I2C_REPLY -> I2C_REPLY
+	  SYSEX_SAMPLING_INTERVAL -> SAMPLING_INTERVAL
+
+2009-07-14 14:04  eighthave
+
+	* added pin macros for the Arduino Mega based on its AVR ATmeta1280
+	  macro
+
+2009-07-14 03:11  soundanalogous
+
+	* Updated I2CFirmata example to enable I2C power pins to be enabled
+	  using I2C Config (see Firmata I2C protocol on firmata.org)
+
+2009-07-14 02:52  soundanalogous
+
+	* Added define for I2C_CONFIG and changed SYSEX_SAMPLING_INTERVAL
+	  define to 0x7A
+
+2009-07-10 00:16  eighthave
+
+	* minor cleanups
+
+2009-07-10 00:14  eighthave
+
+	* added more explicit instructions, including how to replace the
+	  included Firmata library
+
+2009-07-10 00:14  eighthave
+
+	* updated in preparation for first beta release
+
+2009-07-06 13:51  eighthave
+
+	* made the build use the AVR tools included in the
+	  Arduino.app/package and added
+	  needed libs to the include/linking paths but it still doesn't
+	  quite work with
+	  new versions of Arduino.app
+
+2009-07-06 13:49  eighthave
+
+	* made analogWriteCallback check the pinStatus to see what action
+	  to do (i.e. PWM, Servo, etc.)
+
+2009-07-03 01:17  eighthave
+
+	* - implemented new extended pinMode and INPUT, OUTPUT, ANALOG,
+	  PWM, and SERVO modes
+	  
+	  - switch default bitrate back to 57600
+
+2009-07-03 00:02  eighthave
+
+	* 115200 proved to be too error-prone, so the default will be
+	  reverted to 57600, which matches the new Arduino firmware upload
+	  speed AFAIK
+
+2009-06-26 23:05  eighthave
+
+	* - implemented and tested sampling interval message
+	  
+	  - sketched out Servo support, needs testing
+	  
+	  - sketched out updated setPinMode stuff since there are now many
+	  modes (I2C,
+	  Servo, Analog, etc.)
+
+2009-06-26 22:12  eighthave
+
+	* switched intenting to GNU style to match the rest of the code and
+	  the Arduino standard
+
+2009-06-15 03:24  eighthave
+
+	* first stab at incorporating Jeff and Shigeru's I2C work into the
+	  library
+
+2009-06-15 00:21  eighthave
+
+	* cleaned up formatting and used GNU intendation style, which seems
+	  closest to Arduino style
+
+2009-01-12 16:09  eighthave
+
+	* copied newest code from
+	  https://svn.berlios.de/svnroot/repos/arduino/trunk/hardware/libraries/Firmata
+	  to move development here
+
+2009-01-09 21:37  eighthave
+
+	* created layout for the Firmata library for Arduino/Wiring
+

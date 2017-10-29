@@ -1,0 +1,30 @@
+#N canvas 650 64 450 300 10;
+#X floatatom 219 125 5 0 0 0 - - -, f 5;
+#X obj 219 95 beats-per-minute 60;
+#X floatatom 267 62 5 20 999 0 BPM - -, f 5;
+#X obj 219 63 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 157 124 metro;
+#X obj 157 38 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 171 151 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 157 196 makenote 60;
+#X floatatom 157 172 5 0 0 0 - - -, f 5;
+#X obj 157 225 noteout 1;
+#X msg 13 2 \; pd dsp \$1;
+#X obj 13 -21 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X connect 0 0 7 2;
+#X connect 1 0 0 0;
+#X connect 1 0 4 1;
+#X connect 2 0 1 0;
+#X connect 3 0 1 0;
+#X connect 4 0 6 0;
+#X connect 4 0 8 0;
+#X connect 5 0 4 0;
+#X connect 5 0 3 0;
+#X connect 7 0 9 0;
+#X connect 7 1 9 1;
+#X connect 8 0 7 0;
+#X connect 11 0 10 0;

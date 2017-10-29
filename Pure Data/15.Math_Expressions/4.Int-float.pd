@@ -1,0 +1,81 @@
+#N canvas 128 47 1030 699 12;
+#X obj 10 9 cnv 15 400 40 empty empty Int-Float: 20 12 0 24 -262144
+-66577 0;
+#X obj 616 478 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 616 542 5 0 0 0 - - -;
+#X obj 36 299 + 5;
+#X floatatom 645 476 5 0 0 0 - - -;
+#X obj 616 506 expr $f1 * (4 / 3);
+#X floatatom 786 541 5 0 0 0 - - -;
+#X floatatom 786 474 5 0 0 0 - - -;
+#X obj 786 504 expr $f1 * 4 / 3;
+#X obj 82 423 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X floatatom 82 472 8 0 0 0 - - -;
+#X obj 82 442 expr 5 / 3;
+#X obj 565 86 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X floatatom 565 135 8 0 0 0 - - -;
+#X obj 565 105 expr 5.0/3;
+#X text 764 105 Assim funciona;
+#X floatatom 697 368 8 0 0 0 - - -;
+#X obj 697 338 expr $f1 / 3;
+#X msg 697 302 5;
+#X floatatom 651 302 5 0 0 0 - - -;
+#X obj 672 86 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X floatatom 672 135 8 0 0 0 - - -;
+#X obj 672 105 expr 5/3.0;
+#X text 21 57 Pd only deals with floats. Now \, [expr] can make a distinction
+between "ints" & "floats". We may need to take care for some trouble
+then. Lets first see how Pd deals with number.;
+#X text 22 133 If you write a number in Pd \, be it in messages or
+objects \, and if this number ands with a "dot" follow by zero \, Pd
+will ignore and exclude the dot-zero.;
+#X text 21 204 You may not believe me when you do it \, but this is
+what always happens on the background \, and you can reopen the patch
+or duplicate the message to see it.;
+#X text 81 295 Pd will force a "5.0" to be just "5" \, in its integer
+form \, but still considers it a float.;
+#X text 33 348 What happens is that in [expr] \, if we have a number
+in its integer form \, it will be consider an integer! Check bellow
+how the division between two integers will give back an integer result
+instead of a float:;
+#X text 170 443 integer numbers;
+#X text 155 474 Equal to one instead of 1.66667;
+#X text 83 500 integer result;
+#X text 35 540 This can be a pain in the neck when you keep writting
+"5.0" but it doesn't help. The way to solve this is to connect the
+number to the operator or parenthesis so Pd won't consider it a float
+atom \, but a symbol atom. If Pd thinks it is a symbol \, then it will
+remain like that \, and [expr] will figure out what's goin on.;
+#X text 533 26 To prevent integer results \, it's enough for one term
+in the formula to be a float. fBoth options bellow will work then:
+;
+#X text 534 210 Now \, this ain't much of a big deal because we usually
+send in values to [expr] via messages or number boxes. So even if you
+send a "5" as a message to [expr] \, if the variable is "$f1" it'll
+know it is a float!;
+#X text 546 405 But then \, be careful with the parenthesis in occasions
+such as bellow. in the parenthesis we have 2 integers \, so the result
+is "1" and not "1.33333"!;
+#X text 542 583 The above example is a bit silly because the parenthesis
+is redundant \, so the option to the right works. But even if it weren't
+\, you know now how to avoid this issue.;
+#X text 578 544 bad;
+#X text 747 542 good;
+#X connect 1 0 5 0;
+#X connect 4 0 5 0;
+#X connect 5 0 2 0;
+#X connect 7 0 8 0;
+#X connect 8 0 6 0;
+#X connect 9 0 11 0;
+#X connect 11 0 10 0;
+#X connect 12 0 14 0;
+#X connect 14 0 13 0;
+#X connect 17 0 16 0;
+#X connect 18 0 17 0;
+#X connect 19 0 17 0;
+#X connect 20 0 22 0;
+#X connect 22 0 21 0;

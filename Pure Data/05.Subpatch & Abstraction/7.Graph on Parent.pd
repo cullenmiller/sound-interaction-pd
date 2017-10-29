@@ -1,0 +1,127 @@
+#N canvas 702 26 1038 749 12;
+#X msg 60 94 bang;
+#X obj 20 -21 cnv 15 400 40 empty empty Graph: 20 12 0 24 -262144 -66577
+0;
+#X msg 225 93 bang;
+#N canvas 234 23 765 240 sliders 0;
+#X obj 101 101 cnv 15 198 78 empty empty empty 20 12 0 14 -4032 -66577
+0;
+#X obj 126 115 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -204786
+-1 -1 0 1;
+#X obj 126 135 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -204800
+-1 -1 4100 1;
+#X obj 126 157 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262130
+-1 -1 0 1;
+#X obj 115 65 inlet;
+#X obj 174 66 inlet;
+#X obj 246 65 inlet;
+#X text 264 114 s1;
+#X text 264 133 s2;
+#X text 265 153 s3;
+#X text 320 123 Like an abstraction \, we create a graph in this subpatch
+to be displayed on the parent patch.;
+#X connect 4 0 1 0;
+#X connect 5 0 2 0;
+#X connect 6 0 3 0;
+#X coords 0 -1 1 1 200 80 1 100 100;
+#X restore 55 460 pd sliders;
+#X floatatom 55 438 5 0 0 0 - - -;
+#X floatatom 151 437 5 0 0 0 - - -;
+#X floatatom 248 438 5 0 0 0 - - -;
+#N canvas 184 237 146 183 (subpatch) 0;
+#X obj 7 41 metro 500;
+#X obj 7 8 tgl 15 0 empty empty empty 17 7 0 10 -262130 -1 -1 0 1;
+#X obj 7 67 outlet;
+#X connect 0 0 2 0;
+#X connect 1 0 0 0;
+#X coords 0 1 50 -1 30 30 1 0 0;
+#X restore 516 296 graph;
+#X obj 516 333 bng 25 250 50 0 empty empty empty 17 7 0 10 -261234
+-1 -1;
+#N canvas 72 54 660 259 (subpatch) 0;
+#X obj 244 171 metro 500;
+#X obj 244 138 tgl 15 0 empty empty empty 17 7 0 10 -262130 -1 -1 0
+1;
+#X obj 244 197 outlet;
+#X text 96 84 Hi \, I'm a graph (subpatch) that's not displaying on
+parent!;
+#X connect 0 0 2 0;
+#X connect 1 0 0 0;
+#X coords 0 0 1 1 200 140 0;
+#X restore 697 447 graph;
+#X obj 865 503 graph;
+#N canvas 88 209 454 304 (subpatch) 0;
+#X coords 0 -1 1 1 200 140 1 0 0;
+#X restore 596 98 graph;
+#N canvas 69 22 462 312 (subpatch) 0;
+#X obj 125 111 bng 15 250 50 0 empty empty empty 17 7 0 10 -203904
+-1 -1;
+#X obj 153 139 bng 15 250 50 0 empty empty empty 0 -6 0 10 -262144
+-1 -1;
+#X text 206 122 not much here;
+#X connect 0 0 1 0;
+#X coords 0 -1 1 1 85 60 1 100 100;
+#X restore 297 472 pd;
+#X obj 697 473 bng 15 250 50 0 empty empty empty 0 -6 0 10 -262144
+-1 -1;
+#X obj 541 564 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-204800 -1 -1 0 256;
+#X obj 542 639 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-204800 -1 -1 0 256;
+#X symbolatom 629 626 10 0 0 0 - - -;
+#X obj 629 570 loadbang;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X coords 0 1 100 -1 200 140 1;
+#X restore 523 537 graph;
+#X obj 541 585 s A;
+#X obj 542 613 r A;
+#X obj 629 599 symbol 1-A;
+#X text 31 234 We can't just click to open subpatches and abstractions
+\, because we now interact with their sliders and other GUIs. We need
+now to right-click and ask for open.;
+#X obj 225 122 ex2 midinote 61;
+#X text 22 30 Subpatches and Abstractions can display GUIs \, atom
+boxes and comments onto the parent patch.;
+#X text 28 295 Check this abstraction Above. This is how to graph it:
+Inside them right-click anywhere empty and ask for properties \, then
+check "graph on parent" box.;
+#X text 29 351 Note these are the patch's "canvas" properties \, and
+has nothing to do with the GUI canvas \, which was used aesthetically
+in the subpatch below for \, the blue background:;
+#X text 40 568 An abstraction's name and arguments can still be displayed
+\, and the same happens with subpatches' names. But in the canvas'
+properties you can click "Hide object name and arguments" \, the it'll
+disappear for both a suboatch or abstraction! The blue canvas is hiding
+the subpacth's name anyway \, so try this on the other one on its right.
+;
+#X text 504 266 This small graph below was edited \, open and see it.
+;
+#X text 558 297 Just like a subpatch \, you can change sizesof X (horizontal)
+and Y (vertical) area. "Margin" changes the coordinates of the red
+area.;
+#X obj 60 123 ex2 volume 0.85;
+#X text 529 398 If inside a graph we unclick "Graph on Parent" \, it
+turns into a subpatch that says "graph".;
+#X text 494 0 There is another way to insert a subpatch with no name
+(so it's no use hiding it or not). Use the PUT menu and insert a "graph"!
+So a graph is basically a subpatch and behaves as such \, with "Graph
+on Parent" already checked \, and no name! You can have inlets and
+outles in it as well \, by the way...;
+#X text 746 447 <- click to open.;
+#X text 522 503 You can't insert a graph subpatch as an object:;
+#X text 754 602 and put it around some code that's;
+#X text 799 628 outside the graph;
+#X text 737 557 This may be a bit stupid. but nothing;
+#X text 732 580 stops you to use a graph as just a frame;
+#X connect 0 0 30 0;
+#X connect 2 0 23 0;
+#X connect 4 0 3 0;
+#X connect 5 0 3 1;
+#X connect 6 0 3 2;
+#X connect 7 0 8 0;
+#X connect 9 0 13 0;
+#X connect 14 0 19 0;
+#X connect 17 0 21 0;
+#X connect 20 0 15 0;
+#X connect 21 0 16 0;
+#X coords 0 0 1 1 85 60 0;

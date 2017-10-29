@@ -1,0 +1,54 @@
+#N canvas 1177 150 665 494 12;
+#X obj -20 244 cnv 15 650 70 empty empty empty 20 12 0 14 -262134 -66577
+0;
+#X obj 5 13 cnv 15 400 40 empty empty Atoms: 20 18 0 24 -262144 -66577
+0;
+#X text 24 248 1;
+#X text 594 287 0;
+#X text 94 249 1.14234e+34;
+#X text 397 283 3.14159;
+#X text 351 250 -999999;
+#X text 207 282 -12;
+#X text 480 260 1824.53;
+#X text -4 276 3;
+#X obj -19 400 cnv 15 650 70 empty empty empty 20 12 0 14 -262134 -66577
+0;
+#X text 56 437 number5;
+#X text 144 406 3..2;
+#X text 301 407 --44;
+#X text 199 408 label;
+#X text 348 407 reset;
+#X text 257 408 5++;
+#X text 286 436 trigger;
+#X text 277 285 -1.2e-14;
+#X text 522 408 bang;
+#X text 130 287 -2e+12;
+#X text 58 282 0.00032;
+#X text 503 285 1.3e-11;
+#X text 20 66 An atom is an element in a message. There are only two
+types of elements (or Atoms) that we can have in messages. These are:
+Numbers & Symbols.;
+#X text 22 203 Integer \, positive \, negative \, floating point and
+exponential.;
+#X text 250 254 45000;
+#X text 558 259 -0.0001;
+#X text 26 124 All numbers in Pd are considered floating point numbers
+(or just "float") \, which are numbers with decimal points. Even integer
+numbers are considered as "floats". Pd understands numbers in these
+formats:;
+#X text 127 436 hi;
+#X text 494 434 zero;
+#X text 56 404 "1";
+#X text 170 435 ^;
+#X text 109 406 %;
+#X text 365 434 object~;
+#X text 442 435 open;
+#X text -1 407 stop;
+#X text 3 438 pd;
+#X text 551 438 Â¥SÂﬂÁ;
+#X text 574 405 ;
+#X text 202 440 +‹©‹µed;
+#X text 412 408 3#4$!-_+= ':;
+#X text 28 336 Now everything which is not on the above format is not
+recognized as a number atom. Therefore \, it will be interpreted as
+a symbol atom.:;

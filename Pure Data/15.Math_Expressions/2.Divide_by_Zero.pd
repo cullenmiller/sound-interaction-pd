@@ -1,0 +1,37 @@
+#N canvas 1049 193 472 717 12;
+#X obj 10 9 cnv 15 400 40 empty empty Divide_by_zero: 20 12 0 24 -262144
+-66577 0;
+#X obj 147 596 expr $f1 / $f2;
+#X floatatom 147 564 5 0 0 0 - - -;
+#X obj 147 629 print;
+#X obj 117 418 print;
+#X obj 117 357 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 295 553 5 0 0 0 - - -;
+#X floatatom 295 622 5 0 0 0 - - -;
+#X obj 274 650 print;
+#X obj 295 585 /;
+#X floatatom 198 140 5 0 0 0 - - -;
+#X floatatom 198 209 5 0 0 0 - - -;
+#X obj 177 237 print;
+#X obj 198 172 / 0;
+#X obj 117 384 expr 3 / 0;
+#X floatatom 194 631 5 0 0 0 - - -;
+#X text 13 68 You should care to not divide a number to zero \, Pd
+will let you do it and give you back a "zero" as the result \, whereas
+in theory it should be infinite.;
+#X text 32 287 Now [expr] warns you \; It prints "Divide by zero detected"
+\, but... it also allows you to do it and gives a zero as well.;
+#X text 38 480 This usually happens when we do not initialize with
+an argument or value on the cold inlet:;
+#X connect 1 0 3 0;
+#X connect 1 0 15 0;
+#X connect 2 0 1 0;
+#X connect 5 0 14 0;
+#X connect 6 0 9 0;
+#X connect 9 0 7 0;
+#X connect 9 0 8 0;
+#X connect 10 0 13 0;
+#X connect 13 0 11 0;
+#X connect 13 0 12 0;
+#X connect 14 0 4 0;

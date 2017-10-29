@@ -1,0 +1,45 @@
+#N canvas 1028 155 521 792 12;
+#X obj 272 208 inlet;
+#X floatatom 272 280 5 0 0 0 - - -;
+#X obj 272 319 outlet;
+#X floatatom 194 177 5 0 0 0 - - -;
+#X obj 175 472 loadbang;
+#X floatatom 268 626 5 0 0 0 - - -;
+#X symbolatom 175 626 4 0 0 0 - - -;
+#X text 253 242 =;
+#X obj 107 247 + 8;
+#X obj 157 246 \$1 8;
+#X text 195 244 =;
+#X text 138 244 =;
+#X floatatom 212 277 5 0 0 0 - - -;
+#X floatatom 157 277 5 0 0 0 - - -;
+#X floatatom 107 276 5 0 0 0 - - -;
+#X obj 212 245 + \$2;
+#X obj 272 245 \$1 \$2;
+#X text 27 -86 This is yet another and last example used as an abstraction
+;
+#X text 53 -27 In the previous abstractions [ex1] & [ex2] \, we saw
+dollarsigns in objects loading values for arguments \, like [float
+\$2]. But the object itself can be loaded from a dollarsign inherited
+value!;
+#X text 50 70 On the parent patch we have 3 arguments \, the two firsts
+(+ e 8) will be loaded bellow.;
+#X text 111 138 All of these are equal to [+ 8].;
+#X obj 175 511 \$3 \$1 \$2;
+#X text 25 368 ============================================================
+;
+#X text 57 406 the last argument is the name of a previous abstraction
+example! We can equally load it as an object \, see bellow:;
+#X connect 0 0 16 0;
+#X connect 1 0 2 0;
+#X connect 3 0 8 0;
+#X connect 3 0 9 0;
+#X connect 3 0 15 0;
+#X connect 3 0 16 0;
+#X connect 4 0 21 0;
+#X connect 8 0 14 0;
+#X connect 9 0 13 0;
+#X connect 15 0 12 0;
+#X connect 16 0 1 0;
+#X connect 21 0 6 0;
+#X coords 0 0 1 1 100 100 0;

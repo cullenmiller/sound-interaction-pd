@@ -1,0 +1,68 @@
+#N canvas 169 118 854 837 12;
+#X obj 118 393 hradio 15 1 0 8 empty empty empty 0 -6 0 10 -262130
+-1 -1 0;
+#X obj 86 95 vradio 15 1 0 3 empty empty empty 0 -6 0 10 -204786 -1
+-1 0;
+#X text 116 93 play/pause;
+#X text 114 109 rewind;
+#X text 111 123 stop & rewind;
+#X obj 21 -19 cnv 15 650 40 empty empty Exercize: 20 18 0 24 -262144
+-66577 0;
+#X obj 86 285 f;
+#X obj 140 302 + 1;
+#X msg 52 252 0;
+#X obj 86 366 sel 8;
+#X obj 86 392 bng 15 250 50 0 empty empty empty 0 -6 0 10 -232576 -1
+-1;
+#X obj 86 227 tgl 15 0 empty empty empty 0 -6 0 10 -260097 -1 -1 0
+1;
+#X obj 86 252 metro 500;
+#X obj 86 150 sel 0 1 2;
+#X obj 86 181 bng 15 250 50 0 empty empty empty 0 -6 0 10 -261234 -1
+-1;
+#X obj 51 182 bng 15 250 50 0 empty empty empty 0 -6 0 10 -261234 -1
+-1;
+#X obj 126 181 bng 15 250 50 0 empty empty empty 0 -6 0 10 -261234
+-1 -1;
+#X msg 126 201 0;
+#X obj 126 228 t f f;
+#X obj 86 319 t f f;
+#X floatatom 118 421 5 0 0 0 - - -;
+#X obj 201 253 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 73 48 Study the patch bellow \, which is the basis of a sequencer
+in loop.;
+#X text 262 151 Exercize:;
+#X text 304 200 1) Track the data flow of the play \, rewind & stop
+buttons.;
+#X text 339 238 A) Understand the function of every object. Which are
+they?;
+#X text 337 275 B) What is section of the counter routine?;
+#X text 337 303 c) Hw does the loop mecanism work?;
+#X text 334 343 2) The [t f f] needs to be connected to [+] & [sel]
+like that? If you change the order of connection \, what happens?;
+#X text 301 426 2) Copy the example from the previous patch and insert
+it here \, below the atom box.;
+#X text 186 434 <=============;
+#X connect 0 0 20 0;
+#X connect 1 0 13 0;
+#X connect 6 0 19 0;
+#X connect 7 0 6 1;
+#X connect 8 0 6 0;
+#X connect 9 0 10 0;
+#X connect 9 1 0 0;
+#X connect 10 0 8 0;
+#X connect 11 0 12 0;
+#X connect 12 0 6 0;
+#X connect 13 0 14 0;
+#X connect 13 1 15 0;
+#X connect 13 2 16 0;
+#X connect 14 0 11 0;
+#X connect 15 0 8 0;
+#X connect 16 0 17 0;
+#X connect 17 0 18 0;
+#X connect 18 0 6 0;
+#X connect 18 1 11 0;
+#X connect 19 0 9 0;
+#X connect 19 1 7 0;
+#X connect 21 0 6 0;

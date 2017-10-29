@@ -1,0 +1,55 @@
+#N canvas 411 22 1230 981 12;
+#X obj 68 19 cnv 15 400 40 empty empty Sinesum-Normalize: 20 12 0 24
+-262144 -66577 0;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array array1 4099 float 4;
+#X coords 0 -1 4098 1 200 140 1;
+#X restore 176 588 graph;
+#X obj 233 390 send array1;
+#X msg 251 319 sinesum 512 0.5 0.5;
+#X msg 255 347 sinesum 512 0.3 0.5 0.3;
+#X msg 50 445 \; array1 sinesum 512 0.2 0.2 0.2 0.2;
+#X obj 235 865 send array1;
+#X msg 235 838 normalize;
+#X msg 308 445 \; array1 sinesum 1024 1 0.2 0.7 0.8;
+#X msg 730 807 \; array1 sinesum 4096 0.1 0.2 0.1 0.28;
+#X msg 730 848 \; array1 sinesum 4096 0.1 0.2 0.1 0.28 \, normalize
+;
+#X text 71 68 "sinesum" is useful to draw waveforms for a wavetable
+oscilator. It generates waveforms by summing sine functions as if they
+were sine components of a harmonic series.;
+#X msg 223 271 sinesum 512 1;
+#X text 73 132 The first argument of the "sinesum" command is the table
+size (if the table is not set at this size \, it will be resized to
+it). After that we have a number of elements that will define the number
+of sine components \, from the first element of the harmonic series
+and up. The number values are the amplitudes of each sine component
+(from 0 to 1). Negative values indicate a phase change of 180 degrees.
+;
+#X text 395 319 two;
+#X text 428 346 three;
+#X text 146 419 four;
+#X text 390 420 four;
+#X msg 231 293 sinesum 512 -1;
+#X text 344 280 1 sinusoid;
+#X text 82 780 The "normalize" command normalizes the maximum value
+to 1!;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array array2 4099 float 2;
+#X coords 0 -1 4099 1 200 140 1;
+#X restore 769 343 graph;
+#X msg 762 97 \; array2 cosinesum 64 0.2 0.2;
+#X msg 762 141 \; array2 cosinesum 64 -0.2 0.2;
+#X msg 763 185 \; array2 cosinesum 64 0.2 -0.2;
+#X msg 763 231 \; array2 cosinesum 64 -0.2 -0.2;
+#X msg 729 739 \; array2 cosinesum 4096 1 0.5 0.3 0.2 0.1 0.9 \, normalize
+;
+#X msg 729 700 \; array2 cosinesum 4096 1 0.5 0.3 0.2 0.1 0.9;
+#X text 691 667 You can send normalize right after by using a comma.
+;
+#X text 714 57 In the same fashion \, we have sum of Cosines:;
+#X connect 3 0 2 0;
+#X connect 4 0 2 0;
+#X connect 7 0 6 0;
+#X connect 12 0 2 0;
+#X connect 18 0 2 0;

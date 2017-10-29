@@ -1,0 +1,150 @@
+#N canvas 281 341 1437 756 12;
+#X obj 16 19 cnv 15 400 40 empty empty Interaction 20 12 0 24 -262144
+-66577 0;
+#X obj 146 251 key;
+#X floatatom 146 275 5 0 0 0 - - -;
+#X obj 146 301 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 275 296 select 32;
+#X obj 275 270 key;
+#X obj 275 346 metro 500;
+#X obj 275 374 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 275 324 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 534 159 ctlin;
+#X obj 587 159 bendin;
+#X obj 478 191 noteout;
+#X obj 534 191 ctlout;
+#X obj 478 159 notein;
+#X obj 587 191 bendout;
+#X obj 159 533 MouseState;
+#X floatatom 96 571 5 0 0 0 - - -;
+#X floatatom 150 571 5 0 0 0 - - -;
+#X floatatom 192 571 5 0 0 0 - - -;
+#X floatatom 252 571 5 0 0 0 - - -;
+#X floatatom 293 571 5 0 0 0 - - -;
+#X obj 159 481 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X text 91 594 click;
+#X obj 62 531 sel 1;
+#X text 203 594 Y;
+#X text 162 594 X;
+#X msg 253 500 poll;
+#X obj 599 496 mtof;
+#X obj 599 551 ftom;
+#X obj 599 469 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-204800 -1 -1 0 256;
+#X obj 599 526 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-260097 -1 -1 0 256;
+#X obj 599 582 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-204800 -1 -1 0 256;
+#X obj 643 159 pgmin;
+#X obj 643 191 pgmout;
+#X obj 693 159 midiin;
+#X obj 693 191 midiout;
+#X obj 813 159 polytouchin;
+#X obj 813 191 polytouchout;
+#X obj 750 159 touchin;
+#X obj 750 191 touchout;
+#X floatatom 1097 289 0 0 0 0 - - -;
+#X floatatom 1089 312 0 0 0 0 - - -;
+#X floatatom 1081 335 0 0 0 0 - - -;
+#X obj 1081 231 time;
+#X floatatom 1106 266 0 0 0 0 - - -;
+#X obj 1013 323 date;
+#X floatatom 1023 478 0 0 0 0 - - -;
+#X floatatom 1018 502 0 0 0 0 - - -;
+#X floatatom 1012 531 0 0 0 0 - - -;
+#X floatatom 1038 368 0 0 0 0 - - -;
+#X floatatom 1033 392 0 0 0 0 - - -;
+#X floatatom 1028 419 0 0 0 0 - - -;
+#X obj 1081 181 tgl 15 0 empty empty empty 17 7 0 10 -261682 -1 -1
+1 1;
+#X obj 1081 146 loadbang;
+#X obj 1013 297 bng 15 250 50 0 empty empty empty 17 7 0 10 -204786
+-1 -1;
+#X obj 1081 202 metro 37;
+#X obj 1045 637 time -------------------;
+#X obj 1045 607 date -------------------;
+#X text 17 78 Pd is very appropriate for interactive and realtime applications
+and it has lots of sensor capabilities.;
+#X text 16 136 These are very basic examples \, like MIDI objects and
+others that get info from your mouse/keyboard.;
+#X text 14 193 The [key] object gives you the number of the pressed
+key on your keyboard. If you connect it to a [select] \, you can turn
+any key into a patch control.;
+#X text 108 336 turn [metro] on & off;
+#X text 122 357 with the spacebar;
+#X text 24 409 The [MouseState] object (note the capital letters) will
+give you the mouse cursor position in pixels. This depends on your
+screen resolution (like "1024 by 768").;
+#X msg 308 504 nopoll;
+#X obj 159 501 metro 1000;
+#X text 256 594 Diference;
+#X text 34 632 A "poll" message turns it on \, and "nopoll" turns it
+off. You can send bangs to it so it will give you that moment's position.
+;
+#X text 488 123 Here there are some MIDI obejcts:;
+#X text 481 241 Check their "help". You need to set your MIDI in Pd
+like in some any other software \, by the way.;
+#X text 479 292 But in Pd we can do all sorts of things with MIDI \,
+in the same way that any nymber generated in your patch can become
+a MIDI message.;
+#X text 477 360 MIDI numbers are ranged from 0 to 127 When we work
+with MIDI notes \, we need to convert note numbers to frequencies.
+The [mtof] ("Midi to Frequency") does that. Conversely \, [ftom] ("Frequency
+to Midi") does the opposite:;
+#X text 665 465 MIDI note number;
+#X text 665 522 Herts;
+#X text 665 579 Back to MIDI;
+#X text 953 53 With these objects from zexy \, you can check your operational
+system date and time.;
+#X text 952 97 This is useful for interactive installations.;
+#X text 1170 265 milisecond;
+#X text 1129 291 second;
+#X text 1120 312 minute;
+#X text 1111 335 hour;
+#X text 1072 367 Daytime savings (yes or no);
+#X text 1066 394 Day of the Year;
+#X text 1066 419 Day of the Week;
+#X text 1054 477 Day of the month;
+#X text 1055 530 Year;
+#X text 1055 503 Month;
+#X text 964 575 hint: like this you can stretch the outlets;
+#X connect 1 0 2 0;
+#X connect 2 0 3 0;
+#X connect 4 0 8 0;
+#X connect 5 0 4 0;
+#X connect 6 0 7 0;
+#X connect 8 0 6 0;
+#X connect 15 0 16 0;
+#X connect 15 1 17 0;
+#X connect 15 2 18 0;
+#X connect 15 3 19 0;
+#X connect 15 4 20 0;
+#X connect 16 0 23 0;
+#X connect 21 0 65 0;
+#X connect 23 0 21 0;
+#X connect 26 0 15 0;
+#X connect 27 0 30 0;
+#X connect 28 0 31 0;
+#X connect 29 0 27 0;
+#X connect 30 0 28 0;
+#X connect 43 0 42 0;
+#X connect 43 1 41 0;
+#X connect 43 2 40 0;
+#X connect 43 3 44 0;
+#X connect 45 0 48 0;
+#X connect 45 1 47 0;
+#X connect 45 2 46 0;
+#X connect 45 3 51 0;
+#X connect 45 4 50 0;
+#X connect 45 5 49 0;
+#X connect 52 0 55 0;
+#X connect 53 0 52 0;
+#X connect 53 0 54 0;
+#X connect 54 0 45 0;
+#X connect 55 0 43 0;
+#X connect 64 0 15 0;
+#X connect 65 0 15 0;

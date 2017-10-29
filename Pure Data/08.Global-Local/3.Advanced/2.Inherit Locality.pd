@@ -1,0 +1,33 @@
+#N canvas 772 44 475 684 12;
+#X obj -11 22 cnv 15 400 40 empty empty Inherit_Locality: 20 19 0 24
+-262144 -66577 0;
+#X obj 74 529 receive \$0-1-A;
+#X obj 163 250 f \$0;
+#X obj 163 222 loadbang;
+#X obj 198 529 receive \$0-2-A;
+#X symbolatom 74 554 10 0 0 0 - - -;
+#X symbolatom 198 555 10 0 0 0 - - -;
+#X text -4 68 ============================================================
+;
+#X obj 163 280 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-204786 -1 -1 1116 256;
+#X text -7 318 ============================================================
+;
+#X text -4 595 ============================================================
+;
+#X text -5 150 ============================================================
+;
+#X obj 82 368 ex3 \$0-1;
+#X text -3 103 You can also pass "\$0" to abstractions! Then you can
+recall the data on the parent patch with "\$0" as well.;
+#X text 150 380 Open the abstractions.;
+#X text 6 441 ============================================================
+;
+#X text 5 180 This is the patch's initialization number:;
+#X text 13 475 The [receive] objects below get data from [ex4] \, which
+is an abstraction inside [ex3]. See how they match.;
+#X obj 82 392 ex3 \$0-2;
+#X connect 1 0 5 0;
+#X connect 2 0 8 0;
+#X connect 3 0 2 0;
+#X connect 4 0 6 0;

@@ -1,0 +1,50 @@
+#N canvas 651 55 629 726 12;
+#X obj 38 210 gemhead;
+#X obj 224 292 gemwin;
+#X msg 224 266 create \, 1;
+#X obj 17 14 cnv 15 400 40 empty empty [pix_image]: 20 12 0 24 -262144
+-66577 0;
+#X obj 38 330 pix_image;
+#X msg 49 275 open ./media/mpc.jpg;
+#X obj 38 631 pix_texture;
+#X obj 38 657 rectangle 4 3;
+#X obj 126 480 t b f;
+#X obj 126 451 nbx 3 20 0 1 0 0 empty empty green 0 -6 0 10 -4034 -1
+-1 0 256;
+#X obj 189 481 t b f;
+#X obj 189 452 nbx 3 20 0 1 0 0 empty empty blue 0 -6 0 10 -4160 -162280
+-1 0 256;
+#X obj 70 450 nbx 3 20 0 1 0 0 empty empty red 0 -6 0 10 -258113 -33289
+-1 0 256;
+#X obj 38 550 color;
+#X obj 70 522 pack float float float;
+#X obj 108 209 loadbang;
+#X obj 108 235 trigger bang bang;
+#X text 22 112 Not too different than [pix_film] \, [pix_image] loads
+images on GEM window \, and again we use the objects: [pix_texture]
+& [rectangle]. Not only that \, we also have the [color] object that
+applies coloring effects to the image.;
+#X text 117 332 Loads images to GEM.;
+#X text 54 398 Move this number boxes from 0 to 1 \, remember to hit
+"shift" for decimal changes.;
+#X text 92 550 [color] gets RGB values and applies to the image.;
+#X text 178 630 Image Credit:;
+#X text 182 654 Pictue from the performance of the group mpc2059 during
+the Third International Pd Convention.;
+#X connect 0 0 4 0;
+#X connect 2 0 1 0;
+#X connect 4 0 13 0;
+#X connect 5 0 4 0;
+#X connect 6 0 7 0;
+#X connect 8 0 14 0;
+#X connect 8 1 14 1;
+#X connect 9 0 8 0;
+#X connect 10 0 14 0;
+#X connect 10 1 14 2;
+#X connect 11 0 10 0;
+#X connect 12 0 14 0;
+#X connect 13 0 6 0;
+#X connect 14 0 13 1;
+#X connect 15 0 16 0;
+#X connect 16 0 5 0;
+#X connect 16 1 2 0;

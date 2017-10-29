@@ -1,0 +1,14 @@
+#N canvas 687 608 481 459 12;
+#X obj -85 20 cnv 15 400 40 empty empty Inheritance_2: 20 12 0 24 -262144
+-66577 0;
+#X floatatom 79 224 5 0 0 0 - - -;
+#X floatatom 79 289 5 0 0 0 - - -;
+#X text -49 89 This is a more advanced example of inheritance \, where
+arguments can be loaded inside objects as the very object name.;
+#X obj 79 254 ex3 + 8 ex2;
+#X text -49 149 Open the abstraction [ex3] and see how the arguments
+generate an object and argument [+ 8];
+#X text -41 345 Open and also check how the third argument can equally
+generate an abstraction inside.;
+#X connect 1 0 4 0;
+#X connect 4 0 2 0;

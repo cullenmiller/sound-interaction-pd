@@ -1,0 +1,9 @@
+#N canvas 449 22 475 260 12;
+#X obj 20 -110 cnv 15 400 40 empty empty Links: 20 12 0 24 -262144
+-66577 0;
+#X obj 154 94 pddp/pddplink http://puredata.info/;
+#X text 28 -46 We can load links and click them to open sites on your
+default browser.;
+#X text 79 55 Pd's oficial website:;
+#X text 27 7 The object is [pddplink] and the argument is the address.
+;

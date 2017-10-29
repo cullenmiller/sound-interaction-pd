@@ -1,0 +1,73 @@
+#N canvas 502 347 991 661 12;
+#X obj 21 2 cnv 15 350 50 empty empty Objects: 20 25 0 24 -262144 -66577
+0;
+#X obj 509 53 metro;
+#X obj 517 314 osc~;
+#X obj 482 78 bang;
+#X obj 509 104 bang~;
+#X obj 474 238 delay;
+#X obj 516 131 sig~;
+#X obj 481 161 snapshot~;
+#X obj 509 187 print;
+#X obj 503 211 print~;
+#X obj 478 473 float;
+#X obj 504 497 symbol;
+#X obj 475 522 lister;
+#X obj 518 423 dac~;
+#X obj 503 290 random;
+#X obj 524 367 +;
+#X obj 517 343 swap;
+#X obj 525 551 any;
+#X obj 523 78 b;
+#X obj 524 238 del;
+#X obj 525 473 f;
+#X obj 525 522 l;
+#X obj 504 576 repeat;
+#X obj 449 472 0;
+#X obj 518 394 adc~;
+#X obj 518 264 pipe;
+#X obj 478 444 value;
+#X obj 525 444 v;
+#X obj 181 168 trigger;
+#X obj 184 214 select;
+#X obj 189 257 route;
+#X obj 167 297 pack;
+#X obj 225 297 unpack;
+#X text 206 297 &;
+#X obj 303 368 line;
+#X text 344 368 /;
+#X obj 362 368 line~;
+#X obj 307 412 notein;
+#X text 126 414 and interactive ones as:;
+#X text 27 367 Besides those \, we'll see objects like:;
+#X text 454 18 As a review \, these are the ones we've seen so far:
+;
+#X obj 462 601 makefilename;
+#X text 570 598 generates/blends atoms as symbols.;
+#X text 568 52 sends "bang" as a metrônomo at a regular time in ms
+;
+#X text 568 78 sends "bang" whenever it receives any message;
+#X text 568 104 sends "bang" at every block of audio;
+#X text 568 130 converts data into a stream of audio blocks;
+#X text 568 156 at a bang \, converts a moment of audio stream to data
+;
+#X text 568 182 prints messages into terminal window;
+#X text 568 208 prints a block of audio when it receives a bang;
+#X text 569 234 delays bangs in given ms;
+#X text 569 260 delaus data un given ms;
+#X text 569 286 generates random numbers at a bang;
+#X text 569 312 cosine wave oscilator;
+#X text 569 338 swaps data from incomming inlets;
+#X text 570 364 add math object;
+#X text 570 390 audio input (Analog to Digital converter);
+#X text 570 416 audio output (Digital to Analog converter);
+#X text 570 468 stores numbers;
+#X text 570 442 stores numbers with a variable name;
+#X text 570 494 stores symbls;
+#X text 570 520 stores lists;
+#X text 570 549 stores any kind of data (even without selector seletors)
+;
+#X text 570 572 repeats a message x times;
+#X text 17 103 We've seen some very important objects so far. But this
+folder will focus on some essencial objects \, with special emphasis
+at:;

@@ -1,0 +1,75 @@
+#N canvas 228 22 1036 888 12;
+#X obj 26 14 cnv 15 400 40 empty empty Array_&_[table]: 20 12 0 24
+-262144 -66577 0;
+#X obj 671 447 table Tabela 4096;
+#N canvas 89 138 450 300 (subpatch) 0;
+#X array Array 100 float 3;
+#A 0 -0.44286 -0.450003 -0.457146 -0.457146 -0.457146 -0.457146 -0.457146
+-0.457146 -0.457146 -0.457146 -0.454288 -0.451431 -0.448574 -0.445717
+-0.44286 -0.433336 -0.423812 -0.414288 -0.400002 -0.385717 -0.371431
+-0.357145 0.600004 0.61429 0.571432 0.528575 0.514289 0.500003 0.485717
+0.457146 0.457146 0.44286 0.428574 0.385717 0.357145 0.342859 0.300002
+0.285716 0.27143 0.242859 0.200001 0.17143 0.157144 0.142858 0.128572
+0.128572 0.114286 0.100001 0.071429 0.0571432 0.0428574 0.0357145 0.0285716
+-0.0142858 -0.0428574 -0.071429 -0.100001 -0.142858 -0.17143 -0.200001
+-0.242859 -0.264287 -0.285716 -0.307145 -0.328573 -0.385717 -0.428574
+-0.485717 -0.528575 -0.628575 -0.685719 -0.728576 -0.757148 -0.785719
+-0.842862 -0.864291 -0.88572 -0.914291 -0.93572 -0.957149 -0.971435
+-0.971435 -0.971435 -0.957149 -0.942863 -0.914291 -0.900006 -0.88572
+-0.871434 -0.828577 -0.814291 -0.800005 -0.771433 -0.750005 -0.728576
+-0.685719 -0.66429 -0.642861 -0.621432 -0.600004;
+#X coords 0 1 99 -1 200 140 1;
+#X restore 627 113 graph;
+#X text 536 664 ============================================================
+;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array Table 4 float 3;
+#A 0 0.0857217 -0.371424 0.340004 0;
+#X coords 0 1 4 -1 200 140 1;
+#X restore 147 175 graph;
+#X text 39 345 Above we have a simple 4-element array. Arrays in Pure
+Data are one-dimensional structures. The index value represents a column
+(horizontal axis) and the number values are displayed graphically on
+the vertical axis. In concept \, one-dimensional arrays can be related
+to just lists of numbers. And we'll actually see how to work with them
+as lists.;
+#X text 32 464 ============================================================
+;
+#X text 39 491 To insert an Array \, you have to use the PUT menu.
+We then pick a name and set the number of elements we want.;
+#X text 537 288 You can interact with an array by clicking on its element
+points and drag them up and down while moving the cursor right and
+left to change other points. When the array has just a few elements
+like on the left \, try to click on the beginning of the line. Note
+that the cursor will change letting you know it's possible to click
+it.;
+#X text 536 400 ============================================================
+;
+#X text 38 536 But then \, of you right-click an array \, you can open
+it just like a graphic subpatch. This in fact implies that an array
+consists of two things: a graph element plus the array itself. You
+can even see that when we right-click and choose "Properties" we have
+two windows \, one is the graph property window (named canvas) and
+the other belongs to the actual array.;
+#X text 546 489 The [table] object creates automaticaly a subpatch
+\, and inside it we find the array as we now know it (a graph and the
+array itself). The first argument is the array name and the second
+its size. No arguments will generate 100 element arrays named as "table0"
+\, "table1" and so on.;
+#X text 548 597 Important: One big difference is that in the [table]
+object we can store the values of an Array. It's always initialized
+empty.;
+#X text 36 664 ============================================================
+;
+#X text 546 18 In the array properties you can set the arrays to store
+values so they are loaded when the patch is initialized \, just click
+or unclick "save contents".;
+#X text 306 708 Arrays are useful to store lists and can also be used
+as sequencers in music. We'll some examples soon \, they can also be
+tables of waveforms and even store audio files.;
+#X text 340 801 IMPORTANT: ARRAY MUST HAVE DIFFERENT NAMES;
+#X text 38 72 An array is a Data Structure \, and it's basically a
+collection of numbers identified by an index. An array in Pd is a graphic
+and interactive table. It could be thought of as yet another (and last)
+GUI element.;
+#X coords 0 0 1 1 85 60 0;

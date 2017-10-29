@@ -1,0 +1,29 @@
+#N canvas 494 320 518 741 12;
+#X obj 145 660 print;
+#X symbolatom 210 660 15 0 0 0 - - -;
+#X text 8 300 If you type in a number into a symbol atom box \, it
+has the ability to produce a symbol message that has the format of
+a float message! Try it and check the terminal.;
+#X symbolatom 139 382 10 0 0 0 - - -;
+#X obj 139 417 print;
+#X obj -33 26 cnv 15 500 40 empty empty Converting_Atoms: 40 12 0 24
+-262144 -66577 0;
+#X text 15 89 We saw that we can create a symbol message out of a float
+atom just by putting a "symbol" selector before it.;
+#X text 15 136 But what if you really wanted to do that? Even though
+you have no idea why the hell you would need that now... huh?;
+#X text 17 184 Is it impossible?;
+#X text 17 227 Of course not! You can do it!;
+#X text 3 267 ============================================================
+;
+#X text 3 455 ============================================================
+;
+#X floatatom 180 575 5 0 0 0 - - -;
+#X obj 180 611 makefilename %d;
+#X text 15 489 There is also the [makefilename] object \, which we'll
+see again later on. When it has the %i argument \, it can convert integer
+numbers into symbols. For more info \, check the Help File.;
+#X connect 3 0 4 0;
+#X connect 12 0 13 0;
+#X connect 13 0 0 0;
+#X connect 13 0 1 0;

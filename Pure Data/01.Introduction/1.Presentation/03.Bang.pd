@@ -1,0 +1,20 @@
+#N canvas 473 203 475 394 12;
+#X obj -206 20 cnv 15 400 40 empty empty Bang: 20 12 0 24 -262144 -66577
+0;
+#X obj -36 249 print;
+#X msg -16 217 bang;
+#X obj -59 219 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text -181 78 A Bang Message can be just a message box with "bang"
+in it.;
+#X text -37 215 =;
+#X text 28 216 <- Bang Message;
+#X text -145 215 Bang GUI ->;
+#X text -176 303 Elements and objects in Pd usually understand the
+"bang" command. A "bang" \, for example \, makes an object do something
+it does \, so it's like telling it: "Do it".;
+#X text -178 124 We also have the bang message in a GUI (Graphical
+User Interface) version. GUIs are other elements in Pd \, which are
+highly interactive. The Bang GUI looks like a button.;
+#X connect 2 0 1 0;
+#X connect 3 0 1 0;

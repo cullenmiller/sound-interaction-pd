@@ -1,0 +1,135 @@
+#N canvas 709 142 990 997 12;
+#X obj 39 6 cnv 15 400 40 empty empty Dollarsign: 20 12 0 24 -262144
+-66577 0;
+#X floatatom 153 333 5 0 0 0 - - -;
+#X msg 123 387 \$1;
+#X floatatom 103 421 5 0 0 0 - - -;
+#X obj 151 421 print;
+#X text 50 56 In Pd we can use dollarsign plus a number (\$1 \, \$2
+\, \$3) either in messages or objects. We'll see how they work on messages
+now. Folder "5.Inheritence" will tell you about the usage in objects.
+\$0 is still something else \, explained in folder "8.Locality".;
+#X text 32 258 ============================================================
+;
+#X msg 112 333 3 2;
+#X text 110 312 list;
+#X text 150 312 float;
+#X text 52 216 Therefore \, the \$1 will acquire the values of an atomic
+message \, or the first element from a list.;
+#X text 168 372 We don't need to worry about \; the selector here.
+;
+#X text 48 284 Acquiring float values:;
+#X text 32 448 ============================================================
+;
+#X text 54 474 Acquiring symbol values:;
+#X msg 130 634 symbol Go!;
+#X msg 117 606 Go!;
+#X msg 117 673 \$1;
+#X obj 117 713 print;
+#X text 150 606 bad;
+#X text 212 635 GOOD!;
+#X text 52 948 ============================================================
+;
+#X msg 643 107 Go!;
+#X msg 643 174 \$1;
+#X obj 643 214 print;
+#X text 527 27 But please understand that the first symbol atom on
+a message will always be interprted as a SELECTOR. It doesn't need
+to be only the "symbol" selector.;
+#X msg 656 135 To Go!;
+#X text 520 0 ============================================================
+;
+#X text 677 106 BAD - No selector;
+#X text 713 134 OK (selector "To");
+#X text 523 239 ============================================================
+;
+#X obj 625 391 print;
+#X msg 625 362 \$1;
+#X msg 625 332 list A B;
+#X obj 687 539 print;
+#X msg 687 510 \$1;
+#X text 536 263 So when it comes to acquiring a symbol value from a
+list that starts with a symbol \, a selector is needed \, but it doesn't
+need to be only the "list" selector.;
+#X msg 687 478 start A B;
+#X obj 782 392 print;
+#X msg 782 363 \$1;
+#X msg 782 332 A B;
+#X text 591 440 "A" goes through;
+#X text 745 442 "B" goes through;
+#X text 637 590 "A" goes through again;
+#X text 51 147 A dollarsign is like a variable. It acquires the value
+of an element (float or symbol) from an incomming message. The number
+after the dollarsign corresponds to the element number on a list.;
+#X text 45 512 Now it's important to define a selector. Only a symbol
+atom won't go through \, as it will be interpreted as just a selector
+\, and the message itself would be considered empty - or with 0 elements.
+;
+#X text 57 755 If the number of elements on the list is smaller than
+the dollarsign number \, Pd gives us the error: "argument number out
+of range" \, which means that the list is too small. The acquired value
+will be zero \; This is what happened above when we hit the "Go!" message:
+The message had 0 elements \, and it was searching for element number
+1!;
+#X text 537 622 ============================================================
+;
+#X symbolatom 768 773 10 0 0 0 - - -;
+#X msg 768 740 \$1;
+#X msg 768 708 list A B;
+#X text 545 648 Be aware that althou the dollarsign acquired a symbol
+value \, it is not a symbol message! So it won't be accepted into a
+symbol atom box.;
+#X obj 617 804 symbol;
+#X text 754 803 Check terminal for error;
+#X msg 617 772 \$1;
+#X msg 617 740 list A B;
+#X symbolatom 617 838 10 0 0 0 - - -;
+#X text 546 877 But we know now that that we can send the symbol atom
+through a [symbol] object that it'll be given the "symbol" selector
+automatically!;
+#X text 593 419 "list" selector;
+#X text 752 420 "A" selector;
+#X text 651 568 "start" selector;
+#X text 532 945 ============================================================
+;
+#X obj 50 628 bng 15 250 50 0 empty empty empty 17 7 0 10 -199014 -1
+-1;
+#X text 45 607 bang;
+#X text 62 871 A dollarsign won't store the last received value. If
+you click on the message with a dollarsign \, it'll get a "0" value.
+If you send it a bang \, it'll be only a selector and you'll get again:
+"argument number out of range".;
+#X msg 366 643 symbol Go!;
+#X text 387 613 GOOD!;
+#X symbolatom 366 702 10 0 0 0 - - -;
+#X msg 366 672 symbol \$1;
+#X msg 282 641 symbol Go!;
+#X symbolatom 282 700 10 0 0 0 - - -;
+#X msg 282 670 \$1;
+#X text 303 611 BAD!;
+#X connect 1 0 2 0;
+#X connect 2 0 3 0;
+#X connect 2 0 4 0;
+#X connect 7 0 2 0;
+#X connect 15 0 17 0;
+#X connect 16 0 17 0;
+#X connect 17 0 18 0;
+#X connect 22 0 23 0;
+#X connect 23 0 24 0;
+#X connect 26 0 23 0;
+#X connect 32 0 31 0;
+#X connect 33 0 32 0;
+#X connect 35 0 34 0;
+#X connect 37 0 35 0;
+#X connect 39 0 38 0;
+#X connect 40 0 39 0;
+#X connect 49 0 48 0;
+#X connect 50 0 49 0;
+#X connect 52 0 56 0;
+#X connect 54 0 52 0;
+#X connect 55 0 54 0;
+#X connect 62 0 17 0;
+#X connect 65 0 68 0;
+#X connect 68 0 67 0;
+#X connect 69 0 71 0;
+#X connect 71 0 70 0;

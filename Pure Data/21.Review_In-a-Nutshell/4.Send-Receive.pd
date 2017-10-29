@@ -1,0 +1,91 @@
+#N canvas 147 59 898 700 12;
+#X obj 12 15 cnv 15 400 40 empty empty Send-Receive: 20 12 0 24 -262144
+-66577 0;
+#X obj 37 146 hsl 128 15 0 127 0 0 number empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X floatatom 193 132 5 0 0 0 - number -;
+#X obj 193 165 send value;
+#X obj 192 199 receive value;
+#X floatatom 192 228 5 0 0 0 - - -;
+#X msg 69 204 \; number 45;
+#X floatatom 585 127 5 0 0 0 - number -;
+#X floatatom 459 158 5 0 0 0 - - -;
+#X obj 585 160 send \$0-value;
+#X obj 459 129 receive \$0-value;
+#X obj 707 116 hsl 128 15 0 127 0 0 empty \$0-value empty -2 -8 0 10
+-262144 -1 -1 6200 1;
+#X obj 704 168 send \$0-array;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array \$0-array 10 float 1;
+#A 0 7.77756 76.2201 -1.55551 111.887 3.22363 62 10.1134 108.886 0
+65.3315;
+#X coords 0 130 9 -10 370 90 1;
+#X restore 469 246 graph;
+#X msg 704 142 5 \$1;
+#X obj 714 481 dumpOSC 9000;
+#X obj 794 405 notein;
+#X msg 27 482 \; pd dsp \$1;
+#X obj 27 458 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 579 608 throw~ audio;
+#X obj 673 608 catch~ audio;
+#X obj 310 649 send~ \$0-synth;
+#X obj 420 649 receive~ \$0-synth;
+#X text 18 580 ===========================================================
+;
+#X text 428 580 ===========================================================
+;
+#X msg 122 492 find array 0;
+#X text 10 347 ===========================================================
+;
+#X text 446 346 ===========================================================
+;
+#X obj 488 608 r~ \$0-synth;
+#X obj 400 608 s~ \$0-synth;
+#X obj 552 649 throw~ \$0-audio;
+#X obj 672 648 catch~ \$0-audio;
+#X text 15 265 Messages with semicolon function as [send].;
+#X text 14 295 These data are sent globaly and can go to other patches
+that have a matching [receives].;
+#X floatatom 299 131 5 0 0 0 - number -;
+#X floatatom 298 227 5 0 0 0 - - -;
+#X obj 299 164 s value;
+#X obj 298 198 r value;
+#X text 23 73 You can send "wirelessly" [send]/[receive] ([s]/[r]).
+They are also built-in in GUIs \, Atom Boxes and Arrays.;
+#X text 462 21 LOCALITY (\$0):;
+#X text 662 199 Arrays get data from "send".;
+#X text 13 388 With [send] (or semicolon in messages) \, we can also
+send messages to Pd \, or even to patches (aka "Dynamic Patching").
+;
+#X text 54 454 famous Turn On/Off DSP;
+#X obj 122 520 send pd-4.Send-Receive.pd;
+#X text 85 607 Objects to send and receive audio signals:;
+#X text 38 648 They also deal with "\$0" \, of course;
+#X obj 332 478 namecanvas;
+#X text 262 452 don't forget this one:;
+#X text 219 490 <- click;
+#X obj 656 481 sendOSC;
+#X obj 572 481 netreceive;
+#X obj 514 481 netsend;
+#X text 464 382 Pd has several conecting possibilities to intefaces
+and gets and sends data to tem \, like MIDI objects:;
+#X text 459 435 It'll get data from other interfaces \, computers \,
+patches via network and OSC objects:;
+#X text 469 520 And also connect and communicate to another instance
+of Pd that is loaded by the;
+#X obj 632 541 pd~;
+#X text 664 540 object;
+#X text 461 46 "\$0" prevents data from running globaly \, and makes
+it run only on this patch. Objects \, GUIs \, Atom Boxes & Arrays also
+deal with "\$0":;
+#X connect 2 0 3 0;
+#X connect 4 0 5 0;
+#X connect 7 0 9 0;
+#X connect 10 0 8 0;
+#X connect 11 0 14 0;
+#X connect 14 0 12 0;
+#X connect 18 0 17 0;
+#X connect 25 0 43 0;
+#X connect 34 0 36 0;
+#X connect 37 0 35 0;

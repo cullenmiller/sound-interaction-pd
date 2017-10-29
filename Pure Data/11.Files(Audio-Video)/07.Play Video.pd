@@ -1,0 +1,120 @@
+#N canvas 654 54 880 851 12;
+#X obj 195 468 cnv 15 80 25 empty empty empty 20 12 0 14 -261682 -66577
+0;
+#X obj 88 729 cnv 15 115 60 empty empty empty 20 12 0 14 -204786 -66577
+0;
+#X obj 77 198 cnv 15 70 40 empty empty empty 20 12 0 14 -204786 -66577
+0;
+#X obj 89 555 cnv 15 80 60 empty empty empty 20 12 0 14 -204786 -66577
+0;
+#X obj 88 208 gemhead;
+#X obj 98 736 pix_texture;
+#X obj 98 765 rectangle 4 3;
+#X obj 98 571 pix_film;
+#X obj 150 98 cnv 15 190 110 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X obj 259 181 gemwin;
+#X msg 97 266 auto \$1;
+#X obj 97 244 tgl 15 0 empty empty empty 17 7 0 10 -204786 -1 -1 0
+1;
+#X msg 22 316 open \$1;
+#X obj 22 287 openpanel;
+#X obj 22 266 bng 15 250 50 0 empty empty empty 17 7 0 10 -204786 -1
+-1;
+#X obj 153 104 loadbang;
+#X obj 154 128 t b b;
+#X obj 124 633 unpack f f f;
+#X floatatom 124 662 5 0 0 0 - - -;
+#X floatatom 164 661 5 0 0 0 - - -;
+#X floatatom 205 660 5 0 0 0 - - -;
+#X obj 177 598 bng 18 250 50 0 empty empty empty 17 7 0 10 -171370
+-258113 -1;
+#X obj 151 525 nbx 4 22 0 689 0 0 empty empty empty 0 -8 0 14 -204786
+-1 -1 460 256;
+#X obj 145 438 metro 40;
+#X obj 145 421 tgl 15 0 empty empty empty 17 7 0 10 -204786 -1 -1 1
+1;
+#X obj 135 463 f;
+#X obj 166 471 + 1;
+#X obj 166 495 mod;
+#X obj 200 470 r frames;
+#X obj 117 690 cnv 15 80 25 empty empty empty 20 12 0 14 -261682 -66577
+0;
+#X obj 124 692 s frames;
+#X msg 186 152 create \, 1;
+#X obj 23 23 cnv 15 400 40 empty empty Play_Video: 20 12 0 24 -262144
+-66577 0;
+#X floatatom 198 416 3 0 500 0 - - -;
+#X msg 154 295 open ./media/kolster.mov;
+#X floatatom 377 411 3 0 500 0 - - -;
+#X obj 317 485 random;
+#X obj 351 457 cnv 15 80 25 empty empty empty 20 12 0 14 -261682 -66577
+0;
+#X obj 356 459 r frames;
+#X obj 317 417 tgl 15 0 empty empty empty 17 7 0 10 -204786 -1 -1 1
+1;
+#X obj 317 434 metro 100;
+#X msg 259 153 0 \, destroy;
+#X text 26 65 Using [pix_film] to play a video on the GEM window:;
+#X text 345 125 Messages for GEM window with [gemwin]:;
+#X text 344 144 "create" creates GEM window / "destroy" destroys it!
+;
+#X text 344 162 "1" starts rendering \, "0" stops!;
+#X text 161 212 <== [gemhead] sends rendering command.;
+#X text 172 232 "auto 1" plays in loop \, "auto 0" pauses. "auto 1"
+resumes from pause unless the file is reopenned (going back to first
+frame).;
+#X text 334 295 <== opens file. We could use [openpanel] for another
+file.;
+#X text 173 570 [pix_film] renders video on GEM window.;
+#X text 201 596 bangs when video is finished!;
+#X text 247 651 After openning a file \, this middle outlet send a
+list with:;
+#X text 246 667 Video size in frames \, width and height in pixels.
+;
+#X text 211 741 Send video as "texture" to GEM windoe in the retangular
+format with the proportion of 4 x 3 \, as in 320 x 240;
+#X text 206 692 sends number of frames to [mod] & random objects.;
+#X text 413 414 Sending frames randomly is cool too.;
+#X text 444 451 Both [metro] objects can be on at the same time in
+different time.;
+#X text 163 326 A video frame at 25 frames per second takes 40 miliseconds
+(for 1000/25 = 40). A [metro] at 40 ms with a counter & [mod] can become
+a player in loop. The playing speed changes if you vary the time for
+[metro].;
+#X text 226 523 Right inlet is the frame number \, only works if the
+object hasn't received "auto 1" \, or is set to "auto 0".;
+#X connect 4 0 7 0;
+#X connect 5 0 6 0;
+#X connect 7 0 5 0;
+#X connect 7 1 17 0;
+#X connect 7 2 21 0;
+#X connect 10 0 7 0;
+#X connect 11 0 10 0;
+#X connect 12 0 7 0;
+#X connect 13 0 12 0;
+#X connect 14 0 13 0;
+#X connect 15 0 16 0;
+#X connect 16 0 34 0;
+#X connect 16 1 31 0;
+#X connect 17 0 18 0;
+#X connect 17 1 19 0;
+#X connect 17 2 20 0;
+#X connect 18 0 30 0;
+#X connect 22 0 7 1;
+#X connect 23 0 25 0;
+#X connect 24 0 23 0;
+#X connect 25 0 26 0;
+#X connect 26 0 25 1;
+#X connect 26 0 27 0;
+#X connect 27 0 22 0;
+#X connect 28 0 27 1;
+#X connect 31 0 9 0;
+#X connect 33 0 23 1;
+#X connect 34 0 7 0;
+#X connect 35 0 40 1;
+#X connect 36 0 22 0;
+#X connect 38 0 36 1;
+#X connect 39 0 40 0;
+#X connect 40 0 36 0;
+#X connect 41 0 9 0;

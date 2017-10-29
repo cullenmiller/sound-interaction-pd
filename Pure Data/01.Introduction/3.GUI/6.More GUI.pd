@@ -1,0 +1,105 @@
+#N canvas 409 286 1204 696 10;
+#X declare -lib libdir -lib cyclone -lib flatspace;
+#X obj 104 27 import libdir cyclone flatspace;
+#X obj 517 173 loadbang;
+#X msg 517 189 \; pd dsp 1;
+#X obj -80 4 cnv 15 600 40 empty empty Mais_GUIs: 80 18 0 24 -262144
+-66577 0;
+#X obj -82 44 cnv 15 1200 650 empty empty empty 20 12 0 14 -262131
+-66577 0;
+#X obj -82 343 cnv 15 400 90 empty empty empty 20 12 0 14 -261696 -66577
+0;
+#X obj -82 45 cnv 15 400 300 empty empty empty 20 12 0 14 -241657 -66577
+0;
+#X obj 167 115 bng 15 250 50 0 \$1 \$1 empty 20 8 0 8 -262144 -1 -1
+;
+#X obj 237 115 tgl 15 1.04858e+06 empty \$2 empty 20 8 0 8 -262144
+-1 -1 0 1;
+#X obj -47 109 vsl 15 128 0 127 0 1.04858e+06 empty \$3 empty 20 8
+0 8 -262144 -1 -1 0 1;
+#X obj 152 234 hsl 128 15 0 127 0 0 empty empty empty 20 8 0 8 -262144
+-1 -1 0 1;
+#X obj 150 291 hdl 15 1 2.6624e+06 8 \$5 \$5 empty 20 8 192 8 -262144
+-1 -1 0;
+#X obj 21 114 vu 15 120 empty empty 35 8 0 8 -66577 -1 1 0;
+#X obj -7 268 cnv 15 100 60 empty empty [canvas] 20 12 0 14 -233017
+-66577 1.04858e+06;
+#X obj 88 112 vdl 15 1 4.79232e+06 8 \$9 \$9 empty 20 8 192 8 -262144
+-1 -1 0;
+#X obj 201 173 nbx 5 14 -1e+37 1e+37 0 0 \$5 \$5 empty 45 7 0 10 -262144
+-1 -1 0 256;
+#X obj -44 394 button OK;
+#X obj 54 398 popup 124 25 #ffffff popup option;
+#X obj 240 394 ticker ;
+#X obj -70 498 envgen 200 140 1 0  ;
+#X obj 363 147 knob 32 32 0 127 0 0 empty empty empty 0 -8 0 8 -191407
+-1 -1 0 1;
+#X text 359 121 [knob];
+#X text 226 374 [ticker];
+#X text -6 471 [envgen];
+#X text -50 375 [button];
+#X text 44 375 [popup];
+#X text 17 89 [vu];
+#X text 183 114 [bng];
+#X text 253 114 [tgl];
+#X text -62 89 [vslider];
+#X text 183 272 [hradio];
+#X text 183 217 [hslider];
+#X text 70 88 [vradio];
+#X obj 478 129 Scope~ 130 130 256 3 128 -1 1 0 0 0 0 102 255 51 135
+135 135 0;
+#X text 162 171 [nbx];
+#X obj 190 468 grid grid1 200 0 199 200 0 199 1 1 1 10 10 289 550;
+#X floatatom 383 672 5 0 0 0 - - -;
+#X floatatom 190 673 5 0 0 0 - - -;
+#X floatatom 363 185 5 0 0 0 - - -;
+#X text 515 104 [Scope~];
+#X obj 643 121 entry 130 130 grey70 black;
+#X text 677 100 [entry];
+#X obj 450 352 playlist all 400 300 {Helvetica 10 bold} #457782 yellow
+black red;
+#X text 589 329 [playlist];
+#X obj 478 79 osc~ 5;
+#X obj 345 261 gcanvas 80 80;
+#X text 356 236 [gcanvas];
+#X floatatom 345 348 5 0 0 0 - - -;
+#X floatatom 387 347 5 0 0 0 - - -;
+#X text 500 268 osciloscópio;
+#X obj 855 78 probalizer 200 200 100 100 1 0 10 1 10 2 10 3 10 4 10
+5 10 6 10 7 10 8 10 9 10 10 10 11 10 12 10 13 9 14 10 15 10 16 14 17
+10 18 9 19 63 20 14 21 11 22 12 23 10 24 10 25 10 26 10 27 10 28 10
+29 10 30 10 31 10 32 10 33 10 34 10 35 60 36 10 37 10 38 10 39 10 40
+10 41 52 42 10 43 10 44 9 45 10 46 10 47 10 48 9 49 9 50 10 51 10 52
+50 53 11 54 10 55 12 56 10 57 10 58 10 59 10 60 10 61 12 62 10 63 10
+64 10 65 10 66 10 67 10 68 10 69 10 70 10 71 10 72 10 73 10 74 10 75
+10 76 10 77 10 78 10 79 10 80 10 81 10 82 10 83 10 84 10 85 10 86 10
+87 10 88 9 89 10 90 10 91 10 92 10 93 10 94 10 95 10 96 10 97 10 98
+10 99 10;
+#X text 908 54 [probalizer];
+#X obj 875 429 pianoroll pianoroll2 192 186 -15 15 31 16 0 0 1 0 1
+0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1;
+#X text -68 52 Internal ones \, from Pd-Vanilla:;
+#X text -48 274 [cnv];
+#X text -69 354 Some are native from the Operational System:;
+#X text 328 52 Externals GUIs:;
+#X text 243 672 click & drag;
+#X text -38 654 Envelope Generator;
+#X text 548 654 File list from your computer;
+#X text 345 369 click & drag;
+#X text 338 382 all over you;
+#X text 361 398 screen;
+#X text 217 446 [grid] - like a chaospad;
+#X text 867 284 series of numbers according;
+#X text 883 298 to a probability curve;
+#X text 662 255 text entry;
+#X text 920 402 [pianoroll];
+#X text 859 635 Controls two parameters for a sequencer;
+#X text 265 14 --> STUDY THE HELP OF GUIs FOR MORE INFORMATION!!! <--
+;
+#X connect 1 0 2 0;
+#X connect 20 0 38 0;
+#X connect 35 0 37 0;
+#X connect 35 1 36 0;
+#X connect 44 0 33 0;
+#X connect 45 0 47 0;
+#X connect 45 1 48 0;

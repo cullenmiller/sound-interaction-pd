@@ -1,0 +1,50 @@
+#N canvas 515 22 967 640 12;
+#X obj 49 21 cnv 15 400 40 empty empty (open/save)panels: 20 12 0 24
+-262144 -66577 0;
+#X obj 73 318 openpanel;
+#X obj 73 286 bng 15 250 50 0 empty empty empty 17 7 0 10 -261682 -1
+-1;
+#X msg 73 391 set \$1;
+#X obj 80 351 print panel;
+#X obj 638 348 bng 15 250 50 0 empty empty empty 17 7 0 10 -261682
+-1 -1;
+#X msg 638 423 \; array1 write \$1;
+#X obj 638 371 savepanel;
+#X msg 114 445;
+#X msg 143 404 set;
+#X obj 143 380 loadbang;
+#X text 55 85 Sometimes we need or want get to far away folders. Again
+\, instead of specifying the whole path \, there is an easier way with
+the objects [openpanel] & [savepanel].;
+#X text 55 150 These objects spit out the complete path of the chosen
+file or folder. As the [getdir] object \, the path comes as a symbol
+message.;
+#X text 60 223 Open any file on your computer \, just to check it:
+;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array array1 100 float 1;
+#A 0 0.0142858 0.0809529 0.14762 0.214287 0.240478 0.266668 0.292859
+0.31905 0.34524 -0.0857148 -0.0857148 0.214287 0.385717 -0.0571432
+0.100001 0.180954 0.261906 0.342859 0.414288 0.485717 0.542861 0.600004
+0.600004 -0.450003 -0.542861 -0.628575 -0.571432 -0.371431 -0.250002
+-0.128572 0.071429 0.157144 0.242859 0.357145 -0.585718 -0.657147 -0.657147
+-0.528575 -0.17143 0.0285716 0.17143 0.314288 0.407145 0.500003 0.557146
+0.528575 0.0857148 -0.0857148 -0.185715 -0.285716 -0.342859 -0.400002
+-0.407145 -0.414288 -0.357145 0.585718 0.600004 -0.514289 -0.728576
+-0.828577 -0.88572 -0.771433 -0.642861 -0.400002 -0.142858 0.328573
+0.0428574 -0.142858 -0.235716 -0.328573 -0.390479 -0.452384 -0.514289
+-0.552384 -0.59048 -0.628575 -0.635718 -0.642861 -0.642861 0.628575
+0.657147 0.671433 0.671433 0.642861 0.585718 0.528575 0.471431 0.371431
+0.228573 0.164287 0.100001 0 0 0 0 0 0 0 0 0;
+#X coords 0 1 99 -1 200 140 1;
+#X restore 586 99 graph;
+#X text 504 278 Now specify some new file on any flder you wish to
+save this array on a txt file.;
+#X connect 1 0 3 0;
+#X connect 1 0 4 0;
+#X connect 2 0 1 0;
+#X connect 3 0 8 0;
+#X connect 5 0 7 0;
+#X connect 7 0 6 0;
+#X connect 9 0 8 0;
+#X connect 10 0 9 0;

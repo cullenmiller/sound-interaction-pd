@@ -1,0 +1,57 @@
+#N canvas 297 110 951 517 12;
+#X obj -41 23 cnv 15 400 40 empty empty Dollarsign: 20 12 0 24 -262144
+-66577 0;
+#X msg 17 187 \$2;
+#X msg 17 148 1 4 1;
+#X floatatom 17 227 5 0 0 0 - - -;
+#X obj 108 324 float \$2;
+#X obj 189 324 symbol \$1;
+#X text 436 406 ============================================================
+;
+#X obj 550 297 f \$0;
+#X floatatom 550 324 5 0 0 0 - - -;
+#X obj 550 272 loadbang;
+#X text 422 111 ============================================================
+;
+#X obj 579 70 list-math * 2;
+#X symbolatom 213 254 10 0 0 0 - - -;
+#X symbolatom 83 254 10 0 0 0 - - -;
+#X symbolatom 303 254 10 0 0 0 - - -;
+#X msg 213 228 symbol \$2;
+#X text -29 84 Dollarsigns are numbered from "1" to above \, and are
+numbered variables in messages and objects:;
+#X text 72 132 In Messages \, they acquire values from an atom \; element
+on a list. The position on the list \; corresponds to the number of
+the dollarsign.;
+#X text 54 187 <- 2nd on the list;
+#X msg 213 194 list Yep. that's it!;
+#X msg 84 228 symbol \$1..;
+#X msg 303 228 symbol \$3!!;
+#X text -15 291 They're in objects when the patches are loaded as abstractions!
+;
+#X text -14 375 This way \, dollarsign acquires values from arguments.
+;
+#X text -20 405 And it allows the abstraction to inherit values from
+parent patch.;
+#X text 443 28 Example of an abstraction inheriting values:;
+#X text 428 144 LOCALITY:;
+#X text 427 174 Dollarsign as "\$0" represents the locality syntax
+\, which gets the value from an initialization number of the patch.
+;
+#X text 446 224 It works in objects/arrays \, but not in Messages:
+;
+#X text 594 324 patch's initialization number;
+#X text 453 369 ==> Remember that "\$0" can also be sent to an abstraction
+as an inheritence.;
+#X text 445 443 Puredata can't find words that contain "\$0". Search
+only for a part of the word.;
+#X connect 1 0 3 0;
+#X connect 2 0 1 0;
+#X connect 7 0 8 0;
+#X connect 9 0 7 0;
+#X connect 15 0 12 0;
+#X connect 19 0 15 0;
+#X connect 19 0 20 0;
+#X connect 19 0 21 0;
+#X connect 20 0 13 0;
+#X connect 21 0 14 0;

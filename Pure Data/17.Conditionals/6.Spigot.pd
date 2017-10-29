@@ -1,0 +1,97 @@
+#N canvas 276 23 1055 913 12;
+#X floatatom 713 359 5 0 0 0 - - -;
+#X floatatom 713 310 5 0 0 0 - - -;
+#X obj -66 -4 cnv 15 400 40 empty empty [spigot]: 20 12 0 24 -262144
+-66577 0;
+#X obj 674 409 spigot;
+#X obj 713 386 tgl 15 0 empty empty empty 17 7 0 10 -262130 -1 -1 0
+1;
+#X obj 674 285 t f f;
+#X floatatom 674 247 5 0 0 0 - - -;
+#X floatatom 674 447 5 0 0 0 - - -;
+#X obj 185 186 spigot;
+#X floatatom 185 159 4 0 0 0 - - -;
+#X floatatom 185 216 5 0 0 0 - - -;
+#X obj 224 161 tgl 15 0 empty empty empty 17 7 0 10 -261682 -1 -1 0
+1;
+#X obj 538 659 spigot;
+#X obj 577 638 tgl 15 0 empty empty empty 17 7 0 10 -203904 -1 -1 0
+1;
+#X floatatom 538 552 5 0 0 0 - - -;
+#X floatatom 538 688 5 0 0 0 - - -;
+#X obj 671 658 spigot;
+#X obj 710 637 tgl 15 0 empty empty empty 17 7 0 10 -203904 -1 -1 0
+1;
+#X floatatom 671 688 5 0 0 0 - - -;
+#X obj 538 580 t float float float float;
+#X floatatom 838 664 5 0 0 0 - - -;
+#X floatatom 792 665 5 0 0 0 - - -;
+#X floatatom 792 596 5 0 0 0 - - -;
+#X obj 792 629 moses 4;
+#X obj 577 611 < 4;
+#X obj 710 609 >= 4;
+#X obj 244 632 tgl 15 0 empty empty empty 17 7 0 10 -261682 -1 -1 0
+1;
+#X obj 174 761 f;
+#X obj 160 660 t b f;
+#X floatatom 174 790 5 0 0 0 - - -;
+#X floatatom 160 630 5 0 0 0 - - -;
+#X msg 205 690 1;
+#X text -19 68 The [spigot] object lets flow or not a stream of numbers.
+To close it \, send it zero. Any other number opens it:;
+#X text 151 127 Closed by default;
+#X obj 205 720 select;
+#X obj 285 347 tgl 15 0 empty empty empty 17 7 0 10 -261682 -1 -1 0
+1;
+#X text -11 273 So the number goes through "if" the cold inlet is different
+than zero. Trying to make this in [expr] would be something like this:
+;
+#X obj 113 373 expr if($f2 != 0 \, $f1 \, 0);
+#X floatatom 113 343 5 0 0 0 - - -;
+#X floatatom 113 404 5 0 0 0 - - -;
+#X text 2 459 But this is not a proper [spigot] because it does not
+actually interrupt the stream of numbers \, as "0" keeps coming out.
+;
+#X text -4 544 And here's a proper [spigot] made out of [select]. Note:
+without an argument \, default argument of [sel] is "0":;
+#X text 460 179 Here we include a comparative. Now [spigot] opens only
+for numbers bigger than "0".;
+#X obj 713 335 > 0;
+#X text 543 505 Following this logic \, we can have another;
+#X text 590 531 example of [moses]:;
+#X text 764 626 =;
+#X connect 0 0 4 0;
+#X connect 1 0 43 0;
+#X connect 3 0 7 0;
+#X connect 4 0 3 1;
+#X connect 5 0 3 0;
+#X connect 5 1 1 0;
+#X connect 6 0 5 0;
+#X connect 8 0 10 0;
+#X connect 9 0 8 0;
+#X connect 11 0 8 1;
+#X connect 12 0 15 0;
+#X connect 13 0 12 1;
+#X connect 14 0 19 0;
+#X connect 16 0 18 0;
+#X connect 17 0 16 1;
+#X connect 19 0 12 0;
+#X connect 19 1 24 0;
+#X connect 19 2 16 0;
+#X connect 19 3 25 0;
+#X connect 22 0 23 0;
+#X connect 23 0 21 0;
+#X connect 23 1 20 0;
+#X connect 24 0 13 0;
+#X connect 25 0 17 0;
+#X connect 26 0 34 1;
+#X connect 27 0 29 0;
+#X connect 28 0 31 0;
+#X connect 28 1 27 1;
+#X connect 30 0 28 0;
+#X connect 31 0 34 0;
+#X connect 34 0 27 0;
+#X connect 35 0 37 1;
+#X connect 37 0 39 0;
+#X connect 38 0 37 0;
+#X connect 43 0 0 0;

@@ -1,0 +1,58 @@
+#N canvas 343 22 516 382 12;
+#X obj 10 10 cnv 15 400 40 empty empty subpatches: 20 19 0 24 -262144
+-66577 0;
+#N canvas 42 46 570 281 (subpatch) 0;
+#X obj 304 112 loadbang;
+#X obj 304 149 float;
+#X obj 357 148 + 1;
+#X floatatom 304 207 5 0 0 0 - - -;
+#X obj 192 140 delay 1000;
+#X obj 208 168 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 198 116 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 117 42 Over here we're just counting time...;
+#X text 73 208 You've had this patch open for;
+#X text 353 206 seconds.;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 1 0 3 0;
+#X connect 1 0 6 0;
+#X connect 2 0 1 1;
+#X connect 4 0 5 0;
+#X connect 5 0 1 0;
+#X connect 6 0 4 0;
+#X restore 56 270 pd;
+#X text 42 179 To create a subpatche \, just insert an object and write
+"pd" into it! This object's argument can be anything \, and it's just
+a label. It doesnn't mean that subpatches with the same name are equal.
+;
+#N canvas 42 46 512 330 counting 0;
+#X obj 297 109 loadbang;
+#X obj 297 146 float;
+#X obj 350 145 + 1;
+#X floatatom 297 204 5 0 0 0 - - -;
+#X obj 185 143 delay 1000;
+#X obj 201 171 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 191 119 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 206 50 same thing...;
+#X text 227 203 open for;
+#X text 341 204 seconds;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 1 0 3 0;
+#X connect 1 0 6 0;
+#X connect 2 0 1 1;
+#X connect 4 0 5 0;
+#X connect 5 0 1 0;
+#X connect 6 0 4 0;
+#X restore 211 304 pd counting time;
+#X text 94 269 <= Just click onto the Subpatches to open them.;
+#X text 144 302 click =>;
+#X text 44 73 A subpatch is part of the same Pd file! merely a way
+to organize your patch into subwindows. Coding a patch can take a whole
+lot of canvas space quite quickly! So it's nice to organize it in blocks
+\, in a modluar fashion. We can have many subpatches in a patch \,
+and also subpatches inside subpatches indefinitely!;

@@ -1,0 +1,101 @@
+#N canvas 529 206 982 728 12;
+#X floatatom 3 267 0 0 0 0 - - -;
+#X floatatom 133 268 0 0 0 0 - - -;
+#X floatatom 277 267 0 0 0 0 - - -;
+#X floatatom 3 182 0 0 0 0 - - -;
+#X floatatom 135 176 0 0 0 0 - - -;
+#X floatatom 274 175 0 0 0 0 - - -;
+#X obj 3 209 send volume;
+#X obj 3 240 receive volume;
+#X obj 115 373 s volume;
+#X obj 190 348 r volume;
+#X floatatom 115 348 5 0 0 0 - - -;
+#X floatatom 190 373 5 0 0 0 - - -;
+#X obj 756 138 s~;
+#X obj 785 138 r~;
+#X obj -5 16 cnv 15 400 40 empty empty Wireless: 20 19 0 24 -262144
+-66577 0;
+#X obj 135 203 send midinote;
+#X obj 133 241 receive midinote;
+#X obj 277 240 receive midinote;
+#X obj 274 202 send midinote;
+#X obj 467 149 send~ piano;
+#X obj 560 136 receive~ piano;
+#X text -13 410 ============================================================
+;
+#X obj 560 163 receive~ piano;
+#X obj 714 256 catch~ piano;
+#X obj 616 247 throw~ piano;
+#X obj 616 274 throw~ piano;
+#X text 8 596 ============================================================
+;
+#X floatatom 58 496 5 0 0 0 - - -;
+#X floatatom 614 356 0 0 0 0 - - -;
+#X obj 58 527 value gain;
+#X obj 614 383 send gain;
+#X text 449 319 ============================================================
+;
+#X floatatom 196 557 5 0 0 0 - - -;
+#X obj 196 497 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 196 524 value gain;
+#X text 442 479 ============================================================
+;
+#X obj 430 526 r;
+#X floatatom 376 525 5 0 0 0 - - -;
+#X floatatom 430 553 5 0 0 0 - - -;
+#X obj 626 674 s;
+#X floatatom 600 637 5 0 0 0 - - -;
+#X msg 644 636 symbol B;
+#X obj 542 638 r B;
+#X floatatom 542 667 5 0 0 0 - - -;
+#X text 428 596 ============================================================
+;
+#X text -16 55 [send] & [receive] allow cordless (or "wireless") connections
+anywhere in a patch including subpatches. Actually \, they can send
+information even to abstractions and other openned patehces.;
+#X text 25 315 they can be abbreviatted by [s] & [r]:;
+#X text 258 348 [receive];
+#X text 64 374 [send];
+#X text 25 446 [value] is kinda similar to that...;
+#X text 453 17 For control data \, we can have as many [send] objects
+sending to as much [receive] object as we want.;
+#X text 454 56 For Audio it's different:;
+#X text 450 84 A [send~] can send to several [receive~] objects \,
+but we can't have more than one [send~] object with the same argument.
+;
+#X text 710 160 (can be abbreviated);
+#X text 467 200 Conversely \, we have [throw~] & [catch~]. Many [throw~]
+objects can sen audio to only one [catch~].;
+#X obj 734 355 r gain;
+#X floatatom 734 381 5 0 0 0 - - -;
+#X text 452 421 Now check this \, if a send has an argument that matches
+with one from a [value] object \, the terminal displays an error. But
+everything still works.;
+#X text 479 521 As in [value] \, if we don't specify an argument \,
+the data will go to any [receive] object with no argument.;
+#X obj 376 551 s;
+#X text -15 127 The data will go from a [send] to a [receive] that
+has a matching argument (arguments can't be numbers).;
+#X text 86 633 Without an argument \, the [send] object has a second
+right inlet that allows you to set the argument. It requires the "symbol"
+selector. Click on "symbol B" message and see how \, from then on \,
+the data will go to [r B].;
+#X connect 3 0 6 0;
+#X connect 4 0 15 0;
+#X connect 5 0 18 0;
+#X connect 7 0 0 0;
+#X connect 9 0 11 0;
+#X connect 10 0 8 0;
+#X connect 16 0 1 0;
+#X connect 17 0 2 0;
+#X connect 27 0 29 0;
+#X connect 28 0 30 0;
+#X connect 33 0 34 0;
+#X connect 34 0 32 0;
+#X connect 36 0 38 0;
+#X connect 37 0 59 0;
+#X connect 40 0 39 0;
+#X connect 41 0 39 1;
+#X connect 42 0 43 0;
+#X connect 55 0 56 0;

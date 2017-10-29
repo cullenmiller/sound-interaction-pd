@@ -1,0 +1,57 @@
+#N canvas 538 115 805 803 12;
+#X obj 45 267 pix_texture;
+#X obj 45 185 pix_video;
+#X obj 45 291 rectangle 5.5 4;
+#X obj 45 592 pix_record;
+#X msg 64 512 record \$1;
+#X obj 64 465 tgl 15 0 empty empty empty 0 -6 0 8 -258113 -1 -1 0 1
+;
+#X text 87 463 start/stop;
+#X obj 388 520 gemwin;
+#X msg 388 493 create \, 1;
+#X obj 388 467 loadbang;
+#X obj 212 451 getdir;
+#X obj 212 488 pack s s;
+#X symbolatom 212 395 10 0 0 0 - - -;
+#X obj 78 621 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-258113 -1 -1 0 256;
+#X obj -124 5 cnv 15 400 40 empty empty Record_Video: 20 12 0 24 -262144
+-66577 0;
+#X msg 212 517 file \$1/media/\$2.mov;
+#X obj 45 118 gemhead;
+#X text -82 63 We can use [pix_video] & [pix_record] to record videos.
+;
+#X text 121 183 Gets video from webcam \, check help for more info.
+;
+#X text 68 670 Check the subfolder media for the video...;
+#X text -39 618 recorded frames;
+#X text 130 590 Records video;
+#X msg -51 495 file \$1;
+#X obj -51 467 savepanel;
+#X obj -51 445 bng 15 250 50 0 empty empty empty 17 7 0 10 -260097
+-1 -1;
+#X text -111 411 save somewhere else;
+#X obj 212 424 trigger b s;
+#X text 83 357 Click and write to generate a file name and path.;
+#X text 127 394 File name:;
+#X text 31 706 Do not overwrite files!!!! It'll crash!!!! Change the
+file name! Use [savepanel] if you want to create another file somewhere
+else.;
+#X connect 0 0 2 0;
+#X connect 1 0 0 0;
+#X connect 2 0 3 0;
+#X connect 3 1 13 0;
+#X connect 4 0 3 0;
+#X connect 5 0 4 0;
+#X connect 8 0 7 0;
+#X connect 9 0 8 0;
+#X connect 10 0 11 0;
+#X connect 11 0 15 0;
+#X connect 12 0 26 0;
+#X connect 15 0 3 0;
+#X connect 16 0 1 0;
+#X connect 22 0 3 0;
+#X connect 23 0 22 0;
+#X connect 24 0 23 0;
+#X connect 26 0 10 0;
+#X connect 26 1 11 1;

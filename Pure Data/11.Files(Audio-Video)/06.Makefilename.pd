@@ -1,0 +1,74 @@
+#N canvas 457 120 1120 746 12;
+#X obj -32 24 cnv 15 400 40 empty empty [makefilename] 20 12 0 24 -262144
+-66577 0;
+#X obj 180 232 f;
+#X obj 237 239 + 1;
+#X obj 180 203 bng 20 250 50 0 empty empty empty 1 15 1 12 -204786
+-1 -1;
+#X obj 29 332 table \$0-array2;
+#X obj 29 364 table \$0-array3;
+#X obj 28 392 table \$0-array4;
+#X obj 29 303 table \$0-array1;
+#X obj 212 427 tabplay~;
+#X msg 212 385 set \$1;
+#X obj 212 320 + 1;
+#X symbolatom 325 429 13 0 0 0 - - -;
+#X msg 135 229 0;
+#X obj 180 318 bng 15 250 50 0 empty empty empty 0 -6 0 10 -232576
+-1 -1;
+#X obj 180 292 sel 4;
+#X obj 180 262 t f f;
+#X floatatom 670 368 5 0 0 0 - - -;
+#X msg 670 502 read -resize \$1 \$2;
+#X obj 670 534 print;
+#X obj 670 344 + 1;
+#X obj 670 278 tgl 15 0 empty empty empty 17 7 0 10 -204800 -1 -1 0
+1;
+#X symbolatom 670 417 30 0 0 0 - - -;
+#X obj 669 320 random 5;
+#X msg 670 391 symbol ./media/audio\$1.wav;
+#X obj 670 297 metro 2000;
+#X floatatom 335 294 5 0 0 0 - - -;
+#X text -5 88 This is an useful object for creating names \, like when
+we deal with "\$0". It generates and sends symbol messages.;
+#X obj 212 357 makefilename \$0-array%i;
+#X text 33 527 Exercize: Try loading sound files into these tables
+and playing them by clicking bang.;
+#X obj 305 613 random;
+#X text 590 133 It's usually useful to have numbered files like "voice1.wav"
+\, "voice2.wav" \, and so on...;
+#X text -5 129 For [makefilename] \, instead of "\$1" \, we use "%i"
+or "%d" for integers \, "%f" for floats and "%s" for symbols. Check
+help for more info.;
+#X text 589 178 Below \, we randomly generate numbers from 1 to 5 to
+choose files to be put into an array. Make an use of it for the exercize
+on the left. Use [soundfiler] for that.;
+#X text 34 649 Now learn about the [mod] object and use it to loop
+from 1 to 4:;
+#X obj 89 680 mod;
+#X text 35 580 Now check the [random] object and try to use it above
+to generate random files from 1 to 4:;
+#X obj 670 468 list append \$0-array1;
+#X connect 1 0 15 0;
+#X connect 2 0 1 1;
+#X connect 3 0 1 0;
+#X connect 9 0 8 0;
+#X connect 9 0 11 0;
+#X connect 10 0 27 0;
+#X connect 12 0 1 0;
+#X connect 13 0 12 0;
+#X connect 14 0 13 0;
+#X connect 14 1 10 0;
+#X connect 15 0 14 0;
+#X connect 15 1 2 0;
+#X connect 16 0 23 0;
+#X connect 17 0 18 0;
+#X connect 19 0 16 0;
+#X connect 20 0 24 0;
+#X connect 21 0 36 0;
+#X connect 22 0 19 0;
+#X connect 23 0 21 0;
+#X connect 24 0 22 0;
+#X connect 25 0 27 0;
+#X connect 27 0 9 0;
+#X connect 36 0 17 0;

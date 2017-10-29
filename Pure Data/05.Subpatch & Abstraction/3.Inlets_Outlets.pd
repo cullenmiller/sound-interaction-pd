@@ -1,0 +1,59 @@
+#N canvas 662 68 464 467 12;
+#X obj 10 10 cnv 15 400 40 empty empty Inlets/Outlets: 20 12 0 24 -262144
+-66577 0;
+#X floatatom 123 123 5 0 0 0 - - -;
+#X floatatom 123 189 5 0 0 0 - - -;
+#X floatatom 176 122 5 0 0 0 - - -;
+#X floatatom 176 188 5 0 0 0 - - -;
+#X obj 235 269 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 147 260 adc~;
+#N canvas 1014 649 450 300 Mic 0;
+#X obj 157 103 inlet~;
+#X obj 187 168 *~;
+#X obj 216 104 inlet;
+#X obj 187 207 outlet~;
+#X text 23 25 There are proper inlet/outlet objects to deal with audio
+signal \, they obviously end with "~".;
+#X connect 0 0 1 0;
+#X connect 1 0 3 0;
+#X connect 2 0 1 1;
+#X restore 147 293 pd Mic On/Off;
+#X obj 136 330 dac~;
+#N canvas 858 277 602 412 sum 0;
+#X obj 28 193 inlet;
+#X obj 28 281 outlet;
+#X obj 28 239 + 1;
+#X obj 160 192 inlet;
+#X obj 160 280 outlet;
+#X obj 160 234 + 2;
+#X text 15 163 LEFT INLET;
+#X text 148 160 RIGH INLET;
+#X text 1 142 Corresponds to;
+#X text 132 142 Corresponds to;
+#X text -52 50 The positioning of these [inlet] & [outlet] objects
+(in the horizontlal axis) correspond to the entries and exits as we
+see it from above. You can cross them and aee what happens.;
+#X text 5 314 Corresponds to;
+#X text 136 314 Corresponds to;
+#X text 16 334 LEFT OUTLET;
+#X text 152 332 RIGH OUTLET;
+#X connect 0 0 2 0;
+#X connect 2 0 1 0;
+#X connect 3 0 5 0;
+#X connect 5 0 4 0;
+#X restore 131 154 pd sum;
+#X text 54 235 Now open this one that deals with audio:;
+#X text 194 153 <= Open it and see it;
+#X text 29 62 We can creae inlets/outlets with the [inlet] & [outlet]
+objects in our subpatches!;
+#X text 36 382 It's like you can create your own objects or modules!
+;
+#X connect 1 0 9 0;
+#X connect 3 0 9 1;
+#X connect 5 0 7 1;
+#X connect 6 0 7 0;
+#X connect 7 0 8 0;
+#X connect 7 0 8 1;
+#X connect 9 0 2 0;
+#X connect 9 1 4 0;

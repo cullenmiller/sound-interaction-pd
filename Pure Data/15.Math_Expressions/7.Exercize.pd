@@ -1,0 +1,26 @@
+#N canvas 1005 103 520 673 12;
+#X obj -44 12 cnv 15 350 40 empty empty Exercize: 20 18 0 24 -262144
+-66577 0;
+#X obj 93 200 pddp/pddplink http://en.wikipedia.org/wiki/Bark_scale
+;
+#X text 53 200 Link:;
+#X floatatom 140 389 5 0 0 0 Hz - -;
+#X floatatom 140 444 5 0 0 0 bark - -;
+#X obj 206 128 image ../../../files/bark.gif;
+#X text -7 163 This is a formula that convrts frequency in hertz to
+"Bark".;
+#X text 6 496 Hint:;
+#X text 18 520 Arcotangent is the [atan] object or the "atan" function
+in [expr].;
+#N canvas 742 51 450 300 hz-to-bk 0;
+#X obj 149 54 inlet;
+#X obj 149 205 outlet;
+#X obj 149 126 expr;
+#X connect 0 0 2 0;
+#X connect 2 0 1 0;
+#X restore 140 417 pd hz-to-bk;
+#X text -15 279 Write this formula in [expr] so it can convert hertz
+to bark. Open the subpacth bellow and do it.;
+#X text -5 334 check: 500 hz is supposed to be 4.73647 bark;
+#X connect 3 0 9 0;
+#X connect 9 0 4 0;

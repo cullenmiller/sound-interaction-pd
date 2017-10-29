@@ -1,0 +1,68 @@
+#N canvas 557 33 920 658 12;
+#X obj 47 15 cnv 15 400 40 empty empty Video-Fx: 20 12 0 24 -262144
+-66577 0;
+#X obj 189 387 cnv 15 250 60 empty empty empty 20 12 0 14 -204800 -66577
+0;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X coords 0 1 100 -1 432 100 1;
+#X restore 450 94 graph;
+#X obj 243 343 cnv 15 60 30 empty empty empty 20 12 0 14 -232576 -66577
+0;
+#X obj 91 161 cnv 15 60 30 empty empty empty 20 12 0 14 -232576 -66577
+0;
+#X obj 198 231 gemhead;
+#X obj 199 457 pix_texture;
+#X obj 199 481 rectangle 4 3;
+#X obj 198 316 pix_film;
+#X obj 122 583 dac~;
+#X obj 99 198 tgl 20 0 empty empty empty 17 7 0 10 -260097 -1 -1 0
+1;
+#X obj 666 234 loadbang;
+#X msg 134 284 auto \$1;
+#X obj 99 466 select 0 1;
+#X obj 666 308 gemwin;
+#X obj 140 235 t b f;
+#X text 26 199 Play/Stop;
+#X msg 99 520 0;
+#X msg 209 283 open ./media/ConvBrothers.mov;
+#X obj 132 550 readsf~;
+#X obj 199 419 pix_motionblur;
+#X obj 297 397 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -261682
+-1 -1 0 1;
+#X floatatom 308 420 3 0 0 0 - - -;
+#X text 38 82 This is an example of applying video FX with [pix_motionblur]
+\, this examples is not in loop...;
+#X obj 251 348 s end;
+#X obj 99 167 r end;
+#X text 316 347 bang when finished stops everything.;
+#X text 455 404 [pix_motionblur] gets values from 0 to 1 and blurs
+the moving pixels. Move the slider to try it.;
+#X msg 666 264 create \, 1 \; pd dsp 1;
+#X text 459 109 This is a short exerpt from the performance of the
+group "Convolution Brothers" \, formed by Miller Puckette \, Cort Lippe
+and Zack Settel. The performance is from the Second International Puredata
+Convention in Montreal \, Canada \, 2007;
+#X msg 132 519 open ./media/ConvBrothers.wav \, 1;
+#X text 191 549 (1/0 work as "start"/"stop");
+#X connect 5 0 8 0;
+#X connect 6 0 7 0;
+#X connect 8 0 20 0;
+#X connect 8 2 24 0;
+#X connect 10 0 13 0;
+#X connect 10 0 15 0;
+#X connect 11 0 28 0;
+#X connect 12 0 8 0;
+#X connect 13 0 17 0;
+#X connect 13 1 30 0;
+#X connect 15 0 18 0;
+#X connect 15 1 12 0;
+#X connect 17 0 19 0;
+#X connect 18 0 8 0;
+#X connect 19 0 9 0;
+#X connect 19 0 9 1;
+#X connect 20 0 6 0;
+#X connect 21 0 20 1;
+#X connect 21 0 22 0;
+#X connect 25 0 10 0;
+#X connect 28 0 14 0;
+#X connect 30 0 19 0;

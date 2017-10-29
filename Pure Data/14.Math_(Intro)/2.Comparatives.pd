@@ -1,0 +1,173 @@
+#N canvas 109 67 1087 1022 12;
+#X obj 50 44 cnv 15 400 40 empty empty Comparatives: 20 12 0 24 -262144
+-66577 0;
+#X floatatom 197 131 7 -6 6 0 - - -;
+#X obj 44 186 == 5;
+#X obj 111 186 != 5;
+#X obj 176 186 > 5;
+#X obj 238 186 < 5;
+#X floatatom 44 213 5 0 0 0 - - -;
+#X floatatom 111 213 5 0 0 0 - - -;
+#X floatatom 176 213 5 0 0 0 - - -;
+#X floatatom 238 213 5 0 0 0 - - -;
+#X floatatom 306 213 5 0 0 0 - - -;
+#X floatatom 368 213 5 0 0 0 - - -;
+#X obj 306 186 >= 5;
+#X obj 368 186 <= 5;
+#X obj 44 235 tgl 15 0 empty empty empty 0 -6 0 10 -262144 -1 -1 0
+1;
+#X obj 111 235 tgl 15 0 empty empty empty 0 -6 0 10 -262144 -1 -1 0
+1;
+#X obj 176 235 tgl 15 0 empty empty empty 0 -6 0 10 -262144 -1 -1 0
+1;
+#X obj 306 235 tgl 15 0 empty empty empty 0 -6 0 10 -262144 -1 -1 0
+1;
+#X obj 368 235 tgl 15 0 empty empty empty 0 -6 0 10 -262144 -1 -1 0
+1;
+#X obj 238 235 tgl 15 0 empty empty empty 0 -6 0 10 -262144 -1 -1 0
+1;
+#X obj 91 303 ==;
+#X obj 116 362 >;
+#X obj 147 419 <;
+#X obj 131 391 >=;
+#X obj 162 449 <=;
+#X obj 104 331 !=;
+#X text 124 300 equal to;
+#X text 140 331 different than;
+#X text 149 361 bigger than;
+#X text 178 419 smaller than;
+#X text 161 392 bigger than or equal to;
+#X text 196 448 smaller than or equal to;
+#X text 65 269 Comparatives:;
+#X text 44 94 These objects give 1 for true and 0 for false!;
+#X obj 189 842 <;
+#X floatatom 263 753 5 0 0 0 - - -;
+#X floatatom 109 752 5 0 0 0 - - -;
+#X obj 189 877 select 0 1;
+#X obj 189 924 bng 20 250 50 0 empty empty empty 17 7 0 10 -258113
+-1 -1;
+#X obj 222 925 bng 20 250 50 0 empty empty empty 17 7 0 10 -4034 -1
+-1;
+#X text 219 946 TRUE;
+#X text 178 946 FALSE;
+#X obj 224 788 t b f;
+#X obj 189 817 f;
+#X text 148 751 is smaller than;
+#X text 61 709 - Pd: Chose "True" or "False";
+#X text 27 525 These objects are "conditionals" because they can tell
+you if something (or a "condition") is "true" or "false". The conditinals
+are \, obviously \, purely mathematical. And depending on the true
+or false answer \, we can make programming decisions. The conditionals
+are so imortant that they have their own dedicated folder in this tutorial.
+;
+#X text 24 640 So lets test if Pd is trustworthy to tell us if something
+is true or not! Or maybe if it's not just stupid.;
+#X obj 919 288 + 1;
+#X obj 863 288 float;
+#X obj 802 340 sel 1;
+#X obj 863 323 t f f;
+#X text 573 19 Let's recall the loop examples from folder 3 (Important
+Objects). Where we showed how it was possible to use [select] and [route]
+to control the lenght of a loop.;
+#X text 577 90 The Comparatives may be combined with the select object
+to form more elaborate conditional settings.;
+#X obj 802 369 t b b;
+#X obj 834 404 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 855 403 "Do Something";
+#X obj 688 300 + 1;
+#X obj 615 171 bng 50 250 50 0 empty empty empty 17 7 0 10 -204786
+-1 -1;
+#X msg 647 260 0;
+#X obj 615 291 float;
+#X text 684 258 reset;
+#X obj 679 397 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 570 397 "Do Something";
+#X obj 647 361 t f b;
+#X obj 615 330 sel 4;
+#X obj 679 443 print;
+#X obj 834 444 print;
+#X obj 615 234 t b b;
+#X obj 863 168 bng 50 250 50 0 empty empty empty 17 7 0 10 -204786
+-1 -1;
+#X msg 895 257 0;
+#X text 932 255 reset;
+#X obj 863 231 t b b;
+#X obj 802 304 < 4;
+#X obj 716 703 sel 1;
+#X obj 716 741 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 737 740 "Do Something";
+#X obj 716 781 print;
+#X obj 686 544 bng 50 250 50 0 empty empty empty 17 7 0 10 -204786
+-1 -1;
+#X obj 686 626 random 12;
+#X obj 716 667 != 4;
+#X text 561 817 This is a more elaborate loop \, where it will keep
+banging until [random] puts out the number 4 So it will bang a random
+number of times every time you run it.;
+#X text 539 875 ============================================================
+;
+#X text 23 128 click and change values;
+#X text 569 487 The examples above can be thought of as a loop routines
+that say: "While smaller than 4 \, keep banging".;
+#X text 558 905 IMPORTANT: this is explained here this way for didactic
+reasons. Loops that are very big won't work this way \, you'll see
+how to program proper loops in the folder 18 \, dedicated to it. More
+about conditionals will follow as well.;
+#X connect 1 0 2 0;
+#X connect 1 0 3 0;
+#X connect 1 0 4 0;
+#X connect 1 0 5 0;
+#X connect 1 0 12 0;
+#X connect 1 0 13 0;
+#X connect 2 0 6 0;
+#X connect 3 0 7 0;
+#X connect 4 0 8 0;
+#X connect 5 0 9 0;
+#X connect 6 0 14 0;
+#X connect 7 0 15 0;
+#X connect 8 0 16 0;
+#X connect 9 0 19 0;
+#X connect 10 0 17 0;
+#X connect 11 0 18 0;
+#X connect 12 0 10 0;
+#X connect 13 0 11 0;
+#X connect 34 0 37 0;
+#X connect 35 0 42 0;
+#X connect 36 0 43 0;
+#X connect 37 0 38 0;
+#X connect 37 1 39 0;
+#X connect 42 0 43 0;
+#X connect 42 1 34 1;
+#X connect 43 0 34 0;
+#X connect 48 0 49 1;
+#X connect 49 0 51 0;
+#X connect 50 0 54 0;
+#X connect 51 0 73 0;
+#X connect 51 1 48 0;
+#X connect 54 0 49 0;
+#X connect 54 1 55 0;
+#X connect 55 0 67 0;
+#X connect 57 0 60 0;
+#X connect 58 0 68 0;
+#X connect 59 0 60 1;
+#X connect 60 0 65 0;
+#X connect 62 0 66 0;
+#X connect 64 0 57 0;
+#X connect 64 1 62 0;
+#X connect 65 1 64 0;
+#X connect 68 0 60 0;
+#X connect 68 1 59 0;
+#X connect 69 0 72 0;
+#X connect 70 0 49 1;
+#X connect 72 0 49 0;
+#X connect 72 1 70 0;
+#X connect 73 0 50 0;
+#X connect 74 0 75 0;
+#X connect 74 0 79 0;
+#X connect 75 0 77 0;
+#X connect 78 0 79 0;
+#X connect 79 0 80 0;
+#X connect 80 0 74 0;

@@ -1,0 +1,151 @@
+#N canvas 258 40 1299 1132 12;
+#X obj 10 30 cnv 15 400 40 empty empty Set/Generate_Messages: 20 12
+0 24 -262144 -66577 0;
+#X msg 132 229;
+#X msg 621 220;
+#X msg 794 237;
+#X msg 783 193 set;
+#X msg 132 144 set;
+#X msg 601 183 set;
+#X obj 132 258 print;
+#X msg 153 400 set \$1;
+#X floatatom 153 372 5 0 0 0 - - -;
+#X floatatom 223 488 5 0 0 0 - - -;
+#X floatatom 155 509 5 0 0 0 - - -;
+#X obj 155 539 pack float float symbol;
+#X symbolatom 306 489 10 0 0 0 - - -;
+#X msg 155 569 set \$3 \$1 \$2;
+#X obj 221 512 t b f;
+#X obj 306 514 t b s;
+#X obj 153 465 print;
+#X obj 155 632 print;
+#X msg 642 185 add Vol 4;
+#X msg 757 727;
+#X msg 776 697 adddollar \$1;
+#X floatatom 776 671 5 0 0 0 - - -;
+#X msg 820 193 add2 vol;
+#X msg 837 426;
+#X msg 918 360 addcomma;
+#X msg 935 387 addsemi;
+#X msg 747 389 set;
+#X msg 756 1009;
+#X msg 783 957 adddollsym 4-foo;
+#X msg 689 959 set;
+#X msg 768 923 adddollsym \$1-foo;
+#X floatatom 768 895 5 0 0 0 - - -;
+#X obj 138 770 loadbang;
+#X msg 138 820 22;
+#X msg 210 780 set \$1;
+#X floatatom 210 752 5 0 0 0 - - -;
+#X msg 155 597;
+#X msg 153 436;
+#X obj 208 964 loadbang;
+#X msg 208 996 set;
+#X obj 208 1025 s reset;
+#X obj 70 183 r reset;
+#X obj 86 379 r reset;
+#X obj 85 500 r reset;
+#X obj 551 158 r reset;
+#X obj 746 160 r reset;
+#X obj 693 644 r reset;
+#X msg 695 691 set;
+#X msg 85 553 set;
+#X obj 702 920 r reset;
+#X obj 760 351 r reset;
+#X msg 823 359 add2 Gain 3;
+#X text 53 86 "set" does set (or generate) a message;
+#X text 55 106 only "set" will create an empty message;
+#X msg 148 173 set word;
+#X msg 164 200 set hi there;
+#X text 53 282 It's important to understand that this way the message
+won't be activated and sent ahead \, but just setted.;
+#X text 71 338 It's common to use with dollarsigns;
+#X text 63 676 Setting messages is a good way to store some values
+generated on your patch \, if you save the patch of course (we'll see
+how to do that automatically too later on).;
+#X obj 138 850 print Last-Number;
+#X text 177 818 change and save the patch;
+#X text 58 902 The other messages don't seem to have stored values
+\, but they are ressetted always because of this [loadbang]:;
+#X text 611 100 - "add" will add messages separated by semicollon.
+;
+#X msg 890 193 add2 4 3 4;
+#X text 614 122 - "add2" will add elements to the message.;
+#X msg 758 641 adddollar 4;
+#X text 617 435 - "addcoma" adds a coma;
+#X text 618 454 - "addsemi" adds a semicolon;
+#X text 47 1086 ============================================================
+;
+#X text 499 316 ============================================================
+;
+#X text 919 316 =============================================;
+#X text 503 573 ============================================================
+;
+#X text 923 573 =============================================;
+#X text 527 812 ============================================================
+;
+#X text 947 812 =============================================;
+#X text 559 604 - "addolar" adds numbered dollarsigns \, it needs to
+have a number argument.;
+#X text 643 847 - "addollsym" adds dollarsign messages followed by
+symbols \, it needs arguments that are not number atoms.;
+#X text 483 19 ============================================================
+;
+#X text 903 19 =============================================;
+#X text 487 75 ============================================================
+;
+#X text 907 75 =============================================;
+#X text 554 50 OTHER COMMANDS TO GENERATE MESSAGES:;
+#X obj 164 964 bng 15 250 50 0 empty empty empty 17 7 0 10 -262130
+-1 -1;
+#X text 58 960 reset messages;
+#X connect 1 0 7 0;
+#X connect 4 0 3 0;
+#X connect 5 0 1 0;
+#X connect 6 0 2 0;
+#X connect 8 0 38 0;
+#X connect 9 0 8 0;
+#X connect 10 0 15 0;
+#X connect 11 0 12 0;
+#X connect 12 0 14 0;
+#X connect 13 0 16 0;
+#X connect 14 0 37 0;
+#X connect 15 0 11 0;
+#X connect 15 1 12 1;
+#X connect 16 0 10 0;
+#X connect 16 1 12 2;
+#X connect 19 0 2 0;
+#X connect 21 0 20 0;
+#X connect 22 0 21 0;
+#X connect 23 0 3 0;
+#X connect 25 0 24 0;
+#X connect 26 0 24 0;
+#X connect 27 0 24 0;
+#X connect 29 0 28 0;
+#X connect 30 0 28 0;
+#X connect 31 0 28 0;
+#X connect 32 0 31 0;
+#X connect 33 0 34 0;
+#X connect 34 0 60 0;
+#X connect 35 0 34 0;
+#X connect 36 0 35 0;
+#X connect 37 0 18 0;
+#X connect 38 0 17 0;
+#X connect 39 0 40 0;
+#X connect 40 0 41 0;
+#X connect 42 0 1 0;
+#X connect 43 0 38 0;
+#X connect 44 0 37 0;
+#X connect 45 0 2 0;
+#X connect 46 0 3 0;
+#X connect 47 0 20 0;
+#X connect 48 0 20 0;
+#X connect 49 0 37 0;
+#X connect 50 0 28 0;
+#X connect 51 0 24 0;
+#X connect 52 0 24 0;
+#X connect 55 0 1 0;
+#X connect 56 0 1 0;
+#X connect 64 0 3 0;
+#X connect 66 0 20 0;
+#X connect 83 0 40 0;

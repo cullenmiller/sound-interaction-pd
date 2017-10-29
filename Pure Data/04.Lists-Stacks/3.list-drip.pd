@@ -1,0 +1,51 @@
+#N canvas 767 54 582 956 12;
+#X obj -88 17 cnv 15 400 40 empty empty List-Drip: 20 12 0 24 -262144
+-66577 0;
+#X obj 227 565 t l l;
+#X obj 91 209 list split 1;
+#X obj 91 258 print;
+#X msg 91 178 1 2 3 4 5;
+#X obj 259 653 print;
+#X msg 227 527 1 2 3 4 5;
+#X obj 259 601 list split 1;
+#X obj 154 601 list split 1;
+#X obj 56 561 list split 1;
+#X msg 56 526 1 2 3 4 5;
+#X obj -14 559 list;
+#X obj 56 596 t b f;
+#X obj 88 650 print;
+#X text -35 88 We'll now use [list split] to break lists. But we'll
+do it automatically \, in a loop. So watch out \, cause it can be tricky
+;
+#X obj 204 210 l;
+#X text -40 315 Above \, we try to send back a list into [list split]
+\, so it keeps splitting on and on until the list is over. But \, as
+we've seen in the Loop Example in the last folder \, loops compromise
+the order of messages \, in this case we are dealing with the object's
+outlet order \, but even so \, it will mess with it. So the output
+is in reverse order.;
+#X text -41 443 Below we have two different options that will prevent
+the loop from messing with the output. So now the lists are broken
+properly into atoms in the right order.;
+#X msg 141 813 1 2 3 4 5;
+#X obj 141 849 list-drip;
+#X obj 141 883 print;
+#X text -5 755 pd comes with a package of tools dedicated to manipulating
+lists. This following objects also does what we just did.;
+#X connect 1 0 8 0;
+#X connect 1 1 7 0;
+#X connect 2 0 3 0;
+#X connect 2 1 15 0;
+#X connect 4 0 2 0;
+#X connect 6 0 1 0;
+#X connect 7 0 5 0;
+#X connect 8 1 1 0;
+#X connect 9 0 12 0;
+#X connect 9 1 11 1;
+#X connect 10 0 9 0;
+#X connect 11 0 9 0;
+#X connect 12 0 11 0;
+#X connect 12 1 13 0;
+#X connect 15 0 2 0;
+#X connect 18 0 19 0;
+#X connect 19 0 20 0;

@@ -1,0 +1,18 @@
+#N canvas 939 282 644 498 12;
+#X obj 8 10 cnv 15 400 40 empty empty Edit: 10 15 0 24 -262144 -66577
+0;
+#X text 19 67 In the Edit Mode (where the mouse cursor becomes a hand)
+\, we can program and alter the patches.;
+#X text 17 121 Coming in and out from Edit Mode can be done on the
+"Edit" Menu \, or by its shortcut*. We can go into Edit Mode automatically
+by inserting something from the "Put" Menu \, or even by using a shortcut
+for the "Put" Menu items.;
+#X text 54 213 * Shortcuts are explicit on the Menus. I will here say
+only "Control" although for Mac users I should say "Command".;
+#X text 23 287 Important Edit Shortcuts:;
+#X text 93 327 Control D (Duplicate);
+#X text 92 347 Control A (Select All);
+#X text 91 309 Control C / Control V / Control X (as usual);
+#X text 93 368 Control Z (Undo \; BUT ONLY ONCE!!!);
+#X text 135 392 SAVE ALL OF THE TIME WITH CAUTION \, AND KEEP TRACK
+OF MANY MANY BACK UP VERSIONS. TRY NOT BE BOTHER BY THIS!!!;

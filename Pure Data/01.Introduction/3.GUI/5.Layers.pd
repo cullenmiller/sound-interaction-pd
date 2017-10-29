@@ -1,0 +1,33 @@
+#N canvas 957 24 611 393 12;
+#X obj 36 75 cnv 15 120 100 empty empty empty 20 12 0 14 -212265 -66577
+0;
+#X obj 26 15 cnv 15 400 40 empty empty Layers: 10 18 0 24 -262144 -66577
+0;
+#X obj 45 107 cnv 15 100 60 empty empty empty 20 12 0 14 -262130 -66577
+0;
+#X obj 61 85 bng 15 250 50 0 empty empty empty 17 7 0 10 -204786 -1
+-1;
+#X obj 61 144 tgl 15 0 empty empty empty 17 7 0 10 -204800 -1 -1 0
+1;
+#X obj 61 119 metro 500;
+#X obj 190 283 metro;
+#X text 107 299 Este texto \; está coberto \; pelos GUIs;
+#X msg 131 310 mensagem coberta;
+#X obj 65 281 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 119 227 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 126 287 cnv 15 100 60 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X obj 164 248 vradio 15 1 0 8 empty empty empty 0 -8 0 10 -262144
+-1 -1 0;
+#X text 168 75 Depending on the order you insert elements \, we have
+diferent layers. This can be used aesthetically to design background
+layouts \, and even hide some of the code (yep \, some people do that
+trick). See to the left that we have two canvases in different layers
+\, and how we have a messy thing goin on with the layers below.;
+#X text 277 283 If you wanna put a code in front of a;
+#X text 277 300 canvas \, you don't need to rewrite it.;
+#X text 278 317 Just cut and paste in front of it.;
+#X connect 3 0 5 0;
+#X connect 5 0 4 0;

@@ -1,0 +1,55 @@
+#N canvas 704 584 983 500 12;
+#X obj 10 9 cnv 15 400 40 empty empty Value: 20 12 0 24 -262144 -66577
+0;
+#X obj 83 254 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X floatatom 83 315 5 0 0 0 - - -;
+#X floatatom 123 170 5 0 0 0 - - -;
+#X obj 123 199 value a;
+#X floatatom 183 170 5 0 0 0 - - -;
+#X floatatom 243 170 5 0 0 0 - - -;
+#X obj 183 199 value b;
+#X obj 243 199 value c;
+#X obj 83 281 expr (a + b) / c;
+#X obj 736 390 value x;
+#X obj 796 390 value y;
+#X msg 736 358 4;
+#X msg 796 357 3;
+#X obj 736 325 loadbang;
+#X obj 623 323 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 623 384 8 0 0 0 - - -;
+#X obj 623 350 expr x / y;
+#X obj 771 53 + a;
+#X floatatom 261 315 5 0 0 0 - - -;
+#X obj 261 281 expr $f1 / (a - b) * c;
+#X floatatom 261 249 5 0 0 0 - - -;
+#X obj 674 212 expr a + d;
+#X obj 674 189 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 25 63 This is very useful! The [expr] object can recall values
+stored in [value] objects. Just have the value name in the [expr] object
+and that's it!;
+#X text 49 376 This can be convinient for making the formulas very
+easy to read!;
+#X text 484 25 This doens't work for the other math objects:;
+#X text 500 110 If you have some symbol in [expr] that is not defined
+in any [value] object \, [expr] complains with an error \; check (no
+such var 'd') on terminal.;
+#X text 694 185 click;
+#X text 523 270 Note they will always be floats \, even in the integer
+form. This is another way to prevent the "int-float" conflict.;
+#X connect 1 0 9 0;
+#X connect 3 0 4 0;
+#X connect 5 0 7 0;
+#X connect 6 0 8 0;
+#X connect 9 0 2 0;
+#X connect 12 0 10 0;
+#X connect 13 0 11 0;
+#X connect 14 0 12 0;
+#X connect 14 0 13 0;
+#X connect 15 0 17 0;
+#X connect 17 0 16 0;
+#X connect 20 0 19 0;
+#X connect 21 0 20 0;
+#X connect 23 0 22 0;

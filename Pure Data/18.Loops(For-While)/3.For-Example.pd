@@ -1,0 +1,122 @@
+#N canvas 253 22 1169 933 12;
+#X obj 33 -28 cnv 15 400 40 empty empty For-Example 20 12 0 24 -262144
+-66577 0;
+#X obj 133 508 cnv 15 300 120 empty empty empty 20 12 0 14 -261234
+-66577 0;
+#X text 139 519 (i=1 \, i < X \, i++);
+#X obj 175 648 cnv 15 240 60 empty empty empty 20 12 0 14 -261682 -66577
+0;
+#X obj 286 518 until;
+#X obj 367 684 +;
+#X obj 385 578 + 1;
+#X obj 286 560 float;
+#X obj 286 600 t b f;
+#X floatatom 308 392 5 0 0 0 - - -;
+#X obj 308 437 t f b;
+#X msg 340 479 0;
+#X obj 367 747 print total;
+#X floatatom 367 715 8 0 0 0 - - -;
+#X text 374 478 initial state;
+#X text 282 392 X;
+#X obj 308 654 float;
+#X text 396 601 i;
+#X text 181 657 total = total + i;
+#X text 110 77 It's time to do a proper example of "for.;
+#X text 107 113 "For Example":;
+#X text 112 189 In textual programmiing \, it could be something like
+this:;
+#X text 135 217 total intitial state = 0 \; for (i = 1 \, i < X \,
+i = i + 1) \; total = total + i \;;
+#X text 110 141 This patch's example is a loop that adds the numbers
+1 through X to a variable called "total".;
+#X text 116 298 Here's that translated to the Pd World:;
+#X obj 706 70 cnv 15 140 140 empty empty empty 20 12 0 14 -204800 -66577
+0;
+#X obj 724 77 Uzi;
+#X obj 794 181 +;
+#X obj 742 109 t b f;
+#X msg 788 111 0;
+#X floatatom 724 7 5 0 0 0 - - -;
+#X obj 724 44 t f b;
+#X obj 742 168 float;
+#X text 698 6 X;
+#X text 787 6 [Uzi] makes it a bit simpler \; because of its "built-in
+counter";
+#X obj 733 230 f;
+#X obj 733 279 print total;
+#X floatatom 733 255 5 0 0 0 - - -;
+#X text 636 329 Another cool thing is that [Uzi] will send a last bang
+throughout the middle outlet \, saying "we're finished". You can use
+that to spit out the final value from the loop.;
+#X text 637 406 Here's how you wanna do something like that with [until]
+;
+#X obj 764 676 cnv 15 260 60 empty empty empty 20 12 0 14 -261682 -66577
+0;
+#X text 770 685 total = total + i;
+#X obj 675 487 cnv 15 300 180 empty empty empty 20 12 0 14 -261234
+-66577 0;
+#X text 681 498 (i=1 \, i < X \, i++);
+#X obj 821 563 until;
+#X obj 979 707 +;
+#X obj 889 600 + 1;
+#X floatatom 821 460 5 0 0 0 - - -;
+#X text 795 460 X;
+#X obj 821 605 f;
+#X msg 944 529 0;
+#X obj 912 687 float;
+#X obj 863 529 select;
+#X obj 889 642 t f b f;
+#X obj 821 493 t bang float bang;
+#X obj 863 745 float;
+#X floatatom 863 778 5 0 0 0 - - -;
+#X obj 863 807 print total;
+#X text 794 745 Finished;
+#X text 667 232 Finished;
+#X connect 4 0 7 0;
+#X connect 5 0 13 0;
+#X connect 5 0 16 1;
+#X connect 6 0 7 1;
+#X connect 6 0 5 1;
+#X connect 7 0 8 0;
+#X connect 8 0 16 0;
+#X connect 8 1 6 0;
+#X connect 9 0 10 0;
+#X connect 10 0 4 0;
+#X connect 10 1 11 0;
+#X connect 11 0 7 1;
+#X connect 11 0 16 1;
+#X connect 13 0 12 0;
+#X connect 16 0 5 0;
+#X connect 26 1 35 0;
+#X connect 26 2 28 0;
+#X connect 27 0 32 1;
+#X connect 27 0 35 1;
+#X connect 28 0 32 0;
+#X connect 28 1 27 1;
+#X connect 29 0 32 1;
+#X connect 30 0 31 0;
+#X connect 31 0 26 0;
+#X connect 31 1 29 0;
+#X connect 32 0 27 0;
+#X connect 35 0 37 0;
+#X connect 37 0 36 0;
+#X connect 44 0 49 0;
+#X connect 45 0 51 1;
+#X connect 45 0 55 1;
+#X connect 46 0 53 0;
+#X connect 47 0 54 0;
+#X connect 49 0 46 0;
+#X connect 50 0 51 1;
+#X connect 50 0 49 1;
+#X connect 51 0 45 0;
+#X connect 52 0 44 1;
+#X connect 52 0 55 0;
+#X connect 53 0 52 0;
+#X connect 53 0 49 1;
+#X connect 53 1 51 0;
+#X connect 53 2 45 1;
+#X connect 54 0 44 0;
+#X connect 54 1 52 1;
+#X connect 54 2 50 0;
+#X connect 55 0 56 0;
+#X connect 56 0 57 0;

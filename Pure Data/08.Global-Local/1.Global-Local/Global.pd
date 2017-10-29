@@ -1,0 +1,39 @@
+#N canvas 704 211 548 624 12;
+#X obj 149 87 inlet;
+#X obj 290 88 inlet;
+#X obj 139 296 outlet;
+#X obj 284 297 outlet;
+#X obj 149 114 send X-A;
+#X obj 290 113 send X-B;
+#X obj 139 243 receive X-A;
+#X obj 284 244 receive X-B;
+#X obj 201 526 value global;
+#X obj 201 499 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 235 495 5 0 0 0 - - -;
+#X text 124 30 ====> This is an Abstraction!!! <====;
+#X text 74 160 Data into [send X-1] go to every corresponding [receive
+X-1] \, be it on a parent patch or another instance of this abstraction!
+;
+#X text 60 334 We have this abstraction loaded in two different instances
+\, see from the parent patch how the two instances are getting the
+data.;
+#X text 60 393 ============================================================
+;
+#X text 59 430 The [value] object also operates globally. See how a
+variable set here can be recalled from the parent patch.;
+#X obj 139 272 nbx 3 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-257985 -1 -1 0 256;
+#X obj 284 271 nbx 3 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-204800 -1 -1 0 256;
+#X obj 201 560 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-204786 -1 -1 0 256;
+#X connect 0 0 4 0;
+#X connect 1 0 5 0;
+#X connect 6 0 16 0;
+#X connect 7 0 17 0;
+#X connect 8 0 18 0;
+#X connect 9 0 8 0;
+#X connect 10 0 8 0;
+#X connect 16 0 2 0;
+#X connect 17 0 3 0;

@@ -1,0 +1,48 @@
+#N canvas 523 87 992 632 12;
+#X obj 27 25 cnv 15 400 40 empty empty Directories: 20 12 0 24 -262144
+-66577 0;
+#X msg 241 154 \; array1 write table3.txt;
+#X msg 40 154 \; array1 write ./table3.txt;
+#X msg 85 513 \; array1 write ./txt/table4.txt;
+#X msg 479 181 \; array1 write ../table5.txt;
+#X msg 708 180 \; array1 write ./../table6.txt;
+#X msg 576 294 \; array1 write ../../table6.txt;
+#X msg 560 411 \; array1 write ../files/txt/table7.txt;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array array1 100 float 5;
+#A 0 -0.0285716 0.0178573 0.0642861 0.110715 0.157144 0.200001 0.242859
+0.285716 0.328573 0.348574 0.368574 0.388574 0.408574 0.428574 0.446431
+0.464289 0.482146 -0.571432 -0.571432 -0.571432 -0.571432 -0.542861
+-0.528575 -0.521432 -0.514289 -0.500003 -0.471431 -0.44286 -0.435717
+-0.428574 -0.400002 -0.385717 -0.357145 -0.285716 -0.242859 -0.142858
+0.0285716 0.114286 0.200001 0.27143 0.314288 0.314288 0.27143 0.228573
+0.200001 0.17143 0.142858 0.114286 0.0857148 0.0571432 0.0571432 0.0571432
+0.0571432 0.0571432 0.0571432 0.0571432 0.0571432 0.0571432 0.0619051
+0.0666671 0.071429 0.0785719 0.0857148 0.0928577 0.100001 0.114286
+0.128572 0.142858 0.157144 0.185715 0.214287 0.228573 0.242859 0.285716
+0.321431 0.357145 0.44286 0.485717 0.571432 0.657147 0.757148 -0.585718
+-0.585718 -0.585718 -0.585718 -0.585718 -0.585718 -0.585718 -0.578575
+-0.571432 -0.564289 -0.557146 -0.547622 -0.538099 -0.528575 -0.500003
+-0.428574 -0.385717 -0.300002 -0.214287;
+#X coords 0 1 99 -1 200 140 1;
+#X restore 117 236 graph;
+#X text 16 73 We now know both options below do create or overwrite
+a txt file. The usage of "./" is optional to specify this patch's folder.
+;
+#X text 26 406 But now we're also specifying a sub folder. This will
+only work if in fact there is a subfolder with that name in this patch
+\; s folder (in other words \, it won't create one that is not there
+already). Check the (txt) subfolder to see that this file will show
+up there.;
+#X text 307 523 <- click;
+#X text 493 89 Two dots before a slash "../" indicate a parent folder.
+Moreover \, we can also specify other subfolders of the parent's folder
+other than the one this patch is in. Again \, the "./" is implicit
+and we can do this these both ways:;
+#X text 682 190 =;
+#X text 499 253 To go two folders up \, just put another set of "../"
+;
+#X text 543 374 And just specify the subfolders you want:;
+#X text 506 496 This syntax of dots and slashes is very important for
+basically all the objects that do work with files on your computer!!!
+;

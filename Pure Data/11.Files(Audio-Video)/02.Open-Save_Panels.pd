@@ -1,0 +1,56 @@
+#N canvas 631 64 1038 754 12;
+#X obj -114 8 cnv 15 270 40 empty empty [open-save_panels]+[soundfiler]
+20 12 0 24 -262144 -66577 0;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array \$0-array1 534167 float 2;
+#X coords 0 1 534167 -1 550 140 1;
+#X restore -44 306 graph;
+#X obj 196 576 openpanel;
+#X obj 196 555 bng 15 250 50 0 empty empty empty 17 7 0 10 -204786
+-1 -1;
+#X msg 196 649 read -resize \$1 \$2;
+#X obj 609 528 soundfiler;
+#X obj 609 420 bng 15 250 50 0 empty empty empty 17 7 0 10 -259863
+-1 -1;
+#X obj 609 442 savepanel;
+#X obj -27 154 openpanel;
+#X obj -27 131 bng 15 250 50 0 empty empty empty 17 7 0 10 -204786
+-1 -1;
+#X obj -27 214 soundfiler;
+#X msg -27 183 read -resize \$1 array1;
+#X obj 196 679 soundfiler;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array array1 88200 float 2;
+#X coords 0 1 88200 -1 200 140 1;
+#X restore 177 100 graph;
+#X text 447 159 The [soundfiler] also writes arrays creating new audio
+files. Just use "write" instead of read. And you can the use [savepanel]
+instead of [openpanel] to specify the new file.;
+#X text 26 533 Because of "\$0" we need to;
+#X text 20 550 do something like this:;
+#X obj 596 331 soundfiler;
+#X msg 596 300 write \$1 array1;
+#X obj 596 253 bng 15 250 50 0 empty empty empty 17 7 0 10 -259863
+-1 -1;
+#X obj 596 275 savepanel;
+#X obj 609 471 list append \$0-array1;
+#X text -63 72 Be free to use [openpanel];
+#X text -61 92 with [soundfiler];
+#X msg 609 501 write \$1 \$2;
+#X obj 196 617 list append \$0-array1;
+#X text 397 505 Because of "\$0" we need to;
+#X text 429 520 do something like this:;
+#X connect 2 0 25 0;
+#X connect 3 0 2 0;
+#X connect 4 0 12 0;
+#X connect 6 0 7 0;
+#X connect 7 0 21 0;
+#X connect 8 0 11 0;
+#X connect 9 0 8 0;
+#X connect 11 0 10 0;
+#X connect 18 0 17 0;
+#X connect 19 0 20 0;
+#X connect 20 0 18 0;
+#X connect 21 0 24 0;
+#X connect 24 0 5 0;
+#X connect 25 0 4 0;

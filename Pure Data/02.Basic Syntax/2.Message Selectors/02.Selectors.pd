@@ -1,0 +1,51 @@
+#N canvas 285 22 1045 525 12;
+#X obj 11 12 cnv 15 450 40 empty empty Selectors: 20 18 0 24 -262144
+-66577 0;
+#X msg 150 261 54;
+#X msg 150 299 mamma;
+#X msg 629 148 float 54;
+#X msg 629 175 symbol mamma;
+#X msg 630 219 list 83 402 349 -12;
+#X msg 630 246 list meus gatos queridos;
+#X text 62 262 float;
+#X text 145 230 Message:;
+#X text 58 297 symbol;
+#X text 40 230 Selector:;
+#X text 63 375 list;
+#X text 46 156 These gives us three possible selectors: Float \, Symbol
+& List!;
+#X msg 149 391 1 2 3 let's 4 go;
+#X text 314 340 all numbers;
+#X msg 148 339 120.831 -1.2e-22 -12;
+#X text 314 363 all symbols;
+#X msg 149 365 #@$%!* let me go!!!!;
+#X text 276 391 both (starts with float);
+#X msg 150 418 my 3 dogs 4 You;
+#X text 271 418 both (starts with symbol);
+#X text 32 200 ============================================================
+;
+#X text 44 457 ============================================================
+;
+#X text 531 42 Given a certain message \, in order for Pd to know what
+type of message it is \, we need to insert a selector as the first
+atom in a meesage.;
+#X text 583 108 Like this:;
+#X text 545 374 This is because we've been working mostly with floats
+\, and because Pd knows numbers really well \, they already carry an
+implicit selector \, so we don't really need to bother and put that
+all of the time. More about that later on.;
+#X text 535 455 ============================================================
+;
+#X text 521 9 ============================================================
+;
+#X text 749 146 a float message;
+#X text 749 169 a symbol message;
+#X text 791 215 a list message;
+#X text 810 244 and another;
+#X text 545 300 WAIT A MINUTE...;
+#X text 544 325 You may notice that we've been working without selector
+until now \, and all seemed fine...;
+#X text 42 75 Selector are "Types of Data". We know that messages can
+only contain numbers or symbols. We can derive 3 types of messages:
+a number (float) \, a symbol \, and lists (which contain numbers and/or
+symbols).;

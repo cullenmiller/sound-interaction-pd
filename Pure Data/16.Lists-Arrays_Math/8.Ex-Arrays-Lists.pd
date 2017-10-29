@@ -1,0 +1,127 @@
+#N canvas 541 107 1268 768 12;
+#X obj 39 106 cnv 15 198 138 empty empty empty 20 12 0 14 -204786 -66577
+0;
+#X obj 273 106 cnv 15 198 138 empty empty empty 20 12 0 14 -204800
+-66577 0;
+#X obj 111 530 cnv 15 198 138 empty empty empty 20 12 0 14 -260097
+-66577 0;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array array1 10 float 3;
+#A 0 1 -0.714292 0.314282 0.699993 -0.25714 -0.628565 -0.271426 0.199998
+-0.057142 0.528566;
+#X coords 0 1.1 10 -1.1 200 140 1;
+#X restore 38 105 graph;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array array2 10 float 3;
+#A 0 0.185712 -0.571423 -0.414281 0.242855 -0.542852 0.328568 0.171427
+0.542851 0.499995 -0.528566;
+#X coords 0 1.1 10 -1.1 200 140 1;
+#X restore 272 105 graph;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array array3 10 float 2;
+#X coords 0 1.1 10 -1.1 200 140 1;
+#X restore 110 529 graph;
+#X text 21 98 1;
+#X text 16 231 -1;
+#X text 258 99 1;
+#X text 253 232 -1;
+#X text 96 522 1;
+#X text 91 655 -1;
+#X obj 492 445 tabdump array1;
+#X obj 492 476 list-drip;
+#X obj 492 555 fifop;
+#X obj 633 475 list-drip;
+#X obj 633 444 tabdump array2;
+#X obj 633 554 lifop;
+#X obj 492 641 *;
+#X obj 514 385 loadbang;
+#X obj 443 511 trigger bang bang bang;
+#X obj 594 640 f;
+#X obj 642 656 + 1;
+#X obj 443 482 bng 15 250 50 0 empty empty empty 17 7 0 10 -260097
+-1 -1;
+#X obj 492 672 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-260097 -1 -1 -0.084488 256;
+#X obj 612 388 bng 15 250 50 0 empty empty empty 17 7 0 10 -228856
+-1 -1;
+#X msg 612 608 0;
+#X floatatom 594 670 5 0 0 0 - - -;
+#X obj 492 702 tabwrite array3;
+#X msg 885 182 1 2 3 4 5 6;
+#X msg 998 182 10 20 30 40 50 60;
+#X obj 998 303 fifop;
+#X obj 998 233 list-drip;
+#X obj 885 303 fifop;
+#X obj 885 233 list-drip;
+#X obj 944 347 *;
+#X floatatom 944 375 5 0 0 0 - - -;
+#X obj 822 272 trigger bang bang;
+#X obj 822 159 bng 15 250 50 0 empty empty empty 17 7 0 10 -232576
+-1 -1;
+#X obj 35 19 cnv 15 400 40 empty empty Example: 20 12 0 24 -262144
+-66577 0;
+#X obj 998 132 loadbang;
+#X text 28 286 We'll see again this previous example \, but now lets
+think of the arrays as lists!;
+#X text 633 383 reset;
+#X msg 944 401 add2 \$1;
+#X msg 896 452;
+#X obj 883 111 bng 15 250 50 0 empty empty empty 17 7 0 10 -162280
+-1 -1;
+#X msg 865 367 set;
+#X text 835 108 reset;
+#X text 746 157 calculate:;
+#X text 367 478 calculate:;
+#X text 29 358 But lets do it a bit different \, the first element
+from an array is multiplied by the last of the other. This is because
+we're using [fifop] in one and [lifop] on the other (it'd be the same
+example as before if [fifop] were used in both).;
+#X text 756 56 And here we do math over just lists and no arrays.;
+#X text 799 528 EXERCIZE:;
+#X text 824 560 Use Loops to do this automatically!;
+#X obj 768 333 loadbang;
+#X obj 681 666 s array3;
+#X msg 681 642 const \$1;
+#X connect 12 0 13 0;
+#X connect 13 0 14 0;
+#X connect 14 0 18 0;
+#X connect 15 0 17 0;
+#X connect 16 0 15 0;
+#X connect 17 0 18 1;
+#X connect 18 0 24 0;
+#X connect 19 0 12 0;
+#X connect 19 0 16 0;
+#X connect 20 0 14 0;
+#X connect 20 1 17 0;
+#X connect 20 2 21 0;
+#X connect 21 0 22 0;
+#X connect 21 0 27 0;
+#X connect 22 0 21 1;
+#X connect 23 0 20 0;
+#X connect 24 0 28 0;
+#X connect 25 0 26 0;
+#X connect 25 0 12 0;
+#X connect 25 0 16 0;
+#X connect 26 0 21 1;
+#X connect 26 0 56 0;
+#X connect 27 0 28 1;
+#X connect 29 0 34 0;
+#X connect 30 0 32 0;
+#X connect 31 0 35 1;
+#X connect 32 0 31 0;
+#X connect 33 0 35 0;
+#X connect 34 0 33 0;
+#X connect 35 0 36 0;
+#X connect 36 0 43 0;
+#X connect 37 0 33 0;
+#X connect 37 1 31 0;
+#X connect 38 0 37 0;
+#X connect 40 0 29 0;
+#X connect 40 0 30 0;
+#X connect 43 0 44 0;
+#X connect 45 0 30 0;
+#X connect 45 0 29 0;
+#X connect 45 0 46 0;
+#X connect 46 0 44 0;
+#X connect 54 0 46 0;
+#X connect 56 0 55 0;

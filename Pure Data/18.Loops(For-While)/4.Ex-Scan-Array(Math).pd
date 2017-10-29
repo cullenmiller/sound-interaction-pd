@@ -1,0 +1,155 @@
+#N canvas 273 24 1065 1087 12;
+#X obj -8 16 cnv 15 400 40 empty empty Scan_Array(Math): 20 12 0 24
+-262144 -66577 0;
+#X obj 121 578 tabread array1;
+#X obj 229 578 tabread array2;
+#X obj 211 609 *;
+#X obj 160 522 - 1;
+#X obj 230 655 tabwrite array3;
+#X obj 160 548 trigger float float float;
+#X obj 918 62 s array3;
+#X msg 918 39 const 0;
+#X obj 918 16 loadbang;
+#X obj 114 266 cnv 15 198 138 empty empty empty 20 12 0 14 -204786
+-66577 0;
+#X obj 348 266 cnv 15 198 138 empty empty empty 20 12 0 14 -204800
+-66577 0;
+#X obj 586 266 cnv 15 198 138 empty empty empty 20 12 0 14 -260097
+-66577 0;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array array1 10 float 3;
+#A 0 0.557166 -0.257154 0.314282 0.699993 -0.25714 -0.628565 -0.271426
+0.199998 -0.057142 0.38571;
+#X coords 0 1 10 -1 200 140 1;
+#X restore 113 265 graph;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array array2 10 float 3;
+#A 0 0.185712 -0.571423 -0.414281 0.242855 -0.542852 0.328568 0.171427
+0.542851 0.499995 -0.528566;
+#X coords 0 1 10 -1 200 140 1;
+#X restore 347 265 graph;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array array3 10 float 3;
+#A 0 0 0 0 0 0 0 0 0 0 0;
+#X coords 0 1 10 -1 200 140 1;
+#X restore 585 265 graph;
+#X text 96 258 1;
+#X text 91 391 -1;
+#X text 333 259 1;
+#X text 328 392 -1;
+#X text 571 258 1;
+#X text 566 391 -1;
+#X obj 507 619 tabwrite array3;
+#X text 185 637 value;
+#X text 296 635 index;
+#X msg 142 462 10;
+#X obj 142 495 Uzi;
+#X obj 394 553 expr pow(array1[$f1 - 1] * array2[$f1 - 1] \, 2) \;
+$f1 - 1;
+#X text 444 462 Now it's even simpler with [expr] \, as it reads arrays.
+And it can include much more complicated math \, so We're also doing
+the "pow" function.;
+#X text 60 460 array size;
+#X obj 376 523 Uzi;
+#X msg 376 493 10;
+#X text 294 491 array size;
+#X msg 448 749 bang;
+#X obj 448 808 until;
+#X obj 448 778 trigger bang bang;
+#X obj 546 841 f;
+#X obj 580 853 + 1;
+#X text 372 909 condition (Array Size);
+#X obj 546 908 <= 10;
+#X obj 564 811 f 0;
+#X obj 546 881 trigger float float;
+#X obj 747 970 tabwrite array3;
+#X obj 546 942 sel 0;
+#X obj 105 945 tabread array1;
+#X obj 213 945 tabread array2;
+#X obj 214 1022 tabwrite array3;
+#X obj 144 915 trigger float float float;
+#X text 169 1004 value;
+#X text 280 1002 index;
+#X obj 115 847 until;
+#X msg 115 757 10;
+#X obj 213 877 + 1;
+#X msg 176 848 0;
+#X obj 144 876 float;
+#X text 29 757 array size;
+#X obj 176 822 sel;
+#X obj 115 789 trigger f f;
+#X text -33 702 ===========================================================
+;
+#X text 380 702 ===========================================================
+;
+#X obj 676 910 expr array1[$f1] - array2[$f1] \; $f1;
+#X text 605 811 index initial state;
+#X text 619 855 index update;
+#X text 790 702 =============================;
+#X text -44 218 ===========================================================
+;
+#X text 369 218 ===========================================================
+;
+#X text 779 218 =============================;
+#X text 590 738 if you think of a proper "for" loop \, [until] makes
+it possible to step through in different ways \, changing the initial
+state and update function!;
+#X text 759 886 subtracting arrays;
+#X obj 195 976 +;
+#X text -18 729 Similar process with [until] \, adding the arrays;
+#X text 475 78 [until] \, on the other hand \, allows different ways
+to step through the array.;
+#X text 20 79 Once again we see this math example with arrays.;
+#X text 16 116 Loop functions are very useful to scan an array! [Uzi]
+is handy because it has a built-in counter (the number of bangs \,
+starting at 1) for sweeping through as indexes. But the first index
+of an array is always "0" \, so we need to subtract 1 from our counter.
+;
+#X text 471 129 The index values are used to read two arrays \, then
+we perform a math operations between them and put the result into a
+third array.;
+#X connect 1 0 3 0;
+#X connect 2 0 3 1;
+#X connect 3 0 5 0;
+#X connect 4 0 6 0;
+#X connect 6 0 1 0;
+#X connect 6 1 2 0;
+#X connect 6 2 5 1;
+#X connect 8 0 7 0;
+#X connect 9 0 8 0;
+#X connect 25 0 26 0;
+#X connect 26 2 4 0;
+#X connect 27 0 22 0;
+#X connect 27 1 22 1;
+#X connect 30 2 27 0;
+#X connect 31 0 30 0;
+#X connect 33 0 35 0;
+#X connect 34 0 36 0;
+#X connect 35 0 34 0;
+#X connect 35 1 40 0;
+#X connect 36 0 37 0;
+#X connect 36 0 41 0;
+#X connect 37 0 36 1;
+#X connect 39 0 43 0;
+#X connect 40 0 36 1;
+#X connect 41 0 39 0;
+#X connect 41 1 60 0;
+#X connect 43 0 34 1;
+#X connect 44 0 69 0;
+#X connect 45 0 69 1;
+#X connect 47 0 44 0;
+#X connect 47 1 45 0;
+#X connect 47 2 46 1;
+#X connect 50 0 54 0;
+#X connect 51 0 57 0;
+#X connect 52 0 54 1;
+#X connect 53 0 54 1;
+#X connect 54 0 52 0;
+#X connect 54 0 47 0;
+#X connect 54 0 56 0;
+#X connect 56 0 53 0;
+#X connect 57 0 50 0;
+#X connect 57 1 56 1;
+#X connect 60 0 42 0;
+#X connect 60 1 42 1;
+#X connect 69 0 46 0;

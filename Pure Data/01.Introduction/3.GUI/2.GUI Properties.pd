@@ -1,0 +1,50 @@
+#N canvas 755 143 954 771 12;
+#X obj 50 32 cnv 15 400 40 empty empty Properties: 20 12 0 24 -262144
+-66577 0;
+#X obj 61 173 tgl 200 0 empty empty empty 0 -6 0 8 -24198 -167937 -1
+0 1;
+#X text 308 299 - Labels;
+#X obj 90 427 hsl 40 80 0 127 0 0 empty empty empty -2 -6 0 10 -13381
+-262144 -1 0 1;
+#X obj 36 175 vsl 10 350 0 127 0 0 empty empty empty 0 -8 0 10 -204786
+-1 -1 0 1;
+#X obj 167 408 vradio 50 1 0 2 empty empty empty 0 -6 0 10 -261234
+-1 -1 0;
+#X obj 73 385 hradio 15 1 0 22 empty empty empty 0 -6 0 10 -4160 -1
+-1 0;
+#X obj 61 146 bng 8 250 50 0 . - empty 0 -6 0 10 -257985 -1 -1;
+#X obj 259 463 bng 160 250 50 0 empty empty BANG_ME!!! -25 -24 0 40
+-4032 -258113 -13330;
+#X obj 71 659 nbx 9 40 -1e+37 1e+37 0 0 empty empty empty 0 -6 0 20
+-259594 -33289 -191407 0 256;
+#X obj 71 714 print;
+#X obj 641 369 cnv 15 80 28 empty empty symbol 5 12 0 17 -1 -204786
+0;
+#X floatatom 581 185 5 0 0 0 - - -;
+#X symbolatom 651 186 10 0 0 0 - - -;
+#X obj 515 575 cnv 15 360 60 empty empty empty 20 12 0 14 -183917 -66577
+0;
+#X text 33 98 GUI objects have many properties \, check them by right-clicking
+on them.;
+#X text 302 205 Create GUIs &;
+#X text 300 230 Try to change:;
+#X text 308 262 - Size;
+#X text 308 279 - Colors;
+#X text 488 123 See the difference for atom boxes and how they have
+less properties to edit:;
+#X text 491 276 You can realize that the number box is a GUI version
+of the atom number box. But we have no GUI for symbols. Nevertheless
+\, you can have a nice colorful word displayed on a Canvas GUI \, just
+put it as its lable:;
+#X text 490 484 Please realize that all the patch titles from this
+tutorial are Canvases. A Canvas GUI can also be used as a colorful
+background for anything.;
+#X text 526 595 "And all looks nicer with a colorful background";
+#X connect 1 0 9 0;
+#X connect 3 0 9 0;
+#X connect 4 0 9 0;
+#X connect 5 0 9 0;
+#X connect 6 0 9 0;
+#X connect 7 0 1 0;
+#X connect 8 0 9 0;
+#X connect 9 0 10 0;

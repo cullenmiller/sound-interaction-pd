@@ -1,0 +1,38 @@
+#N canvas 722 50 495 581 12;
+#X obj 10 9 cnv 15 400 40 empty empty Exponencial: 20 12 0 24 -262144
+-66577 0;
+#X obj 249 198 bng 15 250 50 0 empty empty empty 17 7 0 10 -261234
+-1 -1;
+#X floatatom 249 262 8 0 0 0 - - -;
+#X obj 249 232 expr (0.00001);
+#X obj 145 198 bng 15 250 50 0 empty empty empty 17 7 0 10 -258113
+-1 -1;
+#X floatatom 145 262 8 0 0 0 - - -;
+#X obj 145 232 expr 1e-05;
+#X obj 120 414 bng 15 250 50 0 empty empty empty 17 7 0 10 -204800
+-1 -1;
+#X floatatom 120 478 8 0 0 0 - - -;
+#X obj 120 448 expr pow(10 \, -5);
+#X obj 280 413 bng 15 250 50 0 empty empty empty 17 7 0 10 -204800
+-1 -1;
+#X floatatom 280 477 8 0 0 0 - - -;
+#X obj 280 447 expr (0.00001);
+#X text 250 449 =;
+#X text 14 69 Another similar issue is that Pd will convert very large
+or very small numbers to the exponential form \, and [expr] does not
+deal with them. For instance: "0.00001" will become "1e-05" \, and
+the only way to prevent it from converting to the exponential format
+is to make it in a way Pd will think it is a symbol atom \, like when
+we write in parenthesis: (0.00001)!;
+#X text 177 210 Bad;
+#X text 279 208 Good;
+#X text 29 335 If you need and want to write a number in the exponential
+format \, you need to use the "pow" function \, like this:;
+#X connect 1 0 3 0;
+#X connect 3 0 2 0;
+#X connect 4 0 6 0;
+#X connect 6 0 5 0;
+#X connect 7 0 9 0;
+#X connect 9 0 8 0;
+#X connect 10 0 12 0;
+#X connect 12 0 11 0;

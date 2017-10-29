@@ -1,0 +1,65 @@
+#N canvas 875 128 705 678 12;
+#X obj 10 10 cnv 15 600 40 empty empty [metro] 20 12 0 24 -262144 -66577
+0;
+#X msg 55 351 bang;
+#X msg 94 351 stop;
+#X obj 69 447 bng 15 250 50 0 empty empty empty 0 -6 0 10 -262144 -1
+-1;
+#X msg 67 229 bang;
+#X obj 67 280 bng 15 250 50 0 empty empty empty 0 -6 0 10 -262144 -1
+-1;
+#X msg 422 253 bang;
+#X msg 447 283 stop;
+#X obj 422 399 bng 15 250 50 0 empty empty empty 0 -6 0 10 -262144
+-1 -1;
+#X obj 422 371 metro 500;
+#X msg 450 312 1;
+#X msg 455 338 0;
+#X obj 373 325 tgl 15 0 empty empty empty 0 -6 0 10 -262144 -1 -1 0
+1;
+#X obj 94 447 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X floatatom 129 384 5 200 1000 0 - - -;
+#X obj 67 255 metro 200;
+#X obj 69 409 metro 200;
+#X obj 128 560 metro 500;
+#X obj 128 538 tgl 15 0 empty empty empty 0 -6 0 10 -262144 -1 -1 0
+1;
+#X obj 128 586 random 20;
+#X floatatom 128 612 5 0 0 0 - - -;
+#X text 46 78 Some objects send "bangs" for the convinience of it.
+The [metro] object fires up "bangs" at a regular beat \, like a metronome.
+The bang messages can then control anything \, even notes in a music.
+;
+#X text 45 159 The time of the "Metrônomo" is given in miliseconds
+by its Argument \, and by the right inlet.;
+#X text 139 256 Argument = time;
+#X text 319 216 Ways of turning on and off the [metro];
+#X text 169 385 <-- Changes the time.;
+#X text 256 424 More information is on the "help" file. Get used to
+asking for help \, don't be ashamed \, and it's free!;
+#X text 212 562 The convinience is that the great majority of objects
+react to bangs. On this case to the left \, the [random] object generates
+a random number everytime it receives a bang. More info on its help
+file.;
+#X text 463 254 on;
+#X text 486 282 off;
+#X text 482 311 on;
+#X text 489 338 off;
+#X text 356 300 on/off;
+#X connect 1 0 16 0;
+#X connect 2 0 16 0;
+#X connect 4 0 15 0;
+#X connect 6 0 9 0;
+#X connect 7 0 9 0;
+#X connect 9 0 8 0;
+#X connect 10 0 9 0;
+#X connect 11 0 9 0;
+#X connect 12 0 9 0;
+#X connect 14 0 16 1;
+#X connect 15 0 5 0;
+#X connect 16 0 3 0;
+#X connect 16 0 13 0;
+#X connect 17 0 19 0;
+#X connect 18 0 17 0;
+#X connect 19 0 20 0;

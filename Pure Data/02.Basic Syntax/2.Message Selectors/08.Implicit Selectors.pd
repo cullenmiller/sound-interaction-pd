@@ -1,0 +1,78 @@
+#N canvas 479 66 974 616 12;
+#X obj 34 -206 cnv 15 400 40 empty empty Implicit_Selectors: 20 12
+0 24 -262144 -66577 0;
+#X msg 62 -38 float 9876;
+#X msg 268 -4 1 2 3;
+#X msg 91 -4 9876;
+#X msg 149 231 bang bang;
+#X obj 188 312 print;
+#X msg 210 264 bang;
+#X obj 92 33 print;
+#X obj 568 89 print;
+#X obj 594 -58 print;
+#X obj 188 266 bng 15 250 50 0 empty empty empty 0 -6 0 10 -262144
+-1 -1;
+#X msg 228 -35 list 1 2 3;
+#X obj 252 26 print;
+#X text 52 -73 float messages;
+#X text 218 -71 list messages;
+#X text 32 93 Note that in the case of implicit selectors \, they are
+actually unnecessary \, and will be ignored from the messages. The
+[print] object won't even see it.;
+#X text 19 158 ============================================================
+;
+#X text 73 188 "Bang" is another implicit selector:;
+#X text 493 -230 ============================================================
+;
+#X text 504 -196 So we need to be careful with specifying the selector
+when we have a symbol message or a list that starts with a symbol.
+;
+#X text 586 -137 Symbol messages;
+#X msg 594 -110 symbol hi;
+#X msg 612 -84 symbol hi;
+#X obj 758 -57 print;
+#X text 750 -136 List messages;
+#X msg 758 -109 list hi there;
+#X msg 773 -83 list see you later;
+#X text 24 340 ============================================================
+;
+#X text 132 -4 (implicit);
+#X text 316 -5 (implicit);
+#X text 250 263 (implicit);
+#X text 525 158 In the case of lists \, it only needs to start with
+a number for Pd to know it is a list.;
+#X msg 530 215 1 stop;
+#X msg 532 256 get 4;
+#X msg 532 305 list get 4;
+#X text 620 304 Ok \, now this IS a list.;
+#X text 507 -14 ============================================================
+;
+#X text 624 61 This IS NOT a symbol message!;
+#X text 531 21 You Always Have to Specify The Symbol Selector!!!;
+#X text 509 338 ============================================================
+;
+#X text 507 127 ============================================================
+;
+#X msg 568 61 stop;
+#X text 19 -163 ============================================================
+;
+#X text 581 249 This IS NOT a list \, we need to specify the selector.
+;
+#X text 586 215 This is a list \, no need for the "list" selector!
+;
+#X text 582 271 Pd checks and sees 'get' as the selector!;
+#X text 627 90 Pd thinks "stop" is the selector!;
+#X text 36 -132 Pd deals very well with numbers. So it knows when you
+have a float message or a list that starts with a number.;
+#X connect 1 0 7 0;
+#X connect 2 0 12 0;
+#X connect 3 0 7 0;
+#X connect 4 0 5 0;
+#X connect 6 0 5 0;
+#X connect 10 0 5 0;
+#X connect 11 0 12 0;
+#X connect 21 0 9 0;
+#X connect 22 0 9 0;
+#X connect 25 0 23 0;
+#X connect 26 0 23 0;
+#X connect 41 0 8 0;

@@ -1,0 +1,28 @@
+#N canvas 746 22 639 524 12;
+#X obj 53 20 cnv 15 500 40 empty empty Control_&_Audio: 20 16 0 24
+-262144 -66577 0;
+#X obj 165 333 dac~;
+#X floatatom 164 188 5 300 400 0 - - -;
+#X obj 99 435 print~;
+#X msg 59 401 bang;
+#X obj 198 244 print;
+#X obj 165 277 osc~ 300;
+#X text 227 321 Remember to turn on the DSP;
+#X obj 95 365 bng 15 250 50 0 empty none empty 17 7 0 10 -204800 -1
+-1;
+#X text 58 362 Bang;
+#X text 34 400 or;
+#X text 195 214 <-- Numbers (Control Data);
+#X text 134 380 <-- Stream of Numbers (Audio Signal);
+#X text 58 83 There is not that much difference between Control Data
+and Audio Signal. Audio Data are streams of numbers;
+#X text 154 422 The [print~] object \, when activated by a bang message
+\, prints one block of audio \, which is \, by default \, 64 samples
+(therefore \, 64 numbers).;
+#X connect 2 0 5 0;
+#X connect 2 0 6 0;
+#X connect 4 0 3 0;
+#X connect 6 0 1 0;
+#X connect 6 0 1 1;
+#X connect 6 0 3 0;
+#X connect 8 0 3 0;

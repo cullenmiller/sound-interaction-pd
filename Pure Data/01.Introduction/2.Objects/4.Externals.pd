@@ -1,0 +1,79 @@
+#N canvas 623 96 1052 584 12;
+#X obj 26 -238 cnv 15 350 50 empty empty Externals: 20 25 0 24 -262144
+-66577 0;
+#X obj 136 -75 float;
+#X obj 136 -45 symbol;
+#X obj 193 -74 delay;
+#X obj 193 -44 metro;
+#X obj 376 -73 dac~;
+#X obj 376 -43 adc~;
+#X obj 313 -74 phasor~;
+#X obj 313 -44 cos~;
+#X obj 334 216 gemhead;
+#X obj 334 244 translate 2 -1 0 0;
+#X obj 334 268 square 0.5;
+#X obj 334 193 tgl 15 0 empty nope empty 17 7 0 10 -203904 -1 -1 1
+1;
+#X obj 183 273 gemwin;
+#X msg 92 206 create \, 1 \, frame 2;
+#X msg 202 246 destroy \, reset;
+#X text 66 -15 ============================================================
+;
+#X text 64 98 ============================================================
+;
+#X text 60 296 ============================================================
+;
+#X text 569 283 ============================================================
+;
+#X obj 598 176 length;
+#X obj 846 177 repeat 7;
+#X msg 846 152 oi;
+#X obj 846 203 print;
+#X msg 598 149 1 3 5 2 6 8;
+#X floatatom 598 201 5 0 0 0 - - -;
+#X text 556 72 ============================================================
+;
+#X text 556 -212 ============================================================
+;
+#X text 560 -108 ============================================================
+;
+#X text 561 -40 ============================================================
+;
+#X text 81 -180 Pd is a free software. Its "oficial" distribution \,
+provided by Miller Puckette \, is called "Pd-Vanilla" \, and contains
+the original or internal objects \, also called "native" or "internal".
+;
+#X text 204 -107 internal objects \;;
+#X text 77 8 Pd's original version is mostly dedicated to DSP. Nevertheless
+\, there are several external libraries that deal with not only audio
+or control objects \, but also 3D animation \, video & images \, as
+well as interactivity with electronic devices.;
+#X text 79 117 Pd-Extended comes with a compilation of the most important
+external packages \, like the GEM library. Examples below:;
+#X text 21 183 Click to create GEM Window;
+#X text 233 223 Destroy it;
+#X text 305 168 Click to insert a square;
+#X text 364 188 on the GEM window;
+#X text 578 -192 Anybody can create Pd objects or groups of objects
+(called libraries) \, these are written in the C programming language.
+;
+#X text 578 -147 When a cde in C becomes a Pd object or library \,
+we say it was compiled for Pd.;
+#X text 572 -77 You can add external objects either in Pd-Vanilla or
+Pd-Extended...;
+#X text 574 -14 In practice \, there are no differences in syntax from
+Pd-Vanilla (original) to Pd-Extended. This is a tutorial for Pd-Extended
+\, but the only thing is that it introduces some examples and some
+external objects (but not that much) that come with Pd-Extended.;
+#X text 653 102 Exemples from the Zexy library;
+#X text 568 233 Gives the lenght of a list;
+#X text 812 233 repeats a mensagem "x" times;
+#X connect 9 0 10 0;
+#X connect 10 0 11 0;
+#X connect 12 0 9 0;
+#X connect 14 0 13 0;
+#X connect 15 0 13 0;
+#X connect 20 0 25 0;
+#X connect 21 0 23 0;
+#X connect 22 0 21 0;
+#X connect 24 0 20 0;

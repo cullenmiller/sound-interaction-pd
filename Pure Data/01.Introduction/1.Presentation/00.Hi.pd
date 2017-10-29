@@ -1,0 +1,26 @@
+#N canvas 818 77 748 616 12;
+#X text 140 298 inlet-->;
+#X text 138 214 inlet-->;
+#X text 131 236 outlet-->;
+#X obj 200 309 print;
+#X obj 74 443 print;
+#X msg 134 514;
+#X obj 164 541 print;
+#X obj 22 23 cnv 15 550 50 empty empty Hi: 20 25 0 24 -262144 -66577
+0;
+#X text 49 103 In Pure Data:;
+#X text 41 130 We program by conecting "boxes" \, from "outlets" to
+"inlets"!;
+#X msg 200 225 Hello_World;
+#X text 97 177 Click on the box that says "Hello_World!":;
+#X text 296 222 <-- message box;
+#X text 209 270 <-- conection cord;
+#X text 122 445 * The [print] object prints messages at the terminal
+window (check it there).;
+#X text 102 365 Click on the message and see the result at Pd's terminal
+window.;
+#X text 242 308 <-- object box*;
+#X text 220 515 An empty message box does not send anything. That is
+why the print object does not print anything when we click it.;
+#X connect 5 0 6 0;
+#X connect 10 0 3 0;

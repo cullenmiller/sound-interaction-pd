@@ -1,0 +1,87 @@
+#N canvas 349 22 851 1035 12;
+#X floatatom 154 158 5 0 0 0 - - -;
+#X msg 72 164 3;
+#X msg 91 194 \$1 15;
+#X obj 91 221 print listaA;
+#X msg 225 165 3;
+#X obj 220 223 print listaB;
+#X msg 220 197 15 \$1;
+#X obj 42 28 cnv 15 400 40 empty empty In_Lists: 20 12 0 24 -262144
+-66577 0;
+#X msg 592 263 list I \$1 New York;
+#X msg 592 224 symbol love;
+#X obj 589 489 print;
+#X msg 589 452 list A B \$2 C \$4 D;
+#X msg 589 415 5 4 3 2 1 0;
+#X msg 592 297 symbol \$2;
+#X symbolatom 592 329 10 0 0 0 - - -;
+#X msg 125 330 \$3 \$2 \$1;
+#X msg 125 296 1 4 8;
+#X obj 125 363 print ListaC;
+#X text 48 95 The dollarsign can be part of a message with several
+elements;
+#X text 197 331 It can reorder a list;
+#X floatatom 168 458 5 0 0 0 - - -;
+#X text 41 412 ============================================================
+;
+#X obj 168 573 print;
+#X symbolatom 246 489 10 0 0 0 - - -;
+#X msg 233 458 symbol two;
+#X msg 121 854 \$1;
+#X msg 121 812 list I Understand;
+#X obj 121 897 symbol;
+#X symbolatom 121 933 10 0 0 0 - - -;
+#X msg 250 878 symbol \$2;
+#X symbolatom 250 931 10 0 0 0 - - -;
+#X text 40 695 ============================================================
+;
+#X text 68 729 Now check that we don't need to always use the [symbol]
+object to insert a "symbol" selector. We can also use a message plus
+a dollarsign!;
+#X text 27 982 ============================================================
+;
+#X text 53 611 It's always good to pay attention: On the above case
+we have a three-element message \, but it is not a list message because
+it doesn't contain the list selector. This is not created automatically.
+;
+#X msg 168 531 one \$1;
+#X text 567 138 I hope you got the idea....;
+#X symbolatom 629 653 10 0 0 0 - - -;
+#X msg 629 612 \$3 \$2;
+#X msg 629 575 1 Ok symbol;
+#X text 557 167 Try to predict these results:;
+#X symbolatom 602 832 10 0 0 0 - - -;
+#X msg 602 754 on list symbol off;
+#X msg 602 791 \$2 \$1;
+#X obj 572 656 print;
+#X obj 547 833 print;
+#X text 514 875 =====================================;
+#X text 514 108 =====================================;
+#X connect 0 0 2 0;
+#X connect 0 0 6 0;
+#X connect 1 0 2 0;
+#X connect 2 0 3 0;
+#X connect 4 0 6 0;
+#X connect 6 0 5 0;
+#X connect 8 0 13 0;
+#X connect 9 0 8 0;
+#X connect 11 0 10 0;
+#X connect 12 0 11 0;
+#X connect 13 0 14 0;
+#X connect 15 0 17 0;
+#X connect 16 0 15 0;
+#X connect 20 0 35 0;
+#X connect 23 0 35 0;
+#X connect 24 0 35 0;
+#X connect 25 0 27 0;
+#X connect 26 0 25 0;
+#X connect 26 0 29 0;
+#X connect 27 0 28 0;
+#X connect 29 0 30 0;
+#X connect 35 0 22 0;
+#X connect 38 0 37 0;
+#X connect 38 0 44 0;
+#X connect 39 0 38 0;
+#X connect 42 0 43 0;
+#X connect 43 0 41 0;
+#X connect 43 0 45 0;

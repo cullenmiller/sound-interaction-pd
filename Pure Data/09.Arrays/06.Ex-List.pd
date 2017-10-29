@@ -1,0 +1,102 @@
+#N canvas 206 22 1305 874 12;
+#X obj 144 -315 cnv 15 400 40 empty empty Lists: 20 12 0 24 -262144
+-66577 0;
+#X obj 229 -129 cnv 15 198 138 empty empty empty 20 12 0 14 -204786
+-66577 0;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array array1 10 float 3;
+#A 0 1 -0.714292 0.314282 0.699993 -0.25714 -0.628565 -0.271426 0.199998
+-0.057142 0.528566;
+#X coords 0 1.1 10 -1.1 200 140 1;
+#X restore 228 -130 graph;
+#X text 211 -137 1;
+#X text 206 -4 -1;
+#X obj 140 117 tabdump array1;
+#X obj 140 177 t b a;
+#X msg 140 235 1 -0.714292 0.314282 0.699993 -0.25714 -0.628565 -0.271426
+0.199998 -0.057142 0.528566;
+#X obj 140 300 list-drip;
+#X obj 140 333 +;
+#X obj 232 339 f;
+#X floatatom 200 401 5 0 0 0 - - -;
+#X obj 140 60 bng 15 250 50 0 empty empty empty 17 7 0 10 -204786 -1
+-1;
+#X msg 232 311 0;
+#X obj 140 82 trigger bang bang;
+#X obj 828 -70 cnv 15 198 138 empty empty empty 20 12 0 14 -204800
+-66577 0;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array array2 10 float 3;
+#A 0 0.185712 -0.571423 -0.414281 0.242855 -0.542852 0.328568 0.171427
+0.542851 0.499995 -0.528566;
+#X coords 0 1.1 10 -1.1 200 140 1;
+#X restore 827 -71 graph;
+#X text 813 -77 1;
+#X text 803 50 -1;
+#X obj 862 316 tabdump array2;
+#X obj 862 353 list-accum;
+#X floatatom 862 387 8 0 0 0 - - -;
+#X obj 862 290 bng 15 250 50 0 empty empty empty 17 7 0 10 -204800
+-1 -1;
+#X obj 200 374 float;
+#X obj 140 150 prepend set;
+#X msg 65 186 set;
+#X obj 65 158 loadbang;
+#X obj 749 -289 tabdump array1;
+#X msg 749 -227 add2 \$1;
+#X obj 749 -259 list-drip;
+#X obj 749 -312 bng 15 250 50 0 empty empty empty 17 7 0 10 -204786
+-1 -1;
+#X msg 749 -176 1 -0.714292 0.314282 0.699993 -0.25714 -0.628565 -0.271426
+0.199998 -0.057142 0.528566;
+#X msg 675 -224 set;
+#X obj 675 -263 loadbang;
+#X text 164 58 <- click;
+#X text 147 -248 It's been said how arrays can be just like lists.
+Well \, here we use the array elements as a list of numbers and sum
+all of its values. Other than that \, not much is new \, like setting
+messages as lists.;
+#X text 265 118 [tabdump] gives the values as a list.;
+#X text 261 160 we prepend the "set" comand to the list and set a message
+just to visualize the list in it \, then bang it to go ahead.;
+#X text 1 238 List from "array1";
+#X text 285 345 We "drip" the list into a a counter \, [list-drip]
+sends a bang when the list is finished dripping and we get the value
+we want.;
+#X text 838 -249 Another way to display an array into a message with
+the "add2" command.;
+#X text 761 123 Now we don't do the thing of displaying an array as
+a list into a message. And we do the same thing of summing all of the
+elements from an array just by using the [list-accum] abstraction from
+lits-abs.;
+#X text 762 200 If you open the abstraction you'll see it's just about
+the same as the example to the left.;
+#X text 887 287 <- bang;
+#X text 927 386 voilá;
+#X connect 5 0 24 0;
+#X connect 6 0 7 0;
+#X connect 6 1 7 0;
+#X connect 7 0 8 0;
+#X connect 8 0 9 0;
+#X connect 8 1 23 0;
+#X connect 9 0 10 0;
+#X connect 10 0 9 1;
+#X connect 10 0 23 1;
+#X connect 12 0 14 0;
+#X connect 13 0 10 0;
+#X connect 14 0 5 0;
+#X connect 14 1 13 0;
+#X connect 19 0 20 0;
+#X connect 20 0 21 0;
+#X connect 22 0 19 0;
+#X connect 23 0 11 0;
+#X connect 24 0 6 0;
+#X connect 25 0 7 0;
+#X connect 26 0 25 0;
+#X connect 27 0 29 0;
+#X connect 28 0 31 0;
+#X connect 29 0 28 0;
+#X connect 29 1 31 0;
+#X connect 30 0 27 0;
+#X connect 32 0 31 0;
+#X connect 33 0 32 0;

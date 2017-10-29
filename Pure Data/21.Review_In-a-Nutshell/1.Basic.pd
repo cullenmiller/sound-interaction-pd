@@ -1,0 +1,114 @@
+#N canvas 670 97 935 766 12;
+#X obj 24 -57 cnv 15 350 50 empty empty Elements: 20 25 0 24 -262144
+-66577 0;
+#X msg 96 291 4;
+#X msg 83 318 1 oi 3 5;
+#X obj 177 450 metro;
+#X obj 274 450 osc~;
+#X floatatom 196 600 5 0 0 0 - - -;
+#X symbolatom 248 600 10 0 0 0 - - -;
+#X text 8 407 ============================================================
+;
+#X obj 581 2 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 745 2 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 803 3 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-262144 -1 -1 0 256;
+#X msg 129 228 bang;
+#X obj 179 230 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 177 478 float;
+#X obj 317 479 gemwin;
+#X text 11 624 ============================================================
+;
+#X obj 648 58 knob 32 32 0 127 0 0 empty empty empty 0 -8 0 8 -262144
+-1 -1 0 1;
+#X text 471 100 ============================================================
+;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X coords 0 1 100 -1 200 140 1;
+#X restore 518 162 graph;
+#N canvas 0 22 450 300 subpatch 0;
+#X restore 789 145 pd subpatch;
+#X text 476 319 ============================================================
+;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array array1 100 float 3;
+#A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0;
+#X coords 0 1 99 -1 200 140 1;
+#X restore 585 383 graph;
+#X text 640 29 [knob];
+#X text 807 -19 [nbx];
+#X text 737 -19 [tgl];
+#X text 610 -19 [hslider];
+#X text 479 525 ============================================================
+;
+#X obj 613 627 image ../files/pd.gif;
+#X obj 697 623 pddplink http://puredata.info;
+#X text 19 673 ============================================================
+;
+#X obj 177 516 sin~;
+#X obj 182 99 print;
+#X obj 747 54 gcanvas 60 40;
+#X text 742 31 [gcanvas];
+#X text 13 171 ============================================================
+;
+#X text 481 673 ============================================================
+;
+#X text 15 495 -----------------------------------------------------------
+;
+#X msg 96 264 symbol oi;
+#X msg 84 344 list um 2;
+#X text 468 214 graph:;
+#X text 799 273 "graph on parent";
+#X text 21 6 Pd's most essential elements are messages & objects:;
+#X text 175 37 "messages";
+#X msg 101 60 on message;
+#X msg 221 60 two messages \, separated;
+#X text 225 99 "object";
+#X text 46 145 Several messages can be sent separated by commas.;
+#X text 20 195 Data (or message) types in Pd (and its selectors) are:
+;
+#X text 83 227 bang:;
+#X text 208 228 selector "bang";
+#X text 38 278 Atoms:;
+#X text 233 263 - selector "symbol";
+#X text 199 289 - selector "float" implicit!;
+#X text 173 264 Symbols;
+#X text 138 290 Numbers;
+#X text 34 330 Lists;
+#X text 164 327 numbers and/or symbols;
+#X text 329 327 - selector "list";
+#X text 25 373 selector "symbol" and "list" (when 1st element is a
+symbol) are not implicit.;
+#X text 70 425 Objects are:;
+#X text 170 425 control;
+#X text 272 426 audio;
+#X text 53 478 internal/native:;
+#X text 239 478 external:;
+#X text 60 516 or abstractions:;
+#X text 222 517 <== click to open;
+#X text 53 538 Created by users of available in libraries.;
+#X text 11 559 ============================================================
+;
+#X text 48 579 More elements:;
+#X text 110 599 Atom Boxes:;
+#X text 86 648 --- The very simple comments ---;
+#X text 477 -50 GUIs are interactive user interfaces \, and also "objects":
+;
+#X text 516 -2 native:;
+#X text 565 61 external:;
+#X text 489 121 Subpatches (object [pd]) help organizing patches:;
+#X text 731 179 Graph is a subpatch too \; with "graph on parent";
+#X text 739 254 Abstractions & Subpatches;
+#X text 737 274 can also;
+#X text 731 235 Remember:;
+#X text 491 343 Arrays: a data structure inside a "graph".;
+#X text 506 543 We can also insert images & links in our patches with
+\, respectively: [image] & [pddplink]:;
+#X connect 43 0 31 0;
+#X connect 44 0 31 0;

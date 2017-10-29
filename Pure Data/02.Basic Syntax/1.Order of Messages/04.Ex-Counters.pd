@@ -1,0 +1,71 @@
+#N canvas 812 69 625 642 12;
+#X obj 10 10 cnv 15 400 40 empty empty Ex:Counters 20 12 0 24 -262144
+-66577 0;
+#X obj 200 522 cnv 15 100 60 empty empty empty 20 12 0 14 -261039 -66577
+0;
+#X obj 218 542 f;
+#X obj 253 542 + 1;
+#X obj 120 219 +;
+#X obj 346 216 float;
+#X msg 121 137 1;
+#X msg 157 189 0;
+#X msg 133 160 -1;
+#X text 195 187 reset;
+#X obj 157 219 float;
+#X floatatom 120 246 5 0 0 0 - - -;
+#X floatatom 346 244 5 0 0 0 - - -;
+#X msg 378 180 0;
+#X obj 404 216 + 1;
+#X msg 347 138 bang;
+#X obj 218 454 bng 50 250 50 0 empty empty empty 17 7 0 10 -258113
+-1 -1;
+#X floatatom 218 593 5 0 0 0 - - -;
+#X text 167 138 up;
+#X text 172 161 down;
+#X text 395 137 up;
+#X text 416 180 reset;
+#X text 71 309 too hard?;
+#X text 215 309 <-- Click & open for the answer!;
+#X text 339 329 copy.;
+#X text 13 64 Counters are often useful. Lets do one now. Connect the
+boxes below:;
+#X text 77 382 The freedom of any programming environment allows us
+to implement a counter in many different ways. It also allows us to
+screw up every now and then.;
+#X text 282 470 Danger! Infinite Loop!;
+#X text 317 533 See the Error at the Terminal;
+#N canvas 812 782 320 264 answer 0;
+#X obj 36 100 +;
+#X obj 167 94 float;
+#X msg 37 18 1;
+#X msg 73 70 0;
+#X msg 49 41 -1;
+#X text 111 68 reset;
+#X obj 73 100 float;
+#X floatatom 36 127 5 0 0 0 - - -;
+#X floatatom 167 122 5 0 0 0 - - -;
+#X msg 199 58 0;
+#X obj 225 94 + 1;
+#X text 237 58 reset;
+#X msg 168 16 bang;
+#X text 83 19 up;
+#X text 88 42 down;
+#X text 216 15 up;
+#X connect 0 0 7 0;
+#X connect 0 0 6 0;
+#X connect 1 0 8 0;
+#X connect 1 0 10 0;
+#X connect 2 0 0 0;
+#X connect 3 0 6 0;
+#X connect 4 0 0 0;
+#X connect 6 0 0 1;
+#X connect 9 0 1 1;
+#X connect 10 0 1 1;
+#X connect 12 0 1 0;
+#X restore 143 309 pd answer;
+#X connect 2 0 3 0;
+#X connect 2 0 17 0;
+#X connect 3 0 2 0;
+#X connect 4 0 11 0;
+#X connect 5 0 12 0;
+#X connect 16 0 2 0;

@@ -1,0 +1,68 @@
+#N canvas 646 64 1023 714 12;
+#X obj 208 631 send array1;
+#X msg 236 581 0 0.8 0.5;
+#X msg 146 581 13 0.8 0.5;
+#X obj 167 244 send array1;
+#X msg 167 215 25 \$1;
+#X obj 170 193 hsl 128 15 -1 1 0 0 empty empty empty -2 -8 0 10 -262130
+-1 -1 8400 1;
+#X msg 529 152 \; array1 30 0.4 0.5 0.6 0.7;
+#X obj 730 126 hsl 128 15 -1 1 0 0 empty empty empty -2 -8 0 10 -204786
+-1 -1 5300 1;
+#X msg 727 151 \; array1 50 0.4 0.5 \$1 0.7;
+#X obj 27 11 cnv 15 400 40 empty empty Send: 20 12 0 24 -262144 -66577
+0;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array array1 100 float 3;
+#A 0 0.228346 0.228346 0.228346 0.228346 0.228346 0.228346 0.228346
+0.228346 0.228346 0.228346 0.228346 0.228346 0.228346 0.228346 0.228346
+0.228346 0.228346 0.228346 0.228346 0.228346 0.228346 0.228346 0.228346
+0.228346 0.228346 0.228346 0.228346 0.228346 0.228346 0.228346 0.228346
+0.228346 0.228346 0.228346 0.228346 0.228346 0.228346 0.228346 0.228346
+0.228346 0.228346 0.228346 0.228346 0.228346 0.228346 0.228346 0.228346
+0.228346 0.228346 0.228346 0.228346 0.228346 0.228346 0.228346 0.228346
+0.228346 0.228346 0.228346 0.228346 0.228346 0.228346 0.228346 0.228346
+0.228346 0.228346 0.228346 0.228346 0.228346 0.228346 0.228346 0.228346
+0.228346 0.228346 0.228346 0.228346 0.228346 0.228346 0.228346 0.228346
+0.228346 0.228346 0.228346 0.228346 0.228346 0.228346 0.228346 0.228346
+0.228346 0.228346 0.228346 0.228346 0.228346 0.228346 0.228346 0.228346
+0.228346 0.228346 0.228346 0.228346 0.228346;
+#X coords 0 1 99 -1 200 140 1;
+#X restore 101 311 graph;
+#X msg 695 332 \; array1 const \$1;
+#X obj 698 308 hsl 128 15 -1 1 0 0 empty empty empty -2 -8 0 10 -261234
+-1 -1 7800 1;
+#X obj 586 345 send array1;
+#X msg 586 316 const 0;
+#X text 41 62 We can send messages (numbers or lists) to arrays with
+the [send] object. The array name needs to be the argument in the [send]
+object.;
+#X text 44 116 When we want to send just a number to an array \, we
+need to specify the index. Below we have an incoming value from a slider
+being sent to the array as the 25th element.;
+#X text 31 486 When we send a list \, it interprets the first atom
+of the list as the index value \, the followin value will be the value
+of the index \, the next value will be the value from the index + 1
+and so on.;
+#X text 512 62 Naturaly \, another way to send to an array is by using
+the semicolon into a message:;
+#X text 514 226 the "const" command \, followed by a value \, will
+make that value constant for every index.;
+#X text 526 409 We'll see later other commands such as "sinesum" \,
+normalize" \, "labels" \, "ticks" \, and even others in the "Dinamic
+Patching" folder.;
+#X text 526 534 THIS IS IMPORTANT: Array must have different names
+in your patch. But there is a problem even if you have equal names
+for arrays that are in different patches. Lots of these examples have
+the common array name of "array1". So if you have them opened together
+and try to send a message like we did here \, there will be an error
+on the terminal that says: "Table array1 multiply defined".;
+#X text 519 485 ============================================================
+;
+#X connect 1 0 0 0;
+#X connect 2 0 0 0;
+#X connect 4 0 3 0;
+#X connect 5 0 4 0;
+#X connect 7 0 8 0;
+#X connect 12 0 11 0;
+#X connect 14 0 13 0;

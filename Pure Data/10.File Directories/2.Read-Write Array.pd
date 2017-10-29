@@ -1,0 +1,29 @@
+#N canvas 680 135 596 827 12;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array array1 100 float 4;
+#X coords 0 1 99 -1 200 140 1;
+#X restore 199 393 graph;
+#X obj 126 309 send array1;
+#X obj 134 673 send array1;
+#X msg 313 652 \; array1 write table2.txt;
+#X msg 126 283 read ./table.txt;
+#X text 270 298 =;
+#X msg 301 289 \; array1 read table.txt;
+#X msg 134 647 write ./table2.txt;
+#X text 284 663 =;
+#X text 100 159 An Array can be written to or read from a text file!
+;
+#X text 100 195 So we get the same "table.txt" file that's on this
+patch's folder and put it into an array! We use the "read" command
+for that and send it to the array.;
+#X text 113 570 We can also store this values into a new txt file with
+"write". Click any of these two options below and check the new file
+on this patch's folder.;
+#X text 91 110 ============================================================
+;
+#X text 104 737 ============================================================
+;
+#X obj 36 36 cnv 15 400 40 empty empty Read_Write_Array: 20 12 0 24
+-262144 -66577 0;
+#X connect 4 0 1 0;
+#X connect 7 0 2 0;

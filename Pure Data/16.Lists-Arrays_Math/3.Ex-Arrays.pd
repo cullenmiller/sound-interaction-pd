@@ -1,0 +1,115 @@
+#N canvas 815 124 909 883 12;
+#X obj 46 9 cnv 15 400 40 empty empty Math-Between-Arrays: 20 12 0
+24 -262144 -66577 0;
+#X obj 104 228 cnv 15 198 138 empty empty empty 20 12 0 14 -204786
+-66577 0;
+#X obj 338 228 cnv 15 198 138 empty empty empty 20 12 0 14 -204800
+-66577 0;
+#X obj 576 228 cnv 15 198 138 empty empty empty 20 12 0 14 -260097
+-66577 0;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array array1 10 float 3;
+#A 0 1 -0.714292 0.314282 0.699993 -0.25714 -0.628565 -0.271426 0.199998
+-0.057142 0.528566;
+#X coords 0 1.1 10 -1.1 200 140 1;
+#X restore 103 227 graph;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array array2 10 float 3;
+#A 0 0.185712 -0.571423 -0.414281 0.242855 -0.542852 0.328568 0.171427
+0.542851 0.499995 -0.528566;
+#X coords 0 1.1 10 -1.1 200 140 1;
+#X restore 337 227 graph;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array array3 10 float 2;
+#X coords 0 1.1 10 -1.1 200 140 1;
+#X restore 575 227 graph;
+#X text 314 289 X;
+#X text 549 287 =;
+#X text 86 220 1;
+#X text 81 353 -1;
+#X text 323 221 1;
+#X text 318 354 -1;
+#X text 561 220 1;
+#X text 556 353 -1;
+#X obj 523 645 tabread array1;
+#X obj 631 645 tabread array2;
+#X obj 613 676 *;
+#X obj 632 722 tabwrite array3;
+#X obj 562 615 trigger float float float;
+#X obj 246 709 tabwrite array3;
+#X obj 632 702 nbx 5 14 -1 1 0 0 empty empty empty 0 -8 0 10 -260097
+-1 -1 0 256;
+#X obj 734 701 nbx 5 14 0 10 0 0 empty empty empty 0 -8 0 10 -262130
+-1 -1 0 256;
+#X obj 186 676 nbx 5 14 -1 1 0 0 empty empty empty 0 -8 0 10 -260097
+-1 -1 0 256;
+#X text 482 644 =;
+#X text 590 701 Value;
+#X text 690 699 Index;
+#X obj 309 511 s array3;
+#X msg 309 483 const 0;
+#X obj 188 512 + 1;
+#X obj 115 413 bng 20 250 50 0 empty empty empty 17 7 0 10 -204786
+-1 -1;
+#X msg 147 472 0;
+#X obj 115 503 float;
+#X obj 115 446 t b b;
+#X obj 115 542 sel 10;
+#X obj 154 573 t f f;
+#X text 340 783 The incomming value is the array index \, we multiply
+both values and write it into a new array.;
+#X text 147 413 Run Loop;
+#X obj 564 517 + 1;
+#X obj 491 418 bng 20 250 50 0 empty empty empty 17 7 0 10 -204786
+-1 -1;
+#X msg 523 477 0;
+#X obj 491 508 float;
+#X obj 491 451 t b b;
+#X obj 491 547 sel 10;
+#X obj 530 578 t f f;
+#X text 523 418 Run Loop;
+#X obj 186 617 expr array1[$f1] * array2[$f1] \; $f1;
+#X obj 400 679 nbx 5 14 0 10 0 0 empty empty empty 0 -8 0 10 -262130
+-1 -1 0 256;
+#X text 142 673 Value;
+#X text 356 676 Index;
+#X text 367 706 index just passed through \; so we don't need to \;
+use [trigger];
+#X text 158 55 Here we will use a Loop to step through the arrays.
+The example shows how to do this using just [expr] \, or also the [tabread]
+and math objects.;
+#X text 282 461 Reset/ Clear New Array;
+#X text 159 115 As it has been stated before \, how to program proper
+loops is explained on the conditionals subfolder ahead. This example
+will be then shown again!;
+#X connect 15 0 17 0;
+#X connect 16 0 17 1;
+#X connect 17 0 21 0;
+#X connect 19 0 15 0;
+#X connect 19 1 16 0;
+#X connect 19 2 22 0;
+#X connect 21 0 18 0;
+#X connect 22 0 18 1;
+#X connect 23 0 20 0;
+#X connect 28 0 27 0;
+#X connect 29 0 32 0;
+#X connect 30 0 33 0;
+#X connect 31 0 32 1;
+#X connect 32 0 34 0;
+#X connect 33 0 32 0;
+#X connect 33 1 31 0;
+#X connect 34 1 35 0;
+#X connect 35 0 29 0;
+#X connect 35 1 46 0;
+#X connect 38 0 41 0;
+#X connect 39 0 42 0;
+#X connect 40 0 41 1;
+#X connect 41 0 43 0;
+#X connect 42 0 41 0;
+#X connect 42 1 40 0;
+#X connect 43 1 44 0;
+#X connect 44 0 38 0;
+#X connect 44 1 19 0;
+#X connect 46 0 23 0;
+#X connect 46 1 47 0;
+#X connect 47 0 20 1;

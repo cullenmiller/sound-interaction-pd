@@ -1,0 +1,119 @@
+#N canvas 730 178 954 661 12;
+#X obj 19 18 cnv 15 400 40 empty empty Locality: 20 19 0 24 -262144
+-66577 0;
+#N canvas 119 259 591 327 localidade 0;
+#X floatatom 74 168 5 0 0 0 - - -;
+#X obj 50 169 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X floatatom 63 221 5 0 0 0 - - -;
+#X obj 63 193 value \$0-X;
+#X obj 1 75 r \$0-A;
+#X obj -67 99 s \$0-A;
+#X obj -67 74 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-204800 -1 -1 0 256;
+#X obj 1 102 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-204800 -1 -1 0 256;
+#X obj 101 74 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-261682 -1 -1 0 256;
+#X obj 169 102 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-261682 -1 -1 0 256;
+#X obj 101 99 s \$0-B;
+#X obj 169 75 r \$0-B;
+#X text -99 27 These objects still match with the ones on parent patch!
+;
+#X connect 0 0 3 0;
+#X connect 1 0 3 0;
+#X connect 3 0 2 0;
+#X connect 4 0 7 0;
+#X connect 6 0 5 0;
+#X connect 8 0 10 0;
+#X connect 11 0 9 0;
+#X restore 632 513 pd localidade;
+#X text 452 47 ============================================================
+;
+#X text 468 183 ============================================================
+;
+#X text 471 574 ============================================================
+;
+#X obj 54 215 f \$0;
+#X obj 54 187 loadbang;
+#X obj 54 246 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-204786 -1 -1 1029 256;
+#X obj 81 534 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-204800 -1 -1 0 256;
+#X obj 147 533 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-261682 -1 -1 0 256;
+#X obj 237 535 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-204800 -1 -1 0 256;
+#X obj 302 535 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-261682 -1 -1 0 256;
+#X obj 604 301 r \$0-A;
+#X obj 536 325 s \$0-A;
+#X obj 536 300 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-204800 -1 -1 0 256;
+#X obj 604 328 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-204800 -1 -1 0 256;
+#X obj 704 300 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-261682 -1 -1 0 256;
+#X obj 772 328 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-261682 -1 -1 0 256;
+#X obj 704 325 s \$0-B;
+#X obj 772 301 r \$0-B;
+#X obj 79 468 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-204800 -1 -1 0 256;
+#X obj 147 468 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-261682 -1 -1 0 256;
+#X obj 240 468 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-204800 -1 -1 0 256;
+#X obj 304 468 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-261682 -1 -1 0 256;
+#X text 468 381 ============================================================
+;
+#X floatatom 519 89 5 0 0 0 - - -;
+#X obj 495 90 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X floatatom 508 142 5 0 0 0 - - -;
+#X obj 508 114 value \$0-X;
+#X obj 88 498 Local2 A;
+#X text 120 215 Here \, in [float] \, we can check this patch's;
+#X text 169 234 initialization number!;
+#X text 125 197 The "\$0" can only be inserted in objects!;
+#X text 18 304 And this is how it works \, if an abstraction with "\$0"
+inside an object is loaded more than once into a patch \, the "\$0"
+will get a different value for each instance!;
+#X text 16 84 The actual locality depends on the syntax of: "\$0" (dollarsign
+0). What happens is that every Pd patch has an initialization number
+depending on the order it was loaded \, from 1002 upwards. The \$0
+gets this value.;
+#X text 21 383 Move the upper atom boxes and see how the globality
+has been avoided \, check also that this parent patch has [receive]
+objects that do not match. Open the instances:;
+#X text 485 226 Although these objects have the same argument \, they
+do not match \, because this parent patch has a different initialization
+number!;
+#X text 20 577 ============================================================
+;
+#X obj 248 499 Local2 B;
+#X text 600 106 The [vaule] object is now operating;
+#X text 603 130 with local variables too.;
+#X text 478 421 A subpatch is not a different patch \, it is part of
+the same Pd patch. Therefore \, it has the same initialization number
+\, and the locality syntax won't work the same way. Open the subpatch
+to check it:;
+#X connect 5 0 7 0;
+#X connect 6 0 5 0;
+#X connect 12 0 15 0;
+#X connect 14 0 13 0;
+#X connect 16 0 18 0;
+#X connect 19 0 17 0;
+#X connect 20 0 29 0;
+#X connect 21 0 29 1;
+#X connect 22 0 38 0;
+#X connect 23 0 38 1;
+#X connect 25 0 28 0;
+#X connect 26 0 28 0;
+#X connect 28 0 27 0;
+#X connect 29 0 8 0;
+#X connect 29 1 9 0;
+#X connect 38 0 10 0;
+#X connect 38 1 11 0;

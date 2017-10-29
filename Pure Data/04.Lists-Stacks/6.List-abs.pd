@@ -1,0 +1,32 @@
+#N canvas 899 97 590 694 12;
+#X obj 20 24 cnv 15 350 40 empty empty List-abs: 20 18 0 24 -262144
+-66577 0;
+#X text 32 87 ============================================================
+;
+#X text 42 198 ============================================================
+;
+#X obj 193 360 list-drip;
+#X msg 193 324 65 hi 900 red label 70 reais;
+#X obj 193 403 print;
+#X obj 253 400 bng 15 250 50 0 empty empty empty 17 7 0 10 -203904
+-1 -1;
+#X msg 225 494 1 2 3 4;
+#X obj 225 528 list-accum;
+#X floatatom 225 563 5 0 0 0 - - -;
+#X text 54 108 HINT:;
+#X text 50 136 Check "Help Browser" \, in the folder 5.reference/ you'll
+see a list of external objects.;
+#X text 52 220 Pay attention to "list-abs" \, dedicated to list manipulation
+in Pd!;
+#X text 274 398 bang when finished;
+#X text 74 455 [list-accum] sums the elements on a list \, it's like
+a math object.;
+#X text 53 265 we saw [list-drip] \, which spits all the elements of
+a list in sequence:;
+#X text 75 607 We'll see other objects from "lib-abs" when dealing
+with math.;
+#X connect 3 0 5 0;
+#X connect 3 1 6 0;
+#X connect 4 0 3 0;
+#X connect 7 0 8 0;
+#X connect 8 0 9 0;

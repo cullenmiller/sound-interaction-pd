@@ -1,0 +1,24 @@
+#N canvas 1002 224 534 435 12;
+#X floatatom 24 277 5 0 0 0 - - -;
+#X floatatom 25 341 5 0 0 0 - - -;
+#X obj 24 221 metro 100;
+#X obj 24 248 random 100;
+#X obj 8 10 cnv 15 400 40 empty empty Connections: 20 12 0 24 -262144
+-66577 0;
+#X text 17 118 We can Edit (create and delete connections) a Patch
+while it is running.;
+#X text 107 250 Genrates random;
+#X text 129 269 Numbers;
+#X text 107 221 A metronome;
+#X text 79 364 -> Now disconnect. Click (when the cursor becomes an
+"X") to select the cord \, then backspace/delete.;
+#X text 18 70 Connections are made from an Outlet to an Inlet.;
+#X obj 24 186 bng 15 250 50 0 empty empty empty 17 7 0 10 -261682 -1
+-1;
+#X text 50 182 <-- Click to start;
+#X text 83 302 -> In edit mode \, connect these atom number boxes.
+Click and drag when the mouse cursor becomes a circle at the outlet
+\, take it to the inlet.;
+#X connect 2 0 3 0;
+#X connect 3 0 0 0;
+#X connect 11 0 2 0;

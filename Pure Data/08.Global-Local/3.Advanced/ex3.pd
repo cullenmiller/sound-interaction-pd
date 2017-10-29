@@ -1,0 +1,20 @@
+#N canvas 1117 178 741 631 12;
+#X text 369 241 ==========================================;
+#X text 91 71 =========================================;
+#X text 88 241 ========================================;
+#X text 372 399 ==========================================;
+#X text 91 399 ========================================;
+#X text 375 527 ==========================================;
+#X text 94 527 ========================================;
+#X text 231 42 ====> THIS IS AN ABSTRACTION!!! <====;
+#X text 145 121 This abstraction inherits "\$0" from the parent patch
+\, which is passed further to [ex4] below. For that \, "\$1" gets the
+value from "\$0":;
+#X text 160 279 As another possibility \, this instance's initialization
+number "\$0" goes to [ex4]:;
+#X text 176 432 As yet another possibility \,;
+#X text 178 453 we combine "\$0" & "\$1":;
+#X text 378 71 =======================================;
+#X obj 364 478 ex4 A-\$1-\$0-B;
+#X obj 340 339 ex4 A-\$0-B;
+#X obj 292 183 ex4 \$1-A;

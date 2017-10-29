@@ -1,0 +1,39 @@
+#N canvas 8 22 576 639 10;
+#X obj 21 143 mtof~;
+#X obj 22 293 +~;
+#X obj 39 206 osc~;
+#X obj 38 271 *~;
+#X obj 39 186 mtof~;
+#X obj 54 249 mtof~;
+#X obj 22 313 osc~;
+#X obj 22 338 dac~;
+#X obj 22 25 ctlin;
+#X floatatom 22 83 5 0 0 0 - - -;
+#X floatatom 49 45 5 0 0 0 - - -;
+#X floatatom 35 64 5 0 0 0 - - -;
+#X text 87 47 channel number;
+#X text 72 67 controller number;
+#X text 61 87 controller value;
+#X obj 21 122 ctlin 17;
+#X obj 39 166 ctlin 18;
+#X obj 54 231 ctlin 19;
+#X text 118 224 modulation amount will be received from controller
+19;
+#X text 103 160 modulation frequency will be received from controller
+18;
+#X text 91 118 carrier frequency will be received from controller 17
+;
+#X connect 0 0 1 0;
+#X connect 1 0 6 0;
+#X connect 2 0 3 0;
+#X connect 3 0 1 1;
+#X connect 4 0 2 0;
+#X connect 5 0 3 1;
+#X connect 6 0 7 0;
+#X connect 6 0 7 1;
+#X connect 8 0 9 0;
+#X connect 8 1 11 0;
+#X connect 8 2 10 0;
+#X connect 15 0 0 0;
+#X connect 16 0 4 0;
+#X connect 17 0 5 0;

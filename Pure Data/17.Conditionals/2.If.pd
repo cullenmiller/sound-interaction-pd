@@ -1,0 +1,103 @@
+#N canvas 370 81 1018 867 12;
+#X floatatom 564 471 5 0 0 0 - - -;
+#X floatatom 564 521 5 0 0 0 - - -;
+#X obj 19 37 cnv 15 400 40 empty empty If: 20 12 0 24 -262144 -66577
+0;
+#X floatatom 127 485 5 0 0 0 - - -;
+#X floatatom 127 533 5 0 0 0 - - -;
+#X floatatom 256 211 5 0 0 0 - - -;
+#X obj 256 280 tgl 30 0 empty empty empty 17 7 0 10 -260097 -1 -1 0
+1;
+#X floatatom 210 287 5 0 0 0 - - -;
+#X floatatom 323 743 5 0 0 0 - - -;
+#X floatatom 663 746 5 0 0 0 - - -;
+#X floatatom 323 800 5 0 0 0 - - -;
+#X obj 323 771 expr if (pow($f1 \, 1.75) >= sqrt($f2) * 100 \, 1 \,
+0);
+#X obj 564 497 expr if ($f1 > 0 \, $f1 * 10 \, $f1);
+#X text 40 74 Logical structures depend on conditionals \, we can then
+perform iterations/loops. Every programming languages has this in the
+classical form of commands such as: "For" \, "While" \, "if \, then
+\, else".;
+#X text 79 441 The syntax is: if (condition \, if true \, if false).
+;
+#X text 86 576 The above sentence means:;
+#X text 188 602 if the number is bigger than "0" \,;
+#X text 523 555 If bigger than 0: Multiply by 10 \, if not: nothing.
+;
+#X floatatom 565 606 5 0 0 0 - - -;
+#X floatatom 565 656 5 0 0 0 - - -;
+#X floatatom 625 606 5 0 0 0 - - -;
+#X floatatom 686 605 5 0 0 0 - - -;
+#X floatatom 746 605 5 0 0 0 - - -;
+#X floatatom 807 605 5 0 0 0 - - -;
+#X text 620 659 same as before \, but with many variables;
+#X obj 565 632 expr if ($f1 > $f2 \, $f3 * $f4 \, $f5);
+#X text 380 736 Formulas can get complex \, of course:;
+#X text 43 387 For mathematical formulas \, "If" is a built-in feature
+of [expr] \, as well as comparatives.;
+#X obj 256 244 > 0;
+#X text 94 335 If bigger than "0": then = "1" \, else = "0".;
+#X floatatom 593 104 5 0 0 0 - - -;
+#X floatatom 593 152 5 0 0 0 - - -;
+#X obj 593 128 expr if ($f1 >= 0 \, 10 \, -10);
+#X text 192 622 then: result is "1" \,;
+#X text 199 644 else: 0;
+#X obj 127 509 expr if ($f1 > 0 \, 1 \, 0);
+#X floatatom 331 483 5 0 0 0 - - -;
+#X floatatom 331 531 5 0 0 0 - - -;
+#X obj 331 507 > 1;
+#X text 304 509 =;
+#X text 509 61 You can now make it more elaborate:;
+#X text 549 185 If bigger than 0 \, then = 10 \, if not: -10;
+#X text 44 165 Comparatives are examples of conditionals as presented
+before. They return "True" (1) or "False" (0).;
+#X text 500 226 But we'll see in this folder how every conditional
+can be recreated with the comparatives and the [select] object!;
+#X floatatom 543 323 5 0 0 0 - - -;
+#X floatatom 543 371 5 0 0 0 - - -;
+#X obj 543 347 expr if ($f1 >= 0 \, 10 \, -10);
+#X text 752 344 =;
+#X obj 789 317 >= 0;
+#X obj 789 347 sel 0 1;
+#X floatatom 789 288 5 0 0 0 - - -;
+#X msg 812 376 10;
+#X msg 773 376 -10;
+#X floatatom 800 408 5 0 0 0 - - -;
+#X text 535 275 Like here:;
+#X text 54 686 ============================================================
+;
+#X text 508 21 ============================================================
+;
+#X text 512 443 ============================================================
+;
+#X text 524 689 ============================================================
+;
+#X connect 0 0 12 0;
+#X connect 3 0 35 0;
+#X connect 5 0 28 0;
+#X connect 8 0 11 0;
+#X connect 9 0 11 1;
+#X connect 11 0 10 0;
+#X connect 12 0 1 0;
+#X connect 18 0 25 0;
+#X connect 20 0 25 1;
+#X connect 21 0 25 2;
+#X connect 22 0 25 3;
+#X connect 23 0 25 4;
+#X connect 25 0 19 0;
+#X connect 28 0 6 0;
+#X connect 28 0 7 0;
+#X connect 30 0 32 0;
+#X connect 32 0 31 0;
+#X connect 35 0 4 0;
+#X connect 36 0 38 0;
+#X connect 38 0 37 0;
+#X connect 44 0 46 0;
+#X connect 46 0 45 0;
+#X connect 48 0 49 0;
+#X connect 49 0 52 0;
+#X connect 49 1 51 0;
+#X connect 50 0 48 0;
+#X connect 51 0 53 0;
+#X connect 52 0 53 0;

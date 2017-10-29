@@ -1,0 +1,38 @@
+#N canvas 751 82 534 569 12;
+#X obj 10 10 cnv 15 400 40 empty empty sliders: 20 12 0 24 -262144
+-66577 0;
+#X obj 74 103 vsl 15 128 0 127 0 0 empty empty empty 0 -8 0 8 -191407
+-1 -1 0 1;
+#X floatatom 74 245 5 0 0 0 - - -;
+#X obj 372 104 vsl 15 128 0 1 0 0 empty empty empty 0 -8 0 8 -191407
+-1 -1 0 1;
+#X floatatom 372 246 5 0 0 0 - - -;
+#X floatatom 227 428 5 0 0 0 - - -;
+#X msg 329 365 1000;
+#X msg 244 365 100;
+#X msg 200 365 60;
+#X msg 286 365 127;
+#X obj 230 405 hsl 128 15 0 127 0 0 empty empty empty -2 -6 0 8 -191407
+-1 -1 0 1;
+#X msg 158 365 0;
+#X msg 113 365 -23;
+#X text 17 75 Default values are from 0 to 127;
+#X text 269 75 We can change that in properties;
+#X text 281 112 like here:;
+#X text 35 286 Sliders are really useful in any control interface design
+\, and behave sort of like number boxes. But unlike number boxes \,
+they restrict incoming values into their defined limits.;
+#X text 56 493 See that "-23" and "1000" are restricted to minimum
+(0) and maximum (127) values.;
+#X obj 227 454 bng 15 250 50 0 empty empty empty 0 -6 0 8 -66577 -228856
+-1;
+#X connect 1 0 2 0;
+#X connect 3 0 4 0;
+#X connect 5 0 18 0;
+#X connect 6 0 10 0;
+#X connect 7 0 10 0;
+#X connect 8 0 10 0;
+#X connect 9 0 10 0;
+#X connect 10 0 5 0;
+#X connect 11 0 10 0;
+#X connect 12 0 10 0;

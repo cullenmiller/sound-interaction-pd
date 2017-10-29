@@ -1,0 +1,10 @@
+#N canvas 329 179 463 288 12;
+#X obj -8 27 cnv 15 400 40 empty empty Audio: 20 12 0 24 -262144 -66577
+0;
+#X obj 227 163 send~ \$0-local;
+#X obj 228 196 receive~ \$0-local;
+#X obj 105 163 throw~ \$0-synth;
+#X obj 104 197 catch~ \$0-synth;
+#X text 23 84 Audio objects will also work with "\$0". Actually \,
+every object will deal with it \, being it pertinent or not. Just never
+forget you can't use it in messages!;

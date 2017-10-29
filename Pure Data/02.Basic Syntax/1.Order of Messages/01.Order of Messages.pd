@@ -1,0 +1,11 @@
+#N canvas 818 60 469 406 12;
+#X obj -214 20 cnv 15 400 40 empty empty Order_of_Messages: 20 12 0
+24 -262144 -66577 0;
+#X msg -104 176 1 \, 2 \, 3 \, 4 \, five \, six \, 7;
+#X obj -104 212 print Several_Messages;
+#X text -189 82 In the case of several messages separated by commas
+\, the order that they are sent is from the left to the right.;
+#X text -186 276 But we'll see in this folder other matters that involve
+how to control the Data Flow!;
+#X text -183 333;
+#X connect 1 0 2 0;

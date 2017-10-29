@@ -1,0 +1,63 @@
+#N canvas 574 52 582 742 12;
+#X symbolatom 210 245 10 0 0 0 - - -;
+#X obj 146 239 tgl 15 0 empty empty empty 17 7 0 10 -204786 -1 -1 0
+1;
+#X obj 98 186 bng 15 250 50 0 empty empty empty 17 7 0 10 -4032 -1
+-1;
+#X obj 129 298 bng 15 250 50 0 empty empty empty 0 -6 0 10 -4032 -1
+-1;
+#X symbolatom 225 297 6 0 0 0 - - -;
+#X obj 292 297 print list;
+#X obj 273 299 bng 15 250 50 0 empty empty empty 0 -6 0 10 -258113
+-1 -1;
+#X obj 35 26 cnv 15 400 40 empty empty [route] 20 12 0 24 -262144 -66577
+0;
+#X obj 177 299 nbx 3 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-204786 -1 -1 0 256;
+#X obj 137 215 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-204786 -1 -1 -8 256;
+#X msg 126 184 1 2 3;
+#X obj 113 580 bng 15 250 50 0 empty empty empty 17 7 0 10 -258113
+-1 -1;
+#X obj 90 622 print list;
+#X obj 129 271 route bang float symbol list;
+#X obj 137 580 bng 15 250 50 0 empty empty empty 17 7 0 10 -261682
+-1 -1;
+#X obj 225 327 print;
+#X msg 64 458 1 2 3;
+#X text 38 74 Besides the arguments we designate \, [route] also understands
+the usual selectors as arguments ("float" \, "symbol" \, "bang" \,
+& "list").;
+#X text 37 137 Note we can't abbrevieate the selectors as in [trigger].
+;
+#X msg 202 218 symbol bye;
+#X text 38 363 This way you can route messages depending on its data
+type!;
+#X text 245 520 not a list message.;
+#X msg 90 486 list one two three;
+#X text 182 614 Note that the explicit list selector is cut from the
+message.;
+#X text 230 485 explicit list messages.;
+#X text 114 456 implicit list messages.;
+#X msg 135 521 one two three;
+#X obj 90 553 route list one;
+#X obj 159 579 print one;
+#X connect 0 0 13 0;
+#X connect 1 0 13 0;
+#X connect 2 0 13 0;
+#X connect 4 0 15 0;
+#X connect 9 0 13 0;
+#X connect 10 0 13 0;
+#X connect 13 0 3 0;
+#X connect 13 1 8 0;
+#X connect 13 2 4 0;
+#X connect 13 3 5 0;
+#X connect 13 3 6 0;
+#X connect 16 0 27 0;
+#X connect 19 0 13 0;
+#X connect 22 0 27 0;
+#X connect 26 0 27 0;
+#X connect 27 0 11 0;
+#X connect 27 0 12 0;
+#X connect 27 1 14 0;
+#X connect 27 1 28 0;

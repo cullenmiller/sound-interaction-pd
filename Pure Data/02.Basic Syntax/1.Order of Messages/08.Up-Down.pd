@@ -1,0 +1,47 @@
+#N canvas 1169 81 520 629 12;
+#X obj 10 10 cnv 15 400 40 empty empty Up->Down: 20 12 0 24 -262144
+-66577 0;
+#X msg 284 163 1;
+#X msg 59 237 1;
+#X obj 66 283 + 1;
+#X floatatom 129 246 5 0 0 0 - - -;
+#X obj 161 280 + 1;
+#X floatatom 178 312 5 0 0 0 - - -;
+#X obj 134 315 + 1;
+#X floatatom 98 292 5 0 0 0 - - -;
+#X obj 196 228 + 1;
+#X floatatom 203 254 5 0 0 0 - - -;
+#X obj 284 227 + 1;
+#X obj 284 298 + 1;
+#X obj 284 366 + 1;
+#X obj 284 429 + 1;
+#X floatatom 284 263 5 0 0 0 - - -;
+#X floatatom 284 334 5 0 0 0 - - -;
+#X floatatom 284 399 5 0 0 0 - - -;
+#X floatatom 284 468 5 0 0 0 - - -;
+#X floatatom 284 194 5 0 0 0 - - -;
+#X floatatom 42 311 5 0 0 0 - - -;
+#X text 15 81 Because the structure with inlets and outlets \, it's
+also nice to organize your patches from up to down. Both examples below
+are the same \, but the one to the left is much harder to follow up!
+;
+#X text 51 526 Being messy or not \, the spatial disposition on the
+screen does not influence the order of messages!;
+#X connect 1 0 19 0;
+#X connect 2 0 20 0;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 5 0 6 0;
+#X connect 6 0 7 0;
+#X connect 7 0 8 0;
+#X connect 8 0 9 0;
+#X connect 9 0 10 0;
+#X connect 11 0 15 0;
+#X connect 12 0 16 0;
+#X connect 13 0 17 0;
+#X connect 14 0 18 0;
+#X connect 15 0 12 0;
+#X connect 16 0 13 0;
+#X connect 17 0 14 0;
+#X connect 19 0 11 0;
+#X connect 20 0 3 0;

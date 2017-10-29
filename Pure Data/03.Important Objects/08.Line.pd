@@ -1,0 +1,37 @@
+#N canvas 572 383 511 701 12;
+#X obj 204 260 line;
+#X obj 204 492 line~;
+#X msg 204 203 500 1000;
+#X msg 227 231 0 100;
+#X msg 153 225 42;
+#X msg 204 432 500 1000;
+#X msg 227 460 0 100;
+#X obj 204 578 snapshot~;
+#X obj 236 551 metro 10;
+#X obj 237 533 tgl 15 1 empty empty empty 17 7 0 10 -228856 -1 -1 1
+1;
+#X obj 204 610 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-261682 -1 -1 0 256;
+#X obj 204 289 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-261682 -1 -1 0 256;
+#X obj 27 22 cnv 15 350 40 empty empty Line: 20 18 0 24 -262144 -66577
+0;
+#X text 43 94 The [line] object is a ramp generator. Its most comom
+usage is to receive a list with two values \, which means whre to go
+and how long to get there (in miliseconds). Only a number will make
+it jump imediately to that (we use it to define the starting point).
+;
+#X text 33 389 The audio version [line~] works the same way \, but
+the data is clearly audio signals.;
+#X text 72 536 (Turn on the DSP);
+#X text 148 649 Check help for more info.;
+#X connect 0 0 11 0;
+#X connect 1 0 7 0;
+#X connect 2 0 0 0;
+#X connect 3 0 0 0;
+#X connect 4 0 0 0;
+#X connect 5 0 1 0;
+#X connect 6 0 1 0;
+#X connect 7 0 10 0;
+#X connect 8 0 7 0;
+#X connect 9 0 8 0;

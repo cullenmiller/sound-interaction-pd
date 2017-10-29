@@ -1,0 +1,36 @@
+#N canvas 40 276 550 652 12;
+#X obj 25 -241 cnv 15 400 40 empty empty Review: 20 12 0 24 -262144
+-66577 0;
+#X text 52 -186 - Selectors are needed to specify the type of data.
+;
+#X text 52 -162 - The selector is the first atom in a message.;
+#X text 50 -135 - Data types in Pd are basically: float \, symbol \,
+list bang.;
+#X text 55 -105 - Some selectors are implict:;
+#X msg 275 -70 1;
+#X msg 275 -43 0 1;
+#X msg 275 -14 bang;
+#X text 321 -15 bang selector;
+#X text 319 -71 float selector;
+#X text 320 -41 list selector;
+#X text 169 -15 bang message:;
+#X text 70 -44 list starting with numbers:;
+#X text 161 -71 a number atom:;
+#X text 67 30 - These need to be specified always:;
+#X text 132 73 a symbol atom:;
+#X msg 241 73 symbol OK;
+#X text 46 106 list starting with symbol:;
+#X msg 241 104 list it's 4 AM;
+#X text 338 69 symbol selector;
+#X text 352 101 list selector;
+#X text 53 151 ============================================================
+;
+#X text 65 177 - objects can respond to any other selector type if
+they were designed for it. These can be thought of as specific "commands".
+;
+#X msg 131 253 set;
+#X text 168 253 "set" selector;
+#X msg 131 286 add 4;
+#X text 178 286 "add" selector;
+#X text 55 313 ============================================================
+;

@@ -1,0 +1,15 @@
+#N canvas 60 352 699 351 12;
+#X obj 281 87 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X symbolatom 281 147 18 0 0 0 - - -;
+#X obj 281 58 loadbang;
+#X obj 281 186 send \$1;
+#X obj 281 111 symbol \$1-B;
+#X text 197 -1 ====> THIS IS AN ABSTRACTION!!! <====;
+#X text 155 238 If this is the instance that inherited "\$0" from [ex3]
+\, the above symbol will be sent to the parent patch! Because the [receive]
+object on parent does match the inherited value of "\$1".;
+#X connect 0 0 4 0;
+#X connect 1 0 3 0;
+#X connect 2 0 0 0;
+#X connect 4 0 1 0;

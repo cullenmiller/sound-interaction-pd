@@ -1,0 +1,70 @@
+#N canvas 108 146 1193 889 12;
+#X obj 34 -306 cnv 15 400 40 empty empty Record_Audio: 20 12 0 24 -262144
+-66577 0;
+#X msg 422 -14 open \$1;
+#X obj 422 -76 bng 15 250 50 0 empty empty empty 17 7 0 10 -260097
+-1 -1;
+#X obj 422 -45 savepanel;
+#X msg 102 -67 start;
+#X msg 60 -21 stop;
+#X obj 175 236 bng 15 250 50 0 empty empty empty 17 7 0 10 -4034 -1
+-1;
+#X obj 213 270 tabwrite~ \$0-array1;
+#X obj 200 233 adc~ 1;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array \$0-array1 88200 float 0;
+#X coords 0 1 88199 -1 500 230 1;
+#X restore 590 -376 graph;
+#X text 60 111 ============================================================
+;
+#X obj 233 -102 loadbang;
+#X msg 233 -42 open ./media/Test.wav \; pd dsp 1;
+#X text 252 -80 Create Audio File \; Turn DSP on;
+#X text 396 -101 Create Another File;
+#X obj 150 47 writesf~ 2;
+#X obj 192 -157 adc~;
+#X text 239 -157 <- audio stereo input.;
+#X text 46 -93 Start Recording;
+#X text 48 -43 Stop it;
+#X text 52 -259 This is a basic example with [writesf~]. The "open"
+command makes it create an audio file. If the file already exists \,
+then itll be overwritten. First you need to "open" a file \, then hit
+"start" and "stop" for recording.;
+#X text 237 47 <- write stereo file;
+#X text 638 377 You can then save it to an audio file with [soundfiler].
+;
+#X obj 742 328 soundfiler;
+#X obj 742 200 bng 15 250 50 0 empty empty empty 17 7 0 10 -259863
+-1 -1;
+#X obj 742 222 savepanel;
+#X text 81 164 Another option is to use the [tabwrite~] object to record
+audio into arrays:;
+#X text 360 288 Read Help file!;
+#X obj 204 292 tabwrite~ \$0-array2;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array \$0-array2 88200 float 0;
+#X coords 0 1 88199 -1 500 230 1;
+#X restore 592 -125 graph;
+#X obj 742 266 list append \$0-array1 \$0-array2;
+#X text 611 126 These tabled are only 882000 samples long (2 seconds
+at 44.1khz sample rate). So we can only record that much in them. Change
+the size if you want more.;
+#X text 639 401 Here we're saving both tables into a stereo file;
+#X msg 742 295 write \$1 \$2 \$3;
+#X connect 1 0 15 0;
+#X connect 2 0 3 0;
+#X connect 3 0 1 0;
+#X connect 4 0 15 0;
+#X connect 5 0 15 0;
+#X connect 6 0 7 0;
+#X connect 6 0 28 0;
+#X connect 8 0 7 0;
+#X connect 8 0 28 0;
+#X connect 11 0 12 0;
+#X connect 12 0 15 0;
+#X connect 16 0 15 0;
+#X connect 16 1 15 1;
+#X connect 24 0 25 0;
+#X connect 25 0 30 0;
+#X connect 30 0 33 0;
+#X connect 33 0 23 0;

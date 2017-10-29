@@ -1,0 +1,34 @@
+#N canvas 782 69 493 790 12;
+#X obj 25 -19 cnv 15 400 40 empty empty Checking_Selectors: 20 17 0
+24 -262144 -66577 0;
+#X obj 70 550 print;
+#X symbolatom 70 476 10 0 0 0 - - -;
+#X obj 70 512 float;
+#X text 24 135 ============================================================
+;
+#X text 27 33 Again: Selectors are the first atom in a message. They
+specify what type of message it is. Some selectors are implicit. There
+are basically 4 Types of Data (or messages/selectors) in Pure Data.
+They are: "float" \, "symbol" \, "list" & "bang".;
+#X text 26 167 Remember that atom boxes complained when they were given
+types of messages they don't deal with. Objects (and not only them)
+do that too. So when something receives a message in Pd \, the first
+thing it does is check its selector to see what type of data that is
+\, and if it works with it.;
+#X text 27 280 If an object gets a type of data it doesn't deal with
+- like a "float" for example - a common error Pd gives us is: No Method
+for 'float'.;
+#X text 29 337 Another common error is: expected 'list' but got 'float'.
+;
+#X text 20 370 ============================================================
+;
+#X text 151 477 click \, write something \, than hit enter.;
+#X text 38 417 The [float] object does not work with symbols.;
+#X text 118 550 check terminal;
+#X text 32 605 The help files of each object will usually tell you
+what type of data it works with. Sometimes is just obvious like above.
+;
+#X text 27 674 ============================================================
+;
+#X connect 2 0 3 0;
+#X connect 3 0 1 0;

@@ -1,0 +1,74 @@
+#N canvas 857 29 490 903 12;
+#X obj 10 10 cnv 15 400 40 empty empty on/off 20 12 0 24 -262144 -66577
+0;
+#X obj 98 210 tgl 20 0 empty empty empty 0 -6 0 8 -24198 -1 -1 0 1
+;
+#X obj 98 259 bng 20 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X obj 91 356 tgl 20 0 empty empty empty 0 -6 0 8 -24198 -1 -1 0 1
+;
+#X floatatom 91 390 5 0 0 0 - - -;
+#X obj 161 356 tgl 20 0 empty empty empty 0 -6 0 8 -24198 -1 -1 0 -100
+;
+#X floatatom 161 390 5 0 0 0 - - -;
+#X obj 231 356 tgl 20 0 empty empty empty 0 -6 0 8 -24198 -1 -1 0 9e-22
+;
+#X floatatom 231 390 9 0 0 0 - - -;
+#X obj 309 355 tgl 20 0 empty empty empty 0 -6 0 8 -24198 -1 -1 0 -0.034
+;
+#X floatatom 309 389 5 0 0 0 - - -;
+#X obj 97 433 tgl 20 0 empty empty empty 0 -6 0 8 -24198 -1 -1 0 23
+;
+#X floatatom 97 467 5 0 0 0 - - -;
+#X obj 167 433 tgl 20 0 empty empty empty 0 -6 0 8 -24198 -1 -1 0 99999
+;
+#X floatatom 167 467 5 0 0 0 - - -;
+#X obj 237 433 tgl 20 0 empty empty empty 0 -6 0 8 -24198 -1 -1 0 -1
+;
+#X floatatom 237 467 5 0 0 0 - - -;
+#X obj 315 432 tgl 20 0 empty empty empty 0 -6 0 8 -24198 -1 -1 0 100
+;
+#X floatatom 315 466 5 0 0 0 - - -;
+#X obj 259 261 bng 20 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X text 121 210 <-- on/off;
+#X msg 241 181 1;
+#X msg 274 206 0;
+#X obj 98 233 metro 300;
+#X obj 259 235 metro 300;
+#X text 19 61 The Toggle switch is used for the turning On/Off paradigm.
+Many objects are designed to work with it \, like [metro] (a "metonome")
+\, which turns off if it gets a 0 \, and turns on if it gets a number
+different than 0 By default \, Toggle send "1" is it's On \, and "0"
+if Off. But we can change the "On" value in its proeprties \, if convenient.
+;
+#X text 277 179 <-- On;
+#X text 302 204 <-- Off;
+#X text 179 236 equal to:;
+#X text 107 314 Toggle with different values:;
+#X obj 204 652 tgl 20 0 empty empty empty 0 -6 0 8 -24198 -1 -1 0 -71
+;
+#X floatatom 204 696 5 0 0 0 - - -;
+#X floatatom 204 616 5 0 0 0 - - -;
+#X text 33 527 We can alter the value of a Toggle just by sendind it
+a number. On this case \, Toggle passes the number forward \, behaving
+like a number box.;
+#X floatatom 222 842 1 0 0 0 - - -;
+#X text 36 769 If you edit an atom number box's properties and set
+its width to "1" \, it will behave just like a toggle. You can click
+it and it will switch between "0" and "1".;
+#X connect 1 0 23 0;
+#X connect 3 0 4 0;
+#X connect 5 0 6 0;
+#X connect 7 0 8 0;
+#X connect 9 0 10 0;
+#X connect 11 0 12 0;
+#X connect 13 0 14 0;
+#X connect 15 0 16 0;
+#X connect 17 0 18 0;
+#X connect 21 0 24 0;
+#X connect 22 0 24 0;
+#X connect 23 0 2 0;
+#X connect 24 0 19 0;
+#X connect 30 0 31 0;
+#X connect 32 0 30 0;

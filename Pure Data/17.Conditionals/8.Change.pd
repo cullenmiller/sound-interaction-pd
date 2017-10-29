@@ -1,0 +1,87 @@
+#N canvas 709 29 890 846 12;
+#X obj -96 9 cnv 15 400 40 empty empty Change: 20 12 0 24 -262144 -66577
+0;
+#X obj 190 439 cnv 15 90 28 empty status-cnv desce 20 12 0 14 -261234
+-4160 0;
+#X floatatom 206 356 5 0 0 0 - - -;
+#X obj 206 548 bng 15 250 50 0 empty empty empty 17 7 0 10 -262130
+-1 -1;
+#X obj 206 512 sel 0 1;
+#X obj 229 548 bng 15 250 50 0 empty empty empty 17 7 0 10 -204786
+-1 -1;
+#X obj 217 629 line;
+#X msg 244 585 0 \, 1 1000;
+#X msg 164 584 1 \, 0 1000;
+#X obj 206 412 tgl 15 0 empty empty empty 17 7 0 10 -203904 -1 -1 0
+1;
+#X obj 217 658 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-4034 -1 -1 0 256;
+#X obj 206 443 change;
+#X floatatom 206 477 5 0 0 0 - - -;
+#X obj 217 686 vsl 15 128 0 1 0 0 empty slider closed 20 10 0 18 -204786
+-1 -1 0 1;
+#X obj 71 632 send slider;
+#X obj 84 293 spigot;
+#X floatatom 84 191 5 0 0 0 - - -;
+#X floatatom 84 328 5 0 0 0 - - -;
+#X obj 84 356 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 123 264 !=;
+#X obj 84 222 t f f f;
+#X obj 84 168 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X floatatom -35 228 5 0 0 0 - - -;
+#X obj -35 263 change;
+#X floatatom -35 297 5 0 0 0 - - -;
+#X obj -35 205 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -35 328 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 137 294 1 0 0 0 - - -;
+#X text 39 263 =;
+#X text -71 74 The [change] object only passes by numbers that are
+different than the previous one - or \, when the number changes. Click
+on top bang to resend a number and see how the bottom bang does not
+react.;
+#X text 169 244 "Change" made out of [spigot] and [!=];
+#X text 168 277 If different than last \, then opens \, closed elsewise.
+;
+#X msg 65 584 label closed;
+#X msg 327 585 label opened;
+#X obj 206 382 > 0;
+#X text 314 391 Here's when it comes in handy. Without [change] \,
+every time a number bigger than "0" comes in \, the process is repeated.
+But we only want that to hapen once.;
+#X text 314 473 This is very useful if you have a continuous input
+from an interface device. Then you specify a threshold and it behaves
+like a "gate".;
+#X connect 2 0 34 0;
+#X connect 3 0 8 0;
+#X connect 3 0 32 0;
+#X connect 4 0 3 0;
+#X connect 4 1 5 0;
+#X connect 5 0 7 0;
+#X connect 5 0 33 0;
+#X connect 6 0 10 0;
+#X connect 7 0 6 0;
+#X connect 8 0 6 0;
+#X connect 9 0 11 0;
+#X connect 10 0 13 0;
+#X connect 11 0 12 0;
+#X connect 12 0 4 0;
+#X connect 15 0 17 0;
+#X connect 16 0 20 0;
+#X connect 17 0 18 0;
+#X connect 19 0 15 1;
+#X connect 19 0 27 0;
+#X connect 20 0 15 0;
+#X connect 20 1 19 1;
+#X connect 20 2 19 0;
+#X connect 21 0 16 0;
+#X connect 22 0 23 0;
+#X connect 23 0 24 0;
+#X connect 24 0 26 0;
+#X connect 25 0 22 0;
+#X connect 32 0 14 0;
+#X connect 33 0 14 0;
+#X connect 34 0 9 0;

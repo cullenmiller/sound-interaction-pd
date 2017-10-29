@@ -1,0 +1,44 @@
+#N canvas 644 355 1065 672 12;
+#X symbolatom 313 184 10 0 0 0 - - -;
+#X obj 313 218 trigger symbol symbol bang;
+#X msg 384 334 symbol rename;
+#X obj 319 367 pack symbol symbol symbol;
+#X msg 449 447 \; \$3 \$2 \$1;
+#X obj 319 403 trigger symbol list;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array HI 100 float 3;
+#A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0;
+#X coords 0 1 99 -1 200 140 1;
+#X restore 43 282 graph;
+#X obj 68 19 cnv 15 400 40 empty empty Rename_Exercize: 20 12 0 24
+-262144 -66577 0;
+#X msg 319 446 \; \$1 print;
+#X text 61 79 We can review some stuff here \, like "selectors" \,
+[pack] & [trigger] \, set messages \, semicolon and dollarsigns. It
+needs to be clear every element;
+#X text 405 181 Write the new array name here!;
+#X text 510 217 we create a list at the end of this process.;
+#X msg 491 304 symbol HI;
+#X text 610 253 we set a message by last \, as a way to store the message
+on this patch so this works next time it'll be oppened \, as we need
+to send a message with the last name the array has received.;
+#X msg 504 263 set symbol \$1;
+#X text 523 337 "symbol" selector needed.;
+#X text 523 457 "last aray name" - "rename" - "new array name";
+#X text 346 509 "new array name" print indicades that the name has
+changed. Check the terminal \, either that or go into edit mode \,
+move the array and see the new name.;
+#X connect 0 0 1 0;
+#X connect 1 0 14 0;
+#X connect 1 1 3 0;
+#X connect 1 2 2 0;
+#X connect 1 2 12 0;
+#X connect 2 0 3 1;
+#X connect 3 0 5 0;
+#X connect 5 0 8 0;
+#X connect 5 1 4 0;
+#X connect 12 0 3 2;
+#X connect 14 0 12 0;

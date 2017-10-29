@@ -1,0 +1,52 @@
+#N canvas 754 22 574 967 12;
+#X msg 150 574 list 3;
+#X obj 132 601 *;
+#X msg 286 598 list 3;
+#X obj 259 631 *~;
+#X floatatom 103 564 5 0 0 0 - - -;
+#X floatatom 132 629 5 0 0 0 - - -;
+#X obj 150 549 loadbang;
+#X msg 248 548 3;
+#X obj 51 30 cnv 15 500 40 empty empty List_Messages: 20 12 0 24 -262144
+-66577 0;
+#X msg 178 143 list 34 335;
+#X msg 177 173 list open file;
+#X obj 191 392 print;
+#X msg 191 338 list 3;
+#X msg 157 307 list one;
+#X text 68 101 Messages that contain more than one atom are lists!
+;
+#X text 72 241 If you have a list selector with only one element...
+;
+#X text 233 306 this becomes a symbol;
+#X text 247 337 this becomes a float;
+#X text 82 467 Although some objects will actually even do that conversion
+\, it won't always work \, so don't go out relyong on that too much.
+;
+#X text 202 574 works;
+#X text 246 529 works;
+#X text 269 572 doesn't work (check terminal);
+#X text 63 685 ============================================================
+;
+#X text 52 205 ============================================================
+;
+#X text 64 728 Empty list messages will be usually converted to a "bang".
+;
+#X obj 269 834 print;
+#X msg 269 793 list;
+#X msg 177 771 list;
+#X obj 177 812 float 5;
+#X floatatom 177 850 5 0 0 0 - - -;
+#X text 68 893 ============================================================
+;
+#X connect 0 0 1 1;
+#X connect 1 0 5 0;
+#X connect 2 0 3 1;
+#X connect 4 0 1 0;
+#X connect 6 0 0 0;
+#X connect 7 0 3 1;
+#X connect 12 0 11 0;
+#X connect 13 0 11 0;
+#X connect 26 0 25 0;
+#X connect 27 0 28 0;
+#X connect 28 0 29 0;

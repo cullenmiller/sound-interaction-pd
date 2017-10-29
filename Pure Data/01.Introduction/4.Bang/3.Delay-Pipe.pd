@@ -1,0 +1,59 @@
+#N canvas 1013 109 768 711 12;
+#X obj 50 219 delay 1000;
+#X obj 50 193 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 50 250 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 486 234 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 502 262 delay 500;
+#X obj 486 297 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 117 190 5 0 0 0 - - -;
+#X obj 241 265 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 241 234 delay;
+#X msg 209 195 100;
+#X msg 245 194 250;
+#X msg 281 196 500;
+#X obj 235 168 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 32 25 cnv 15 400 40 empty empty Delay-Pipe: 20 12 0 24 -262144
+-66577 0;
+#X obj 176 459 pipe 2000;
+#X obj 176 430 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 176 495 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 41 97 The [delay] objects delays a bang in a certain time in
+miliseconds \, defined by the argument or the cold inlet.;
+#X text 36 296 A number to the hot inlet defines the delay time and
+also sends out a bang with that delay.;
+#X text 73 374 A similar object is: [pipe];
+#X text 429 172 This loop resembes;
+#X text 452 192 a [metro];
+#X text 269 430 Note that if [delay] receives several bangs before
+its delay time \, it will only send out the last bang.;
+#X text 271 484 Now [pipe] can send out all bangs it receives with
+a delay.;
+#X obj 107 496 print;
+#X text 106 555 But actually \, [pipe] only works with numbers \, when
+it gets a bang \, it sends out a "0" number \, that you have to convert
+to bang.;
+#X text 107 611 So there is this difference between [delay] (which
+only works with bangs) and [pipe] (which works with numbers \, sybols
+\, and lists). More info on the Help files.;
+#X connect 0 0 2 0;
+#X connect 1 0 0 0;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 5 0 3 0;
+#X connect 6 0 0 1;
+#X connect 8 0 7 0;
+#X connect 9 0 8 0;
+#X connect 10 0 8 0;
+#X connect 11 0 8 0;
+#X connect 12 0 8 0;
+#X connect 14 0 16 0;
+#X connect 14 0 24 0;
+#X connect 15 0 14 0;

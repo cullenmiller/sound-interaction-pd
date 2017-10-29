@@ -1,0 +1,101 @@
+#N canvas 411 91 976 682 12;
+#X obj 10 10 cnv 15 400 40 empty empty Value 20 12 0 24 -262144 -66577
+0;
+#X obj 202 368 value n;
+#X floatatom 202 297 5 0 0 0 - - -;
+#X floatatom 202 414 5 0 0 0 - - -;
+#X obj 126 368 value n;
+#X floatatom 126 297 5 0 0 0 - - -;
+#X floatatom 126 414 5 0 0 0 - - -;
+#X obj 173 311 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 724 455 + 1;
+#X obj 759 455 - 1;
+#X floatatom 743 488 5 0 0 0 - - -;
+#X obj 642 399 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 759 398 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 527 555 v;
+#X obj 509 531 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 527 528 5 0 0 0 - - -;
+#X floatatom 527 582 5 0 0 0 - - -;
+#X obj 597 556 v;
+#X obj 579 532 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 597 529 5 0 0 0 - - -;
+#X floatatom 597 583 5 0 0 0 - - -;
+#X obj 555 107 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 685 160 + 1;
+#X obj 692 105 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 824 157 - 1;
+#X floatatom 824 188 5 0 0 0 - - -;
+#X floatatom 685 193 5 0 0 0 - - -;
+#X floatatom 755 245 5 0 0 0 - - -;
+#X text 13 74 The [value] object (or just [v]) has only one inlet \,
+but the outlet only sends out a value when it receives a bang. Its
+argument defines a variable name.;
+#X text 11 473 Mess with the number boxes. Then click on the bang and
+understand how a number that was sent to one of them is also stored
+on the other one.;
+#X text 490 36 By default \, all [value] objects store "0" when the
+patch is initialized.;
+#X text 576 102 Up;
+#X text 718 100 Down;
+#X obj 555 129 value counter;
+#X obj 692 127 value counter;
+#X obj 642 423 value counter2;
+#X obj 759 422 value counter2;
+#X text 663 396 Up;
+#X text 785 394 Down;
+#X text 479 277 Above we have the "counter" variable connected to [+]
+& [-]. The stored value increases or decreases and is stored back into
+the "counter" variable. It doesn't matter which of the [value] objects
+we store the number back if they have the same argument. So here is
+yet another example of how to implement this:;
+#X obj 744 521 value counter2;
+#X text 485 619 You don't need to give a variable name (put an argument).
+If so \, the data goes to any [value] object with no variable name.
+;
+#X text 18 142 We'll see later that it relates to the [send] & [receive]
+objects. We'll also study how to deal with them in the issue of global/local
+\, and how to use them inside mathematical expressions with the [expr]
+objext. For now \, all we need to know is that when we send a number
+to a [value] object with an argument \, all of the other [value] objects
+that havve the same argument will receive that value.;
+#X text 6 558 Now we can create a variable name \, or argument \, that
+we'll call "counter" \, with the name (argument) and simplify the patch
+we did before \, without bothering with the possibility of an infinite
+loop.;
+#X connect 1 0 3 0;
+#X connect 2 0 1 0;
+#X connect 4 0 6 0;
+#X connect 5 0 4 0;
+#X connect 7 0 4 0;
+#X connect 7 0 1 0;
+#X connect 8 0 10 0;
+#X connect 9 0 10 0;
+#X connect 10 0 40 0;
+#X connect 11 0 35 0;
+#X connect 12 0 36 0;
+#X connect 13 0 16 0;
+#X connect 14 0 13 0;
+#X connect 15 0 13 0;
+#X connect 17 0 20 0;
+#X connect 18 0 17 0;
+#X connect 19 0 17 0;
+#X connect 21 0 33 0;
+#X connect 22 0 26 0;
+#X connect 22 0 33 0;
+#X connect 23 0 34 0;
+#X connect 24 0 25 0;
+#X connect 24 0 34 0;
+#X connect 25 0 27 0;
+#X connect 26 0 27 0;
+#X connect 33 0 22 0;
+#X connect 34 0 24 0;
+#X connect 35 0 8 0;
+#X connect 36 0 9 0;

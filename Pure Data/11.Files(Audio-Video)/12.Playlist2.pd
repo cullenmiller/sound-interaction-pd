@@ -1,0 +1,80 @@
+#N canvas 728 40 784 798 12;
+#X obj 31 234 playlist mov 400 80 {Helvetica 10 bold} #443742 black
+gray red;
+#X msg 31 155 seek \$1;
+#X obj 31 134 nbx 3 14 0 1e+37 0 0 empty empty empty 0 -8 0 10 -203904
+-1 -1 61 256;
+#X obj 93 116 + 1;
+#X obj 31 67 bng 30 250 50 0 empty empty empty 17 7 0 10 -203904 -1
+-1;
+#X obj 107 323 gemhead;
+#X obj 31 390 pix_film;
+#X msg 31 324 open \$1;
+#X obj 31 452 pix_texture;
+#X obj 31 481 rectangle 4 3;
+#X obj 167 322 loadbang;
+#X msg 167 359 create \, 1;
+#X obj 167 388 gemwin;
+#X msg 112 360 auto 1;
+#X obj 33 624 cnv 15 300 50 empty file-cnv vinheta.mov 40 20 2 30 -1
+-258113 0;
+#X obj -2 -18 cnv 15 400 40 empty empty Playlist2: 20 12 0 24 -262144
+-66577 0;
+#X msg 260 333 label \$1;
+#X obj 248 139 getdir;
+#X obj 132 81 loadbang;
+#X msg 248 165 location \$1;
+#X msg 132 152 location media;
+#X obj 132 112 trigger bang bang;
+#X obj 31 107 float;
+#X obj 33 593 cnv 15 300 30 empty empty Playing: 10 14 2 18 -1 -191407
+0;
+#X obj 340 325 loadbang;
+#X msg 340 350 label;
+#X obj 79 416 cnv 15 57 28 empty empty empty 20 12 0 14 -260097 -66577
+0;
+#X obj 84 419 s bang;
+#X obj 26 32 cnv 15 57 28 empty empty empty 20 12 0 14 -260097 -66577
+0;
+#X obj 31 36 r bang;
+#X text 161 432 This playlist has the "mov" argument \, so it only
+loads movies.;
+#X text 162 470 After the video is played \, [pix_film] sends a bang
+we use to move the counter up \, and keep seeking in loop over the
+files list.;
+#X text 213 62 With [loadbang] we get this patch's directory and go
+to the media subfolder.;
+#X text 164 523 We actually have done something this before without
+[playlist];
+#X text 346 609 Here we use the GUI canvas to better display the file
+name. There are actually 2 canvases \, and the bottom is changing its
+label.;
+#X text 393 381 change canvas label.;
+#X obj 260 379 send file-cnv;
+#X connect 0 0 7 0;
+#X connect 0 1 16 0;
+#X connect 1 0 0 0;
+#X connect 2 0 1 0;
+#X connect 3 0 22 1;
+#X connect 4 0 22 0;
+#X connect 5 0 6 0;
+#X connect 6 0 8 0;
+#X connect 6 2 27 0;
+#X connect 7 0 6 0;
+#X connect 8 0 9 0;
+#X connect 10 0 11 0;
+#X connect 10 0 13 0;
+#X connect 11 0 12 0;
+#X connect 13 0 6 0;
+#X connect 16 0 36 0;
+#X connect 17 0 19 0;
+#X connect 18 0 21 0;
+#X connect 19 0 0 0;
+#X connect 20 0 0 0;
+#X connect 21 0 20 0;
+#X connect 21 1 17 0;
+#X connect 22 0 3 0;
+#X connect 22 0 2 0;
+#X connect 24 0 25 0;
+#X connect 25 0 36 0;
+#X connect 29 0 4 0;

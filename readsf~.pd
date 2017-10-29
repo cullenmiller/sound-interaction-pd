@@ -1,0 +1,38 @@
+#N canvas 886 425 583 321 10;
+#X msg 15 35 \; pd dsp \$1;
+#X obj 15 8 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1 1
+;
+#X msg 138 55 start;
+#X msg 138 76 stop;
+#X obj 187 146 dac~ 1 2;
+#X obj 187 104 readsf~ 2;
+#X obj 238 128 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 205 34 openpanel;
+#X obj 205 6 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X msg 205 63 open \$1;
+#X obj 93 146 env~;
+#X obj 142 146 env~;
+#X obj 94 214 vu 15 120 empty empty -1 -8 0 10 -66577 -1 1 0;
+#X obj 144 214 vu 15 120 empty empty -1 -8 0 10 -66577 -1 1 0;
+#X obj 93 173 - 100;
+#X obj 142 173 - 100;
+#X text 263 103 <--- reads audio file from disk;
+#X text 268 62 <--- opens an audio file;
+#X text 274 34 <--- browse for an audio file in finder;
+#X connect 1 0 0 0;
+#X connect 2 0 5 0;
+#X connect 3 0 5 0;
+#X connect 5 0 4 0;
+#X connect 5 0 10 0;
+#X connect 5 1 4 1;
+#X connect 5 1 11 0;
+#X connect 5 2 6 0;
+#X connect 7 0 9 0;
+#X connect 8 0 7 0;
+#X connect 9 0 5 0;
+#X connect 10 0 14 0;
+#X connect 11 0 15 0;
+#X connect 14 0 12 0;
+#X connect 15 0 13 0;

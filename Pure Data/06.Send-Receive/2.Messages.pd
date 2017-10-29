@@ -1,0 +1,56 @@
+#N canvas 278 77 508 881 12;
+#X obj -21 230 loadbang;
+#X obj 7 351 receive volume;
+#X obj -110 16 cnv 15 400 40 empty empty Messages: 20 19 0 24 -262144
+-66577 0;
+#X msg -21 257 \; midinote 99 \; volume 56;
+#X obj 124 351 receive midinote;
+#X msg -16 502 list midinote 15 30;
+#X msg -16 541 \; \$1 \$2 \; volume \$3;
+#X obj 113 671 bng 15 250 50 0 empty empty empty 17 7 0 10 -260120
+-1 -1;
+#X floatatom 113 737 5 0 0 0 - - -;
+#X msg 30 709 \; gain 3;
+#X obj 113 702 value gain;
+#X text -94 104 A semicolon in messages work like a [send] object.
+It's useful to send things to several places at one click. Or at startup
+as an initialization procedure (or "preset") by conectng a [loadbang]
+to it.;
+#X text -71 443 We can obviously use both semicolons and dollarsigns:
+;
+#X text 89 273 =;
+#X obj 121 277 s midinote 99;
+#X obj 225 277 s volume;
+#X msg 121 250 99;
+#X msg 225 250 56;
+#X obj 193 217 bng 15 250 50 0 empty empty empty 17 7 0 10 -257985
+-1 -1;
+#X text 95 565 =;
+#X obj 127 569 s midinote 99;
+#X obj 231 569 s volume;
+#X obj 199 509 bng 15 250 50 0 empty empty empty 17 7 0 10 -257985
+-1 -1;
+#X msg 127 542 15;
+#X msg 231 542 30;
+#X obj 7 388 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-204786 -1 -1 0 256;
+#X obj 124 388 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-203904 -1 -1 0 256;
+#X text -90 626 ============================================================
+;
+#X text -65 784 Again we have that same error on the terminal with
+"send" and [value].;
+#X connect 0 0 3 0;
+#X connect 1 0 25 0;
+#X connect 4 0 26 0;
+#X connect 5 0 6 0;
+#X connect 7 0 10 0;
+#X connect 10 0 8 0;
+#X connect 16 0 14 0;
+#X connect 17 0 15 0;
+#X connect 18 0 16 0;
+#X connect 18 0 17 0;
+#X connect 22 0 23 0;
+#X connect 22 0 24 0;
+#X connect 23 0 20 0;
+#X connect 24 0 21 0;

@@ -1,0 +1,100 @@
+#N canvas 139 22 1083 845 12;
+#X obj 10 10 cnv 15 400 40 empty empty Mathematical_Expressions: 20
+12 0 24 -262144 -66577 0;
+#X floatatom 540 180 5 0 0 0 - - -;
+#X floatatom 540 258 5 0 0 0 - - -;
+#X obj 540 220 expr int($f1+0.5);
+#X text 673 218 =;
+#X obj 701 237 int;
+#X obj 701 206 + 0.5;
+#X floatatom 701 172 5 0 0 0 - - -;
+#X floatatom 701 269 5 0 0 0 - - -;
+#X floatatom 854 189 5 0 0 0 - - -;
+#X floatatom 854 257 5 0 0 0 - - -;
+#X obj 854 219 expr rint($f1);
+#X obj 710 551 expr rint(\$1);
+#X floatatom 736 735 5 0 0 0 - - -;
+#X obj 736 706 expr $i1;
+#X msg 736 677 2.7;
+#X floatatom 58 294 5 0 0 0 - - -;
+#X obj 58 219 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 58 256 expr 9 / 3;
+#X floatatom 115 569 5 0 0 0 - - -;
+#X obj 85 449 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X floatatom 115 480 5 0 0 0 - - -;
+#X obj 115 530 expr $f1 * 3;
+#X floatatom 119 792 5 0 0 0 - - -;
+#X floatatom 119 713 5 0 0 0 - - -;
+#X obj 119 752 expr $f1 * $f2;
+#X floatatom 214 714 5 0 0 0 - - -;
+#X text 117 684 $f1;
+#X text 212 683 $f2;
+#X text 11 67 The [expr] oobject allows us to write mathematical expressions
+in a way common to many programming languages.;
+#X text 19 127 Or even as simple as we usually write it.;
+#X text 88 216 bang to calculate or send previous result;
+#X text 149 254 [expr] used for division;
+#X text 161 480 variable "$f1";
+#X text 113 447 bang to calculate or send previous result;
+#X text 47 356 The [expr] object works with variables \, such as "$f1"
+\, which correspond to inlets. Below we have only one variable corresponding
+to the first inlet \, and it will acquire the value of an incomming
+number.;
+#X text 236 530 =;
+#X floatatom 282 571 5 0 0 0 - - -;
+#X obj 271 512 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 290 510 5 0 0 0 - - -;
+#X obj 282 537 * 3;
+#X text 62 628 With more than one variable \, we have more than one
+inlet \, and the usual "Cold/Hot" inlet paradigm.;
+#X floatatom 335 792 5 0 0 0 - - -;
+#X floatatom 323 716 5 0 0 0 - - -;
+#X floatatom 368 717 5 0 0 0 - - -;
+#X obj 335 755 *;
+#X text 275 754 =;
+#X text 525 20 FUNCTIONS:;
+#X text 522 59 There are built in functions like "int" \, which converts
+floats to integers \, just like the [int] object. Or even the "rint"
+function \, which rounds and converts to an integer.;
+#X text 761 219 or even =;
+#X text 543 349 IMPORTANT:;
+#X text 577 388 These variables are not DollarSigns!!!;
+#X text 587 456 ==> instead of only dollarsigns (\$1 \, \$2 \, \$3
+\, etc) \, we have in [expr] variables like: $f1 \, $f2 \, $f3 \, and
+so on! The difference (the letter "f") stands for "float". A dollarsign
+wont properly work in the [expr] object:;
+#X text 571 608 Besides "f" for "float" \, we also have "i" for "integer"
+\, such as: $i1 \, $i2 \, $i3 \, $i4 \, etc. This way it also converts
+floats to integers:;
+#X floatatom 883 733 5 0 0 0 - - -;
+#X msg 883 675 2.7;
+#X obj 883 704 int;
+#X text 830 706 =;
+#X connect 1 0 3 0;
+#X connect 3 0 2 0;
+#X connect 5 0 8 0;
+#X connect 6 0 5 0;
+#X connect 7 0 6 0;
+#X connect 9 0 11 0;
+#X connect 11 0 10 0;
+#X connect 14 0 13 0;
+#X connect 15 0 14 0;
+#X connect 17 0 18 0;
+#X connect 18 0 16 0;
+#X connect 20 0 22 0;
+#X connect 21 0 22 0;
+#X connect 22 0 19 0;
+#X connect 24 0 25 0;
+#X connect 25 0 23 0;
+#X connect 26 0 25 1;
+#X connect 38 0 40 0;
+#X connect 39 0 40 0;
+#X connect 40 0 37 0;
+#X connect 43 0 45 0;
+#X connect 44 0 45 1;
+#X connect 45 0 42 0;
+#X connect 55 0 56 0;
+#X connect 56 0 54 0;

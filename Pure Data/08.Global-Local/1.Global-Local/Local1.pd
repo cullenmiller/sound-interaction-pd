@@ -1,0 +1,58 @@
+#N canvas 516 110 548 938 12;
+#X obj 150 60 inlet;
+#X obj 291 62 inlet;
+#X floatatom 136 233 5 0 0 0 - - -;
+#X obj 136 259 outlet;
+#X floatatom 280 234 5 0 0 0 - - -;
+#X obj 280 260 outlet;
+#X text 54 492 ============================================================
+;
+#X obj 150 87 send \$1-1;
+#X obj 291 87 send \$1-2;
+#X obj 136 206 receive \$1-1;
+#X obj 280 207 receive \$1-2;
+#X msg 111 800 symbol A;
+#X msg 206 799 symbol B;
+#X msg 206 833 \; \$1-1 9000;
+#X msg 111 834 \; \$1-1 5000;
+#X msg 299 793 list A 3654 B 9823;
+#X obj 165 592 value \$1-local;
+#X floatatom 165 628 5 0 0 0 - - -;
+#X text 62 705 ============================================================
+;
+#X text 55 126 The objects above can be [send A-1]/[send A-2] if the
+inherited argument is "A" \, or [send B-1]/[send B-2] if "B".;
+#X text 74 291 But \, if we have the same abstraction loaded with a
+different argument \, then they won't match!!!;
+#X text 52 167 No matter which \, the [receive] objects below still
+match.;
+#X text 57 444 Just go back to the parent patch and see how the data
+is running globally on [receive (A-1 \, A-2 \, B-1 & B-2)].;
+#X text 115 520 The same applies for the [value] object!;
+#X text 81 748 Dollarsigns don't inherit arguments in messages \, but
+try to read and predict where this data will go to.;
+#X msg 299 826 \; \$1-1 \$2 \; \$3-1 \$4;
+#X obj 144 556 r \$1-1;
+#X obj 200 556 r \$1-2;
+#X text 279 581 stores the last value;
+#X text 281 599 inputed from inlets;
+#X text 62 662 See that you can still restore this variable globally
+on the parent patch!;
+#X text 56 336 You can open the other instance of this abstraction
+and see how the data is not runing globally. But this is not a technically
+perfect local variable \, more of "in between". The objects still operate
+in a global fashion \, meaning that some [receive] object with a matching
+argument can receive the data anywhere!;
+#X text 117 13 ====> THIS IS AN ABSTRACTION!!! <====;
+#X connect 0 0 7 0;
+#X connect 1 0 8 0;
+#X connect 2 0 3 0;
+#X connect 4 0 5 0;
+#X connect 9 0 2 0;
+#X connect 10 0 4 0;
+#X connect 11 0 14 0;
+#X connect 12 0 13 0;
+#X connect 15 0 25 0;
+#X connect 16 0 17 0;
+#X connect 26 0 16 0;
+#X connect 27 0 16 0;

@@ -1,0 +1,28 @@
+#N canvas 865 56 459 584 12;
+#X obj -99 30 cnv 15 400 40 empty empty Inheritance: 20 12 0 24 -262144
+-66577 0;
+#X obj 157 426 loadbang;
+#X symbolatom 157 477 10 0 0 0 - - -;
+#X floatatom 245 475 5 0 0 0 - - -;
+#X text -88 91 This concept in programming language allows the sharing
+of attributes. Lets see how this applies to abstractions in Pd. The
+patch that contains the abstraction is called a "parent patch" \, and
+it can pass some of its attributes to its children (abstractions).
+;
+#X text -89 192 In the case of abstractions \, unlike simple subpatches
+\, they are actual different Pd files. You insert it as an object and
+write the name of the file in it to load it. Therefore \, different
+abstractons with the same name will contain the same code (as they
+aree the same file).;
+#X text -86 286 The abstraction won't be loaded if it has the same
+name of another loaded pd object (native or external) \, which will
+be loaded instead.;
+#X text -84 351 Abstractions can inherit values from a parent patch
+when they have dollarsign into objects.;
+#X text -78 451 click to open the abstraction ->;
+#X text 94 476 and see;
+#X text 162 512 for more info.;
+#X obj 157 451 ex1 example 5;
+#X connect 1 0 11 0;
+#X connect 11 0 2 0;
+#X connect 11 1 3 0;

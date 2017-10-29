@@ -1,0 +1,17 @@
+#N canvas 292 129 490 549 12;
+#X obj 38 27 cnv 15 400 40 empty empty Rename: 20 12 0 24 -262144 -66577
+0;
+#X obj 106 152 send array-1;
+#X obj 235 152 send array-2;
+#X msg 106 120 rename array-2;
+#X msg 235 120 rename array-1;
+#X msg 59 196 \; table rename array-1;
+#X msg 242 196 \; array rename array-2;
+#X obj 179 419 table array-1;
+#X text 39 298 The command "rename" changes the array's name. But if
+you have an array on your patch \, you need to go into edit mode and
+move it a little to see it has been renamed. In the case below \, you
+need to close the table window and re-open it:;
+#X text 175 79 click these:;
+#X connect 3 0 1 0;
+#X connect 4 0 2 0;

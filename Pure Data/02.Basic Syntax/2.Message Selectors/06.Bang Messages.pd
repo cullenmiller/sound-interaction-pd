@@ -1,0 +1,39 @@
+#N canvas 754 22 577 800 12;
+#X obj 51 30 cnv 15 500 40 empty empty Bang_Messages: 20 12 0 24 -262144
+-66577 0;
+#X text 68 101 So far we saw that there are messages with one element
+(atomic messages) or more elements (list messages). These gives us
+3 selector types: "float" & "symbol" (for atomic messages) and "list"
+(for lists).;
+#X text 70 213 Guess what... A "bang" is also a type of data. And it
+also has a selector just for it.;
+#X text 63 175 ============================================================
+;
+#X msg 275 414 bang;
+#X obj 218 472 print;
+#X msg 177 414 bang bang;
+#X text 157 375 These are Bang Messages;
+#X obj 199 595 print;
+#X msg 199 561 symbol bang;
+#X text 113 523 This is a symbol message:;
+#X text 53 628 ============================================================
+;
+#X obj 146 758 print;
+#X text 84 654 A list that starts with a bang will also be considered
+a "Bang Message";
+#X text 57 786 ============================================================
+;
+#X text 57 908 ============================================================
+;
+#X msg 146 711 bang your head to metal music;
+#X text 66 826 We saw how Bang is a very important message in Pd. Several
+objects and elements are ready to react when they receive a bang message.
+Nothing is more than fair for it to have its own selector type.;
+#X text 73 271 The "bang selector" is also implicit. Just like twe
+saw with float \, it is redundant to explicitly use the "bang selector".
+This means that [print] object will not print the bang selector as
+well \, even when we explicitly specify it.;
+#X connect 4 0 5 0;
+#X connect 6 0 5 0;
+#X connect 9 0 8 0;
+#X connect 16 0 12 0;

@@ -1,0 +1,56 @@
+#N canvas 862 298 530 786 12;
+#X obj 38 19 cnv 15 400 40 empty empty Bounds: 20 12 0 24 -262144 -66577
+0;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array array1 100 float 3;
+#A 0 -0.863937 -0.849651 -0.835365 -0.821079 -0.792508 -0.778222 -0.763936
+-0.735364 -0.721079 -0.706793 -0.69965 -0.692507 -0.678221 -0.663935
+-0.64965 -0.635364 -0.621078 -0.606792 -0.57822 -0.521077 -0.47822
+-0.47822 -0.463934 -0.449648 -0.440124 -0.430601 -0.421077 -0.392505
+-0.378219 -0.363933 -0.335362 -0.321076 -0.30679 -0.292504 -0.278219
+-0.263933 -0.253218 -0.242504 -0.23179 -0.221075 -0.20679 -0.192504
+-0.178218 -0.156789 -0.135361 -0.116313 -0.0972651 -0.0782174 -0.0567887
+-0.03536 -0.0246456 -0.0139313 -0.00321692 0.00749743 0.0217832 0.036069
+0.0551168 0.0741645 0.0932122 0.107498 0.121784 0.13607 0.150355 0.164641
+0.183689 0.202737 0.221784 0.240832 0.25988 0.278928 0.297975 0.317023
+0.336071 0.355119 0.374166 0.393214 0.414643 0.436072 0.4575 0.478929
+0.493215 0.507501 0.521786 0.536072 0.550358 0.57893 0.593215 0.607501
+0.621787 0.636073 0.664644 0.671787 0.693216 0.736073 0.793217 0.836074
+0.836074 0.85036 0.85036 0.907503;
+#X coords -20 5 101 -7 200 140 1;
+#X restore 119 92 graph;
+#X msg 161 506 \; array1 bounds \$1 \$2 \$3 \$4;
+#X obj 161 480 pack 0 0 0 0;
+#X floatatom 124 429 5 0 0 0 - - -;
+#X floatatom 274 432 5 0 0 0 - - -;
+#X obj 274 456 t b f;
+#X floatatom 222 431 5 0 0 0 - - -;
+#X obj 222 453 t b f;
+#X floatatom 176 429 5 0 0 0 - - -;
+#X obj 176 453 t b f;
+#X text 124 406 Xmin;
+#X text 221 406 Xmax;
+#X obj 137 323 loadbang;
+#X text 272 406 Ymin;
+#X text 176 406 Ymax;
+#X msg 137 348 \; array1 bounds 0 1 100 -1;
+#X text 36 262 This command changes the "range" of a graph. The order
+is X minimum \, Y maximum \, X maximum \, Y minimum.;
+#X text 69 561 The error "empty bounds rectangle" indicates the graph
+is getting the same maximum and minimum value (therefore 0 or empty
+bounds). This could be avoided if pack didn't have all of the arguments
+as zeros.;
+#X text 69 659 We'll see next how to change the graph size as well!
+;
+#X connect 3 0 2 0;
+#X connect 4 0 3 0;
+#X connect 5 0 6 0;
+#X connect 6 0 4 0;
+#X connect 6 1 3 3;
+#X connect 7 0 8 0;
+#X connect 8 0 4 0;
+#X connect 8 1 3 2;
+#X connect 9 0 10 0;
+#X connect 10 0 4 0;
+#X connect 10 1 3 1;
+#X connect 13 0 16 0;

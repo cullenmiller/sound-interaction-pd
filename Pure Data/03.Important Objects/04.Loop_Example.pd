@@ -1,0 +1,123 @@
+#N canvas 105 23 1066 1031 12;
+#X obj 74 21 cnv 15 200 40 empty empty Loop: 20 12 0 24 -262144 -66577
+0;
+#X obj 147 190 cnv 15 100 60 empty empty empty 20 12 0 14 -261039 -66577
+0;
+#X obj 165 210 f;
+#X obj 200 210 + 1;
+#X obj 165 122 bng 50 250 50 0 empty empty empty 17 7 0 10 -258113
+-1 -1;
+#X floatatom 165 261 5 0 0 0 - - -;
+#X text 229 138 Danger! Infinite Loop!;
+#X text 264 201 See the Error at the Terminal;
+#X text 119 73 Remember the infinite loop example;
+#X text 95 392 The [select] object can funcion as a conditional check
+\, which will keep doing something until a condition is met.;
+#X obj 154 706 cnv 15 114 60 empty empty empty 20 12 0 14 -204786 -66577
+0;
+#X obj 225 712 + 1;
+#X obj 161 579 bng 50 250 50 0 empty empty empty 17 7 0 10 -204786
+-1 -1;
+#X text 224 592 Relax and click! No Danger;
+#X obj 161 781 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 181 779 done!;
+#X obj 161 752 sel 12;
+#X text 79 891 IMPORTANT: loops that are very big won't work this way
+\, you'll see how to program proper loops in the folder 18 \, dedicated
+to that.;
+#X obj 161 715 f;
+#X floatatom 226 670 5 0 100 0 - - -;
+#X text 273 661 Loop size;
+#X text 268 680 "iteractions";
+#X msg 179 676 0;
+#X obj 225 737 t f f;
+#X obj 257 809 print;
+#X floatatom 257 774 5 0 0 0 - - -;
+#X text 85 361 ============================================================
+;
+#X text 68 950 ============================================================
+;
+#X obj 677 419 cnv 15 100 60 empty empty empty 20 12 0 14 -261682 -66577
+0;
+#X obj 748 434 + 1;
+#X obj 684 312 bng 50 250 50 0 empty empty empty 17 7 0 10 -261682
+-1 -1;
+#X msg 702 391 0;
+#X floatatom 744 390 5 0 0 0 - - -;
+#X obj 684 508 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 639 507 done!;
+#X obj 684 452 sel 12;
+#X obj 748 468 t f f;
+#X obj 684 429 f;
+#X text 788 389 size;
+#X text 721 557 ????????;
+#X text 704 329 ?;
+#X floatatom 780 501 5 0 0 0 - - -;
+#X text 805 557 ????????;
+#X obj 727 532 print L;
+#X obj 797 532 print R;
+#X text 562 192 It doesn't really affect the loop \, But Yes it does!!!
+;
+#X text 558 128 You may wonder why we used a [trigger] object in the
+loop example \, connected to a [print] object. Does it really matter
+the order that you connect it?;
+#X text 574 609 Well \, easy. The left outlet is giving a reverse order
+because even [trigger] can't break a loop in Pd like that. Which means
+that the messages will keep going out and back into the [trigger] object
+without it being able to spit out the data in the left outlet!;
+#X text 577 693 Now \, the right outlet is connected to two things
+\, and without a [trigger] object to control the output order. So \,
+in the exact same way \, the data is first being fed into the [float]
+object \, which loops back in without being possible for the number
+box to get the data.;
+#X text 579 795 What happens then is that the data is prevented from
+getting out before more data comes in and gets piled over it. Only
+the last data in the loop will be allowed to go out \, opening the
+way for the other data that was stuck.;
+#X text 646 74 Watch out for message ordering;
+#X text 91 314 This would just keep on going forever. Well \, now \,
+we have a little trick to stop this madness!;
+#X text 97 443 Below \, the counter loops through a specified number
+of repetitions \, or iteractions. The loop size is defined by the number
+sent to the [slect] object. When the counter reaches this value \,
+the [select] object will send a bang saying that the loop "is done".
+;
+#X text 554 229 Check out what happens bellow. The numbers are printed
+out in reverse order! Even the number box connected to the right outlet
+of the [trigger] is in reverse. But why?;
+#X text 540 54 ============================================================
+;
+#X text 542 97 ============================================================
+;
+#X text 580 877 We'll see at least in another example with lists in
+the next folder how an attention to this is needed.;
+#X connect 2 0 3 0;
+#X connect 2 0 5 0;
+#X connect 3 0 2 0;
+#X connect 4 0 2 0;
+#X connect 11 0 23 0;
+#X connect 12 0 18 0;
+#X connect 14 0 24 0;
+#X connect 16 0 14 0;
+#X connect 16 0 22 0;
+#X connect 16 1 11 0;
+#X connect 18 0 16 0;
+#X connect 19 0 16 1;
+#X connect 22 0 18 1;
+#X connect 23 0 18 0;
+#X connect 23 1 25 0;
+#X connect 25 0 24 0;
+#X connect 29 0 36 0;
+#X connect 30 0 37 0;
+#X connect 31 0 37 1;
+#X connect 32 0 35 1;
+#X connect 35 0 33 0;
+#X connect 35 0 31 0;
+#X connect 35 1 29 0;
+#X connect 36 0 43 0;
+#X connect 36 1 37 0;
+#X connect 36 1 41 0;
+#X connect 37 0 35 0;
+#X connect 41 0 44 0;

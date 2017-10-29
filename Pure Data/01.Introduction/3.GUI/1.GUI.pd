@@ -1,0 +1,76 @@
+#N canvas 796 305 986 632 12;
+#X obj 190 403 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X text 181 380 [bng];
+#X obj 81 270 vsl 15 80 0 127 0 0 empty empty empty 0 -8 0 8 -262144
+-1 -1 0 1;
+#X text 56 229 [vslider];
+#X obj 142 275 hsl 128 15 0 127 0 0 empty empty empty -2 -6 0 8 -262144
+-1 -1 0 1;
+#X obj 74 419 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0 1
+;
+#X obj 66 483 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-262144 -1 -1 0 256;
+#X text 75 461 [nbx];
+#X floatatom 595 78 5 0 0 0 - - -;
+#X symbolatom 676 77 10 0 0 0 - - -;
+#X obj 19 -33 cnv 15 480 40 empty empty GUI: 20 19 0 24 -262144 -66577
+0;
+#X text 146 254 [hslider] ou [hsl];
+#X text 58 247 ou [vsl];
+#X obj 142 339 hradio 15 1 0 8 empty empty empty 0 -6 0 10 -262144
+-1 -1 0;
+#X obj 302 417 vradio 15 1 0 8 empty empty empty 0 -6 0 10 -262144
+-1 -1 0;
+#X text 166 315 [hradio];
+#X text 285 393 [vradio];
+#X obj 303 248 vu 15 120 empty empty -1 -8 0 10 -66577 -1 1 0;
+#X text 299 225 [vu];
+#X text 486 -8 ============================================================
+;
+#X obj 152 459 cnv 15 100 60 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X text 180 437 [cnv];
+#X text 56 374 [toggle];
+#X text 56 397 ou [tgl];
+#X text 23 161 ============================================================
+;
+#X text 486 104 ============================================================
+;
+#X obj 700 222 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-262144 -1 -1 0 256;
+#X obj 675 257 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X msg 689 180 open;
+#X floatatom 646 436 5 0 0 0 - - -;
+#X msg 646 406 open;
+#X symbolatom 697 436 10 0 0 0 - - -;
+#X msg 697 404 open;
+#X text 28 21 GUI (Graphical User Interface) objects are not really
+"objetcs" per se \, but interactive elements. We can create them by
+inserting an obect box and writting its name \, or by the PUT Menu
+(or even by a shortcut). Click for the "help" file to find out the
+object name of a GUI.;
+#X text 27 112 GUIs are useful to develop a nice user friendly software
+\, to have control and display of information \, and even aesthetical
+organization. You can edit their properties.;
+#X text 22 183 All the GUI bellow are in the PUT Menu and have the
+shortcuts indicated there:;
+#X text 491 13 Atention: Atom boxes aren't GUI Objects. They are "lighter"
+\, have less properties to edit \, and can't be inserted by an object
+box.;
+#X text 14 549 ============================================================
+;
+#X text 500 138 Now we send a message to GUIs just to get an error
+on Pd's terminal window.;
+#X text 500 289 The above GUIs don't understand the "open" message.
+Therefore \, each gives us an error. Please note that each carry their
+object name on the error: [hsl] for the horizontal slider & [nbx] for
+the number box. So errors are a good case to know a GUI by its object
+name.;
+#X text 514 488 Now just check that the above atom boxes will also
+give us an error \, and that they are both indicated as "gatom".;
+#X connect 28 0 26 0;
+#X connect 28 0 27 0;
+#X connect 30 0 29 0;
+#X connect 32 0 31 0;

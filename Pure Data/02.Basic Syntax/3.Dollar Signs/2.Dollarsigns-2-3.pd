@@ -1,0 +1,60 @@
+#N canvas 586 22 604 1040 12;
+#X obj 45 26 cnv 15 400 40 empty empty (\$1_\$2_\$3...$n) 20 12 0 24
+-262144 -66577 0;
+#X obj 151 226 print;
+#X msg 151 195 \$3;
+#X msg 151 154 5 8 7 4 6;
+#X floatatom 107 225 5 0 0 0 - - -;
+#X msg 144 819 list Midinote Pitch Gain On;
+#X msg 133 858 \$2;
+#X msg 233 440 5 8 7 4 6;
+#X msg 233 472 \$32;
+#X obj 233 503 print;
+#X msg 133 791 Midinote Pitch Gain On;
+#X obj 311 228 print;
+#X msg 311 197 \$3;
+#X msg 311 156 5 note off;
+#X text 361 230 Check Terminal;
+#X text 68 324 ============================================================
+;
+#X text 69 535 ============================================================
+;
+#X text 61 86 The number after the dollarsign corresponds to the element
+number on a list. Therefore \, \$3 acquires the tird elements' value.
+;
+#X text 58 277 Because the above examples start with numbers \, there
+are no need for selectors.;
+#X text 70 357 Here the number of elements on the list is smaller than
+the dollarsign number (32). Pd then gives us that error: "argument
+number out of range" \, which means that the list is too small. The
+acquired value will be zero.;
+#X text 69 712 Just like in the previous patch example \, the first
+element on the list will be considered the selector \, and the element
+number on the list will be counted after that.;
+#X obj 133 903 symbol;
+#X symbolatom 133 941 10 0 0 0 - - -;
+#X text 302 791 "Midinote" selector;
+#X text 340 820 "list" selector;
+#X msg 70 575 Note On;
+#X msg 70 619 \$2;
+#X obj 70 652 print;
+#X text 104 619 "argument number out of range" error;
+#X text 89 973 ============================================================
+;
+#X text 135 571 "Note" Selector \, one element message (On). No second
+element.;
+#X text 66 679 ============================================================
+;
+#X connect 2 0 1 0;
+#X connect 2 0 4 0;
+#X connect 3 0 2 0;
+#X connect 5 0 6 0;
+#X connect 6 0 21 0;
+#X connect 7 0 8 0;
+#X connect 8 0 9 0;
+#X connect 10 0 6 0;
+#X connect 12 0 11 0;
+#X connect 13 0 12 0;
+#X connect 21 0 22 0;
+#X connect 25 0 26 0;
+#X connect 26 0 27 0;

@@ -1,0 +1,47 @@
+#N canvas 849 117 595 615 12;
+#X obj 100 19 cnv 15 400 40 empty empty Depth-First: 20 12 0 24 -262144
+-66577 0;
+#X obj 34 252 bng 25 250 50 0 empty empty empty 0 -6 0 8 -24198 -1
+-1;
+#X msg 34 283 1;
+#X obj 34 309 trigger float float;
+#X obj 164 337 trigger float float;
+#X obj 164 369 + 1;
+#X obj 466 402 + 1;
+#X obj 466 433 + 1;
+#X obj 466 463 + 1;
+#X obj 466 493 + 1;
+#X obj 380 402 + 1;
+#X obj 380 433 + 1;
+#X obj 380 463 + 1;
+#X obj 294 402 + 1;
+#X obj 294 433 + 1;
+#X obj 241 534 print Sequence;
+#X text 103 88 Besides the Hot/Cold inlet paradigm \, and how [trigger]
+sends from the right to the left \, what we need to know to control
+is the "Depth First" rule. Check the case below \; [trigger] makes
+the data go to the rightmost outlet first. Depth first means that when
+we reach a branch of many objects \, first it needs to go down all
+of that chain before moving on the the other branch to the left. Click
+bang and check the printed result \, but first try to predict the result!
+;
+#X obj 294 366 trigger float float float;
+#X connect 1 0 2 0;
+#X connect 2 0 3 0;
+#X connect 3 0 15 0;
+#X connect 3 1 4 0;
+#X connect 4 0 5 0;
+#X connect 4 1 17 0;
+#X connect 5 0 15 0;
+#X connect 6 0 7 0;
+#X connect 7 0 8 0;
+#X connect 8 0 9 0;
+#X connect 9 0 15 0;
+#X connect 10 0 11 0;
+#X connect 11 0 12 0;
+#X connect 12 0 15 0;
+#X connect 13 0 14 0;
+#X connect 14 0 15 0;
+#X connect 17 0 13 0;
+#X connect 17 1 10 0;
+#X connect 17 2 6 0;

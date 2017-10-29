@@ -1,0 +1,41 @@
+#N canvas 383 22 535 760 12;
+#X obj 132 214 send pd;
+#X msg 80 180 dsp 1;
+#X msg 149 179 dsp 0;
+#X msg 226 189 \; pd dsp 1;
+#X obj 151 327 send pd;
+#X msg 272 299 \; pd dsp \$1;
+#X obj 272 278 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 151 278 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X msg 151 299 dsp \$1;
+#X msg 325 189 \; pd dsp 0;
+#X text 91 153 on;
+#X text 159 154 off;
+#X text 248 165 on;
+#X text 346 165 off;
+#X text 84 275 on/off;
+#X text 204 274 on/off;
+#X obj 30 -16 cnv 15 400 40 empty empty Message_to_Pd: 20 12 0 24 -262144
+-66577 0;
+#X msg 209 439 \; pd dsp 1;
+#X obj 209 407 loadbang;
+#X msg 114 605 \; pd audiostatus;
+#X msg 280 604 \; pd quit;
+#X text 18 51 We can send messages to Pd \, the classic one is to make
+it turn on or off the DSP.;
+#X text 47 111 Turn DSP on (1) or off (0):;
+#X text 100 377 Turns DSP on when we load the patch!;
+#X text 34 491 ============================================================
+;
+#X text 66 524 Other messages:;
+#X text 106 580 Gives "DIO errors";
+#X text 277 578 Quitts Pd;
+#X text 112 676 More about this at "Dynamic Patching" folder.;
+#X connect 1 0 0 0;
+#X connect 2 0 0 0;
+#X connect 6 0 5 0;
+#X connect 7 0 8 0;
+#X connect 8 0 4 0;
+#X connect 18 0 17 0;

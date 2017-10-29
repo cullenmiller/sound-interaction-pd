@@ -1,0 +1,81 @@
+#N canvas 769 207 1015 752 12;
+#X obj 33 9 cnv 15 400 40 empty empty List-Math/Accum/MinMax 20 12
+0 24 -262144 -66577 0;
+#X msg 154 234 1 2 3 4 5;
+#X obj 154 311 print;
+#X msg 693 85 1 2 3 4 5;
+#X obj 693 169 print;
+#X msg 557 84 1 2 3 4 5;
+#X obj 557 168 print;
+#X obj 680 407 list-accum;
+#X msg 840 84 1 2 3 4 5;
+#X obj 840 168 print;
+#X obj 840 125 list-math max 2;
+#X text 536 215 ============================================================
+;
+#X msg 659 355 10 20 30 40 50 60;
+#X msg 694 380 1 2 3 e 4;
+#X text 54 560 ============================================================
+;
+#X obj 99 591 unpack;
+#X obj 174 592 list-drip;
+#X obj 242 236 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-203904 -1 -1 0 256;
+#X obj 680 439 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-204800 -1 -1 0 256;
+#X text 56 660 ============================================================
+;
+#X text 529 497 ============================================================
+;
+#X text 519 7 ============================================================
+;
+#X obj 557 125 list-math mod 2;
+#X obj 154 269 list-math + 2;
+#X obj 693 126 list-math pow 2;
+#X obj 559 593 minmax;
+#X floatatom 548 618 5 0 0 0 - - -;
+#X floatatom 600 617 5 0 0 0 - - -;
+#X msg 559 562 -330 270 34 420 -550 610;
+#X text 525 659 ============================================================
+;
+#X text 35 96 Remember the "list-abs" folder/objects? They are abstractions
+to manipulate lists \, right?;
+#X text 37 141 So \, dealing with lists in Pd is a bit handy. Lets
+say we wanna do some math with lists. You can put the list into an
+array \, but you can also use [list-math].;
+#X text 57 355 The first argument is the math function ("+" above).
+The second argument is actually the first argument of [+] \, and can
+be changed by the cold inlet.;
+#X text 57 411 Since it's an abstraction \, open the patch and see
+that "+" is loaded as an object. You can then use any math object we've
+seen \, but not quite [expr].;
+#X text 29 592 Use also;
+#X text 150 592 or;
+#X text 252 592 with math objects \, it can be useful!;
+#X text 526 37 Outher examples ([pow] \, [mod] & [max]):;
+#X text 58 494 An object like [sqrt] is also a bit limited because
+it only has one inlet \, so one of the connections will fail as reported
+on terminal.;
+#X text 550 268 Another useful object is [list-accum] \, from "list-abs".
+It sums all the floats from a list \, which can even contain some symbols
+that will be ignored.;
+#X text 748 562 [minmax] gets a list and;
+#X text 698 589 gives smalles and biggest values;
+#X text 550 642 min;
+#X text 604 642 max;
+#X text 184 626 check next example patch!;
+#X connect 1 0 23 0;
+#X connect 3 0 24 0;
+#X connect 5 0 22 0;
+#X connect 7 0 18 0;
+#X connect 8 0 10 0;
+#X connect 10 0 9 0;
+#X connect 12 0 7 0;
+#X connect 13 0 7 0;
+#X connect 17 0 23 1;
+#X connect 22 0 6 0;
+#X connect 23 0 2 0;
+#X connect 24 0 4 0;
+#X connect 25 0 26 0;
+#X connect 25 1 27 0;
+#X connect 28 0 25 0;

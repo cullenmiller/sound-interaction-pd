@@ -1,0 +1,68 @@
+#N canvas 193 53 947 720 12;
+#X msg 266 550 1;
+#X obj 8 10 cnv 15 400 40 empty empty Right->Left: 20 12 0 24 -262144
+-66577 0;
+#X obj 115 487 bng 25 250 50 0 empty empty empty -2 -8 1 10 -24198
+-1 -1;
+#X obj 115 522 trigger bang bang bang;
+#X msg 190 551 2;
+#X msg 115 551 3;
+#X obj 190 592 print ORDER;
+#X obj 200 345 bng 25 250 50 0 empty empty empty -2 -8 1 10 -24198
+-1 -1;
+#X msg 236 397 1;
+#X msg 200 397 2;
+#X msg 164 397 3;
+#X obj 200 431 print ORDER;
+#X floatatom 671 189 5 0 0 0 - - -;
+#X floatatom 747 185 5 0 0 0 - - -;
+#X obj 746 233 +;
+#X floatatom 715 274 5 0 0 0 - - -;
+#X obj 670 232 +;
+#X floatatom 613 426 5 0 0 0 - - -;
+#X obj 653 489 +;
+#X floatatom 653 517 5 0 0 0 - - -;
+#X obj 613 455 trigger float float;
+#X text 464 579 ============================================================
+;
+#X text 465 640 ============================================================
+;
+#X text 20 82 Programming in Pd is basically designing a net of connections
+\, and control the order of the events. We've seen the structure of
+Hot/Cold inlets. This influences a logic where data needs to go first
+to things that are to the right \, and then things that are to the
+left.;
+#X text 19 190 The [trigger] object is the one we use to control the
+order of messages. Data comes out its outlets from the right to the
+left. The number of arguments define the number of outlets \, and the
+type of data for each outlet \; such as "bangs". Below we have a version
+where the order of the messages that receive the bang is not defined.
+After that we have a version that the order is defined by the [trigger]
+object.;
+#X text 469 597 Following the hot/cold paradigm \, it's normal that
+every object that has several outlets sends out values also from the
+right to the left order!!!;
+#X text 481 559 IMPORTANT:;
+#X connect 0 0 6 0;
+#X connect 2 0 3 0;
+#X connect 3 0 5 0;
+#X connect 3 1 4 0;
+#X connect 3 2 0 0;
+#X connect 4 0 6 0;
+#X connect 5 0 6 0;
+#X connect 7 0 10 0;
+#X connect 7 0 8 0;
+#X connect 7 0 9 0;
+#X connect 8 0 11 0;
+#X connect 9 0 11 0;
+#X connect 10 0 11 0;
+#X connect 12 0 16 0;
+#X connect 12 0 16 1;
+#X connect 13 0 14 1;
+#X connect 13 0 14 0;
+#X connect 14 0 15 0;
+#X connect 16 0 15 0;
+#X connect 17 0 20 0;
+#X connect 18 0 19 0;
+#X connect 20 0 18 0;
+#X connect 20 1 18 1;

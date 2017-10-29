@@ -1,0 +1,103 @@
+#N canvas 515 216 929 782 12;
+#X floatatom 41 404 0 0 0 0 - - -;
+#X floatatom 41 351 0 0 0 0 - - -;
+#X text 217 376 =;
+#X obj 257 403 *;
+#X floatatom 257 433 5 0 0 0 - - -;
+#X floatatom 234 334 5 0 0 0 - - -;
+#X obj 288 317 loadbang;
+#X msg 288 346 2;
+#X obj 41 -3 cnv 15 400 40 empty empty Locality-Arrays-Expr: 20 12
+0 24 -262144 -66577 0;
+#X obj 288 372 tabread array_\$0;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array A_1087 100 float 1;
+#A 0 -0.38571 -0.342854 -0.321425 -0.299997 -0.271426 -0.242855 -0.214283
+-0.185712 -0.149998 -0.114285 -0.0857134 -0.0571423 -0.0285711 0.00714278
+0.0428567 0.066666 0.0904752 0.114285 0.147617 0.18095 0.214283 0.249997
+0.285711 0.314282 0.342854 0.38571 0.471424 0.471424 0.557137 0.557137
+0.557137 0.557137 0.542851 0.528566 0.499995 0.471424 0.442852 -0.299997
+-0.342854 -0.371425 -0.38571 -0.399996 -0.428567 -0.43571 -0.442852
+-0.449995 -0.457138 -0.4619 -0.466662 -0.471424 -0.471424 -0.471424
+-0.471424 -0.471424 -0.471424 -0.471424 -0.471424 -0.464281 -0.457138
+-0.428567 -0.407139 -0.38571 -0.361901 -0.338092 -0.314282 -0.290473
+-0.266664 -0.242855 -0.199998 -0.157141 -0.114285 -0.0809515 -0.0476185
+-0.0142856 0.0285711 0.0714278 0.12857 0.171427 0.214283 0.25714 0.25714
+0.25714 0.499995 0.457138 0.428567 0.399996 0.357139 0.328568 0.299997
+0.271426 0.242855 0.214283 0.185712 0.157141 0.12857 0.0714278 0.0142856
+-0.0285711 -0.0857134 -0.142856;
+#X coords 0 1 99 -1 200 140 1;
+#X restore 565 308 graph;
+#X obj 585 88 f \$0;
+#X floatatom 585 118 5 0 0 0 - - -;
+#X obj 585 58 loadbang;
+#X obj 41 376 expr $f1 * array_\$0[2];
+#X obj 53 243 table array_\$0 5;
+#X obj 210 266 send array_\$0;
+#X msg 210 241 0 0.1 0.2 0.3 0.4 0.5;
+#X obj 210 216 loadbang;
+#X floatatom 608 657 0 0 0 0 - - -;
+#X floatatom 608 604 0 0 0 0 - - -;
+#X obj 608 629 expr $f1 * A_\$0[$f2];
+#X floatatom 745 604 5 0 100 0 - - -;
+#X text 25 60 Some final conflict issues with [expr] and arrays. \$0
+is ok for [expr] if to the end of a symbol. But for arrays is only
+good in the beggining of a symbol...;
+#X text 23 140 So \, the easiest way to have them both in agreement
+is to use the [table] object instead of the array itself \, because
+it can take "\$0" wherever...;
+#X text 34 489 You have to remember \, though \, that the [table] object
+will not store the array values in it. It is useful when we initialize
+the patch by filling the array with a [loadbang]. And clearly we can't
+see the array.;
+#X text 34 572 Another option is to nevermind using [expr] \, but the
+[tabread] object. But if you really really wanna have an array and
+[expr] loading it \, here's a tricky way to do it... for the sake of
+didactics or curiosity...;
+#X text 627 87 we need first the "\$0" number.;
+#X text 499 163 A_\$0 won't work as an array name \, it will be A_0
+instead! So the init number (\$0) is necessary to the array name.;
+#X text 502 215 The thing is that the init numbers can change every
+time the patch is loaded \, so we need to rename e array every time
+the ptch is loaded...;
+#X text 496 -1 Part of the trick is the previous example of renaming
+arrays.;
+#X text 538 484 Open the subpatch to see how it was done.;
+#X text 584 574 There you go \, have fun now...;
+#N canvas 1151 263 670 274 init-array-name 0;
+#X msg 37 148 rename \$1;
+#X obj 37 197 send;
+#X obj 37 26 loadbang;
+#X obj 37 88 symbol A_\$0;
+#X obj 37 60 trigger bang bang;
+#X msg 153 146 symbol A_1087;
+#X text 172 94 [symbol] sends the new array name we want for this time
+the patch was loaded.;
+#X text 159 219 array name last time the patch was saved;
+#X obj 153 199 print Last-Array-Name;
+#X msg 51 115 set symbol \$1;
+#X connect 0 0 1 0;
+#X connect 2 0 4 0;
+#X connect 3 0 0 0;
+#X connect 3 0 9 0;
+#X connect 4 0 3 0;
+#X connect 4 1 5 0;
+#X connect 5 0 1 1;
+#X connect 5 0 8 0;
+#X connect 9 0 5 0;
+#X restore 619 515 pd init-array-name;
+#X text 615 687 it works...;
+#X connect 1 0 14 0;
+#X connect 3 0 4 0;
+#X connect 5 0 3 0;
+#X connect 6 0 7 0;
+#X connect 7 0 9 0;
+#X connect 9 0 3 1;
+#X connect 11 0 12 0;
+#X connect 13 0 11 0;
+#X connect 14 0 0 0;
+#X connect 17 0 16 0;
+#X connect 18 0 17 0;
+#X connect 20 0 21 0;
+#X connect 21 0 19 0;
+#X connect 22 0 21 1;

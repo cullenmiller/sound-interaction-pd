@@ -1,0 +1,35 @@
+#N canvas 902 470 773 630 12;
+#X obj 107 171 nbx 5 14 -1e+37 1e+37 0 1 empty empty empty 0 -8 0 10
+-261682 -1 -1 39 256;
+#X obj 119 323 tgl 15 1 empty empty empty 17 7 0 10 -261682 -1 -1 1
+1;
+#X obj 157 214 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-204800 -1 -1 0 256;
+#X obj 119 376 print toggle;
+#X obj 178 337 tgl 15 0 empty empty empty 17 7 0 10 -204800 -1 -1 0
+1;
+#X obj 27 16 cnv 15 400 40 empty empty Init_Values: 80 18 0 24 -262144
+-66577 0;
+#X text 110 300 init;
+#X text 112 148 init;
+#X text 158 192 no init;
+#X text 162 316 no init;
+#X floatatom 317 428 5 0 0 0 - - -;
+#X symbolatom 302 457 10 0 0 0 - - -;
+#X text 276 162 When we reload a patch \, GUIs can store the last value
+it had before closing the patch.;
+#X text 275 213 These are initialization values \, which means they
+also send out that value right after the patch is initialized!;
+#X text 254 309 To do that \, go to properties and click on "no init"
+or "init" box to change its stat. At "no init" \, it means that the
+GUI does not have an initialization value. At "init" it'll store and
+send the last number when the patch is loaded.;
+#X text 385 438 Atom Boxes don't have the "init" option;
+#X text 144 539 Note that the Argument for the print object appears
+at Pd's terminal window \, we do that to differntiate at the terminal
+which [print] object is sending out the messages.;
+#X obj 135 242 print number-box;
+#X connect 0 0 17 0;
+#X connect 1 0 3 0;
+#X connect 2 0 17 0;
+#X connect 4 0 3 0;

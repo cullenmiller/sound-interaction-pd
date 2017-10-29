@@ -1,0 +1,54 @@
+#N canvas 874 88 514 937 12;
+#X obj 14 274 float 5.5;
+#X obj 7 362 float 5.5;
+#X obj 7 337 bng 15 250 50 0 empty empty empty 0 -6 0 8 -191407 -1
+-1;
+#X floatatom 7 395 5 0 0 0 - - -;
+#X obj -75 12 cnv 15 400 40 empty empty Arguments: 20 12 0 24 -262144
+-66577 0;
+#X obj 64 566 float 5.5;
+#X floatatom 64 592 7 0 0 0 - - -;
+#X obj 64 537 bng 15 250 50 0 empty empty empty 0 -6 0 8 -191407 -1
+-1;
+#X msg 100 534 -123;
+#X msg 148 534 0.0044;
+#X obj 69 843 float 5.5 fast;
+#X obj -7 183 float;
+#X text -66 68 About all objects take creation "arguments" \, which
+are initializing parameters. Many can even take more than one argument.
+The "help files" always carry this information. When we don't insert
+an argument \, the object usually loads a default value anyway.;
+#X text -49 794 When an object gets more arguments than it takes \,
+they are just ignored.;
+#X text 36 880 "fast" argument is ignored.;
+#X text 35 333 Click bang to spit the stored value;
+#X text -37 485 Then click ob the messages and hit bang again;
+#X text -26 219 (without Argumento \, default is 0);
+#X text 44 183 The [float] object stores numbers;
+#X text 94 267 Here it stores the number 5.5;
+#X text 96 286 which is the Argument;
+#X text -48 334 bang->;
+#X text -65 427 ============================================================
+;
+#X text -69 155 ============================================================
+;
+#X text -19 459 Now click bang to spit the stored value;
+#X text 8 534 bang->;
+#X text -52 639 On this case \, the Argument "5.5" is a initial value
+of the [float] object \, that stores this value when the patch is loaded.
+;
+#X text -53 693 The inlet to the right usually changes the argument.
+But note that it is not updated inside the object box. After this \,
+the argument is obsolete \, but its value still counts when the patch
+is reloaded \, or re-initialized.;
+#X text -52 771 ============================================================
+;
+#X text -51 910 ============================================================
+;
+#X obj 287 219 float;
+#X connect 1 0 3 0;
+#X connect 2 0 1 0;
+#X connect 5 0 6 0;
+#X connect 7 0 5 0;
+#X connect 8 0 5 1;
+#X connect 9 0 5 1;

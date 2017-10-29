@@ -1,0 +1,64 @@
+#N canvas 606 70 475 990 12;
+#X obj 10 10 cnv 15 400 40 empty empty The_Basics: 20 12 0 24 -262144
+-66577 0;
+#X obj 114 211 +;
+#X floatatom 87 167 5 0 0 0 - - -;
+#X floatatom 139 167 5 0 0 0 - - -;
+#X floatatom 114 254 5 0 0 0 - - -;
+#X floatatom 237 167 5 0 0 0 - - -;
+#X floatatom 289 167 5 0 0 0 - - -;
+#X floatatom 264 254 5 0 0 0 - - -;
+#X floatatom 87 337 5 0 0 0 - - -;
+#X floatatom 139 337 5 0 0 0 - - -;
+#X floatatom 114 424 5 0 0 0 - - -;
+#X floatatom 237 337 5 0 0 0 - - -;
+#X floatatom 289 337 5 0 0 0 - - -;
+#X floatatom 264 424 5 0 0 0 - - -;
+#X obj 264 211 -;
+#X obj 114 381 *;
+#X obj 264 381 /;
+#X text 97 133 sum;
+#X text 252 134 subtract;
+#X text 93 302 multiply;
+#X text 249 303 divide;
+#X text 58 494 Remember the hot/cold inlet deal \, of course;
+#X text 26 69 We've seen this a bit. It's no secret \, try them:;
+#X obj 177 817 sin;
+#X obj 207 817 cos;
+#X obj 234 817 tan;
+#X text 121 779 Trigonometrical functions;
+#X floatatom 220 659 5 0 0 0 - - -;
+#X obj 220 686 expr log10($f1);
+#X floatatom 220 716 5 0 0 0 - - -;
+#X text 268 712 Natural logarithm;
+#X obj 105 689 pow 2;
+#X floatatom 105 715 5 0 0 0 - - -;
+#X floatatom 105 656 5 0 0 0 - - -;
+#X text 22 578 Besides the basic arithmetic operations \, Pd has several
+objects dedicated to other functions. We'll see then all when we get
+to mathematical expressions and the [expr] object.;
+#X text 29 538 ============================================================
+;
+#X obj 94 874 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 94 896 random 12;
+#X floatatom 94 925 5 0 0 0 - - -;
+#X text 189 895 random number generator;
+#X connect 1 0 4 0;
+#X connect 2 0 1 0;
+#X connect 3 0 1 1;
+#X connect 5 0 14 0;
+#X connect 6 0 14 1;
+#X connect 8 0 15 0;
+#X connect 9 0 15 1;
+#X connect 11 0 16 0;
+#X connect 12 0 16 1;
+#X connect 14 0 7 0;
+#X connect 15 0 10 0;
+#X connect 16 0 13 0;
+#X connect 27 0 28 0;
+#X connect 28 0 29 0;
+#X connect 31 0 32 0;
+#X connect 33 0 31 0;
+#X connect 36 0 37 0;
+#X connect 37 0 38 0;

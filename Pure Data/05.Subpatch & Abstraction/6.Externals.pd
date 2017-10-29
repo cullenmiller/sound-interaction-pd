@@ -1,0 +1,21 @@
+#N canvas 675 168 478 486 12;
+#X obj 2 13 cnv 15 400 40 empty empty Externals: 20 12 0 24 -262144
+-66577 0;
+#X text -12 48 ============================================================
+;
+#X obj 169 230 sin~;
+#X text -1 357 ============================================================
+;
+#X text 1 75 Some external objects are actually abstractions!;
+#X text 1 110 External objects are in folders that Pd can be set to
+look for before start up. An external object can be compiled for Pd
+as an object \, or just a Pd patch file.;
+#X text 3 174 The [sin~] object is an abstraction \, it calculates
+the sine function for audio signals.;
+#X text 13 270 You can open it and see how it is just a Pd file that
+uses the [cos~] function. Also see that if you ask for its help file
+\, it will just open the abstraction \, which is common on the cases
+of external abstractions.;
+#X text 21 378 We talked about list-abs already \, it is another example
+of abstractions as externals. Actually "abs" stands for "abstractions".
+;

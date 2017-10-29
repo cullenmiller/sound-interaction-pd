@@ -1,0 +1,91 @@
+#N canvas 365 22 667 771 12;
+#X obj 368 602 select sim não;
+#X obj 368 633 bng 15 250 50 0 empty empty empty 0 -6 0 10 -262144
+-1 -1;
+#X obj 416 633 bng 15 250 50 0 empty empty empty 0 -6 0 10 -262144
+-1 -1;
+#X obj 440 632 bng 15 250 50 0 empty empty empty 0 -6 0 10 -262144
+-1 -1;
+#X obj 123 256 select 12;
+#X floatatom 183 232 5 0 15 0 - - -;
+#X floatatom 123 232 5 0 15 0 - - -;
+#X floatatom 183 287 5 0 0 0 - - -;
+#X obj 123 289 bng 15 250 50 0 empty empty empty 0 -6 0 10 -262144
+-1 -1;
+#X obj 134 372 select 13 2 5 9;
+#X floatatom 236 404 5 0 0 0 - - -;
+#X floatatom 134 347 5 0 15 0 - - -;
+#X obj 134 400 bng 15 250 50 0 empty empty empty 0 -6 0 10 -262144
+-1 -1;
+#X obj 159 400 bng 15 250 50 0 empty empty empty 0 -6 0 10 -262144
+-1 -1;
+#X obj 185 400 bng 15 250 50 0 empty empty empty 0 -6 0 10 -262144
+-1 -1;
+#X obj 210 400 bng 15 250 50 0 empty empty empty 0 -6 0 10 -262144
+-1 -1;
+#X obj 65 613 bng 15 250 50 0 empty empty empty 0 -6 0 10 -262144 -1
+-1;
+#X obj 115 615 bng 15 250 50 0 empty empty empty 0 -6 0 10 -262144
+-1 -1;
+#X obj 342 734 bng 15 250 50 0 empty empty empty 0 -6 0 10 -262144
+-1 -1;
+#X obj 342 685 tgl 15 0 empty empty empty 0 -6 0 10 -262144 -1 -1 0
+1;
+#X obj 365 734 bng 15 250 50 0 empty empty empty 0 -6 0 10 -262144
+-1 -1;
+#X symbolatom 147 613 10 0 0 0 - - -;
+#X obj 28 15 cnv 15 600 40 empty empty Select: 20 12 0 24 -262144 -66577
+0;
+#X text 33 67 As [trigger] \, the [select] object can have several
+arguments \, and each will be related to an outlet. But [select] expects
+float or symbol messages tha \, when match to an argument \, makes
+the respective outlet send out a "bang".;
+#X text 226 230 changes the argument.;
+#X text 226 288 the rightmost outlet repasses "not selected" data;
+#X text 230 347 For more than one argument \, there is no cold inlet.
+;
+#X text 35 153 it will work only with symbols or only with floats \,
+not with both simultaneously \, this depends on the first argument:
+;
+#X text 31 450 When [select] deals with symbol messages \, it expects
+the selector:;
+#X msg 24 516 symbol yes;
+#X msg 59 541 symbol no;
+#X msg 164 502 symbol yes;
+#X msg 177 530 symbol no;
+#X obj 65 582 select yes;
+#X msg 356 524 symbol yes;
+#X msg 390 548 symbol no;
+#X msg 424 572 symbol maybe;
+#X obj 140 639 print Not_Selected:;
+#X obj 465 630 print Not_Selected:;
+#X text 109 706 It can be abbreviated as [sel];
+#X obj 342 706 sel 0 1;
+#X connect 0 0 1 0;
+#X connect 0 1 2 0;
+#X connect 0 2 3 0;
+#X connect 0 2 38 0;
+#X connect 4 0 8 0;
+#X connect 4 1 7 0;
+#X connect 5 0 4 1;
+#X connect 6 0 4 0;
+#X connect 9 0 12 0;
+#X connect 9 1 13 0;
+#X connect 9 2 14 0;
+#X connect 9 3 15 0;
+#X connect 9 4 10 0;
+#X connect 11 0 9 0;
+#X connect 19 0 40 0;
+#X connect 29 0 33 0;
+#X connect 30 0 33 0;
+#X connect 31 0 33 1;
+#X connect 32 0 33 1;
+#X connect 33 0 16 0;
+#X connect 33 1 17 0;
+#X connect 33 1 21 0;
+#X connect 33 1 37 0;
+#X connect 34 0 0 0;
+#X connect 35 0 0 0;
+#X connect 36 0 0 0;
+#X connect 40 0 18 0;
+#X connect 40 1 20 0;

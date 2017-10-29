@@ -1,0 +1,43 @@
+#N canvas 742 110 522 719 12;
+#X text 35 87 ============================================================
+;
+#X text 37 239 ============================================================
+;
+#X obj 177 169 bng 19 250 50 0 \$0-x \$0-1 empty 17 7 0 10 -262130
+-128992 -1;
+#X obj 70 202 bng 15 250 50 0 empty empty empty 17 7 0 10 -228856 -1
+-1;
+#X obj 70 170 receive \$0-x;
+#X obj 167 283 bng 15 250 50 0 empty empty empty 17 7 0 10 -228856
+-1 -1;
+#X symbolatom 167 340 10 0 0 0 - - -;
+#X msg 167 374 \; \$1 233;
+#X floatatom 309 363 5 0 0 0 - - -;
+#X obj 309 337 receive \$0-1;
+#X obj 167 307 symbol \$0-1;
+#X obj 29 29 cnv 15 400 40 empty empty Locality_in_GUIs: 20 19 0 24
+-262144 -66577 0;
+#X obj 115 318 f \$0;
+#X floatatom 115 343 5 0 0 0 - - -;
+#X obj 309 395 print;
+#X obj 170 535 cnv 15 150 60 empty empty \$0-Canvas 20 12 0 14 -261682
+-66577 0;
+#X obj 181 639 hsl 128 15 0 127 0 0 empty empty \$0-Slider -2 -8 0
+10 -260097 -1 -1 0 1;
+#X text 41 111 As GUIs also have built-in [send]/[receive] objects
+\, you can also use "\$0" in them!;
+#X text 202 168 Check this bang's properties.;
+#X text 71 477 Even GUI's labels will load "\$0" as an initialization
+number. Check the GUI's properties below:;
+#X text 33 438 ============================================================
+;
+#X text 53 677 ============================================================
+;
+#X connect 4 0 3 0;
+#X connect 5 0 10 0;
+#X connect 5 0 12 0;
+#X connect 6 0 7 0;
+#X connect 8 0 14 0;
+#X connect 9 0 8 0;
+#X connect 10 0 6 0;
+#X connect 12 0 13 0;

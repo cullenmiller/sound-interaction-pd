@@ -1,0 +1,126 @@
+#N canvas 1184 111 1068 1054 12;
+#X obj 38 -28 cnv 15 400 40 empty empty [until]: 20 12 0 24 -262144
+-66577 0;
+#X obj 141 154 until;
+#X obj 141 182 print;
+#X msg 141 123 4;
+#X msg 101 122 2;
+#X msg 180 123 8;
+#X obj 173 371 until;
+#X obj 226 408 + 1;
+#X obj 173 339 bng 15 250 50 0 empty empty empty 17 7 0 10 -4032 -1
+-1;
+#X obj 659 223 bng 15 250 50 0 empty empty empty 17 7 0 10 -258113
+-1 -1;
+#X floatatom 691 276 5 0 0 0 - - -;
+#X obj 659 249 Uzi 9;
+#X obj 660 333 print Uzi;
+#X msg 691 221 3;
+#X msg 620 220 5;
+#X obj 630 480 repeat 10;
+#X obj 630 457 bng 15 250 50 0 empty empty empty 17 7 0 10 -261682
+-1 -1;
+#X obj 630 514 print;
+#X text 497 429 ============================================================
+;
+#X text 29 26 The [until] object is a "loop" \, a common feature in
+programming languages. It's useful to have something happening "x"
+times \, or deal with it in a conditional way (while "x" < "y" keep
+doing something).;
+#X text 217 123 number of bangs;
+#X text 44 231 [until] has arguments e gets "bang" in the cold inlet.
+;
+#X text 44 263 If [until] gets a bang in the hot inlet \, it'll send
+bangs until another bang comes in the cold inlet - an infinite loop
+will happen otherwise.;
+#X obj 227 339 bng 15 250 50 0 empty empty empty 17 7 0 10 -191407
+-258113 -1;
+#X msg 227 370 0;
+#X obj 173 411 f;
+#X obj 201 472 sel 9000;
+#X obj 173 508 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-4032 -1 -1 9000 256;
+#X floatatom 291 337 5 0 0 0 - - -;
+#X text 53 529 Above \, [until] sends bangs continuously to a counter.
+A [select] object is in the design to stop it at a specified number.
+You can specify the number of bangs now with the cold inlet of [select].
+Note that all happens so fast we see it jumping automatically from
+0 to 9000;
+#X text 494 21 The [Uzi] object is an extended object version of [until].
+;
+#X text 582 44 (note thr capital "U");
+#X obj 675 306 print Finish;
+#X text 491 100 It can behave just like [until] and send an amount
+of bangs according to a number in the hot inlet.;
+#X obj 738 275 print;
+#X text 491 145 The bangs come out the leftmost outlet. Middle outlet
+outputs a bang after it's done. Rightmost outlet counts the number
+of bangs.;
+#X text 520 372 Argument is number of bangs. Cold inlet changes argument.
+Bang fires the "Uzi".;
+#X text 538 549 The [repeat] object repeats any message and can can
+sometimes work as [until].;
+#X text 540 634 ============================================================
+;
+#X obj 251 862 + 1;
+#X obj 188 823 bng 15 250 50 0 empty empty empty 17 7 0 10 -4032 -1
+-1;
+#X msg 226 824 0;
+#X obj 188 865 f;
+#X obj 304 932 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-4032 -1 -1 0 256;
+#X obj 251 903 sel 9000;
+#X text 57 678 "until" now \, we have been doing loops before without
+these objects \, just with [select]. But it was mentioned that too
+much of a big loop wouldn't work. Here's the proof to that.;
+#X text 57 740 If you hit bang. At one point Pd will suspect that something
+is terribly wrong. It will then stop the madness and warn you about
+it.;
+#X text 55 636 ============================================================
+;
+#X obj 713 878 cnv 15 100 60 empty empty empty 20 12 0 14 -261039 -66577
+0;
+#X obj 734 810 bng 50 250 50 0 empty empty empty 17 7 0 10 -258113
+-1 -1;
+#X obj 734 895 until;
+#X text 576 969 if you click this \, you have to either kill Pd or
+reboot.;
+#X text 556 668 This is what it was doing before whenever an infinite
+loop was found \, and that is what the "stack overflow" error means.
+Nevertheless \, Pd will ignore "stack overflows" with [until]. So you
+really need to be careful now.;
+#X text 614 781 Real Hazard Danger! Actual Infinite Loop!;
+#X text 698 750 WATCH OUT!!!!!!!!!;
+#X text 108 969 Therefore \, [until] is the proper way to loop!;
+#X connect 1 0 2 0;
+#X connect 3 0 1 0;
+#X connect 4 0 1 0;
+#X connect 5 0 1 0;
+#X connect 6 0 25 0;
+#X connect 7 0 25 1;
+#X connect 8 0 6 0;
+#X connect 9 0 11 0;
+#X connect 11 0 12 0;
+#X connect 11 1 32 0;
+#X connect 11 2 10 0;
+#X connect 11 2 34 0;
+#X connect 13 0 11 1;
+#X connect 14 0 11 0;
+#X connect 15 0 17 0;
+#X connect 16 0 15 0;
+#X connect 23 0 6 1;
+#X connect 23 0 24 0;
+#X connect 24 0 25 1;
+#X connect 25 0 7 0;
+#X connect 25 0 26 0;
+#X connect 25 0 27 0;
+#X connect 26 0 23 0;
+#X connect 28 0 26 1;
+#X connect 39 0 44 0;
+#X connect 40 0 42 0;
+#X connect 41 0 42 1;
+#X connect 42 0 39 0;
+#X connect 44 0 41 0;
+#X connect 44 1 43 0;
+#X connect 44 1 42 0;
+#X connect 49 0 50 0;

@@ -1,0 +1,111 @@
+#N canvas 869 22 527 1088 12;
+#X obj -3 -39 cnv 15 400 40 empty empty Select-Route: 20 12 0 24 -262144
+-66577 0;
+#X obj 167 527 bng 15 250 50 0 empty empty empty 17 7 0 10 -262130
+-1 -1;
+#X floatatom 167 467 5 5 20 0 - - -;
+#X obj 198 527 bng 15 250 50 0 empty empty empty 17 7 0 10 -262130
+-1 -1;
+#X obj 167 499 select 7 13 19;
+#X obj 230 527 bng 15 250 50 0 empty empty empty 17 7 0 10 -262130
+-1 -1;
+#X obj 161 367 bng 15 250 50 0 empty empty empty 17 7 0 10 -232576
+-1 -1;
+#X obj 196 841 route float bang symbol;
+#X floatatom 151 789 5 0 0 0 - - -;
+#X obj 196 792 bng 15 250 50 0 empty empty empty 17 7 0 10 -260097
+-1 -1;
+#X symbolatom 222 790 10 0 0 0 - - -;
+#X obj 248 867 bng 15 250 50 0 empty empty empty 17 7 0 10 -260097
+-1 -1;
+#X obj 301 867 bng 15 250 50 0 empty empty empty 17 7 0 10 -204800
+-1 -1;
+#X obj 196 867 bng 15 250 50 0 empty empty empty 17 7 0 10 -204786
+-1 -1;
+#X obj 219 367 bng 15 250 50 0 empty empty empty 17 7 0 10 -261234
+-1 -1;
+#N canvas 131 68 669 380 (subpatch) 0;
+#X obj 77 5 cnv 15 50 25 empty cnv Even 5 12 0 14 -203904 -1 0;
+#X obj 7 7 nbx 5 20 -1e+37 1e+37 0 0 number nbx empty 0 -8 0 12 -203904
+-1 -1 22 256;
+#X floatatom 7 70 5 0 0 0 - - -;
+#X obj 7 44 % 2;
+#X obj 7 94 != 0;
+#X obj 7 149 sel 0 1;
+#X obj 10 225 s cnv;
+#X floatatom 7 118 5 0 0 0 - - -;
+#X obj 7 -34 random 100;
+#X obj 7 -84 tgl 15 0 empty empty empty 17 7 0 10 -203904 -1 -1 1 1
+;
+#X obj 7 -110 loadbang;
+#X obj 7 -63 metro 750;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X coords 0 1 100 -1 52 27 1;
+#X restore 76 4 graph;
+#X msg -44 179 label Even;
+#X msg 43 178 label Odd;
+#X text -388 65 If the remainder of a division by to is different than
+zero \, then it's an odd number \, or an even elsewise.;
+#X connect 1 0 3 0;
+#X connect 2 0 4 0;
+#X connect 3 0 2 0;
+#X connect 4 0 7 0;
+#X connect 5 0 13 0;
+#X connect 5 1 14 0;
+#X connect 7 0 5 0;
+#X connect 8 0 1 0;
+#X connect 9 0 11 0;
+#X connect 10 0 9 0;
+#X connect 11 0 8 0;
+#X connect 13 0 6 0;
+#X connect 14 0 6 0;
+#X coords 0 1 80 -1 135 35 1 0 0;
+#X restore 299 623 graph;
+#X text 34 664 ============================================================
+;
+#X text 34 576 ============================================================
+;
+#X text 19 27 The [select] object is a very elementary conditional
+function! With [select] and comparatives you can see how we were able
+to recreate other objects \, even the "if" function.;
+#X text 214 208 if false;
+#X text 116 208 if true;
+#X obj 172 149 tgl 15 0 empty empty empty 17 7 0 10 -262130 -1 -1 0
+1;
+#X msg 121 296 symbol true;
+#X msg 229 295 symbol false;
+#X obj 161 337 select true false;
+#X obj 172 210 bng 15 250 50 0 empty empty empty 17 7 0 10 -232576
+-1 -1;
+#X obj 195 210 bng 15 250 50 0 empty empty empty 17 7 0 10 -261234
+-1 -1;
+#X obj 172 177 sel 1 0;
+#X text 25 92 We basically used it here to get 1 (true) or 0 (false)
+from comparatives \, and then do something about it.;
+#X text 41 267 Lets remember it also works with symbols:;
+#X text 46 600 Now think how you can check if \; a number is even or
+odd \, try to \; do it. Then open this graph =====>;
+#X text 35 720 [route] can also be thought of a conditional \, like
+when it has selectors as arguments and operates similarly to [select]:
+;
+#X text 27 427 And that it can be more complex than only two options:
+;
+#X text 43 918 But also when it adresses values accordind to wether
+it matches or not one of the arguments.;
+#X connect 2 0 4 0;
+#X connect 4 0 1 0;
+#X connect 4 1 3 0;
+#X connect 4 2 5 0;
+#X connect 7 0 13 0;
+#X connect 7 1 11 0;
+#X connect 7 2 12 0;
+#X connect 8 0 7 0;
+#X connect 9 0 7 0;
+#X connect 10 0 7 0;
+#X connect 21 0 27 0;
+#X connect 22 0 24 0;
+#X connect 23 0 24 0;
+#X connect 24 0 6 0;
+#X connect 24 1 14 0;
+#X connect 27 0 25 0;
+#X connect 27 1 26 0;

@@ -1,0 +1,30 @@
+#N canvas 561 82 1060 734 12;
+#X obj 30 -206 cnv 15 400 40 empty empty Images: 20 12 0 24 -262144
+-66577 0;
+#X msg 675 25 open \$1;
+#X obj 675 -3 openpanel;
+#X obj 675 -24 bng 15 250 50 0 empty empty empty 17 7 0 10 -261682
+-1 -1;
+#X obj 238 287 image ../files/vinil.gif;
+#X msg 717 61 open ../files/vinil.gif;
+#X text 36 -131 We've seen every Pd element: Objects \, Messages \,
+GUIs \, Graphs & Arrays. Mas we can still include images on patches!
+;
+#X text 38 -81 The [image] object loads an image into a patch. This
+is merely aesthetical and useful for user friendly interfaces.;
+#X text 88 -31 It works with .gif \, .ppm \, & .pgm;
+#X text 51 14 Below we have [image ../files/vinil.gif] loading this
+image file at the specified folder location.;
+#X text 52 62 As usual \, if the file was on the same folder \, there'd
+be no need for dots and slashes.;
+#X text 517 -176 The object itself is never visible on the patch \,
+the best way to find it is selecting a nice area around where you think
+it is. Below we have this object with no arguments but with messages
+conected to it. See that it also understands the open command. It's
+interesting that it will remember the last open command \, so if you
+save the patch \, the last opened image will be there.;
+#X obj 701 269 image ;
+#X connect 1 0 12 0;
+#X connect 2 0 1 0;
+#X connect 3 0 2 0;
+#X connect 5 0 12 0;

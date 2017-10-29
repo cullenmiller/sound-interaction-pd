@@ -1,0 +1,30 @@
+#N canvas 770 84 441 610 12;
+#X obj -275 19 cnv 15 400 40 empty empty Comments: 20 12 0 24 -262144
+-66577 0;
+#X text -274 120 ============================================================
+;
+#X text -275 207 ============================================================
+;
+#X text -275 51 ============================================================
+;
+#X text -275 428 ============================================================
+;
+#X text -273 574 ============================================================
+;
+#X text -269 70 -> In the comments \, the alignment is to the left.
+The limit for each line is 60 characters.;
+#X text -267 142 -> You can select and duplicate (control D) a comment.
+In an excerpt of the text is also possible to do things like copy/paste
+(control C/control V) \, or cut (control X).;
+#X text -136 298 Just put \; the semicolon \; wherever \; you want!
+;
+#X text -270 230 -> Breaking the text with semicolon \;;
+#X text -270 253 If you don't want the line to go up to its 60 characters
+limit \, the "semicolon" breaks the line for you.;
+#X text -270 372 -> You have to hit enter as well. You might find it
+weird and that it is not working when you don't do it. But if you reopen
+the patch \, you'll the lines broken.;
+#X text -174 466 Of course \, you can create;
+#X text -149 487 several comments \,;
+#X text -153 509 in different lines \,;
+#X text -180 530 and put it the way you want;

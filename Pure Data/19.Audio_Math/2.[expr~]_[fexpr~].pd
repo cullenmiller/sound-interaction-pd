@@ -1,0 +1,61 @@
+#N canvas 392 225 1025 710 12;
+#X obj 83 236 osc~ 400;
+#X obj 255 236 osc~ 70;
+#X obj 157 322 dac~;
+#X obj 281 300 hsl 128 15 0 0.5 0 0 empty empty empty -2 -8 0 10 -150437
+-1 -1 0 1;
+#X obj 483 609 fexpr~;
+#X text 316 483 ============================================================
+;
+#X text 54 75 The big math possibilities comes with [expr~] \, which
+has the same functions as [expr]!;
+#X obj 278 330 v gain;
+#X msg 334 246 \; pd dsp 1;
+#X obj 334 219 loadbang;
+#X text 55 120 Now \, the variable for audio signal is defined as:
+"$v1 \, $v2 \, $v3" and so on. The "v" is for "vector" \, which means
+"a block of audio". Pd deals with audio signals as a "block". The default
+size is 64 samples. You can also use it for data like floats \, ints
+\, arrays and even the [value] object.;
+#X text 323 526 The [fexpr~] deals with audio signals not as a block
+\, and we can access and use specific samples for complex operations
+\, such as creating filters and other computer music techniques. It
+is much more CPU costy than [expr~].;
+#X text 457 645 check help file;
+#X obj 17 24 cnv 15 400 40 empty empty [expr~]_[fexpr~] 20 12 0 24
+-262144 -66577 0;
+#X obj 83 264 expr~ ($v1 + $v2) * gain \; ($v1 * $v2) * gain;
+#X text 42 366 Left outlet is both audio signals sumed and multiplied
+by the gain factor. Right outlet is a ring modulation multiplied by
+gain factor. They are both going to separate output channels.;
+#X obj 772 176 hsl 128 15 0.0001 0.5 1 0 empty empty empty -2 -8 0
+10 -204800 -1 -1 0 1;
+#X obj 554 232 dac~;
+#X obj 562 200 expr~ if($v1 > 0 \, 1 \, -1) * $f2;
+#X obj 562 173 osc~ 880;
+#X obj 565 395 dac~;
+#X obj 573 336 osc~ 880;
+#X obj 783 313 hsl 128 15 0.0001 0.5 1 0 empty empty empty -2 -8 0
+10 -204800 -1 -1 0 1;
+#X obj 573 363 expr~ if($v1 > 0 \, 1 \, -1) * $v2;
+#X obj 780 336 line~;
+#X text 630 300 Much better!;
+#X text 525 42 Anyway \, it's best to multiply by an audio signal than
+constant values \, and also use the [line~] object to create smooth
+changes in the audio stream and prevent clicks.;
+#X text 613 130 This sounds bad!;
+#X connect 0 0 14 0;
+#X connect 1 0 14 1;
+#X connect 3 0 7 0;
+#X connect 9 0 8 0;
+#X connect 14 0 2 0;
+#X connect 14 1 2 1;
+#X connect 16 0 18 1;
+#X connect 18 0 17 0;
+#X connect 18 0 17 1;
+#X connect 19 0 18 0;
+#X connect 21 0 23 0;
+#X connect 22 0 24 0;
+#X connect 23 0 20 0;
+#X connect 23 0 20 1;
+#X connect 24 0 23 1;

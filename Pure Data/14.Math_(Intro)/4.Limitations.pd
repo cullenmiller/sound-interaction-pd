@@ -1,0 +1,121 @@
+#N canvas 180 92 1035 798 12;
+#X floatatom 51 -280 12 999900 1e+20 0 - - -;
+#X floatatom 600 10 12 0 0 0 - - -;
+#X msg 600 -43 999999;
+#X obj 600 -16 + 999999;
+#X obj -28 -357 cnv 15 400 40 empty empty Limitations: 20 12 0 24 -262144
+-66577 0;
+#X obj 661 -74 loadbang;
+#X msg 817 -320 3.14159;
+#X msg 638 -255 4;
+#X obj 613 -200 print;
+#X obj 638 -282 loadbang;
+#X obj 664 -201 nbx 8 21 -1e+37 1e+37 0 0 empty empty empty 0 -8 0
+15 -203904 -1 -1 1.33333 256;
+#X text -4 -21 ============================================================
+;
+#X text 501 -152 ============================================================
+;
+#X text 497 -354 ============================================================
+;
+#X floatatom 208 124 8 0 0 0 - - -;
+#X floatatom 208 151 12 0 0 0 - - -;
+#X msg 157 94 -1.35293e-11;
+#X msg 264 94 5.29314e+12;
+#X floatatom 71 117 3 0 0 0 - - -;
+#X floatatom 71 143 5 0 0 0 - - -;
+#X msg 71 93 10000;
+#X floatatom 797 11 12 0 0 0 - - -;
+#X obj 797 -13 + 1e+07;
+#X text 157 -282 <-- click and drag up and down;
+#X text 9 -308 Pd can only represent 6 significant digits:;
+#X text 2 -244 From one million (1.000.000) onward \, Pd adopts and
+converts to the exponential format. So a million is represented as:
+1e+06 (that's 1 + 6 zeros \, or 1 times 10 to the sixth power). After
+one million we get 1.00001e+06 and so on \, which is q floating point
+number up to 5 decimal places \, totalling the 6 significant digits.
+;
+#X text 2 -144 The same principal applies for values smaller than 0.00001!
+But we have the exponential format in its negative form. For example:
+1.42309e-11 means that the number 1.42309 is multiplied by minus 10
+to the 11th power.;
+#X text 1 -79 So the maximum numbers of characters that we canhave
+inside an atom or number box is 12 \, when we have negative numbers
+in the exponential format \, like: -1.35293e+13;
+#X text -4 -4 By the waym data doesn't get trucated if it doesn't fit
+into display boxes \, and sometimes we get "+" to mean that the number
+doesn't fit there at all. In other cases \, some decimal places are
+omitted. Check the examples below:;
+#X text 27 189 ROUNDING & CONVERTING:;
+#X text 23 216 If you create a number in the exponential format with
+more than 6 significant digits \, Pd will round its value.;
+#X text 24 257 And if you insert an integer number with more than 6
+significant digits \, Pd will convert to the exponential format and
+also round it.;
+#X text 24 314 Pd will ignore non significant digits like zeros to
+the left \, or to the right afetr a decimal point.;
+#X text 512 -321 The number Pi up to what Pd can represent:;
+#X text 617 -178 Repeating decimal truncated;
+#X text 185 188 ==================================;
+#X text 519 189 ============================================================
+;
+#X text 25 352 If you write something like 0.1 followed by e-18 \,
+Pd will make it simpler by representing it as 1e-19.;
+#X obj 600 37 < 2e+06;
+#X obj 600 63 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X text 506 -124 Pd might round some values on display \, but it'll
+still know the more precise value on the background:;
+#X obj 700 59 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X msg 700 -41 0.999999;
+#X obj 700 -16 + 9e-07;
+#X floatatom 700 9 5 0 0 0 - - -;
+#X obj 700 33 < 1;
+#X obj 638 -229 / 3;
+#X text 526 216 Pd can also convert a number to "inf" or "-inf" (for
+"infinite") if the number is bigger than its 32 bit resolution (something
+around 3.4e+38). It also converts to 0 if it's "infinitely small".
+;
+#X obj 797 37 > 1e+07;
+#X obj 797 62 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X msg 840 -40 0.50001;
+#X msg 797 -41 0.5;
+#X text 513 11 "1.999.998";
+#X text 803 -67 Try Both;
+#X text 525 100 Above \, eventhough the number box displays 2 million
+\, Pd knows it is a bit smaller than that \, hence the [<] can tell
+it so. The same happens to "1" \, as it's also a bit smaller than that.
+But for "1e+07" we see that 0.5 is not enough to make it bigger than
+"1e+07" \, but 0.50001 already is!;
+#X text 527 293 Funny how we can't make this more explicit in the comments
+or messages because Pd treats float atoms the same way no matter where
+(in comments \, messages or atom/number boxes). You are able to write
+a number that seems to not have been converted on display in messages
+or comments. But if you duplicate it or reopen the patch \, you'll
+see it has been.;
+#X connect 1 0 38 0;
+#X connect 2 0 3 0;
+#X connect 3 0 1 0;
+#X connect 5 0 2 0;
+#X connect 5 0 42 0;
+#X connect 7 0 46 0;
+#X connect 9 0 7 0;
+#X connect 14 0 15 0;
+#X connect 16 0 14 0;
+#X connect 17 0 14 0;
+#X connect 18 0 19 0;
+#X connect 20 0 18 0;
+#X connect 21 0 48 0;
+#X connect 22 0 21 0;
+#X connect 38 0 39 0;
+#X connect 42 0 43 0;
+#X connect 43 0 44 0;
+#X connect 44 0 45 0;
+#X connect 45 0 41 0;
+#X connect 46 0 8 0;
+#X connect 46 0 10 0;
+#X connect 48 0 49 0;
+#X connect 50 0 22 0;
+#X connect 51 0 22 0;

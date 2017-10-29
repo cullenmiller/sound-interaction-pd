@@ -1,0 +1,52 @@
+#N canvas 815 22 532 800 12;
+#X obj 47 12 cnv 15 400 40 empty empty Other_Selectors: 20 12 0 24
+-262144 -66577 0;
+#X obj 136 324 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 136 290 metro 500;
+#X msg 175 256 stop;
+#X msg 136 223 symbol stop;
+#X text 217 256 this is not a symbol \, and it stps it!;
+#X obj 45 252 loadbang;
+#X text 229 223 This is a symbol \, it won't stop it!;
+#X text 44 358 ============================================================
+;
+#X text 61 87 you might see this ->;
+#X msg 223 87 stop;
+#X text 270 86 and ask:;
+#X text 50 164 You might even remember we used it before to stop the
+[metro] \, like here:;
+#X text 56 460 The thing is that some objects were designed to work
+with atomic symbol messages that are not symbol messages! These are
+better thought of as "commands".;
+#X obj 367 586 gemwin;
+#X msg 343 546 create;
+#X msg 408 545 destroy;
+#X text 53 558 Another example we actually saw before \; Creating and
+Destroying the GEM window:;
+#X text 50 630 ============================================================
+;
+#X msg 133 727 open 14.wav;
+#X text 56 670 We'll see later on how these comands don't need to be
+just an atom \, we can have a message like:;
+#X text 50 948 ============================================================
+;
+#X text 53 384 Selectors are always the first atom on a message \,
+no matter if it is a one element message or not. So you can still think
+of these messages as messages having other types of "selectors".;
+#X text 56 763 This is not a list \, but can be used to open a soundfile
+called "14.wav"! If you send that message to an object that is not
+design to respond to that \, it will check the selector and interpret
+"open" as its data type.;
+#X obj 67 899 float;
+#X msg 67 862 open 5;
+#X text 130 868 Here we'll have that error again \, where it says \;
+<No method for 'open'>;
+#X text 59 120 - If this is not a symbol then what the is it?;
+#X connect 2 0 1 0;
+#X connect 3 0 2 0;
+#X connect 4 0 2 0;
+#X connect 6 0 2 0;
+#X connect 15 0 14 0;
+#X connect 16 0 14 0;
+#X connect 25 0 24 0;

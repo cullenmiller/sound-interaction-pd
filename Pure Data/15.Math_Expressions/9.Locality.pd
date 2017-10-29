@@ -1,0 +1,60 @@
+#N canvas 631 290 984 634 12;
+#X obj 10 10 cnv 15 400 40 empty empty Locality: 20 12 0 24 -262144
+-66577 0;
+#X obj 240 164 i \$0;
+#X obj 184 127 loadbang;
+#X floatatom 145 193 5 0 0 0 - - -;
+#X floatatom 240 192 5 0 0 0 - - -;
+#X obj 145 165 expr \$0;
+#X text 211 163 =;
+#X floatatom 597 437 5 0 0 0 - - -;
+#X obj 690 414 expr a-\$0;
+#X text 786 415 =;
+#X obj 814 415 expr a - \$0;
+#X floatatom 597 525 9 0 0 0 - - -;
+#X obj 597 480 expr $f1 * X_\$0;
+#X text 17 74 [expr] can also load the value of "\$0" \, and loads
+it as an integer.;
+#X text 33 238 So \, for [expr] \, "\$0" is a number \, not a symbol...
+;
+#X text 34 277 This may be yet another issue to take care. Lets say
+you want to use expr to recall a stored number in [value \$0-X]:;
+#X floatatom 208 470 5 0 0 0 - - -;
+#X obj 208 418 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 208 441 expr \$0-X;
+#X floatatom 136 344 5 0 0 0 - - -;
+#X obj 136 374 value \$0-X;
+#X floatatom 231 343 5 0 0 0 - - -;
+#X obj 231 373 value X;
+#X text 43 508 This won't work as [expr] will think you mean the number
+of "\$0" minus the "X" variable.;
+#X text 528 36 So you need to use "\$0" in another way. The issue is
+now that it won't work if it comes first:;
+#X floatatom 720 112 5 0 0 0 - - -;
+#X obj 720 142 value \$0_X;
+#X obj 628 141 expr \$0_X;
+#X text 636 119 BAD;
+#X text 536 223 It needs to be after:;
+#X floatatom 584 311 5 0 0 0 - - -;
+#X obj 584 259 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 711 271 5 0 0 0 - - -;
+#X obj 584 282 expr X_\$0;
+#X obj 711 300 value X_\$0;
+#X text 686 379 But remember not to use "-";
+#X text 611 336 finally works;
+#X connect 1 0 4 0;
+#X connect 2 0 1 0;
+#X connect 2 0 5 0;
+#X connect 5 0 3 0;
+#X connect 7 0 12 0;
+#X connect 12 0 11 0;
+#X connect 17 0 18 0;
+#X connect 18 0 16 0;
+#X connect 19 0 20 0;
+#X connect 21 0 22 0;
+#X connect 25 0 26 0;
+#X connect 31 0 33 0;
+#X connect 32 0 34 0;
+#X connect 33 0 30 0;

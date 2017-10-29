@@ -1,0 +1,38 @@
+#N canvas 536 321 482 716 12;
+#X obj -37 4 cnv 15 400 40 empty empty Floats-Ints: 20 12 0 24 -262144
+-66577 0;
+#X text 5 121 4.5;
+#X text 211 123 1.234e+07;
+#X text 70 120 -0.0032;
+#X text 142 121 4.3332;
+#X obj 145 369 int;
+#X floatatom 145 405 5 0 0 1 int - -;
+#X floatatom 86 405 5 0 0 0 float - -;
+#X obj 148 343 hsl 128 15 0 20 0 0 empty empty empty -2 -6 0 8 -262144
+-1 -1 0 1;
+#X obj 166 583 int;
+#X floatatom 166 619 5 0 0 1 int - -;
+#X obj 169 514 hsl 128 15 0 20 0 0 empty empty empty -2 -6 0 8 -262144
+-1 -1 0 1;
+#X floatatom 108 619 5 0 0 0 float - -;
+#X obj 166 552 + 0.5;
+#X text -10 60 In Pd we only have the data type float for numbers \,
+which menas basically not integer numbers.;
+#X text -6 167 So \, for Pd \, even if you have an integer \, it is
+actually considered as a float.;
+#X text 79 223 6;
+#X text 118 224 34534;
+#X text 176 225 -94937;
+#X text 241 225 0;
+#X text -13 283 But we have [int] \, an object that converts to integers
+and stores it.;
+#X text -1 460 The [int] object does not round the value \, just considers
+the integer part. This is how you can round it:;
+#X text 235 618 (round);
+#X connect 5 0 6 0;
+#X connect 8 0 7 0;
+#X connect 8 0 5 0;
+#X connect 9 0 10 0;
+#X connect 11 0 12 0;
+#X connect 11 0 13 0;
+#X connect 13 0 9 0;

@@ -1,0 +1,57 @@
+#N canvas 195 174 772 687 12;
+#X obj 84 -18 inlet;
+#X obj 84 15 t b b;
+#X obj 68 86 outlet;
+#X obj 137 86 outlet;
+#X obj 132 53 float \$2;
+#X obj 58 53 symbol \$1;
+#X floatatom 126 149 5 0 0 0 - - -;
+#X symbolatom 49 148 10 0 0 0 - - -;
+#X obj 58 -10 bng 15 250 50 0 empty empty empty 17 7 0 10 -204800 -1
+-1;
+#X obj 267 587 float \$2;
+#X obj 267 523 symbol \$1;
+#X msg 361 523 symbol \$1;
+#X msg 368 585 float \$2;
+#X obj 319 493 loadbang;
+#X floatatom 369 615 5 0 0 0 - - -;
+#X floatatom 266 615 5 0 0 0 - - -;
+#X symbolatom 253 555 10 0 0 0 - - -;
+#X symbolatom 366 553 10 0 0 0 - - -;
+#X text 28 370 ============================================================
+;
+#X text 313 1 This is an Abstraction!;
+#X text 249 41 We've seen dollarsigns in messages \, lets check them
+inside objects in abstractions!;
+#X text 287 94 \$1 inherits the value of the first argument (first
+atom after the patch name \, on the parent patch).;
+#X text 290 137 \$2 inherits the second argument.;
+#X text 25 182 Values inherited from parent;
+#X text 271 191 Arguments can be numbers or symbols. In this case \,
+we need \$1 to be a symbol to be loaded into the [symbol] object \,
+and \$2 needs to be a number to be loaded into the [float] object.
+;
+#X text 142 283 Please see that on the top of this patch window (when
+it is used as an abstraction) we have the file name and the arguments
+inherited by the parent patch in parenthesis.;
+#X text 447 370 =======================================;
+#X text 160 413 Important: Do not confuse this! Dollarsigns in messages
+still work the same way \, they do not inherit anything from parent
+patches.;
+#X connect 0 0 1 0;
+#X connect 1 0 5 0;
+#X connect 1 1 4 0;
+#X connect 4 0 3 0;
+#X connect 4 0 6 0;
+#X connect 5 0 2 0;
+#X connect 5 0 7 0;
+#X connect 8 0 1 0;
+#X connect 9 0 15 0;
+#X connect 10 0 16 0;
+#X connect 11 0 17 0;
+#X connect 12 0 14 0;
+#X connect 13 0 10 0;
+#X connect 13 0 11 0;
+#X connect 13 0 9 0;
+#X connect 13 0 12 0;
+#X coords 0 0 1 1 100 100 0;

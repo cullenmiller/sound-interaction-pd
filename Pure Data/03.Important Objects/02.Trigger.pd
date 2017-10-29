@@ -1,0 +1,73 @@
+#N canvas 640 221 1059 908 12;
+#X obj 14 23 cnv 15 600 40 empty empty Trigger: 20 12 0 24 -262144
+-66577 0;
+#X obj 388 471 bng 15 250 50 0 empty empty empty 17 7 0 10 -258113
+-1 -1;
+#X floatatom 354 525 5 0 0 0 - - -;
+#X obj 669 708 print anything;
+#X obj 534 707 print list;
+#X obj 601 737 print symbol;
+#X symbolatom 589 558 10 0 0 0 - - -;
+#X obj 399 640 trigger bang float list symbol anything;
+#X obj 466 735 print float;
+#X obj 712 640 t b f l s a;
+#X obj 431 703 print bang;
+#X obj 399 671 t b b;
+#X msg 404 497 list 12 3 4;
+#X msg 428 527 12 3 4;
+#X text 689 639 =;
+#X obj 399 815 print ===================================================:
+;
+#X msg 320 496 float 15;
+#X obj 640 263 t f f;
+#X obj 690 263 t f-- f--;
+#X obj 764 263 trigger float float;
+#X obj 635 303 trigger float---------- float----------;
+#X text 37 87 The [trigger] object can work as a limited converter
+between data types (selectors).;
+#X msg 399 774 OVER!!!;
+#X text 38 128 It receives any data that will be triggered in an ordered
+manner by its outlets. Depending on the data and arguments \, there'll
+be a conversion of data types. The "anything" argument will repass
+the data without conversion. You need that for data types that have
+no selectors \, like a "stop" command.;
+#X text 36 230 The most pertinent case is convert to bang \, as the
+convertion from floats and symbols are not convenient. Everything will
+be converted to a bang \, and it is convenient to have a bang set up
+a specified and right order!;
+#X text 181 371 Check below all the convetion possibilities and how
+it reacts to it:;
+#X text 323 442 implicit selectors;
+#X text 696 529 (not a list \, no list selector);
+#X msg 550 500 list This Is A List!;
+#X msg 573 529 is this a list?;
+#X msg 594 584 symbol hi;
+#X msg 615 610 hi;
+#X text 647 610 (no selector \, another "anything" data type);
+#X text 553 442 not implicit;
+#X text 722 663 Abreviated;
+#X text 676 74 ====> Hint \; abbreviation <===;
+#X text 532 123 Actually \, for [trigger] \, Pd only checks the first
+letter of the argument. So you can write "funny" and it will cnosider
+it is a "float".;
+#X text 534 179 A useful thing is that you can adjust the size of each
+argument to match the spacing of outlets as you wish. One way is to
+use "---":;
+#X connect 1 0 7 0;
+#X connect 2 0 7 0;
+#X connect 6 0 7 0;
+#X connect 7 0 11 0;
+#X connect 7 1 8 0;
+#X connect 7 2 4 0;
+#X connect 7 3 5 0;
+#X connect 7 4 3 0;
+#X connect 11 0 22 0;
+#X connect 11 1 10 0;
+#X connect 12 0 7 0;
+#X connect 13 0 7 0;
+#X connect 16 0 7 0;
+#X connect 22 0 15 0;
+#X connect 28 0 7 0;
+#X connect 29 0 7 0;
+#X connect 30 0 7 0;
+#X connect 31 0 7 0;

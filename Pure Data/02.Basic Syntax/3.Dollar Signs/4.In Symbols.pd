@@ -1,0 +1,112 @@
+#N canvas 345 22 1215 1009 12;
+#X floatatom 141 183 5 0 0 0 - - -;
+#X symbolatom 133 242 15 0 0 0 - - -;
+#X msg 114 156 symbol A;
+#X floatatom 880 816 5 0 0 0 - - -;
+#X symbolatom 880 869 10 0 0 0 - - -;
+#X obj 65 36 cnv 15 400 40 empty empty In_Symbols: 20 12 0 24 -262144
+-66577 0;
+#X floatatom 845 178 5 0 0 0 - - -;
+#X msg 845 215 4\$1;
+#X obj 798 255 print;
+#X floatatom 845 256 5 0 0 0 - - -;
+#X text 50 309 ============================================================
+;
+#X text 101 309 ============================================================
+;
+#X text 235 309 ==================================================
+;
+#X obj 133 269 print;
+#X symbolatom 386 242 15 0 0 0 - - -;
+#X obj 386 269 print;
+#X msg 386 185 1 B;
+#X msg 431 186 list C 4;
+#X msg 880 843 symbol 0\$1;
+#X text 50 91 It's possible to have a dollarsign inside a symbol!;
+#X symbolatom 267 469 10 0 0 0 - - -;
+#X obj 219 469 print;
+#X text 200 150 It will acquire either the value of a float or symbol
+atom.;
+#X symbolatom 82 126 10 0 0 0 - - -;
+#X msg 133 214 symbol File\$1.aif;
+#X msg 386 214 symbol File\$2.aif;
+#X msg 267 428 \$3bol \$2_There!;
+#X msg 267 391 1 Hi sym;
+#X symbolatom 268 592 10 0 0 0 - - -;
+#X msg 268 525 list bo hmm sym l ...;
+#X msg 268 556 \$3\$1\$4 \$2\$5;
+#X obj 208 594 print;
+#X text 149 342 Try to predict these:;
+#X text 125 637 Yep \, they even work not "inside" a symbol \, but
+forming up a symbol by connecting atoms;
+#X text 54 690 ============================================================
+;
+#X text 155 690 ============================================================
+;
+#X text 698 108 So what if you have numbers and a dollarsgin \, and
+you try to give the dollarsign a number value? Can we create a float?
+;
+#X symbolatom 892 277 10 0 0 0 - - -;
+#X obj 892 250 symbol;
+#X text 697 324 No! What happens is that we create an atom that has
+the format of a float \, but it is not a float.;
+#X floatatom 940 487 5 0 0 0 - - -;
+#X msg 940 524 4\$1;
+#X obj 770 526 makefilename 4%d;
+#X floatatom 770 487 5 0 0 0 - - -;
+#X text 696 397 So you can realize this is a lot like using the [makefilename]
+object \, which can convert float atoms to symbol atoms.;
+#X obj 770 584 print;
+#X obj 940 588 print;
+#X obj 940 555 symbol;
+#X text 693 629 The difference is that [makefilename] automatically
+inserts a "symbol" selector.;
+#X obj 181 854 makefilename File%s.aif;
+#X msg 181 809 symbol A;
+#X symbolatom 181 886 10 0 0 0 - - -;
+#X floatatom 368 810 5 0 0 0 - - -;
+#X symbolatom 368 886 10 0 0 0 - - -;
+#X obj 368 853 makefilename File%d.aif;
+#X text 83 728 It's time to remember about the [makefilnename] object.
+It can do similar things. But you need to specify the type of atom
+\, %s for symbols \, and %d or %i for integer numbers.;
+#X text 131 936 Nother thing is that it automatically inserts a "symbol"
+selector.;
+#X text 650 689 ============================================================
+;
+#X text 751 689 ============================================================
+;
+#X text 695 739 It's nice we can create atoms that look like numbers
+\, but that are not. Pd would throw away the zero on the left. But
+on this case \, it remains...;
+#X connect 0 0 24 0;
+#X connect 1 0 13 0;
+#X connect 2 0 24 0;
+#X connect 3 0 18 0;
+#X connect 6 0 7 0;
+#X connect 7 0 8 0;
+#X connect 7 0 9 0;
+#X connect 7 0 38 0;
+#X connect 14 0 15 0;
+#X connect 16 0 25 0;
+#X connect 17 0 25 0;
+#X connect 18 0 4 0;
+#X connect 23 0 24 0;
+#X connect 24 0 1 0;
+#X connect 25 0 14 0;
+#X connect 26 0 20 0;
+#X connect 26 0 21 0;
+#X connect 27 0 26 0;
+#X connect 29 0 30 0;
+#X connect 30 0 28 0;
+#X connect 30 0 31 0;
+#X connect 38 0 37 0;
+#X connect 40 0 41 0;
+#X connect 41 0 47 0;
+#X connect 42 0 45 0;
+#X connect 43 0 42 0;
+#X connect 47 0 46 0;
+#X connect 49 0 51 0;
+#X connect 50 0 49 0;
+#X connect 52 0 54 0;
+#X connect 54 0 53 0;

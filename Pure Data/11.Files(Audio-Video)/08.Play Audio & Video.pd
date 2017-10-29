@@ -1,0 +1,73 @@
+#N canvas 943 56 646 664 12;
+#X obj 111 387 cnv 15 323 140 empty empty empty 20 12 0 14 -262130
+-66577 0;
+#X obj 55 532 cnv 15 130 70 empty empty empty 20 12 0 14 -204786 -66577
+0;
+#X obj 54 140 cnv 15 100 60 empty empty empty 20 12 0 14 -204786 -66577
+0;
+#X obj 63 309 cnv 15 80 60 empty empty empty 20 12 0 14 -204786 -66577
+0;
+#X obj 71 159 gemhead;
+#X obj 72 545 pix_texture;
+#X obj 166 367 bng 15 250 50 0 empty empty empty 20 7 0 10 -257985
+-1 -1;
+#X obj 72 572 rectangle 4 3;
+#X obj 72 330 pix_film;
+#X obj 166 498 dac~;
+#X obj 92 224 bng 20 250 50 0 empty empty Play -4 -10 0 13 -4032 -1
+-1;
+#X msg 92 278 auto 1;
+#X msg 124 423 stop;
+#X msg 18 279 auto 0;
+#X obj 18 224 bng 20 250 50 0 empty empty Stop -4 -10 0 13 -260097
+-1 -1;
+#X obj 243 532 cnv 15 160 110 empty empty empty 20 12 0 14 -233017
+-66577 0;
+#X obj 326 548 loadbang;
+#X msg 249 585 \; pd dsp 1;
+#X obj 326 599 gemwin;
+#X msg 326 574 create \, 1;
+#X obj 18 366 bng 15 250 50 0 empty empty empty 17 7 0 10 -261682 -1
+-1;
+#X obj 92 250 trigger b b;
+#X obj 34 14 cnv 15 400 40 empty empty Audio_&_Video: 20 20 0 24 -262144
+-66577 0;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X coords 0 1 100 -1 450 100 1;
+#X restore 184 149 graph;
+#X msg 166 277 open ./media/vinheta.mov;
+#X obj 166 464 readsf~ 2;
+#X text 49 69 To play Audio & Video in synchrony with what we learned
+([pix_film] + [readsf~]) \, you need separate audio and video files.
+;
+#X text 195 158 The video is the Vignette of the Third International
+Puredata Convention \, held in Sao Paulo-Brazil from july 19th to 26th
+of 2009;
+#X text 224 208 Credits and Acknowledgements to: Ricardo Maximo \,
+Eduardo Messias \, Raquel Falkenbach;
+#X text 412 574 Turn DSP on and start GEM;
+#X text 191 364 A bang when video is finished restarts the audio.;
+#X text 243 464 Plays Stereo file;
+#X msg 166 422 open ./media/vinheta.wav \, start;
+#X connect 4 0 8 0;
+#X connect 5 0 7 0;
+#X connect 6 0 32 0;
+#X connect 8 0 5 0;
+#X connect 8 2 6 0;
+#X connect 10 0 21 0;
+#X connect 11 0 8 0;
+#X connect 12 0 25 0;
+#X connect 13 0 8 0;
+#X connect 13 0 20 0;
+#X connect 14 0 13 0;
+#X connect 16 0 17 0;
+#X connect 16 0 19 0;
+#X connect 19 0 18 0;
+#X connect 20 0 12 0;
+#X connect 21 0 11 0;
+#X connect 21 1 24 0;
+#X connect 24 0 8 0;
+#X connect 24 0 6 0;
+#X connect 25 0 9 0;
+#X connect 25 1 9 1;
+#X connect 32 0 25 0;

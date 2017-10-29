@@ -1,0 +1,26 @@
+#N canvas 130 200 586 392 12;
+#X obj 20 24 cnv 15 350 40 empty empty Example: 20 18 0 24 -262144
+-66577 0;
+#X floatatom 248 201 5 0 0 0 - - -;
+#X obj 195 229 pack f f;
+#X floatatom 173 300 5 0 0 0 - - -;
+#X floatatom 216 299 5 0 0 0 - - -;
+#X floatatom 259 299 5 0 0 0 - - -;
+#X obj 259 169 hradio 15 1 0 3 empty empty empty 0 -6 0 10 -204800
+-1 -1 0;
+#X obj 195 259 route 0 1 2;
+#X obj 206 198 f;
+#X obj 206 166 t b f;
+#X obj 206 141 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -6 0 10
+-203904 -1 -1 0 256;
+#X text 88 102 A float being routed to three different outlets.;
+#X connect 1 0 2 1;
+#X connect 2 0 7 0;
+#X connect 6 0 8 1;
+#X connect 7 0 3 0;
+#X connect 7 1 4 0;
+#X connect 7 2 5 0;
+#X connect 8 0 2 0;
+#X connect 9 0 8 0;
+#X connect 9 1 1 0;
+#X connect 10 0 9 0;

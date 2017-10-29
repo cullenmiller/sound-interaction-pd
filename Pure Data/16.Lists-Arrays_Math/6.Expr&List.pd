@@ -1,0 +1,26 @@
+#N canvas 112 123 494 468 12;
+#X obj 75 261 list-map;
+#X msg 75 224 1 2 3;
+#X obj 260 230 nbx 3 16 -1e+37 1e+37 0 1 empty empty empty 0 -8 0 14
+-261682 -1 -1 4 256;
+#X obj 75 294 unpack f f f;
+#X floatatom 75 320 5 0 0 0 - - -;
+#X floatatom 115 320 5 0 0 0 - - -;
+#X floatatom 156 319 5 0 0 0 - - -;
+#X obj 157 262 expr (pow($f1 \, 2) + $f2) / $f3;
+#X obj 364 231 nbx 3 16 -1e+37 1e+37 0 1 empty empty empty 0 -8 0 14
+-261682 -1 -1 5 256;
+#X obj 47 23 cnv 15 400 40 empty empty List-Map_&_Expr 20 12 0 24 -262144
+-66577 0;
+#X text 53 110 Since [list-math] is an abstraction \, we can adapt
+its contents to use [expr]. Below is a simplification of the [list-math]
+abstraction \, which is based on the [list-map] abstraction.;
+#X connect 0 0 3 0;
+#X connect 0 1 7 0;
+#X connect 1 0 0 0;
+#X connect 2 0 7 1;
+#X connect 3 0 4 0;
+#X connect 3 1 5 0;
+#X connect 3 2 6 0;
+#X connect 7 0 0 1;
+#X connect 8 0 7 2;

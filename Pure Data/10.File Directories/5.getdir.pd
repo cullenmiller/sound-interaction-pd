@@ -1,0 +1,35 @@
+#N canvas 532 297 762 720 12;
+#X obj 178 195 getdir;
+#X obj 178 165 bng 15 250 50 0 empty empty empty 17 7 0 10 -260097
+-4160 -1;
+#X symbolatom 126 461 80 0 0 0 - - -;
+#X msg 89 520 set \$1;
+#X msg 89 555 /Users/porres/Desktop/PD - Material Didático/!!Tutorial de Puredata - Por Alexandre Porres - Outubro-Novembro/!English/10.File Directories
+;
+#X obj 158 494 loadbang;
+#X msg 158 522 set;
+#X obj 126 414 getdir;
+#X obj 126 393 bng 15 250 50 0 empty empty empty 17 7 0 10 -203904
+-1 -1;
+#X obj 37 28 cnv 15 400 40 empty empty [getdir]: 20 12 0 24 -262144
+-66577 0;
+#X text 92 96 The [getdir] object gives us this patch's folder complete
+path as a symbol (with the "symbol" selector).;
+#X text 201 162 <- click;
+#X obj 178 233 print PATH;
+#X text 264 234 Check print on terminal;
+#X text 204 389 The symbol atom box can be at most 80 characters long!
+It does not truncate the symbol \, but it may not be enough to show
+the complete path.;
+#X text 238 504 By setting it to a message \, we can always check the
+complete path;
+#X text 87 312 Well \, if you are really sick of checking the terminal
+\, check this thng below:;
+#X connect 0 0 12 0;
+#X connect 1 0 0 0;
+#X connect 3 0 4 0;
+#X connect 5 0 6 0;
+#X connect 6 0 4 0;
+#X connect 7 0 3 0;
+#X connect 7 0 2 0;
+#X connect 8 0 7 0;

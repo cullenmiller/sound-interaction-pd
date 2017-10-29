@@ -1,0 +1,50 @@
+#N canvas 722 22 545 847 12;
+#X obj 37 25 cnv 15 400 40 empty empty txt_files: 20 12 0 24 -262144
+-66577 0;
+#X msg 79 288 read table.txt;
+#X obj 122 371 textfile;
+#X obj 122 403 print;
+#X obj 236 664 textfile;
+#X obj 236 691 print;
+#X msg 181 591 rewind;
+#X obj 181 621 t b a;
+#X msg 260 623 read ./table.txt;
+#X obj 234 404 msgfile;
+#X text 32 82 Pd deals with many kinds of files \, like text \, audio
+\, video & images. The syntax we need to know is how to specify this
+file loctaion.;
+#X obj 79 261 loadbang;
+#X text 33 145 We can explicitly put in a message the exact file directory
+from root. Much easier is to indicate files that suposedly are on the
+same folder as the patch. We don't actually have to do anything but
+specify the file name and extension.;
+#X text 34 222 The [textfile] object deals with txt files. Lets see
+it:;
+#X text 196 288 loads the file into the object;
+#X text 43 451 The "table.txt" file is on the same folder \, so it
+works. Check the print on terminal.;
+#X msg 122 330 rewind \, bang;
+#X text 221 322 Goes to the beggining of the file;
+#X text 224 338 bang reads it;
+#X obj 260 592 loadbang;
+#X text 54 594 another way to;
+#X text 52 612 rewind and bang;
+#X text 47 498 But the truth is we'd have to use "./" (dot-slash) to
+explicitly tell Pd it is on the same folder. We don't need to do it
+because it is implicit. See that with "./" below it works the same
+way!;
+#X text 44 747 And we keep using dots and slashes to specify folders
+that are in the vicinities of the patch's folder \, like parent folder
+or sub folders.;
+#X text 188 370 (check its help file for more info);
+#X text 294 404 (check this one too);
+#X connect 1 0 2 0;
+#X connect 2 0 3 0;
+#X connect 4 0 5 0;
+#X connect 6 0 7 0;
+#X connect 7 0 4 0;
+#X connect 7 1 4 0;
+#X connect 8 0 4 0;
+#X connect 11 0 1 0;
+#X connect 16 0 2 0;
+#X connect 19 0 8 0;

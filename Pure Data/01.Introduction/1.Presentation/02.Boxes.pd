@@ -1,0 +1,33 @@
+#N canvas 299 28 663 524 12;
+#X obj 138 107;
+#X obj 133 170 float;
+#X floatatom 139 330 5 0 0 0 - - -;
+#X symbolatom 137 381 10 0 0 0 - - -;
+#X text 54 28 comment;
+#X obj 12 13 cnv 15 550 50 empty empty Boxes: 20 25 0 24 -262144 -66577
+0;
+#X msg 135 221;
+#X msg 135 247 mensagem;
+#X obj 132 137 Float;
+#X text 103 72 ============= Main Boxes ===================================
+;
+#X text 38 329 3) Number;
+#X text 38 379 4) Symbol;
+#X text 33 234 2) Message;
+#X text 39 137 1) Object;
+#X text 38 460 5) Comment;
+#X text 104 420 ============== Comments: ==================================
+;
+#X text 161 451 This is not a "box" \, but a way to put comments on
+the code and patch \, without interfering at all in the programming!
+;
+#X text 190 107 Empty object box;
+#X text 191 170 Object Box;
+#X text 215 235 Message Box (interactive for being clickable);
+#X text 103 285 ======= Atom Boxes - (Interactive) =========================
+;
+#X text 197 323 "Number Atom Box" (Click and drag / write + enter)
+;
+#X text 231 377 "Symbol Atom Box" (Click & write + enter);
+#X text 191 132 An object box that couldn't be created because of a
+typing error ("Case Sensitive" \, for example).;

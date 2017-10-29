@@ -1,0 +1,71 @@
+#N canvas 253 22 983 628 12;
+#X obj 33 -28 cnv 15 400 40 empty empty For 20 12 0 24 -262144 -66577
+0;
+#X text 29 26 As stated \, the [until] object is the "Pd way" of doing
+loops \, which is an essential concept in programming languages \,
+such as "For"/"While".;
+#X text 30 86 The idea is that something will keep happening (in a
+"loop") for a specified ammount of times \, or in respect to specified
+conditions.;
+#X obj 101 423 until;
+#X msg 101 392 9;
+#X obj 101 456 bng 15 250 50 0 empty empty empty 17 7 0 10 -4034 -1
+-1;
+#X text 32 243 An example \; for (x = 1 \, x <= 9 \, x + 1) do "something".
+;
+#X text 129 456 "Do Something";
+#X msg 561 136 bang;
+#X obj 561 195 until;
+#X obj 561 165 trigger bang bang;
+#X obj 659 228 f;
+#X obj 693 240 + 1;
+#X obj 659 275 <= 9;
+#X obj 682 348 bng 15 250 50 0 empty empty empty 17 7 0 10 -4034 -1
+-1;
+#X text 622 133 for (x = 1 \, x <= 9 \, x + 1);
+#X text 718 198 variable initial state;
+#X text 732 242 variable update;
+#X text 711 275 condition;
+#X obj 677 198 f 1;
+#X text 708 343 "Do Something";
+#X text 504 467 ============================================================
+;
+#X obj 659 309 sel 0 1;
+#X text 32 285 In this case it is easy to predict that the number of
+times (or iterations) that this loop will take is "9".;
+#X text 35 333 When that is clear \, you can simply do that with [until]
+like this.;
+#X text 159 422 "for (x = 1 \, x <= 9 \, x + 1";
+#X text 143 393 number of iterations;
+#X text 36 507 So one way to think of [until] is that it takes the
+number of iterations. But we can make it more sophisticated.;
+#X text 505 77 A more explicitly similar way of doing it is something
+like this:;
+#X text 510 392 Although much more complicated than the first option.
+You can now properly set the arguments of the loop \, which are "initial
+state \, conditionn \, update". In which it may not be that easy to
+prdict the number of iterations.;
+#X text 501 36 ============================================================
+;
+#X text 732 365 if true;
+#X text 590 303 stop;
+#X text 576 323 if false;
+#X obj 598 285 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 30 150 One usual way to have a "for" code line is something
+like: for \; (variable initial state \, condition \, variable update)
+\; Do Something.;
+#X connect 3 0 5 0;
+#X connect 4 0 3 0;
+#X connect 8 0 10 0;
+#X connect 9 0 11 0;
+#X connect 10 0 9 0;
+#X connect 10 1 19 0;
+#X connect 11 0 12 0;
+#X connect 11 0 13 0;
+#X connect 12 0 11 1;
+#X connect 13 0 22 0;
+#X connect 19 0 11 1;
+#X connect 22 0 34 0;
+#X connect 22 1 14 0;
+#X connect 34 0 9 1;

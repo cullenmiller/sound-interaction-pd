@@ -1,0 +1,68 @@
+#N canvas 656 193 518 696 12;
+#X obj -163 20 cnv 15 400 40 empty empty Expanding_Dollarsigns: 20
+19 0 24 -262144 -66577 0;
+#X text -128 78 ============================================================
+;
+#X text -130 193 ============================================================
+;
+#X obj 116 504 r A-B-C;
+#X obj 180 504 r 4-B;
+#X obj -80 500 r A-A-C;
+#X obj -17 500 r 4-A;
+#X obj 123 442 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-262130 -1 -1 24 256;
+#X obj 116 532 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-262130 -1 -1 24 256;
+#X obj 125 389 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-262130 -1 -1 24 256;
+#X obj 185 441 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-261682 -1 -1 50 256;
+#X obj 180 532 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-261682 -1 -1 50 256;
+#X obj 185 390 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-261682 -1 -1 50 256;
+#X obj -82 442 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-257985 -1 -1 20 256;
+#X obj -80 389 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-257985 -1 -1 20 256;
+#X obj -11 391 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-240878 -1 -1 26 256;
+#X obj -80 528 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-257985 -1 -1 20 256;
+#X obj -11 441 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-240878 -1 -1 26 256;
+#X obj -17 528 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-240878 -1 -1 26 256;
+#X text -117 636 ============================================================
+;
+#X text -116 112 We know we can combine dollarsign variables in messages
+to form atoms. We've seen that they can also be combined (or expaned)
+inside objects \, like: [send \$1-1]. We can do this with "\$0" too.
+Let's check the options:;
+#X text -123 318 This is more of an excercize to follow how the data
+goes in to the abstraction and comes back to [r A-B-C] \, for example.
+;
+#X text -119 226 We have here two instances od [ex1] with different
+arguments that are being inherited. Inside them \, you'll also find
+instances of the abstraction [ex2]. They are there to show you a more
+complex example of further inheritence and expansion of these variables.
+;
+#X text -125 468 ============================================================
+;
+#X text -108 566 Data is still running globally \, despite all the
+expansions. It's going from one instance of the abstraction to the
+other \, as well as up here on the parent patch!;
+#X obj -53 414 ex1 A;
+#X obj 143 414 ex1 B;
+#X connect 3 0 8 0;
+#X connect 4 0 11 0;
+#X connect 5 0 16 0;
+#X connect 6 0 18 0;
+#X connect 9 0 26 0;
+#X connect 12 0 26 1;
+#X connect 14 0 25 0;
+#X connect 15 0 25 1;
+#X connect 25 0 13 0;
+#X connect 25 1 17 0;
+#X connect 26 0 7 0;
+#X connect 26 1 10 0;

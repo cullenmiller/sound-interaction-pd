@@ -1,0 +1,122 @@
+#N canvas 516 193 1260 788 12;
+#X obj 20 12 cnv 15 400 40 empty empty Message_Order: 20 12 0 24 -262144
+-66577 0;
+#X obj 220 179 + 1;
+#X obj 220 234 * 4;
+#X obj 220 289 / 100;
+#X obj 221 338 pow 2;
+#X obj 90 179 sqrt;
+#X obj 90 135 trigger float float;
+#X obj 173 373 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-204786 -1 -1 0 256;
+#X obj 90 373 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-204800 -1 -1 0 256;
+#X obj 90 111 nbx 5 14 0 1e+37 0 0 empty empty empty 0 -8 0 10 -261682
+-1 -1 0 256;
+#X obj 148 437 swap;
+#X obj 152 491 -;
+#X obj 152 522 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-261682 -1 -1 0 256;
+#X obj 184 466 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-204800 -1 -1 0 256;
+#X obj 116 466 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-204786 -1 -1 0 256;
+#X obj 173 399 t f f;
+#X msg 366 486 olá \, como vai?;
+#X obj 366 517 print;
+#X obj 90 398 t f f;
+#X obj 401 666 r banana;
+#X obj 467 666 r banana;
+#X floatatom 467 693 5 0 0 0 - - -;
+#X floatatom 401 694 5 0 0 0 - - -;
+#X floatatom 562 692 5 0 0 0 - - -;
+#X floatatom 619 692 5 0 0 0 - - -;
+#X msg 216 603 \; banana 3 \; apple 4;
+#X obj 562 664 r apple;
+#X obj 619 664 r apple;
+#X text 333 83 The most important syntax on Pd is Message ordering
+\, this is what lets you control the data flux!;
+#X text 334 123 Objects have a Hot/Cold inlet structure. The hot inlet
+(usually the leftmost) triggers the object.;
+#X text 335 167 RIGHT TO LEFT: The [trigger] object is widely used
+to control and guarantee the order of messages. Specially when you're
+connecting the same outlet to several inlets. [trigger] sends from
+right to left. Outlets of every object tend to follow this procedure
+because of the Hot/Cold structure.;
+#X obj 205 434 print First:;
+#X obj 34 432 print Second:;
+#X text 335 268 DEPTH FIRST: We need to know that \, once data goes
+through a branch ramification \, it needs to go all the way down (no
+matter how many objects there are) before moving from right to left.
+;
+#X text 337 343 See that [trigger] is needed to check correctly the
+[print] order.;
+#X text 338 404 The [swap] object outputs numbers in a crossed way
+as they were fed to it \, but respects the right to left order in the
+output \, as well as the Hot/Cold inlet paradigm.;
+#X text 486 486 In multiple messages \, the sending \; order is from
+left to right!;
+#X text 295 619 Here is from top to bottom (first sends banana \, then
+apple);
+#X text 692 669 On the other hand \, you can't tell with [receive]
+object gets it first!;
+#X obj 1063 437 t l l;
+#X obj 937 235 list split 1;
+#X obj 1050 236 list;
+#X obj 937 284 print;
+#X msg 937 204 1 2 3 4 5;
+#X obj 1095 525 print;
+#X msg 1063 399 1 2 3 4 5;
+#X obj 1095 473 list split 1;
+#X obj 990 473 list split 1;
+#X obj 892 433 list split 1;
+#X msg 892 398 1 2 3 4 5;
+#X obj 822 431 list;
+#X obj 892 468 t b f;
+#X obj 924 522 print;
+#X text 794 105 loops will compromise the order of messages \, even
+in respect to object's outlet order \, which is usually from right
+to left like [trigger]. Below \, we try to loop and split a list to
+get the first item \, but the output is in reverse because of the loop.
+;
+#X text 799 339 Here are two other looping options that prevents this
+mess;
+#X connect 1 0 2 0;
+#X connect 2 0 3 0;
+#X connect 3 0 4 0;
+#X connect 4 0 7 0;
+#X connect 5 0 8 0;
+#X connect 6 0 5 0;
+#X connect 6 1 1 0;
+#X connect 7 0 15 0;
+#X connect 8 0 18 0;
+#X connect 9 0 6 0;
+#X connect 10 0 14 0;
+#X connect 10 1 13 0;
+#X connect 11 0 12 0;
+#X connect 13 0 11 1;
+#X connect 14 0 11 0;
+#X connect 15 0 10 1;
+#X connect 15 1 31 0;
+#X connect 16 0 17 0;
+#X connect 18 0 32 0;
+#X connect 18 1 10 0;
+#X connect 19 0 22 0;
+#X connect 20 0 21 0;
+#X connect 26 0 23 0;
+#X connect 27 0 24 0;
+#X connect 39 0 47 0;
+#X connect 39 1 46 0;
+#X connect 40 0 42 0;
+#X connect 40 1 41 0;
+#X connect 41 0 40 0;
+#X connect 43 0 40 0;
+#X connect 45 0 39 0;
+#X connect 46 0 44 0;
+#X connect 47 1 39 0;
+#X connect 48 0 51 0;
+#X connect 48 1 50 1;
+#X connect 49 0 48 0;
+#X connect 50 0 48 0;
+#X connect 51 0 50 0;
+#X connect 51 1 52 0;

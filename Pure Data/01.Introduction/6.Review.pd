@@ -1,0 +1,50 @@
+#N canvas 1126 64 522 870 12;
+#X obj 22 22 cnv 15 350 50 empty empty Elements: 20 25 0 24 -262144
+-66577 0;
+#X msg 154 217 4;
+#X msg 154 242 oi;
+#X msg 136 293 1 oi 3 5;
+#X obj 176 433 metro;
+#X obj 273 432 osc~;
+#X floatatom 154 547 5 0 0 0 - - -;
+#X symbolatom 236 546 10 0 0 0 - - -;
+#X text 40 476 ============================================================
+;
+#X text 47 607 ============================================================
+;
+#X obj 145 680 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 296 680 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 334 680 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 296 712 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-262144 -1 -1 0 256;
+#X obj 147 713 hradio 15 1 0 8 empty empty empty 0 -8 0 10 -262144
+-1 -1 0;
+#X text 129 643 GUIs (Graphical User Interface);
+#X msg 50 340 1 \, oi \, 3 5;
+#X text 37 376 ============================================================
+;
+#X text 36 96 In Pure Data \, we manipulate data (or messages). Therefore
+\, the main elements are Messages and Objects (which receive messages
+\, manipulate the Data and send back messages.;
+#X text 196 216 number;
+#X text 197 240 symbol;
+#X text 140 339 three messages (a number \, a symbol & a list);
+#X text 92 410 Objetcs:;
+#X text 168 410 control;
+#X text 269 411 audio;
+#X text 52 511 For atoms (number & symbols) \, there are the atom boxes:
+;
+#X text 153 580 which are interactive;
+#X text 44 823 ============================================================
+;
+#X text 141 178 Messages:;
+#X text 214 294 one message \, 4 atoms;
+#X text 59 230 Atom types:;
+#X text 29 154 ============================================================
+;
+#X text 113 776 - Have several properties to edit.;
+#X text 142 798 - Can be inserted as objects.;
+#X text 112 752 - They are graphical interfaces.;

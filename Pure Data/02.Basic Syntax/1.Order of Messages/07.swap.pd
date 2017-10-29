@@ -1,0 +1,39 @@
+#N canvas 912 160 760 526 12;
+#X obj -26 145 swap;
+#X floatatom 5 116 5 0 0 0 - - -;
+#X floatatom -48 116 5 0 0 0 - - -;
+#X obj -144 18 cnv 15 400 40 empty empty [swap] 80 18 0 24 -262144
+-66577 0;
+#X obj -9 268 /;
+#X floatatom 10 234 5 0 0 0 - - -;
+#X floatatom -38 235 5 0 0 0 - - -;
+#X floatatom -9 306 5 0 0 0 - - -;
+#X floatatom 348 321 5 0 0 0 - - -;
+#X floatatom 280 321 5 0 0 0 - - -;
+#X floatatom 403 426 5 0 0 0 - - -;
+#X floatatom 280 427 5 0 0 0 - - -;
+#X obj 280 396 float;
+#X obj 280 353 trigger bang float;
+#X text 110 108 In special cases \, you might want to invert the order
+in which data is coming down the net. For that we use [swap] \, it
+has a cold and hot inlet. But when when it sends out the values \,
+it crosses the data and sends out first to the right and then to the
+left outlet. Check [print] on Pd's terminal window.;
+#X text 150 467 This is a [swap] object implemented with [trigger]
+& [float];
+#X obj -100 195 print L;
+#X obj 17 197 print R;
+#X connect 0 0 6 0;
+#X connect 0 0 16 0;
+#X connect 0 1 5 0;
+#X connect 0 1 17 0;
+#X connect 1 0 0 1;
+#X connect 2 0 0 0;
+#X connect 4 0 7 0;
+#X connect 5 0 4 1;
+#X connect 6 0 4 0;
+#X connect 8 0 12 1;
+#X connect 9 0 13 0;
+#X connect 12 0 11 0;
+#X connect 13 0 12 0;
+#X connect 13 1 10 0;

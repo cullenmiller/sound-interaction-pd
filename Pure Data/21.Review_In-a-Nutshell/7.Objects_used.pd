@@ -1,0 +1,401 @@
+#N canvas 793 92 994 674 12;
+#X obj 30 17 cnv 15 200 40 empty empty Objects: 20 12 0 24 -262144
+-66577 0;
+#N canvas 569 642 466 412 GEM 0;
+#X obj 67 56 gemwin;
+#X obj 70 94 gemhead;
+#X obj 78 138 pix_film;
+#X obj 72 282 pix_texture;
+#X obj 68 183 pix_image;
+#X obj 96 247 color;
+#X obj 52 216 pix_motionblur;
+#X obj 79 318 pix_video;
+#X obj 76 352 pix_record;
+#X text 100 18 (from GEM library \, of course);
+#X text 124 54 GEM window manager;
+#X text 134 92 sends render command;
+#X text 148 138 renders video on GEM window;
+#X text 149 182 renders image on GEM window;
+#X text 166 217 "blur" video FX;
+#X text 163 248 changes colors;
+#X text 167 282 apply texture mapping;
+#X text 167 319 gets video from cam;
+#X text 169 352 records video;
+#X restore 224 479 pd GEM;
+#N canvas 117 43 482 243 (subpatch) 0;
+#X obj 69 75 inlet;
+#X obj 113 75 inlet~;
+#X obj 61 156 outlet;
+#X obj 112 156 outlet~;
+#X text 173 73 inlets for subpatches and abstractions;
+#X text 179 157 outlets for subpatches and abstractions;
+#X text 29 96 control;
+#X text 123 99 audio;
+#X text 27 133 control;
+#X text 121 136 audio;
+#X restore 173 196 pd;
+#X obj 543 323 pddplink http://en.flossmanuals.net/PureData/ListofObjects
+;
+#X text 207 195 <-- click to open;
+#X text 122 228 Lets remember:;
+#N canvas 463 22 649 801 Miscelaneous 0;
+#X obj 52 16 metro;
+#X obj 35 42 bang;
+#X obj 48 67 bang~;
+#X obj 34 106 delay;
+#X obj 54 164 sig~;
+#X obj 36 190 snapshot~;
+#X obj 51 268 print;
+#X obj 45 292 print~;
+#X obj 63 353 swap;
+#X obj 76 42 b;
+#X obj 79 105 del;
+#X obj 26 324 trigger;
+#X obj 86 324 t;
+#X obj 60 382 route;
+#X obj 46 514 line;
+#X obj 90 514 line~;
+#X obj 29 602 cputime;
+#X obj 33 413 openpanel;
+#X obj 129 413 savepanel;
+#X obj 39 474 makefilename;
+#X obj 56 444 getdir;
+#X obj 47 544 textfile;
+#X text 109 412 /;
+#X obj 88 602 timer;
+#X obj 134 602 realtime;
+#X obj 267 644 repeat;
+#X obj 412 645 Uzi;
+#X obj 182 643 until;
+#X obj 58 135 pipe;
+#X obj 50 570 msgfile;
+#X obj 59 710 namecanvas;
+#X text 99 16 sends bangs as a metronome every X miliseconds;
+#X text 111 43 sends bang when it receives any message;
+#X text 103 66 sends a bang every DSP cycle;
+#X text 118 104 delays bangs in X miliseconds;
+#X text 101 135 delays data in X miliseconds;
+#X text 91 164 converts data in audio stream;
+#X text 106 188 at a bang \, converts a moment of audio stream to data
+;
+#X text 96 268 prints message on terminal;
+#X text 99 294 prints a block of audio at a bang;
+#X text 122 322 controls the order of messages;
+#X text 100 353 swaps data;
+#X text 107 381 a router;
+#X text 209 414 Menus: Open/Save Files;
+#X text 110 443 gives the patch's directpry (ggee library);
+#X text 137 473 symbol generator;
+#X text 138 511 ramp generator;
+#X text 115 544 reads text files and sends as message;
+#X text 112 570 extended versio of [textfile] (zexy library);
+#X text 202 602 computational time meters;
+#X text 50 639 iteration tools;
+#X text 367 670 (cyclone library);
+#X text 236 670 (zexy library);
+#X text 144 701 gives a name to a a canvas (patch \, subpatch or graph)
+so you can send it messages.;
+#X text 73 658 "Loops";
+#X obj 33 225 pack~;
+#X obj 76 225 unpack~;
+#X text 137 226 converts audio block to ists and vice-versa (zexy)
+;
+#X restore 181 261 pd Miscelaneous;
+#N canvas 362 403 666 424 Storage 0;
+#X obj 70 73 float;
+#X obj 81 107 symbol;
+#X obj 64 177 lister;
+#X obj 161 256 any;
+#X obj 118 73 f;
+#X obj 119 176 l;
+#X obj 150 73 0;
+#X obj 85 38 int;
+#X obj 64 255 iem_anything;
+#X obj 72 142 value;
+#X obj 119 142 v;
+#X obj 119 38 i;
+#X obj 98 214 list;
+#X text 151 37 stores integers;
+#X text 182 72 stores floats;
+#X text 140 106 stores symbols;
+#X text 156 176 stores lists (zexy library);
+#X text 150 205 abbreviation of [list append] \, which can function
+as a list storer.;
+#X text 192 256 stores any data \, even without a selector;
+#X text 331 278 (iemlib library);
+#X obj 67 315 fifop;
+#X obj 67 341 lifop;
+#X text 125 321 stores elements in piles: [fifop] - "first-in-first-out"
+/ [lifop] - "last in first out" (zexy library);
+#X text 152 136 stores a number as a variable name \, can be recalled
+by other objects with same argument.;
+#X restore 197 288 pd Storage;
+#N canvas 115 79 531 215 Essential-Audio 0;
+#X obj 95 91 osc~;
+#X obj 95 66 dac~;
+#X obj 93 38 adc~;
+#X obj 54 131 readsf~;
+#X obj 134 131 writesf~;
+#X text 115 132 /;
+#X text 136 38 Audio input (Analog to Digital converter);
+#X text 138 65 Audio output (Digital to Analog converter);
+#X text 140 91 Cosine wave oscilator;
+#X text 208 131 Reads / Writes audio files;
+#X restore 173 343 pd Essential-Audio;
+#N canvas 441 330 745 475 Send-Receive 0;
+#X obj 66 49 send;
+#X obj 101 49 s;
+#X obj 136 47 receive;
+#X obj 194 47 r;
+#X obj 81 162 throw~;
+#X obj 137 162 catch~;
+#X obj 59 105 send~;
+#X obj 101 105 s~;
+#X obj 136 104 receive;
+#X obj 194 103 r~;
+#X obj 110 320 value;
+#X obj 156 320 v;
+#X obj 98 379 namecanvas;
+#X text 231 46 send/receive data wirelessly;
+#X text 229 95 send/receive audio wirelessly (one [send~] can send
+to many [receive~] \, not the opposite).;
+#X text 203 155 send/receive audio wirelessly (many [throw~] can send
+to one [catch~] \, not the opposite).;
+#X text 192 316 stores a number as a variable name \, can be recalled
+by other objects with same argument.;
+#X text 183 370 gives a name to a canvas (patch \, subpatch or graph)
+so you can send it messages.;
+#X obj 108 226 tabsend~;
+#X obj 98 253 tabreceive~;
+#X text 196 220 [tabsend~] writes to tables/arrays and [tabreceive~]
+reads it. The difference is that they operate more like [send~] and
+[receive~] and data is sent as a block of any size defined by [block~].
+;
+#X restore 186 395 pd Send-Receive;
+#N canvas 19 75 593 445 Arrays 0;
+#X obj 39 199 tabread;
+#X obj 107 199 tabread~;
+#X obj 39 225 tabread4;
+#X obj 38 267 tabwrite;
+#X obj 107 266 tabwrite~;
+#X obj 71 326 tabplay~;
+#X obj 80 37 table;
+#X obj 107 225 tabread4~;
+#X obj 71 115 arraysize;
+#X obj 79 149 tabdump;
+#X obj 64 75 soundfiler;
+#X obj 70 379 tabosc4~;
+#X text 146 35 Creates an array.;
+#X text 146 68 Puts an audio file into an array and sends number of
+samples (or array size).;
+#X text 148 112 gives the array size (flatspace library).;
+#X text 148 148 Give the array's values as a list (zexy library).;
+#X text 183 204 Reads tables without interpolation or with 4-point
+interpolation (when finished by 4).;
+#X text 181 266 Writes data or audio to an array.;
+#X text 144 327 Plays an array as if it were a sound file.;
+#X text 144 379 A Wavetable oscilator with 4-point interpolation.;
+#X restore 205 421 pd Arrays;
+#N canvas 112 75 512 232 Network-OSC 0;
+#X obj 51 41 netsend;
+#X obj 130 42 netreceive;
+#X obj 46 136 sendOSC;
+#X obj 80 169 OSCroute;
+#X obj 125 136 dumpOSC 9000;
+#X text 112 42 /;
+#X text 106 137 /;
+#X text 226 41 Send / Receive data over the network;
+#X text 58 102 (OSC objects from oscx library);
+#X text 224 137 Send / Receive OSC data;
+#X text 152 169 router of OSC messages;
+#X restore 188 375 pd Network-OSC;
+#N canvas 47 158 643 595 Math 0;
+#X obj 97 -109 -;
+#X obj 130 -109 *;
+#X obj 162 -109 /;
+#X obj 63 -37 pow;
+#X obj 65 -109 +;
+#X obj 94 -7 mod;
+#X obj 125 -7 div;
+#X obj 96 -37 sqrt;
+#X obj 137 -38 log;
+#X obj 168 -38 exp;
+#X obj 160 -8 abs;
+#X obj 288 68 +~;
+#X obj 320 68 -~;
+#X obj 353 68 *~;
+#X obj 385 69 /~;
+#X obj 48 58 sin;
+#X obj 78 58 cos;
+#X obj 105 58 tan;
+#X obj 133 58 atan;
+#X obj 168 58 atan2;
+#X obj 37 85 acos;
+#X obj 111 85 asin;
+#X obj 183 85 tanh;
+#X obj 147 85 sinh;
+#X obj 75 85 cosh;
+#X obj 113 177 &;
+#X obj 142 177 |;
+#X obj 174 177 <<;
+#X obj 204 177 >>;
+#X obj 64 -7 %;
+#X obj 333 136 cos~;
+#X obj 318 167 atan2~;
+#X obj 333 199 sin~;
+#X obj 314 6 log~;
+#X obj 139 329 list-math;
+#X obj 339 329 list-accum;
+#X text 33 177 Bitwise ->;
+#X obj 217 329 list-map;
+#X obj 291 329 expr;
+#X obj 220 247 random;
+#X obj 323 -76 expr;
+#X obj 382 -75 expr~;
+#X obj 454 -75 fexpr~;
+#X text 82 -141 Basic:;
+#X text 74 -68 Not so Basic:;
+#X text 75 30 Trigonometry:;
+#X text 36 150 Logical operators:;
+#X text 237 -118 Math expressions (has about every math object and
+conditionals as built-in functions):;
+#X text 274 -29 AUDIO:;
+#X text 354 7 (cyclone library);
+#X text 300 44 Arithmetics:;
+#X text 292 108 Trigonometry:;
+#X text 372 168 (ggee library);
+#X text 374 200 (creb library);
+#X text 210 294 List-Math:;
+#X text 214 359 (list-abs library);
+#X text 273 247 random number generator;
+#X obj 96 396 minmax;
+#X text 150 396 minimum and maximum values from a list (zexy library)
+;
+#X connect 37 1 38 0;
+#X connect 38 0 37 1;
+#X restore 220 530 pd Math;
+#N canvas 668 668 531 444 Conditionals 0;
+#X obj 31 53 ==;
+#X obj 63 53 !=;
+#X obj 95 53 >;
+#X obj 127 53 <;
+#X obj 158 53 >=;
+#X obj 189 53 <=;
+#X obj 76 101 select;
+#X obj 134 101 sel;
+#X obj 92 145 change;
+#X obj 95 188 moses;
+#X obj 95 222 spigot;
+#X obj 77 20 &&;
+#X obj 135 20 ||;
+#X obj 59 290 max;
+#X obj 91 289 min;
+#X obj 84 257 clip;
+#X obj 128 257 clip~;
+#X obj 128 290 max~;
+#X obj 165 289 min~;
+#X text 173 20 AND / OR;
+#X text 112 20 /;
+#X text 221 55 Comparatives;
+#X text 172 100 Selects Atoms;
+#X text 147 144 avoid number redundancy;
+#X text 148 187 part a stream of numbers;
+#X text 152 222 pass or block messages;
+#X text 173 257 forces a number within a range;
+#X text 207 289 max / min funciotns;
+#X obj 409 174 fexpr~;
+#X text 62 349 Don't forget about "if" in [expr] / [expr~] / [fexpr~]:
+;
+#X text 205 406 if(condition \, then \, else);
+#X obj 207 379 expr if($f1 > 0 \, 1 \, 0);
+#X restore 194 510 pd Conditionals;
+#X text 108 558 (external objects libraris in parentheses);
+#X text 446 460 IMPORTANT:;
+#X text 457 40 Remember that a complete list of Pd native objects is
+available by right-clicking a blank spot on canvas then "help". A vast
+majority of this list was covered here.;
+#X text 456 105 In Pd-Extended there are some tutorials and examples.
+Check GEM's tutorial for more info on that \, for example. Some of
+the stuff shown here is just the very basics.;
+#X text 456 171 We didn't see many audio objects because this tutorial
+is focused on the syntax and data manipulation. You can now go for
+audio tutorials but you'll see that the issue now is computer music
+theory and not Pd's syntax.;
+#X text 457 244 On the internet there's a a good list of objects in
+the "FLOSS Manuals" website:;
+#X text 480 384 We haven't seen that much from external libraries.
+We've seen more from: zexy \, list-abs \, GEM & oscx \, and on or another
+from cyclone \, ggee \, iemlib \, flatspace & creb.;
+#X text 533 461 The one and only True manual/tutorial of Pd is every
+help file from all of its objects. Develop the habit to keep reading
+those everytime you're using them. Don't feel bad you don't remember
+it all by heart...;
+#N canvas 791 429 676 557 Lists 0;
+#X obj 24 31 pack;
+#X obj 77 31 unpack;
+#X obj 45 84 list;
+#X text 59 30 /;
+#X obj 40 496 list-drip;
+#X obj 113 135 list append;
+#X obj 107 184 list prepend;
+#X obj 108 248 list split;
+#X obj 108 219 list trim;
+#X obj 108 278 list length;
+#X obj 195 363 length;
+#X obj 185 325 prepend;
+#X obj 163 403 lister;
+#X obj 217 403 l;
+#X obj 59 449 minmax;
+#X text 130 31 packs / unpacks lists;
+#X text 87 77 list generator/manager ([list append] by default with
+no arguments \, whcih can also store lists).;
+#X text 207 128 creates a list out of separate lists or atoms. elements
+from hot inlet are first on the list.;
+#X text 206 178 creates a list out of separate lists or atoms. elements
+from hot inlet are last on the list.;
+#X text 202 218 trims the "list" selector;
+#X text 201 244 splits lists;
+#X text 202 278 gives the length of a list;
+#X text 87 361 Similar ones:;
+#X text 248 317 similar to [list prepend] it doesn't generate the "list"
+selector;
+#X text 248 363 same as [list length] (zexy library);
+#X text 258 403 stores lists;
+#X text 113 449 minimum and maximum values from a list (zexy library)
+;
+#X text 115 494 drips elements of a list (list-abs library);
+#X restore 204 315 pd Lists;
+#X text 4 72 We've seen or just mentioned the following objects in
+this tutorial:;
+#N canvas 132 92 595 313 MIDI/interaction 0;
+#X obj -267 207 key;
+#X obj -318 89 ctlin;
+#X obj -265 89 bendin;
+#X obj -374 121 noteout;
+#X obj -318 121 ctlout;
+#X obj -374 89 notein;
+#X obj -265 121 bendout;
+#X obj -290 171 MouseState;
+#X obj -307 47 mtof;
+#X obj -255 48 ftom;
+#X obj -209 89 pgmin;
+#X obj -209 121 pgmout;
+#X obj -159 89 midiin;
+#X obj -159 121 midiout;
+#X obj -39 89 polytouchin;
+#X obj -39 121 polytouchout;
+#X obj -102 89 touchin;
+#X obj -102 121 touchout;
+#X text -270 49 /;
+#X obj -296 266 date;
+#X obj -252 266 time;
+#X text -214 47 converts MIDI to Hertz & Vice-Versa;
+#X text 67 87 MIDI data input;
+#X text 69 119 MIDI data output;
+#X text -204 170 data from mouse or touchpad (cyclone library);
+#X text -208 206 keys from keyboard;
+#X text -201 266 date & time from OS do (zexy library);
+#X restore 178 452 pd MIDI/interaction;
+#X obj 47 126 pd~;
+#X text 92 161 object [pd] creates a subpatch:;
+#X text 90 125 [pd~] Loads another Pd Engine;

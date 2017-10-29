@@ -1,0 +1,21 @@
+#N canvas 1020 83 534 523 12;
+#X obj 27 20 cnv 15 400 40 empty empty Information_Hiding: 20 12 0
+24 -262144 -66577 0;
+#X obj 122 416 ex1;
+#N canvas 110 98 450 300 sub 0;
+#X text 116 119 hi \, I'm an empty subpatch!;
+#X restore 111 373 pd sub;
+#X text 45 72 In programming \, we have concepts such as "encapsulation"
+and "information hiding". A metaphor can applied into Pd with subpatches
+and abstractions. "Information hiding" is not only about hiding the
+code \, but we can literaly do that with subpatches and abstractions
+("hide" the code in subwindows or objects).;
+#X text 45 183 More proper concepts are to isolate the code in different
+parts \, and that you can change that part protecting other parts of
+the program from extensive modification. This makes things easier and
+more flexible.;
+#X text 48 282 In this section we'll see how subpatches and abstractions
+work \, and how the usage of dollarsing in objects relate to another
+programming concept of inheritance.;
+#X text 160 417 An object which is an abstraction.;
+#X text 172 373 A subpatch.;

@@ -1,0 +1,80 @@
+#N canvas 480 82 607 1037 12;
+#X obj 18 19 cnv 15 400 40 empty empty Conditionals: 20 12 0 24 -262144
+-66577 0;
+#X obj 104 821 osc~ 440;
+#X obj 104 858 expr~ if($v1 > 0 \, 1 \, -1) * $v2;
+#X obj 311 833 line~;
+#X msg 311 807 \$1 10;
+#X obj 314 784 hsl 128 15 0.0001 0.5 1 0 empty empty empty -2 -8 0
+10 -204800 -1 -1 0 1;
+#X msg 207 808 \; pd dsp 1;
+#X obj 96 900 dac~;
+#X obj 71 196 osc~ 220;
+#X obj 71 220 expr~ max(min($v1 \, 0.01) \, -0.01) * 100;
+#X obj 198 307 line~;
+#X msg 198 281 \$1 10;
+#X obj 201 258 hsl 128 15 0.0001 0.5 1 0 empty empty empty -2 -8 0
+10 -204800 -1 -1 0 1;
+#X obj 71 294 *~;
+#X obj 60 331 dac~;
+#X obj 118 525 osc~ 330;
+#X obj 118 559 clip~ -0.01 0.01;
+#X obj 118 590 *~ 100;
+#X obj 118 616 *~;
+#X obj 260 592 line~;
+#X msg 260 566 \$1 10;
+#X obj 263 545 hsl 128 15 0.0001 0.5 1 0 empty empty empty -2 -8 0
+10 -204800 -1 -1 0 1;
+#X obj 107 651 dac~;
+#X obj 361 273 *~ 100;
+#X obj 343 312 *~;
+#X obj 332 349 dac~;
+#X obj 361 222 max~ -0.01;
+#X obj 361 247 min~ 0.01;
+#X obj 361 195 osc~ 110;
+#X obj 207 781 loadbang;
+#X text 59 940 The signal from [osc~] varies from "-1" to "1". If it's
+bigger than zero \, it'll be equal to "1" \, and if smaller than 0
+\, then it'll be equal to "-1". This creates a square wave.;
+#X obj 203 133 max~;
+#X obj 253 133 min~;
+#X text 54 79 We also have [max~] & [min~] as audio objects \, and
+even in the [expr~] object as well:;
+#X text 39 692 ============================================================
+;
+#X text 55 486 What we did above can be done with the [clip~] object:
+;
+#X text 55 726 Well \, there's also the conditional "if" as a built-in
+of [expr~] \, and all the usual comparatives as before:;
+#X text 57 395 Here we limit the audio into -0.01 & 0.01 \, then we
+multiply to 100 so its range is back to normal (-1 to 1). This distorts
+the oscilators a lot \, making it almost a square wave.;
+#X connect 1 0 2 0;
+#X connect 2 0 7 0;
+#X connect 2 0 7 1;
+#X connect 3 0 2 1;
+#X connect 4 0 3 0;
+#X connect 5 0 4 0;
+#X connect 8 0 9 0;
+#X connect 9 0 13 0;
+#X connect 10 0 13 1;
+#X connect 10 0 24 0;
+#X connect 11 0 10 0;
+#X connect 12 0 11 0;
+#X connect 13 0 14 0;
+#X connect 13 0 14 1;
+#X connect 15 0 16 0;
+#X connect 16 0 17 0;
+#X connect 17 0 18 0;
+#X connect 18 0 22 0;
+#X connect 18 0 22 1;
+#X connect 19 0 18 1;
+#X connect 20 0 19 0;
+#X connect 21 0 20 0;
+#X connect 23 0 24 1;
+#X connect 24 0 25 1;
+#X connect 24 0 25 0;
+#X connect 26 0 27 0;
+#X connect 27 0 23 0;
+#X connect 28 0 26 0;
+#X connect 29 0 6 0;

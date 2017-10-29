@@ -1,0 +1,11 @@
+#N canvas 376 22 622 316 12;
+#X obj 59 31 cnv 15 400 40 empty empty Abstractions: 20 12 0 24 -262144
+-66577 0;
+#X obj 219 229 ../Readme;
+#X text 71 178 For examplo \, the [Readme] patch is on the parent folder:
+;
+#X text 69 83 Check that even abstractions can be found on your folder
+system by using this syntax. For startes \, EVERY abstraction can start
+with the "./" to explicitly indicate it is on the same folder. Likewise
+\, we can load an abstraction from a parent folder \, two folders up
+\, its subfolders and so on.;

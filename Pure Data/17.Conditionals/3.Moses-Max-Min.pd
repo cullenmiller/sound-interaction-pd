@@ -1,0 +1,149 @@
+#N canvas 477 22 1124 1101 12;
+#X floatatom 160 168 5 0 0 0 - - -;
+#X floatatom 213 168 5 0 0 0 - - -;
+#X obj 160 144 moses -4;
+#X floatatom 160 119 5 0 0 0 - - -;
+#X floatatom 121 582 5 0 0 0 - - -;
+#X floatatom 121 650 5 0 0 0 - - -;
+#X floatatom 251 650 5 0 0 0 - - -;
+#X obj 121 608 expr min($f1 \, $f2) \; max($f1 \, $f2);
+#X msg 223 579 -4;
+#X obj 223 555 loadbang;
+#X floatatom 257 579 5 0 0 0 - - -;
+#X obj 25 -41 cnv 15 400 40 empty empty [moses]: 20 12 0 24 -262144
+-66577 0;
+#X obj 925 269 moses 10;
+#X floatatom 723 176 5 0 20 0 - - -;
+#X obj 925 298 * 2;
+#X floatatom 961 395 5 0 0 0 - - -;
+#X obj 978 326 - 5;
+#X obj 925 325 sqrt;
+#X obj 978 297 pow 1.05;
+#X floatatom 511 393 5 0 0 0 - - -;
+#X obj 219 330 moses 5;
+#X obj 265 356 moses 10;
+#X floatatom 265 380 5 0 0 0 - - -;
+#X floatatom 219 304 5 0 0 0 - - -;
+#X text 21 470 ============================================================
+;
+#X obj 511 299 expr if ($f1 > 10 \, pow($f1 \, 1.05) - 5 \, sqrt($f1
+* 2));
+#X text 435 470 ============================================================
+;
+#X obj 574 633 expr if ($f1 > 10 \, 10 \, $f1);
+#X text 773 630 =;
+#X floatatom 791 602 5 0 0 0 - - -;
+#X floatatom 791 660 5 0 0 0 - - -;
+#X floatatom 574 603 5 0 0 0 - - -;
+#X floatatom 574 660 5 0 0 0 - - -;
+#X obj 791 632 expr min ($f1 \, 10);
+#X text 926 629 =;
+#X obj 944 630 min 10;
+#X floatatom 944 601 5 0 0 0 - - -;
+#X floatatom 944 658 5 0 0 0 - - -;
+#X text 26 20 Moses divided the water of the Red Sea. In Pd \, [moses]
+it's an object that divides number data: if smaller than "X" (argument
+or cold inlet) \, number comes out the left outlet \, and out the right
+outlet if bigger or equal to "X".;
+#X text 68 219 So it is related to the "if" conditional.;
+#X text 39 410 With two [moses] objects or more we can create "trees"
+and restrict more each "branch". Like above \, the middle branch is
+from 5 to 9;
+#X text 74 719 The difference is that both outlets send values out
+all of the time \, whereas in [moses] data erença é que sempre em ambos
+os outlets temos um valor sendo enviado. Enquanto que no [moses] apenas
+um outlet envia dados.;
+#X floatatom 560 829 5 0 0 0 - - -;
+#X obj 641 963 f;
+#X obj 599 963 f;
+#X obj 560 888 >= -4;
+#X obj 560 857 trigger f f;
+#X obj 560 918 sel 0 1;
+#X floatatom 641 990 5 0 0 0 - - -;
+#X floatatom 599 989 5 0 0 0 - - -;
+#X text 50 513 Out of curiosity \, here's a sort of [moses] made out
+of [expr]:;
+#X text 524 533 [max] & [min] are also conditionals \, here's how it
+can be done with "if":;
+#X text 505 91 Note that [moses] is also a way to substitute the conditional
+"if". Compare the two possibilities below and see how they are equivalent:
+;
+#X floatatom 626 828 5 0 0 0 - - -;
+#X text 79 119 Try it ->;
+#X floatatom 213 118 5 0 0 0 - - -;
+#X floatatom 904 943 5 0 0 0 - - -;
+#X floatatom 875 776 5 0 0 0 - - -;
+#X msg 875 898 10;
+#X obj 918 897 f;
+#X obj 875 805 trigger f f;
+#X obj 875 833 <= 10;
+#X obj 875 865 sel 0 1;
+#X text 679 730 Moreover \, here's how it can be done with [select]
+and comparatives:;
+#X text 194 899 And now here's a way to program a proper [moses]:;
+#X floatatom 687 989 5 0 0 0 - - -;
+#X floatatom 740 989 5 0 0 0 - - -;
+#X obj 687 894 moses -4;
+#X floatatom 687 829 5 0 0 0 - - -;
+#X floatatom 740 828 5 0 0 0 - - -;
+#X text 660 895 =;
+#X text 959 855 =;
+#X obj 986 856 min 10;
+#X floatatom 986 774 5 0 0 0 - - -;
+#X floatatom 986 944 5 0 0 0 - - -;
+#X text 853 470 ==================================;
+#X text 900 298 =;
+#X text 25 270 ============================================================
+;
+#X connect 2 0 0 0;
+#X connect 2 1 1 0;
+#X connect 3 0 2 0;
+#X connect 4 0 7 0;
+#X connect 7 0 5 0;
+#X connect 7 1 6 0;
+#X connect 8 0 7 1;
+#X connect 9 0 8 0;
+#X connect 10 0 7 1;
+#X connect 12 0 14 0;
+#X connect 12 1 18 0;
+#X connect 13 0 12 0;
+#X connect 13 0 25 0;
+#X connect 14 0 17 0;
+#X connect 16 0 15 0;
+#X connect 17 0 15 0;
+#X connect 18 0 16 0;
+#X connect 20 1 21 0;
+#X connect 21 0 22 0;
+#X connect 23 0 20 0;
+#X connect 25 0 19 0;
+#X connect 27 0 32 0;
+#X connect 29 0 33 0;
+#X connect 31 0 27 0;
+#X connect 33 0 30 0;
+#X connect 35 0 37 0;
+#X connect 36 0 35 0;
+#X connect 42 0 46 0;
+#X connect 43 0 48 0;
+#X connect 44 0 49 0;
+#X connect 45 0 47 0;
+#X connect 46 0 45 0;
+#X connect 46 1 43 1;
+#X connect 46 1 44 1;
+#X connect 47 0 44 0;
+#X connect 47 1 43 0;
+#X connect 53 0 45 1;
+#X connect 55 0 2 1;
+#X connect 57 0 60 0;
+#X connect 58 0 56 0;
+#X connect 59 0 56 0;
+#X connect 60 0 61 0;
+#X connect 60 1 59 1;
+#X connect 61 0 62 0;
+#X connect 62 0 58 0;
+#X connect 62 1 59 0;
+#X connect 67 0 65 0;
+#X connect 67 1 66 0;
+#X connect 68 0 67 0;
+#X connect 69 0 67 1;
+#X connect 72 0 74 0;
+#X connect 73 0 72 0;

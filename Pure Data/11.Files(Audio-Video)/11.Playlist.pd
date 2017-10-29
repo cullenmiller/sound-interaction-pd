@@ -1,0 +1,65 @@
+#N canvas 358 22 1006 960 12;
+#X obj -38 473 playlist all 400 200 {Courier 12 bold} grey yellow black
+red;
+#X symbolatom 158 765 25 0 0 0 - - -;
+#X obj -38 356 getdir;
+#X obj -38 333 bng 15 250 50 0 empty empty empty 17 7 0 10 -261682
+-1 -1;
+#X msg -38 384 location \$1;
+#X msg 14 809 set \$1;
+#X msg -18 842 /Users/porres/Desktop/PD - Material Didático/!!Tutorial de Puredata - Por Alexandre Porres - Outubro-Novembro/!English/11.Files(Audio-Video)/media/ConvBrothers.mov
+;
+#X msg 355 722 set \$1;
+#X msg 355 754 /Users/porres/Desktop/PD - Material Didático/!!Tutorial de Puredata - Por Alexandre Porres - Outubro-Novembro/!English/11.Files(Audio-Video)/media
+;
+#X obj -101 14 cnv 15 400 40 empty empty Playlist: 20 12 0 24 -262144
+-66577 0;
+#X msg 76 371 seek \$1;
+#X obj 76 350 nbx 3 14 0 1e+37 0 0 empty empty empty 0 -8 0 10 -203904
+-1 -1 1 256;
+#X obj 493 321 playlist mov 200 350 {Helvetica 10 bold} #454782 blue
+gray red;
+#X obj 24 684 loadbang;
+#X msg 24 709 set;
+#X text -82 68 The [playlist] object is a GUI that is kind of an [openpanel]
+\, but it shows all the files of your computer. We can specify a file
+type as an argument just to display them. It opens the root directory
+by default \, but the location command makes it change to a specific
+folder.;
+#X text -79 159 We can use [getdir] with location to make it go to
+this patch's folder. Then we can send it "location media" for it to
+go to the "media" subfolder.;
+#X msg 164 393 location ../files;
+#X msg 163 366 location media;
+#X text -79 215 It will understand the implicit "./" and jump to the
+media subfolder if it is there. Likewise \, from this patch's directory
+\, it can go to the parent folder and the to the "files" subfolder
+with the "location ../files" message.;
+#X text 381 69 If you click on an item from the file list \, the outlets
+from [playlist] gives us (from left to right): complete file path /
+file name / file folder.;
+#X text 70 810 complete path (same as [openpanel]);
+#X text 407 721 file folder;
+#X text 84 765 file name;
+#X text 380 137 Another important cmmand is "seek". Move the number
+box and see that it will go over the positions of files and even loop
+it. This automatically chooses the file and sends out the info.;
+#X text 381 223 Like every GUI \, we can change the size and colors
+on its properties. The blue (below) and yellow (to the left) areas
+are clickable and functions as scrolling sliders.;
+#X text -46 308 Clicking on ".." goes to parent folder.;
+#X connect 0 0 5 0;
+#X connect 0 1 1 0;
+#X connect 0 2 7 0;
+#X connect 2 0 4 0;
+#X connect 3 0 2 0;
+#X connect 4 0 0 0;
+#X connect 5 0 6 0;
+#X connect 7 0 8 0;
+#X connect 10 0 0 0;
+#X connect 11 0 10 0;
+#X connect 13 0 14 0;
+#X connect 14 0 6 0;
+#X connect 14 0 8 0;
+#X connect 17 0 0 0;
+#X connect 18 0 0 0;

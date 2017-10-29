@@ -1,0 +1,72 @@
+#N canvas 140 36 942 566 12;
+#X obj 130 140 inlet;
+#X obj 271 141 inlet;
+#X obj 136 352 outlet;
+#X obj 262 354 outlet;
+#X obj 130 166 s \$0-A;
+#X obj 271 168 s \$0-B;
+#X obj 136 300 r \$0-A;
+#X obj 262 301 r \$0-B;
+#X obj 724 142 f \$0;
+#X obj 724 114 loadbang;
+#X obj 724 168 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-204786 -1 -1 1012 256;
+#X msg 724 189 symbol \$1-A;
+#X obj 699 246 send;
+#X symbolatom 724 216 10 0 0 0 - - -;
+#X text 661 246 =;
+#X obj 599 246 s \$0-A;
+#X obj 663 223 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-204800 -1 -1 0 256;
+#X obj 599 222 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-204800 -1 -1 0 256;
+#X obj 136 327 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-204800 -1 -1 0 256;
+#X text 29 511 ============================================================
+;
+#X text 447 511 ============================================================
+;
+#X obj 262 329 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-261682 -1 -1 0 256;
+#X floatatom 561 427 5 0 0 0 - - -;
+#X obj 537 428 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 550 480 5 0 0 0 - - -;
+#X obj 550 452 value \$0-X;
+#X text 505 166 Patch's initialization number:;
+#X text 302 34 ====> THIS IS AN ABSTRACTION!!! <====;
+#X text 645 444 The [vaule] object is now operating;
+#X text 648 468 with local variables too.;
+#X text 42 204 Unlike before \, "\$0" doesn't inherit argument values
+\, it gets value from the patch's initialization number. So the [send]
+objects above are actually different for every instance.;
+#X text 45 403 Other instances of this abstraction have different initialization
+numbers. Therefore \, you can guarantee that the data will run locally!
+Note that the data won't go to [r \$0-A]/[r \$0-B] objects on parent
+either!;
+#X text 475 306 Above \, the [float] object loads the initialization
+number for this patch \, which is then combined with a symbol atom
+to form another symbol atom and inserted on the right inlet of a [send]
+object as an argument. So both of the [send] objects above match!;
+#X text 482 390 ============================================================
+;
+#X text 474 79 ============================================================
+;
+#X text 23 83 ============================================================
+;
+#X connect 0 0 4 0;
+#X connect 1 0 5 0;
+#X connect 6 0 18 0;
+#X connect 7 0 21 0;
+#X connect 8 0 10 0;
+#X connect 9 0 8 0;
+#X connect 10 0 11 0;
+#X connect 11 0 13 0;
+#X connect 13 0 12 1;
+#X connect 16 0 12 0;
+#X connect 17 0 15 0;
+#X connect 18 0 2 0;
+#X connect 21 0 3 0;
+#X connect 22 0 25 0;
+#X connect 23 0 25 0;
+#X connect 25 0 24 0;

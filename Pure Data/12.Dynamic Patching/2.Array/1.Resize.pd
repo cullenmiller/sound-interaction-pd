@@ -1,0 +1,46 @@
+#N canvas 302 24 501 796 12;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array array 512 float 3;
+#A 0 -0.171432 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0;
+#X coords 0 1 512 -1 200 140 1;
+#X restore 117 569 graph;
+#X obj 38 27 cnv 15 400 40 empty empty Resize: 20 12 0 24 -262144 -66577
+0;
+#X obj 221 373 arraysize array;
+#X floatatom 221 402 5 0 0 0 - - -;
+#X msg 45 261 resize 512;
+#X msg 133 261 resize 1024;
+#X floatatom 221 297 5 0 0 0 - - -;
+#X msg 344 357 resize \$1;
+#X obj 344 387 s array;
+#X obj 221 328 trigger bang float;
+#X obj 74 366 send array;
+#X obj 91 325 t b a;
+#X text 32 474 The "resize" command changes the size of an array. The
+object [arraysize] indicates the size has actually changed!;
+#X text 103 235 click;
+#X text 268 295 scroll;
+#X connect 2 0 3 0;
+#X connect 4 0 11 0;
+#X connect 5 0 11 0;
+#X connect 6 0 9 0;
+#X connect 7 0 8 0;
+#X connect 9 0 2 0;
+#X connect 9 1 7 0;
+#X connect 11 0 2 0;
+#X connect 11 1 10 0;

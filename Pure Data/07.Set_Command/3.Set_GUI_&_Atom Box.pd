@@ -1,0 +1,49 @@
+#N canvas 506 54 584 783 12;
+#X symbolatom -215 225 10 0 0 0 - - -;
+#X msg -215 197 set \$1;
+#X symbolatom -174 159 10 0 0 0 - - -;
+#X symbolatom -124 222 10 0 0 0 - - -;
+#X symbolatom -124 266 10 0 0 0 - - -;
+#X symbolatom -215 266 10 0 0 0 - - -;
+#X obj -200 461 float;
+#X obj -128 463 + 1;
+#X msg -185 391 set \$1;
+#X obj -225 391 bng 15 250 50 0 empty empty empty 17 7 0 10 -261682
+-1 -1;
+#X floatatom -200 423 5 0 0 0 - - -;
+#X obj -354 23 cnv 15 460 40 empty empty Set_GUI/Atom_Box: 20 15 0
+24 -262144 -66577 0;
+#X text -326 529 Sometimes you use the same number box for input and
+display \, and you don't want it to loop because of that!;
+#N canvas 0 22 862 803 (subpatch) 0;
+#X obj 121 24 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -261682
+-1 -1 3900 1;
+#X msg 17 52 set \$1;
+#X obj 17 25 nbx 5 14 0 127 0 0 empty empty empty 0 -8 0 10 -261682
+-1 -1 39 256;
+#X msg 118 52 set \$1;
+#X connect 0 0 3 0;
+#X connect 1 0 0 0;
+#X connect 2 0 1 0;
+#X connect 3 0 2 0;
+#X coords 0 1 100 -1 270 70 2 0 0;
+#X restore -272 643 graph;
+#X text -324 582 Open this graph and see how both GUIs are connected
+but still prevent loops!;
+#X text -332 83 GUIs & Atom Boxes can also receive a "set" command.
+Like messages \, they are not activated and don't send the datas ahead.
+;
+#X text -321 337 This can avoid undesired loops! Like in the yet another
+counter design below:;
+#X text -92 159 write a word.;
+#X connect 0 0 5 0;
+#X connect 1 0 0 0;
+#X connect 2 0 1 0;
+#X connect 2 0 3 0;
+#X connect 3 0 4 0;
+#X connect 6 0 7 0;
+#X connect 7 0 6 1;
+#X connect 7 0 8 0;
+#X connect 8 0 10 0;
+#X connect 9 0 10 0;
+#X connect 10 0 6 0;

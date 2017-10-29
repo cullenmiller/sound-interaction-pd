@@ -1,0 +1,30 @@
+#N canvas 180 156 617 309 12;
+#X obj 36 -121 inlet;
+#X obj 36 -92 t b b;
+#X obj 8 -27 outlet;
+#X obj 44 11 outlet;
+#X obj 72 -60 float \$2;
+#X obj -2 -60 symbol \$1;
+#X floatatom 46 78 5 0 0 0 - - -;
+#X symbolatom 8 54 10 0 0 0 - - -;
+#X text 3 32 Symbol:;
+#X text 1 79 float:;
+#X msg 8 9 4;
+#X text 203 -116 This is also an abstraction \, and basically \; identical
+to ex1.pd;
+#X text 193 -59 The difference is that this is graphed on parent!;
+#X text 178 -8 the size of the graph displayed on parent is delimited
+in red. X size and Y size of the graph is defined in this patch's canvas
+properties (right-clicking an empty canvas spot \, and going for properties).
+"Margin" changes the coordinates of the red area.;
+#X text 154 92 Objects \, messages and connection cords are not displayed
+\, but everything else does!;
+#X connect 0 0 1 0;
+#X connect 1 0 5 0;
+#X connect 1 1 4 0;
+#X connect 4 0 3 0;
+#X connect 4 0 6 0;
+#X connect 5 0 2 0;
+#X connect 5 0 7 0;
+#X connect 10 0 4 0;
+#X coords 0 -1 1 1 100 100 1 0 0;

@@ -1,0 +1,54 @@
+#N canvas 832 194 572 616 10;
+#X obj 63 439 dac~;
+#X obj 62 338 *~;
+#X obj 63 387 *~ 0.5;
+#X obj 112 285 vline~;
+#X obj 326 112 hsl 128 15 0 2000 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 3600 1;
+#X obj 326 52 hsl 128 15 0 500 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 12500 1;
+#X obj 326 72 hsl 128 15 10 500 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 3000 1;
+#X obj 326 92 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X msg 112 233 1 \$2 \, \$4 \$3 \$2;
+#X msg 132 255 0 \$2;
+#X text 170 256 release;
+#X text 213 233 attack \, decay \, sustain;
+#X obj 112 198 pack f f f f;
+#X obj 201 197 pack f f;
+#X text 466 111 0ms - 2000ms;
+#X text 237 50 attack;
+#X text 237 69 decay;
+#X text 237 89 sustain;
+#X text 237 110 release;
+#X text 466 92 0 - 1 (amplitude);
+#X text 466 72 10ms - 500ms;
+#X obj 62 175 mtof;
+#X obj 62 285 phasor~;
+#X obj 113 57 keyname;
+#X text 165 56 trigger;
+#X text 466 50 0ms - 500ms;
+#X text 166 88 velocity;
+#X obj 113 88 + 126;
+#X obj 62 12 key;
+#X floatatom 255 152 5 0 0 0 - - -;
+#X connect 1 0 2 0;
+#X connect 2 0 0 0;
+#X connect 2 0 0 1;
+#X connect 3 0 1 1;
+#X connect 4 0 13 1;
+#X connect 5 0 12 1;
+#X connect 6 0 12 2;
+#X connect 7 0 29 0;
+#X connect 8 0 3 0;
+#X connect 9 0 3 0;
+#X connect 12 0 8 0;
+#X connect 13 0 9 0;
+#X connect 21 0 22 0;
+#X connect 22 0 1 0;
+#X connect 23 0 27 0;
+#X connect 27 0 13 0;
+#X connect 27 0 12 0;
+#X connect 28 0 21 0;
+#X connect 29 0 12 3;

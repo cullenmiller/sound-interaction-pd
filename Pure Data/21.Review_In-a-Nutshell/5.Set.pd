@@ -1,0 +1,81 @@
+#N canvas 488 68 1053 1006 12;
+#X obj -1 17 cnv 15 400 40 empty empty Setting_Elements: 20 12 0 24
+-262144 -66577 0;
+#X msg 409 189 set 15;
+#X floatatom 409 227 5 0 0 0 - - -;
+#X obj 466 228 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -228856
+-1 -1 0 1;
+#X msg 110 203 add Vol 4;
+#X msg 131 414;
+#X msg 129 235 add2 4 2;
+#X msg 93 170 set vol;
+#X msg 145 264 addcomma;
+#X msg 153 297 addsemi;
+#X msg 194 328 adddollar 1;
+#X msg 183 363 adddollsym 3-po;
+#X msg 16 248 set;
+#X obj 16 212 loadbang;
+#X msg 155 641;
+#X msg 155 602 add2 \$1;
+#X floatatom 155 566 5 0 0 0 - - -;
+#X obj 671 595 nbx 5 14 -1e+37 1e+37 0 1 empty empty empty 0 -8 0 10
+-261682 -1 -1 9 256;
+#X msg 755 593 set \$1;
+#X floatatom 755 554 5 0 0 0 - - -;
+#X msg 755 641 9;
+#X obj 545 162 tgl 25 0 empty empty Off 30 13 0 14 -260097 -1 -1 0
+1;
+#X msg 545 99 label On;
+#X msg 614 100 label Off;
+#X text 157 169 Sets a message;
+#X text 191 203 Adds message and semicolon;
+#X text 199 235 Adds message;
+#X text 219 264 Adds comma;
+#X text 220 296 Adds semicolon;
+#X text 5 72 Messages \, Atom Boxes & GUIs understand the "set" and
+other commands \, which are features of dynamic patching and changes
+these elements:;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array array1 100 float 3;
+#A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0;
+#X coords 0 1 100 -1 200 140 1;
+#X restore 619 812 graph;
+#X obj 854 897 s array1;
+#X floatatom 854 823 5 0 100 0 - - -;
+#X msg 854 862 resize \$1;
+#X text 289 327 adds dollarsign plus a number;
+#X text 307 353 adds dollrsign plus a symbol (which needs to start
+by a number);
+#X text 450 28 GUIs properties can be modified dynamically. The commands
+for it are on its help file.;
+#X text 225 601 you can combine these commands with dollarsigns;
+#X text 541 465 Setting messages is a way of storing data when a patch
+is saved.;
+#X text 573 507 Another way is clicking the "init" box in GUIs;
+#X text 619 745 Arrays also get many command to alter its settings
+;
+#X text 811 775 Like "resize";
+#X connect 1 0 2 0;
+#X connect 1 0 3 0;
+#X connect 4 0 5 0;
+#X connect 6 0 5 0;
+#X connect 7 0 5 0;
+#X connect 8 0 5 0;
+#X connect 9 0 5 0;
+#X connect 10 0 5 0;
+#X connect 11 0 5 0;
+#X connect 12 0 5 0;
+#X connect 12 0 14 0;
+#X connect 13 0 12 0;
+#X connect 15 0 14 0;
+#X connect 16 0 15 0;
+#X connect 18 0 20 0;
+#X connect 19 0 18 0;
+#X connect 19 0 17 0;
+#X connect 22 0 21 0;
+#X connect 23 0 21 0;
+#X connect 32 0 33 0;
+#X connect 33 0 31 0;

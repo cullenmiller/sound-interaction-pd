@@ -1,0 +1,91 @@
+#N canvas 505 22 1015 798 12;
+#X obj 77 -55 cnv 15 400 40 empty empty Order: 20 19 0 24 -262144 -66577
+0;
+#X msg 86 144 \; banana 85;
+#X obj 153 220 receive banana;
+#X obj 269 219 receive banana;
+#X floatatom 269 256 5 0 0 0 - - -;
+#X floatatom 153 256 5 0 0 0 - - -;
+#X obj 203 150 hsl 128 15 0 127 0 0 banana empty empty -2 -8 0 10 -257985
+-1 -1 2600 1;
+#X floatatom 363 144 5 0 0 0 - - -;
+#X obj 363 170 send banana;
+#X floatatom 219 380 5 0 0 0 - - -;
+#X obj 219 407 send maçã;
+#X obj 210 443 receive maçã;
+#X obj 210 475 trigger float float;
+#X floatatom 340 504 5 0 0 0 - - -;
+#X floatatom 210 508 5 0 0 0 - - -;
+#X floatatom 647 53 5 0 0 0 - - -;
+#X obj 647 80 trigger float float;
+#X obj 777 106 send uva-1;
+#X obj 647 107 send uva-2;
+#X floatatom 718 209 5 0 0 0 - - -;
+#X floatatom 823 208 5 0 0 0 - - -;
+#X obj 718 181 receive uva-2;
+#X obj 823 180 receive uva-1;
+#X floatatom 793 376 5 0 0 0 - - -;
+#X floatatom 732 377 5 0 0 0 - - -;
+#X floatatom 619 533 5 0 0 0 - - -;
+#X obj 619 507 route banana;
+#X floatatom 764 536 5 0 0 0 - - -;
+#X text 554 428 --------------------------------------------------------
+;
+#X text 530 242 ============================================================
+;
+#X text 552 561 ============================================================
+;
+#X text 67 4 You can't control the order of messages when you have
+a [send] object (or message boxes with semicolons and GUIs for that
+matter) conected to many [receives].;
+#X text 72 80 We don't know bellow wich [receive banana] got the data
+first:;
+#X text 72 322 If you need to control the sending order \, you need
+to use [trigger]. You can do this if you have it on the same patch
+window.;
+#X text 58 565 ============================================================
+;
+#X text 570 5 But you'll need to do something like this to send to
+different patch windows with sending order control:;
+#X text 519 146 Lets say then that both of these receives are located
+in different patch windows.;
+#X obj 560 377 send fruits;
+#X msg 560 346 banana 3 \, apple 4;
+#X obj 732 322 receive fruits;
+#X obj 732 349 route banana apple;
+#X text 734 400 1st;
+#X text 796 400 2nd;
+#X obj 619 480 receive fruits;
+#X obj 764 481 receive fruits;
+#X obj 764 509 route apple;
+#X text 660 534 1st;
+#X text 805 536 2nd;
+#X text 643 451 For different windows;
+#X msg 474 668 \; banana 3 \; apple 4;
+#X text 539 273 Another technique involves [route] and more than a
+message in a message box. For the same patch window you can do this:
+;
+#X text 367 616 Just reinforcing that in messages \, the sending order
+is always from left to right \, or up to down in the case of semicolons.
+;
+#X text 554 683 First banana \, then apple.;
+#X connect 2 0 5 0;
+#X connect 3 0 4 0;
+#X connect 7 0 8 0;
+#X connect 9 0 10 0;
+#X connect 11 0 12 0;
+#X connect 12 0 14 0;
+#X connect 12 1 13 0;
+#X connect 15 0 16 0;
+#X connect 16 0 18 0;
+#X connect 16 1 17 0;
+#X connect 21 0 19 0;
+#X connect 22 0 20 0;
+#X connect 26 0 25 0;
+#X connect 38 0 37 0;
+#X connect 39 0 40 0;
+#X connect 40 0 24 0;
+#X connect 40 1 23 0;
+#X connect 43 0 26 0;
+#X connect 44 0 45 0;
+#X connect 45 0 27 0;

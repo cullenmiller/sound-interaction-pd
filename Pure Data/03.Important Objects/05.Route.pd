@@ -1,0 +1,139 @@
+#N canvas 173 138 1559 632 12;
+#X obj 35 17 cnv 15 400 40 empty empty [route] 20 12 0 24 -262144 -66577
+0;
+#X floatatom 106 311 5 0 0 0 - - -;
+#X obj 72 316 bng 15 250 50 0 empty empty empty 0 -6 0 10 -204786 -1
+-1;
+#X obj 148 315 bng 15 250 50 0 empty empty empty 0 -6 0 10 -261234
+-1 -1;
+#X obj 272 314 bng 15 250 50 0 empty empty empty 0 -6 0 10 -204800
+-1 -1;
+#X obj 754 228 bng 15 250 50 0 empty empty empty 0 -6 0 10 -204786
+-1 -1;
+#X obj 829 228 bng 15 250 50 0 empty empty empty 0 -6 0 10 -261234
+-1 -1;
+#X obj 779 227 print;
+#X obj 930 229 bng 15 250 50 0 empty empty empty 0 -6 0 10 -204786
+-1 -1;
+#X obj 1009 229 bng 15 250 50 0 empty empty empty 0 -6 0 10 -261234
+-1 -1;
+#X obj 958 226 print;
+#X msg 850 400 23 14;
+#X msg 903 400 12 15;
+#X floatatom 834 488 5 0 0 0 - - -;
+#X floatatom 881 465 5 0 0 0 - - -;
+#X msg 953 401 29 40;
+#X floatatom 936 465 5 0 0 0 - - -;
+#X obj 930 489 print No_Match;
+#X msg 801 373 12;
+#X obj 855 468 bng 15 250 50 0 empty empty empty 0 -6 0 10 -262144
+-1 -1;
+#X obj 844 439 route 12 23;
+#X obj 783 481 print;
+#X obj 258 416 route 1;
+#X msg 270 384 1 0.4;
+#X floatatom 273 455 5 0 0 0 - - -;
+#X msg 234 384 1;
+#X obj 370 417 route 1;
+#X msg 370 390 1 0.4;
+#X floatatom 370 447 5 0 0 0 - - -;
+#X obj 352 479 *~;
+#X obj 315 444 print;
+#X obj 228 447 *~;
+#X text 175 165 The [route] object's outlets are defined by the number
+of arguments \, it matches an argument to a selector and sends the
+message through this corresponding outlet.;
+#X msg 64 198 second 3 0 9;
+#X msg 120 250 third 7 2 6;
+#X obj 106 280 route first second;
+#X obj 87 334 print first;
+#X obj 167 313 print second;
+#X obj 291 311 print not_routed:;
+#X text 220 238 The incoming message that doesn't find a match is bypassed
+through the last outlet.;
+#X text 23 77 Similar to [select] \, [route] is what is says: a router.
+It receives a message with at least two elements. The first (or selector)
+is the address where to route the other elements (a number or list
+of numbers).;
+#X text 229 481 doesn't work;
+#X text 385 481 works;
+#X text 156 534 Even if [route] only sends out just one number \, it's
+actually sending out a "list" message \, and not a "float". Objects
+that explicitly expects "float" messages \, like [*~] \, may not like
+and generate an error.;
+#X msg 732 138 first;
+#X msg 774 165 second;
+#X text 692 58 For messages with only one element \, [route] sends
+a list with 0 elements ahead \, which is then converted to a bang.
+That way \, it works sort of like the [select] object.;
+#X msg 908 139 symbol first;
+#X obj 754 196 route first second;
+#X msg 950 166 symbol second;
+#X obj 930 197 select first second;
+#X msg 29 174 first 8675;
+#X text 715 268 In this specific case \, it dosn't matter if you have
+the "symbol" selector or not.;
+#X text 834 370 sends a bang \, like [select];
+#X text 723 524 As the [select] object \, the arguments can be symbols
+or floats at once \, never both of them together.;
+#X obj 1294 304 cnv 15 100 60 empty empty empty 20 12 0 14 -204786
+-66577 0;
+#X obj 1360 324 + 1;
+#X obj 1304 267 bng 18 250 50 0 empty empty empty 17 7 0 10 -204786
+-1 -1;
+#X obj 1350 415 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 1413 414 print;
+#X text 1370 413 done!;
+#X msg 1336 266 0;
+#X obj 1304 324 float;
+#X obj 1360 375 route 12;
+#X text 1373 264 reset;
+#X text 1214 208 Another way to stop a loop with [route];
+#X connect 11 0 20 0;
+#X connect 12 0 20 0;
+#X connect 15 0 20 0;
+#X connect 18 0 20 0;
+#X connect 20 0 13 0;
+#X connect 20 0 19 0;
+#X connect 20 0 21 0;
+#X connect 20 1 14 0;
+#X connect 20 2 16 0;
+#X connect 20 2 17 0;
+#X connect 22 0 24 0;
+#X connect 22 0 30 0;
+#X connect 22 0 31 1;
+#X connect 23 0 22 0;
+#X connect 25 0 22 0;
+#X connect 26 0 28 0;
+#X connect 27 0 26 0;
+#X connect 28 0 29 1;
+#X connect 33 0 35 0;
+#X connect 34 0 35 0;
+#X connect 35 0 1 0;
+#X connect 35 0 2 0;
+#X connect 35 0 36 0;
+#X connect 35 1 3 0;
+#X connect 35 1 37 0;
+#X connect 35 2 4 0;
+#X connect 35 2 38 0;
+#X connect 44 0 48 0;
+#X connect 45 0 48 0;
+#X connect 47 0 50 0;
+#X connect 48 0 5 0;
+#X connect 48 0 7 0;
+#X connect 48 1 6 0;
+#X connect 48 1 7 0;
+#X connect 49 0 50 0;
+#X connect 50 0 8 0;
+#X connect 50 0 10 0;
+#X connect 50 1 9 0;
+#X connect 50 1 10 0;
+#X connect 51 0 35 0;
+#X connect 56 0 63 0;
+#X connect 57 0 62 0;
+#X connect 61 0 62 1;
+#X connect 62 0 56 0;
+#X connect 63 0 58 0;
+#X connect 63 1 59 0;
+#X connect 63 1 62 0;

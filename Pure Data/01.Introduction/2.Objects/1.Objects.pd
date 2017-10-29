@@ -1,0 +1,56 @@
+#N canvas 553 105 880 549 12;
+#X obj -6 430 float;
+#X obj 62 430 symbol;
+#X obj -54 -3 cnv 15 400 40 empty empty Objects(Control/Audio): 20
+19 0 24 -262144 -66577 0;
+#X obj 447 319 dac~;
+#X text 487 195 hz;
+#X obj 454 260 osc~ 440;
+#X text -78 489 ============================================================
+;
+#X text -76 187 ============================================================
+;
+#X text 373 486 ============================================================
+;
+#X obj 390 259 adc~;
+#X obj 207 430 value;
+#X text -61 63 Objects are fundamental elements: they usually receive
+messages in their inlets \, do something about it and then send another
+message through the outlets. They are like functions or specific programs.
+;
+#X text -26 151 There are two types of objects:;
+#X obj -72 214 cnv 15 200 40 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X text -53 223 A) Control Objects:;
+#X obj 376 -8 cnv 15 200 40 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X text 387 -3 B) Objetos de Áudio:;
+#X text -48 264 They \;;
+#X text -6 291 - Act only when requested.;
+#X text -9 318 - Receive and send Data Messages.;
+#X text -10 344 - Do not receive or send Audio Signal.;
+#X text -24 464 (More specifically Data Storage Objects);
+#X text -57 386 Examples of Control Objects:;
+#X text 377 42 They end with a tilde (which looks like a wave) and
+act continuosly when we turn on the Audio or "DSP" (Digital Signal
+Processing).;
+#X text 377 108 We turn on the Audio by clicking the DSP box or "compute
+audio" box at Pd's termmilnal window. A shortuct depends on your computer
+layout. On the american is Control + "/" to turn on & control + "."
+to turn it off.;
+#X text 528 260 Cosine Oscilador.;
+#X text 477 297 - Audio Signal (Thicker Cord);
+#X text 471 224 - Data Message (Thinner cord);
+#X text 384 357 The [dac~] object is the "Digital to Analog Converter"
+\, or the computer's audio out. We also have [adc~] (Analog to Digital
+Converter) \, which is the computer's audio input.;
+#X text 385 423 Dependeing on the case \, Audio objects can receive
+either Data Messages or Audio Signals \, and send them both as well
+(check the help files for that).;
+#X obj 137 430 listener;
+#X msg 454 196 80;
+#X connect 5 0 3 1;
+#X connect 5 0 3 0;
+#X connect 9 0 3 0;
+#X connect 9 1 3 1;
+#X connect 31 0 5 0;

@@ -1,0 +1,94 @@
+#N canvas 459 41 952 532 12;
+#X obj 33 9 cnv 15 400 40 empty empty Arrays: 20 12 0 24 -262144 -66577
+0;
+#X obj 61 227 list-math sqrt;
+#X obj 61 148 bng 15 250 50 0 empty empty empty 17 7 0 10 -261682 -1
+-1;
+#X text 200 321 0;
+#X text 199 183 1;
+#X obj 219 192 cnv 15 198 138 empty empty empty 20 12 0 14 -261682
+-66577 0;
+#X obj 608 69 bng 15 250 50 0 empty empty empty 17 7 0 10 -261682 -1
+-1;
+#X obj 608 113 list-math pow 2;
+#X obj 574 328 bng 15 250 50 0 empty empty empty 17 7 0 10 -261682
+-1 -1;
+#X obj 574 378 list-accum;
+#X obj 574 405 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-261682 -1 -1 3.55368 256;
+#X obj 61 279 prepend 0;
+#X obj 608 138 prepend 0;
+#X text 39 67 Arrays are also "lists". The [tabdump] object spits an
+array as a list. We can use then [list-math] with it to perfom math
+operations.;
+#X text 71 402 Above \, we get the square root of the list's values
+with [list-math]. We then use [prepend 0] to send these values back
+to the array from index 0!;
+#X text 502 30 Here we do the opposite operation with [pow 2]:;
+#X text 494 270 Another example is to use [list-accum] to sum all the
+values from an array:;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array array1_1158 100 float 1;
+#A 0 0.0184207 0.0293906 0.0429115 0.0459219 0.0459219 0.0429115 0.0400032
+0.034493 0.0293906 0.0225027 0.0165331 0.0114816 0.00734857 0.00510343
+0.00183759 0.00127623 0.000816908 0.00154415 0.00250099 0.00326643
+0.00413391 0.00510343 0.00617497 0.00734857 0.00862421 0.010977 0.0136133
+0.0165328 0.019736 0.0232227 0.0269925 0.0318908 0.0371973 0.0429115
+0.0490343 0.0589834 0.062504 0.0661266 0.0698508 0.0736775 0.0776063
+0.0776063 0.0776063 0.0776063 0.0776063 0.0776063 0.0776063 0.0589834
+0.0429115 0.034493 0.0254508 0.0177801 0.0114816 0.00250099 0.00127623
+0.000459622 0.000204376 0.000204376 0.000459622 0.000816908 0.00127623
+0.00154415 0.00183759 0.00215653 0.00250099 0.00354425 0.00476891 0.00617497
+0.00765791 0.00930027 0.011102 0.0130633 0.0147472 0.0165331 0.0184207
+0.0204107 0.0293906 0.0358322 0.0429115 0.0506286 0.0589834 0.0736775
+0.0943411 0.103321 0.117556 0.112709 0.107964 0.103321 0.0900042 0.0816371
+0.0736775 0.0683488 0.0632201 0.0582913 0.0535631 0.0490343 0.0459219
+0.0429115 0.0400032 0.0429115;
+#X coords 0 1 99 0 200 140 1;
+#X restore 218 191 graph;
+#X obj 747 360 expr sum("array1_\$0");
+#X obj 747 328 bng 15 250 50 0 empty empty empty 17 7 0 10 -261682
+-1 -1;
+#X obj 747 406 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-261682 -1 -1 3.55368 256;
+#X text 717 361 =;
+#X obj 61 178 tabdump array1_\$0;
+#X obj 61 329 send array1_\$0;
+#X obj 608 89 tabdump array1_\$0;
+#X obj 608 163 send array1_\$0;
+#X obj 574 348 tabdump array1_\$0;
+#N canvas 1146 611 670 274 init-name 0;
+#X msg 37 148 rename \$1;
+#X obj 37 197 send;
+#X obj 37 26 loadbang;
+#X obj 37 60 trigger bang bang;
+#X text 172 94 [symbol] sends the new array name we want for this time
+the patch was loaded.;
+#X msg 51 115 set symbol \$1;
+#X obj 37 88 symbol array1_\$0;
+#X obj 145 34 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X msg 153 146 symbol array1_1158;
+#X connect 0 0 1 0;
+#X connect 2 0 3 0;
+#X connect 3 0 6 0;
+#X connect 3 1 8 0;
+#X connect 5 0 8 0;
+#X connect 6 0 0 0;
+#X connect 6 0 5 0;
+#X connect 7 0 3 0;
+#X connect 8 0 1 1;
+#X restore 330 171 pd init-name;
+#X connect 1 0 11 0;
+#X connect 2 0 22 0;
+#X connect 6 0 24 0;
+#X connect 7 0 12 0;
+#X connect 8 0 26 0;
+#X connect 9 0 10 0;
+#X connect 11 0 23 0;
+#X connect 12 0 25 0;
+#X connect 18 0 20 0;
+#X connect 19 0 18 0;
+#X connect 22 0 1 0;
+#X connect 24 0 7 0;
+#X connect 26 0 9 0;

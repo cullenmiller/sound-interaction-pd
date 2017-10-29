@@ -1,0 +1,28 @@
+#N canvas 672 28 743 634 12;
+#N canvas 0 22 454 304 (subpatch) 0;
+#X coords 0 -1 1 1 200 140 1;
+#X restore 409 348 graph;
+#X obj 176 239 table;
+#X obj 144 28 cnv 15 400 40 empty empty Similarities: 20 12 0 24 -262144
+-66577 0;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array array1 100 float 3;
+#A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0;
+#X coords 0 1 99 -1 200 140 1;
+#X restore 103 351 graph;
+#X text 427 207 [pd] object = a subpatch;
+#N canvas 0 22 454 304 (subpatch) 0;
+#X restore 499 238 pd;
+#X text 74 207 [table] object = subpatch + Array;
+#X text 104 298 Array = Graph + array;
+#X text 360 297 Graph = a subpatch that "Graphs on Parent";
+#X text 176 543 The thing is that if you cick "Help" for any of these
+4 guys \, they all lead to the help file of the [table] object \, being
+it the only more proper object anyway.;
+#X text 141 84 So we have some similar elements here. The obhect name
+[pd] creates a subpatch \, but a graph is also a subpatch. An array
+also consist of a graph \, and the [table] object is a subpatch with
+an array in it. Anyway \, they are all canvases or subpatches.;

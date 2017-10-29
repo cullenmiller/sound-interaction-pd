@@ -1,0 +1,92 @@
+#N canvas 933 385 931 766 12;
+#X obj 99 320 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X msg 151 315 bang;
+#X obj 22 15 cnv 15 400 40 empty empty Bang: 20 12 0 24 -262144 -66577
+0;
+#X obj 767 189 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X obj 99 343 tgl 15 0 empty empty empty 0 -6 0 10 -262144 -1 -1 0
+1;
+#X obj 151 342 tgl 15 0 empty empty empty 0 -6 0 10 -262144 -1 -1 0
+1;
+#X text 93 295 GUI;
+#X text 145 293 Mensagem;
+#X obj 327 322 bang;
+#X text 319 297 Objeto;
+#X obj 327 348 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 775 212 print GUI;
+#X msg 606 182 bang;
+#X obj 614 213 print Message;
+#X obj 507 212 print object;
+#X obj 497 187 bang;
+#X obj 497 237 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 767 236 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 606 236 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X floatatom 497 159 5 0 0 0 - - -;
+#X floatatom 767 160 5 0 0 0 - - -;
+#X floatatom 606 157 5 0 0 0 - - -;
+#X text 561 184 =;
+#X text 128 316 =;
+#X obj 267 520 print object;
+#X obj 246 525 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 257 494 bang~;
+#X obj 614 611 loadbang;
+#X obj 614 660 metro 500;
+#X obj 614 694 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 26 419 ===========================================================
+;
+#X text 465 418 ============================================================
+;
+#X obj 463 45 bang;
+#X text 499 44 =;
+#X obj 516 46 b;
+#X text 27 68 In Pd \, the most important command is the "bang" message
+\, which triggers a particular action \, depending on the object that
+receives it.;
+#X text 30 132 A "bang" message can be simply in a message box \, or
+as a GUI \, and we also have a [bang] object.;
+#X text 27 226 We can't click on objects. So the [bang] object is kinda
+different.;
+#X text 31 382 The toggle GUI changes its state when it receives a
+bang.;
+#X text 549 45 The [bang] object can be abreviated as [b].;
+#X text 460 86 On the other hand \, any data that goes into the inlet
+of a bang (GUI \, message or object) makes the bang spit out a bang
+message.;
+#X text 28 175 When we click on a message \, we send it. Therefore
+\, the bang message behaves exactly the same as the GUI bang.;
+#X text 474 281 Above \, the bang message and the bang object behave
+exactly the same when some data goes into them. The difference with
+the GUI bang is that it explicitly shows us that it has been activated.
+;
+#X text 471 360 *A note on GUIs \, they cost more CPU processing!;
+#X text 337 468 There is also the [bang~] object \, that sends a;
+#X text 375 519 Turn on the DSP just to check this...;
+#X text 158 609 Finally \, there is also the [loadbang] object \, which
+sends a bang once when the patch is loaded. This is very convenient.
+To the right \, we see a [loadbang] object connected to a [metro].
+Therefore \, when we load this patch \, the [metro] object is on.;
+#X text 337 487 bang each block cycle (every 64 samples);
+#X connect 0 0 4 0;
+#X connect 1 0 5 0;
+#X connect 3 0 11 0;
+#X connect 3 0 17 0;
+#X connect 8 0 10 0;
+#X connect 12 0 13 0;
+#X connect 12 0 18 0;
+#X connect 15 0 14 0;
+#X connect 15 0 16 0;
+#X connect 19 0 15 0;
+#X connect 20 0 3 0;
+#X connect 21 0 12 0;
+#X connect 26 0 24 0;
+#X connect 26 0 25 0;
+#X connect 27 0 28 0;
+#X connect 28 0 29 0;

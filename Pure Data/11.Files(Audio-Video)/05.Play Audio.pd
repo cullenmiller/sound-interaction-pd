@@ -1,0 +1,105 @@
+#N canvas 667 221 957 863 12;
+#X obj -152 14 cnv 15 400 40 empty empty Play_Audio: 20 12 0 24 -262144
+-66577 0;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array \$0-array1 208152 float 2;
+#X coords 0 1 208152 -1 240 120 1;
+#X restore -47 275 graph;
+#X obj 292 172 openpanel;
+#X obj 292 302 soundfiler;
+#X obj 292 153 bng 15 250 50 0 empty empty empty 17 7 0 10 -204800
+-1 -1;
+#X msg 292 257 read -resize \$1 \$2;
+#X obj 11 212 soundfiler;
+#X obj 11 165 symbol \$0-array1;
+#X obj -94 641 tabplay~ \$0-array1;
+#X obj -94 536 bng 15 250 50 0 empty empty empty 17 7 0 10 -4032 -1
+-1;
+#X obj -106 683 dac~;
+#X msg -64 176 \; pd dsp 1;
+#X obj -29 136 loadbang;
+#X obj 523 689 readsf~;
+#X obj 513 736 dac~;
+#X obj 535 628 symbol;
+#X obj 552 603 openpanel;
+#X obj 552 582 bng 15 250 50 0 empty empty empty 17 7 0 10 -204800
+-1 -1;
+#X obj 523 514 bng 15 250 50 0 empty empty empty 17 7 0 10 -4032 -1
+-1;
+#X obj 484 599 bng 15 250 50 0 empty empty empty 17 7 0 10 -4032 -1
+-1;
+#X text 314 151 open;
+#X obj 196 758 dac~;
+#X obj 208 720 tabplay~;
+#X msg 207 675 set \$1;
+#X obj 175 586 bng 15 250 50 0 empty empty empty 17 7 0 10 -4032 -1
+-1;
+#X obj 175 612 t b b;
+#X text -135 420 =======================================================
+;
+#X text 248 420 =================================================;
+#X text 424 420 =================================================;
+#X msg 11 188 read -resize ./media/bag.wav \$1;
+#X msg -51 614 stop;
+#X obj 29 671 bng 15 250 50 0 empty empty empty 17 7 0 10 -4032 -1
+-1;
+#X msg -74 561 8000 5000;
+#X obj 207 639 symbol \$0-array1;
+#X text -89 62 [tabplay~] plays file from a table \, while [readsf~]
+creads them directly from an audio file. Check their help files.;
+#X text -43 114 loading a file into a table;
+#X text 252 114 Use [openpanel] to load another:;
+#X text 3 560 play from sample;
+#X text -69 583 8000 for 5000 samples;
+#X text -9 612 stops it;
+#X text -25 692 bangs when finished;
+#X text 263 669 "set" changes or \; defines the array;
+#X text 482 442 plays from file;
+#X text 571 578 open and plays file;
+#X text 405 597 plays last;
+#X text 401 615 openned file;
+#X text -19 495 At every "bang" \, [tabplay~] will \; play the Array
+as an audio file.;
+#X text -88 460 [tabplay~];
+#X text 405 443 [readsf~];
+#X obj 292 229 list append \$0array1;
+#X msg 535 653 open \$1 \, start;
+#X msg 523 534 open ./media/bag.wav \, start;
+#X text 402 764 it always needs an "open" command always before start.
+;
+#X msg 454 660 start;
+#X text 440 664 *;
+#X text 399 748 *;
+#X text 377 785 Even if you've just oppened a file. Check error on
+terminal;
+#X connect 2 0 49 0;
+#X connect 4 0 2 0;
+#X connect 5 0 3 0;
+#X connect 7 0 29 0;
+#X connect 8 0 10 0;
+#X connect 8 0 10 1;
+#X connect 8 1 31 0;
+#X connect 9 0 8 0;
+#X connect 12 0 7 0;
+#X connect 12 0 11 0;
+#X connect 13 0 14 0;
+#X connect 13 0 14 1;
+#X connect 15 0 50 0;
+#X connect 16 0 15 0;
+#X connect 17 0 16 0;
+#X connect 18 0 51 0;
+#X connect 19 0 15 0;
+#X connect 22 0 21 0;
+#X connect 22 0 21 1;
+#X connect 23 0 22 0;
+#X connect 24 0 25 0;
+#X connect 25 0 22 0;
+#X connect 25 1 33 0;
+#X connect 29 0 6 0;
+#X connect 30 0 8 0;
+#X connect 32 0 8 0;
+#X connect 33 0 23 0;
+#X connect 49 0 5 0;
+#X connect 50 0 13 0;
+#X connect 51 0 13 0;
+#X connect 53 0 13 0;
