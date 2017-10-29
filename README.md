@@ -1,13 +1,13 @@
-// Gray Area Creative Code Immersive
-// Sound & Interaction with Pure Data
-// Instructor: Cullen Miller | cullen@pointlinesurface.com
-// Dates: March 3th, 5th, 7th 2015
-// Times: 18:00 - 21:00 (3/3, 3/5) & 12:00 - 16:00 (3/7)
-// Pre-requisites: Laptop (OSX, Windows, Linux), Pure Data Extended
+# Sound & Interaction with Pure Data
+##### Gray Area Creative Code Immersive
 
-:: Rubric ::
+*Dates* March 3th, 5th, 7th 2015
+*Times* 18:00 - 21:00 (3/3, 3/5) & 12:00 - 16:00 (3/7)
+*Pre-requisites* Laptop (OSX, Windows, Linux), Pure Data Extended
 
-Day 1 (introduction, data flow, synthesis){
+## Rubric
+
+##### Day 1 (*introduction, data flow, synthesis*)
 
 	---
 	Introduction
@@ -51,9 +51,9 @@ Day 1 (introduction, data flow, synthesis){
 	Project: Build A Simple Drum Machine
 	---
 
-}
 
-Day 2 (sampling, processing){
+
+##### Day 2 (*sampling, processing*)
 
 	---
 	Sampling
@@ -80,9 +80,8 @@ Day 2 (sampling, processing){
 	Project: Build A Psychedelic FX Chain
 	---
 
-}
 
-Day 3 (interactivity, external control, embedded systems, network, best practices, etc){
+##### Day 3 (*interactivity, external control, embedded systems, network, best practices, etc*)
 
 	// Controllers / HIDs / Sensors
 	// Libraries, Externals
@@ -97,9 +96,8 @@ Day 3 (interactivity, external control, embedded systems, network, best practice
 	Project: Create A Musical Interface to Control A Patch
 	---
 
-}
 
-:: Resources ::	
+## Resources
 
 	---
 	Pure Data:
